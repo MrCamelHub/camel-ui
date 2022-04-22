@@ -9,24 +9,21 @@ import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 const outputs = [
   {
-    file: 'dist/index.esm.js',
-    format: 'esm'
-  },
-  {
     file: 'dist/index.js',
     format: 'cjs'
+  },
+  {
+    file: 'dist/index.esm.js',
+    format: 'esm'
   }
 ];
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx'];
 
-export default outputs.map(({ file, format }) => {
+export default outputs.map((output) => {
   return {
     input: './src/index.ts',
-    output: {
-      file,
-      format
-    },
+    output,
     external: [/@babel\/runtime/],
     plugins: [
       peerDepsExternal(),
@@ -40,7 +37,7 @@ export default outputs.map(({ file, format }) => {
       commonjs({
         extensions
       }),
-      typescript(),
+      typescript({ tsconfig: './tsconfig.json' }),
       resolve({
         extensions
       }),

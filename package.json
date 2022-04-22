@@ -10,8 +10,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build:dev": "tsc --emitDeclarationOnly && rollup -c --watch",
-    "build": "tsc --emitDeclarationOnly && rollup -c",
+    "build:dev": "rollup -c --watch",
+    "build": "rollup -c",
     "prettier": "prettier --write --config ./.prettierrc \"**/*.{js,ts,tsx}\"",
     "conventions": "yarn prettier && eslint --fix \"**/*.{js,ts,tsx}\""
   },
@@ -26,6 +26,8 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@emotion/babel-plugin": "^11.9.2",
     "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^21.1.0",
     "@rollup/plugin-node-resolve": "^13.2.1",
