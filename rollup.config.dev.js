@@ -3,7 +3,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import { terser } from 'rollup-plugin-terser';
 
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
@@ -32,7 +31,8 @@ export default outputs.map((output) => {
       babel({
         babelHelpers: 'runtime',
         exclude: 'node_modules/**',
-        plugins: ['@babel/plugin-transform-runtime'],
+        presets: ['@emotion/babel-preset-css-prop'],
+        plugins: ['@emotion', '@babel/plugin-transform-runtime'],
         extensions
       }),
       commonjs({
@@ -41,8 +41,7 @@ export default outputs.map((output) => {
       typescript({ tsconfig: './tsconfig.json' }),
       resolve({
         extensions
-      }),
-      terser()
+      })
     ]
   };
 });

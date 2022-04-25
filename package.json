@@ -3,23 +3,18 @@
   "version": "0.1.0",
   "description": "MrCamel React UI Components",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "repository": "https://github.com/MrCamelHub/MrCamel-UI",
   "author": "mrcamel <admin@mrcamel.co.kr>",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build:dev": "rollup -c --watch",
+    "build:dev": "rollup -c rollup.config.dev.js --watch",
     "build": "rollup -c",
     "prettier": "prettier --write --config ./.prettierrc \"**/*.{js,ts,tsx}\"",
     "conventions": "yarn prettier && eslint --fix \"**/*.{js,ts,tsx}\""
-  },
-  "peerDependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -50,5 +45,11 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.3.1",
     "typescript": "^4.6.3"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }
