@@ -1,5 +1,5 @@
 import { useMemo, useContext } from 'react';
-import { light } from './light';
+import { light } from '../light';
 import ThemeContext from './ThemeContext';
 
 function useTheme() {

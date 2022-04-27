@@ -102,7 +102,7 @@ function GlobalReset() {
           lineHeight: 'inherit',
           fontFamily:
             'Spoqa Han Sans Neo, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
-          '-webkit-font-smoothing': 'antialiased'
+          WebkitFontSmoothing: 'antialiased'
         },
         '*, ::before, ::after': {
           boxSizing: 'border-box',

@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import ThemeContext from './ThemeContext';
-import { ThemeType } from '../types';
+import { ThemeType } from '../../types';
 
 export interface ThemeProviderProps {
   theme: ThemeType;
