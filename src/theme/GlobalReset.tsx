@@ -84,7 +84,6 @@ function GlobalReset() {
           margin: 0,
           padding: 0
         },
-
         'ol, ul': {
           listStyle: 'none',
           margin: 0,
