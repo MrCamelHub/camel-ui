@@ -1,8 +1,8 @@
 import React, { memo, InputHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
-import { Wrapper, StyledCheckbox, Marker } from './Checkbox.styles';
 import { GenericComponentProps } from '../../types';
+import { Wrapper, StyledCheckbox, Marker } from './Checkbox.styles';
 
 export interface CheckboxProps extends GenericComponentProps<InputHTMLAttributes<HTMLDivElement>> {}
 
