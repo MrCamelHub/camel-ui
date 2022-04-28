@@ -1,28 +1,28 @@
 import React, { memo, ImgHTMLAttributes } from 'react';
 
-import { GenericComponentProps } from '../../types';
+import { GenericComponentProps, CSSValue } from '../../types';
 import { StyledAvatar } from './Avatar.styles';
 
 export interface AvatarProps extends GenericComponentProps<ImgHTMLAttributes<HTMLImageElement>> {
-  variant?: 'square' | 'round' | 'circle';
+  round?: CSSValue;
 }
 
 function Avatar({
-  variant = 'round',
   width = 24,
   height = 24,
   src,
   alt,
   customStyle,
+  round = 4,
   ...props
 }: AvatarProps) {
   return (
     <StyledAvatar
-      variant={variant}
       width={width}
       height={height}
       src={src}
       alt={alt}
+      round={round}
       css={customStyle}
       {...props}
     />
