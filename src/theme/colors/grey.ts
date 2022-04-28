@@ -1,4 +1,8 @@
-const grey = {
+import { ColorCode } from '../../types';
+
+const grey: {
+  [key: string]: ColorCode;
+} = {
   '20': '#333333',
   '40': '#666666',
   '60': '#999999',

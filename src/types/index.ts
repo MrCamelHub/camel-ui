@@ -1,28 +1,44 @@
 import { Interpolation, Theme as EmotionTheme } from '@emotion/react';
-import { grey } from '../theme/colors';
+import { Property } from 'csstype';
+
+import type { grey } from '../theme/colors';
+
+type RGB = `rgb(${number}, ${number}, ${number})`;
+type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
+type HEX = `#${string}`;
+
+export type ColorProperty = Property.Color;
+export type ColorCode = RGB | RGBA | HEX;
+export type Color = ColorCode | ColorProperty;
 
 export type ThemeType = 'light';
 
 export interface MrCamelTheme {
   palette: {
     primary: {
-      main: string;
-      dark: string;
-      light1: string;
-      light2: string;
+      main: ColorCode;
+      dark: ColorCode;
+      light1: ColorCode;
+      light2: ColorCode;
     };
     secondary: {
       red: {
-        main: string;
+        main: ColorCode;
       };
       purple: {
-        main: string;
+        main: ColorCode;
       };
     };
     common: {
-      black: string;
-      white: string;
+      black: ColorCode;
+      white: ColorCode;
       grey: typeof grey;
+    };
+    box: {
+      stroke: {
+        primary: ColorCode;
+        grey: ColorCode;
+      };
     };
   };
 }

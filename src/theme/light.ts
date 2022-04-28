@@ -21,6 +21,12 @@ export const light: MrCamelTheme = {
       black: '#000000',
       white: '#FFFFFF',
       grey
+    },
+    box: {
+      stroke: {
+        primary: '#1833FF',
+        grey: grey['80']
+      }
     }
   }
 };
