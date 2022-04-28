@@ -1,3 +1,4 @@
 export { default as Box } from './Box';
 export { default as Icon } from './Icon';
 export { default as Checkbox } from './Checkbox';
+export { default as Radio } from './Radio';

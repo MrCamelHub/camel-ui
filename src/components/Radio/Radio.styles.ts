@@ -1,13 +1,14 @@
 import styled, { CSSObject } from '@emotion/styled';
-import { CheckboxProps } from '.';
 
-export const Wrapper = styled.div<Pick<CheckboxProps, 'checked'>>`
+import { RadioProps } from '.';
+
+export const Wrapper = styled.div<Pick<RadioProps, 'checked'>>`
   position: relative;
   display: inline-block;
   width: 24px;
   height: 24px;
   border: 1px solid ${({ theme: { palette } }) => palette.common.grey['80']};
-  border-radius: 4px;
+  border-radius: 50%;
   background-color: ${({ theme: { palette } }) => palette.common.white};
   cursor: pointer;
 
@@ -20,7 +21,7 @@ export const Wrapper = styled.div<Pick<CheckboxProps, 'checked'>>`
       : {}}
 `;
 
-export const StyledCheckbox = styled.input`
+export const StyledRadio = styled.input`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -40,11 +41,10 @@ export const Marker = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 8px;
-    height: 10px;
-    transform: translate(-50%, calc(-50% - 2px)) rotate(45deg);
-    border: solid;
-    border-width: 0 2px 2px 0;
-    border-color: ${({ theme: { palette } }) => palette.common.white};
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: ${({ theme: { palette } }) => palette.common.white};
   }
 `;
