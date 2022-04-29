@@ -33,12 +33,12 @@ export type RequireAtOnlyOneIcon<T> = T &
 export type ConditionalSupportColor<T> = T &
   (
     | {
-        variant?: Exclude<Variant, 'contained'>;
-        color?: Exclude<ComponentColor, 'primary' | 'black' | 'grey'>;
+        variant?: Extract<Variant, 'outlined'>;
+        color?: Extract<ComponentColor, 'grey'>;
       }
     | {
-        variant?: Exclude<Variant, 'outlined'>;
-        color?: Exclude<ComponentColor, 'default'>;
+        variant?: Extract<Variant, 'contained'>;
+        color?: Extract<ComponentColor, 'primary' | 'grey' | 'grey-light'>;
       }
   );
 
@@ -46,7 +46,7 @@ function DefaultButton({
   children,
   ref,
   variant = 'outlined',
-  color = 'default',
+  color = 'grey',
   size = 'medium',
   round,
   startIcon,

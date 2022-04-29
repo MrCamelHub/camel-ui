@@ -32,12 +32,12 @@ export type RequireAtOnlyOneIcon<T> = T &
 export type ConditionalSupportColor<T> = T &
   (
     | {
-        variant?: Exclude<Variant, 'contained'>;
-        color?: Exclude<ComponentColor, 'default' | 'black'>;
+        variant?: Extract<Variant, 'outlined'>;
+        color?: Extract<ComponentColor, 'primary' | 'grey'>;
       }
     | {
-        variant?: Exclude<Variant, 'outlined'>;
-        color?: Exclude<ComponentColor, 'default' | 'grey'>;
+        variant?: Extract<Variant, 'contained'>;
+        color?: Extract<ComponentColor, 'primary' | 'black'>;
       }
   );
 

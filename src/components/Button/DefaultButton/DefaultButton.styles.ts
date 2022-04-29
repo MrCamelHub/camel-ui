@@ -28,9 +28,9 @@ export const StyledDefaultButton = styled.button<
           }
         };
 
-        if (color === 'black') {
+        if (color === 'grey') {
           cssObject = {
-            backgroundColor: palette.common.black,
+            backgroundColor: palette.common.grey['20'],
             color: palette.common.white,
             '& svg': {
               color: palette.common.white
@@ -38,7 +38,7 @@ export const StyledDefaultButton = styled.button<
           };
         }
 
-        if (color === 'grey') {
+        if (color === 'grey-light') {
           cssObject = {
             backgroundColor: palette.common.grey['96'],
             color: palette.common.grey['20'],
