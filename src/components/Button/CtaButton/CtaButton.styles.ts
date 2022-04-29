@@ -51,9 +51,9 @@ export const StyledCtaButton = styled.button<
         if (color === 'grey') {
           cssObject = {
             borderColor: palette.common.grey['40'],
-            color: palette.common.grey['40'],
+            color: palette.common.grey['20'],
             '& svg': {
-              color: palette.common.grey['40']
+              color: palette.common.grey['20']
             }
           };
         }
@@ -88,6 +88,15 @@ export const StyledCtaButton = styled.button<
           width: '100%'
         }
       : {}};
+
+  &:disabled {
+    background-color: ${({ theme: { palette } }) => palette.common.grey['80']};
+    color: ${({ theme: { palette } }) => palette.common.grey['60']};
+    cursor: default;
+    & svg {
+      color: ${({ theme: { palette } }) => palette.common.grey['60']};
+    }
+  }
 `;
 
 export const ButtonInner = styled.div`
