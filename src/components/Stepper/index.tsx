@@ -10,7 +10,7 @@ export interface StepperProps
   value?: number;
 }
 
-function Stepper({ ref, count, value, customStyle, ...props }: StepperProps) {
+function Stepper({ ref, count, value = 0, customStyle, ...props }: StepperProps) {
   const { theme } = useTheme();
 
   return (
