@@ -2,7 +2,13 @@ import type { RefObject } from 'react';
 import type { Interpolation, Theme as EmotionTheme } from '@emotion/react';
 
 export type Variant = 'outlined' | 'contained';
-export type ComponentColor = 'primary' | 'black' | 'grey' | 'grey-light';
+export type ComponentColor =
+  | 'primary'
+  | 'primary-light1'
+  | 'primary-light2'
+  | 'black'
+  | 'grey'
+  | 'grey-light';
 export type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
 export type GenericComponentProps<T, K> = T & {
