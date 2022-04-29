@@ -33,11 +33,11 @@ export type ConditionalSupportColor<T> = T &
   (
     | {
         variant?: Exclude<Variant, 'contained'>;
-        color?: Exclude<ComponentColor, 'black'>;
+        color?: Exclude<ComponentColor, 'default' | 'black'>;
       }
     | {
         variant?: Exclude<Variant, 'outlined'>;
-        color?: Exclude<ComponentColor, 'grey'>;
+        color?: Exclude<ComponentColor, 'default' | 'grey'>;
       }
   );
 

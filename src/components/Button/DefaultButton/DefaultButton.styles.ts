@@ -1,9 +1,12 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { DefaultButtonProps } from '.';
+import { DefaultButtonProps, RequireAtOnlyOneIcon, ConditionalSupportColor } from '.';
 
 export const StyledDefaultButton = styled.button<
-  Pick<DefaultButtonProps, 'variant' | 'size' | 'round' | 'fullWidth'>
+  Pick<
+    RequireAtOnlyOneIcon<ConditionalSupportColor<DefaultButtonProps>>,
+    'variant' | 'color' | 'size' | 'round' | 'fullWidth'
+  >
 >`
   display: inline-block;
   gap: 9px;
@@ -12,34 +15,42 @@ export const StyledDefaultButton = styled.button<
   font-weight: 500;
   letter-spacing: -0.2px;
 
-  ${({ theme: { palette }, variant }): CSSObject => {
+  ${({ theme: { palette }, variant, color }): CSSObject => {
+    let cssObject: CSSObject;
+
     switch (variant) {
-      case 'tertiary':
-        return {
+      case 'contained':
+        cssObject = {
           backgroundColor: palette.primary.light1,
           color: palette.primary.main,
           '& svg': {
             color: palette.primary.main
           }
         };
-      case 'primary':
-        return {
-          backgroundColor: palette.common.black,
-          color: palette.common.white,
-          '& svg': {
-            color: palette.common.white
-          }
-        };
-      case 'quaternary':
-        return {
-          backgroundColor: palette.common.grey['96'],
-          color: palette.common.grey['20'],
-          '& svg': {
-            color: palette.common.grey['20']
-          }
-        };
+
+        if (color === 'black') {
+          cssObject = {
+            backgroundColor: palette.common.black,
+            color: palette.common.white,
+            '& svg': {
+              color: palette.common.white
+            }
+          };
+        }
+
+        if (color === 'grey') {
+          cssObject = {
+            backgroundColor: palette.common.grey['96'],
+            color: palette.common.grey['20'],
+            '& svg': {
+              color: palette.common.grey['20']
+            }
+          };
+        }
+
+        break;
       default:
-        return {
+        cssObject = {
           backgroundColor: palette.common.white,
           borderColor: palette.common.grey['80'],
           color: palette.common.grey['40'],
@@ -47,7 +58,10 @@ export const StyledDefaultButton = styled.button<
             color: palette.common.grey['40']
           }
         };
+        break;
     }
+
+    return cssObject;
   }}
 
   ${({ size }): CSSObject => {

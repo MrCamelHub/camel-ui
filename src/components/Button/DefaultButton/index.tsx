@@ -1,12 +1,11 @@
 import React, { memo, PropsWithChildren, ReactElement, ButtonHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
-import { GenericComponentProps, CSSValue, Size } from '../../../types';
+import { GenericComponentProps, CSSValue, Variant, ComponentColor, Size } from '../../../types';
 import { StyledDefaultButton, ButtonInner } from './DefaultButton.styles';
 
 export interface DefaultButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  variant?: 'default' | 'tertiary' | 'primary' | 'quaternary';
   size?: Size;
   round?: CSSValue;
   fullWidth?: boolean;
@@ -31,10 +30,23 @@ export type RequireAtOnlyOneIcon<T> = T &
       }
   );
 
+export type ConditionalSupportColor<T> = T &
+  (
+    | {
+        variant?: Exclude<Variant, 'contained'>;
+        color?: Exclude<ComponentColor, 'primary' | 'black' | 'grey'>;
+      }
+    | {
+        variant?: Exclude<Variant, 'outlined'>;
+        color?: Exclude<ComponentColor, 'default'>;
+      }
+  );
+
 function DefaultButton({
   children,
   ref,
-  variant = 'default',
+  variant = 'outlined',
+  color = 'default',
   size = 'medium',
   round,
   startIcon,
@@ -43,7 +55,7 @@ function DefaultButton({
   fullWidth = false,
   customStyle,
   ...props
-}: PropsWithChildren<RequireAtOnlyOneIcon<DefaultButtonProps>>) {
+}: PropsWithChildren<RequireAtOnlyOneIcon<ConditionalSupportColor<DefaultButtonProps>>>) {
   const { theme } = useTheme();
 
   return (
@@ -51,6 +63,7 @@ function DefaultButton({
       ref={ref}
       theme={theme}
       variant={variant}
+      color={color}
       size={size}
       round={round}
       fullWidth={fullWidth}
