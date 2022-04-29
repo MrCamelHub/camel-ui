@@ -122,6 +122,10 @@ export const StyledDefaultButton = styled.button<
           width: '100%'
         }
       : {}}
+  
+  &:disabled {
+    cursor: default;
+  }
 `;
 
 export const ButtonInner = styled.div`

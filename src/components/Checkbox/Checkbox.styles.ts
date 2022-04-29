@@ -26,6 +26,10 @@ export const StyledCheckbox = styled.input`
   opacity: 0;
   z-index: 1;
   cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
 `;
 
 export const Marker = styled.div`
