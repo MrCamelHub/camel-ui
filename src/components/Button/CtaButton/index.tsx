@@ -1,14 +1,12 @@
-import React, { memo, PropsWithChildren, ReactElement, ButtonHTMLAttributes } from 'react';
+import React, { memo, PropsWithChildren, ButtonHTMLAttributes, ReactElement } from 'react';
 import { useTheme } from '@theme';
 
-import { GenericComponentProps, CSSValue, Size } from '../../../types';
-import { StyledDefaultButton, ButtonInner } from './DefaultButton.styles';
+import { GenericComponentProps, Variant, ComponentColor, Size } from '../../../types';
+import { StyledCtaButton, ButtonInner } from './CtaButton.styles';
 
-export interface DefaultButtonProps
+export interface CtaButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  variant?: 'default' | 'tertiary' | 'primary' | 'quaternary';
-  size?: Size;
-  round?: CSSValue;
+  size?: Exclude<Size, 'xsmall' | 'small' | 'xlarge'>;
   fullWidth?: boolean;
 }
 
@@ -31,28 +29,40 @@ export type RequireAtOnlyOneIcon<T> = T &
       }
   );
 
-function DefaultButton({
+export type ConditionalSupportColor<T> = T &
+  (
+    | {
+        variant?: Exclude<Variant, 'contained'>;
+        color?: Exclude<ComponentColor, 'black'>;
+      }
+    | {
+        variant?: Exclude<Variant, 'outlined'>;
+        color?: Exclude<ComponentColor, 'grey'>;
+      }
+  );
+
+function CtaButton({
   children,
   ref,
-  variant = 'default',
+  variant = 'outlined',
+  color = 'primary',
   size = 'medium',
-  round,
   startIcon,
   endIcon,
   iconOnly = false,
-  fullWidth = false,
+  fullWidth,
   customStyle,
   ...props
-}: PropsWithChildren<RequireAtOnlyOneIcon<DefaultButtonProps>>) {
+}: PropsWithChildren<RequireAtOnlyOneIcon<ConditionalSupportColor<CtaButtonProps>>>) {
   const { theme } = useTheme();
 
   return (
-    <StyledDefaultButton
-      ref={ref}
+    <StyledCtaButton
       theme={theme}
+      ref={ref}
       variant={variant}
       size={size}
-      round={round}
+      color={color}
       fullWidth={fullWidth}
       css={customStyle}
       {...props}
@@ -62,8 +72,8 @@ function DefaultButton({
         {!iconOnly && children}
         {endIcon}
       </ButtonInner>
-    </StyledDefaultButton>
+    </StyledCtaButton>
   );
 }
 
-export default memo(DefaultButton);
+export default memo(CtaButton);

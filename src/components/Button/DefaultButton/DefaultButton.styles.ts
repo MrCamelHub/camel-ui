@@ -113,5 +113,6 @@ export const StyledDefaultButton = styled.button<
 export const ButtonInner = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
 `;

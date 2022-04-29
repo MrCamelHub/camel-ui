@@ -1,7 +1,7 @@
-import type { CommonColorKey, ColorCode } from '../../types';
+import type { ColorKey, ColorCode } from '../../types';
 
 const grey: {
-  [key in CommonColorKey]: ColorCode;
+  [key in ColorKey]: ColorCode;
 } = {
   '20': '#333333',
   '40': '#666666',
