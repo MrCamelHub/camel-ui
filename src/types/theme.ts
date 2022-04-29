@@ -1,3 +1,4 @@
+import type { RefObject } from 'react';
 import { Interpolation, Theme as EmotionTheme } from '@emotion/react';
 
 import type { ColorCode } from './css';
@@ -38,7 +39,8 @@ export interface MrCamelTheme {
   };
 }
 
-export type GenericComponentProps<T> = T & {
+export type GenericComponentProps<T, K> = T & {
+  ref?: RefObject<K>;
   customStyle?: Interpolation<EmotionTheme>;
 };
 

@@ -5,7 +5,7 @@ import { GenericComponentProps, CSSValue, Size } from '../../../types';
 import { StyledDefaultButton, ButtonInner } from './DefaultButton.styles';
 
 export interface DefaultButtonProps
-  extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
+  extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   variant?: 'default' | 'tertiary' | 'primary' | 'quaternary';
   size?: Size;
   round?: CSSValue;
@@ -33,6 +33,7 @@ type RequireAtOnlyOneIcon<T> = T &
 
 function DefaultButton({
   children,
+  ref,
   variant = 'default',
   size = 'medium',
   round,
@@ -47,6 +48,7 @@ function DefaultButton({
 
   return (
     <StyledDefaultButton
+      ref={ref}
       theme={theme}
       variant={variant}
       size={size}

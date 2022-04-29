@@ -3,13 +3,14 @@ import React, { memo, PropsWithChildren, ElementType, HTMLAttributes } from 'rea
 import { GenericComponentProps } from '../../types';
 import { StyledBox } from './Box.styles';
 
-export interface BoxProps extends GenericComponentProps<HTMLAttributes<HTMLElement>> {
+export interface BoxProps
+  extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   component?: ElementType;
 }
 
-function Box({ children, component = 'div', customStyle }: PropsWithChildren<BoxProps>) {
+function Box({ children, ref, component = 'div', customStyle }: PropsWithChildren<BoxProps>) {
   return (
-    <StyledBox as={component} css={customStyle}>
+    <StyledBox ref={ref} as={component} css={customStyle}>
       {children}
     </StyledBox>
   );
