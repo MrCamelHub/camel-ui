@@ -27,6 +27,7 @@ export const StyledRadio = styled.input`
   height: 100%;
   opacity: 0;
   z-index: 1;
+  cursor: pointer;
 `;
 
 export const Marker = styled.div`

@@ -9,7 +9,6 @@ export const Wrapper = styled.div<Pick<CheckboxProps, 'checked'>>`
   border: 1px solid ${({ theme: { palette } }) => palette.common.grey['80']};
   border-radius: 4px;
   background-color: ${({ theme: { palette } }) => palette.common.white};
-  cursor: pointer;
 
   ${({ theme: { palette }, checked }): CSSObject =>
     checked
@@ -26,6 +25,7 @@ export const StyledCheckbox = styled.input`
   height: 100%;
   opacity: 0;
   z-index: 1;
+  cursor: pointer;
 `;
 
 export const Marker = styled.div`

@@ -9,7 +9,7 @@ export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<Pick<IconPr
   ${({ color }): CSSObject =>
     color
       ? {
-          color
+          color: `${color} !important`
         }
       : {}};
 `;

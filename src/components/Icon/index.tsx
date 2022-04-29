@@ -14,6 +14,11 @@ export interface IconProps extends GenericComponentProps<SVGProps<SVGElement>> {
 function Icon({ name, viewBox = '0 0 24 24', color, customStyle, ...props }: IconProps) {
   const { theme } = useTheme();
   const SvgIcon = SvgIcons[name];
+
+  const splitNames = name.split('_');
+  const hasSpecifyViewBox = splitNames.length === 3;
+  const newViewBox = `0 0 ${splitNames[1]} ${splitNames[2]}`;
+
   const StyledSvgIcon = StyledIcon(SvgIcon);
 
   return (
@@ -21,7 +26,7 @@ function Icon({ name, viewBox = '0 0 24 24', color, customStyle, ...props }: Ico
       theme={theme}
       name={name}
       color={color}
-      viewBox={viewBox}
+      viewBox={hasSpecifyViewBox ? newViewBox : viewBox}
       css={customStyle}
       {...props}
     />

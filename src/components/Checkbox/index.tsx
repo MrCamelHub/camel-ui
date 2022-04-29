@@ -6,12 +6,12 @@ import { Wrapper, StyledCheckbox, Marker } from './Checkbox.styles';
 
 export interface CheckboxProps extends GenericComponentProps<InputHTMLAttributes<HTMLDivElement>> {}
 
-function Checkbox({ checked, onChange, customStyle, ...props }: CheckboxProps) {
+function Checkbox({ checked, customStyle, ...props }: CheckboxProps) {
   const { theme } = useTheme();
 
   return (
     <Wrapper theme={theme} checked={checked} css={customStyle} tabIndex={0} role="checkbox">
-      <StyledCheckbox type="checkbox" checked={checked} onChange={onChange} {...props} />
+      <StyledCheckbox type="checkbox" checked={checked} {...props} />
       <Marker theme={theme} />
     </Wrapper>
   );

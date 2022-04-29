@@ -150,13 +150,16 @@ function GlobalReset() {
           fontFamily: `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
         Liberation Mono, Courier New, monospace`
         },
-        'img, svg, video, canvas, audio, iframe, embed, object': {
+        'canvas, audio, iframe, embed, object': {
           display: 'block',
           verticalAlign: 'middle'
         },
         'img, video': {
           maxWidth: '100%',
           height: 'auto'
+        },
+        'img, svg, video': {
+          verticalAlign: 'middle'
         },
         '[hidden]': {
           display: 'none'
