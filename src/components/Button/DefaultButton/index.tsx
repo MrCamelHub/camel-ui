@@ -9,10 +9,27 @@ export interface DefaultButtonProps
   variant?: 'default' | 'tertiary' | 'primary' | 'quaternary';
   size?: Size;
   round?: CSSValue;
-  startIcon?: ReactElement;
-  endIcon?: ReactElement;
   fullWidth?: boolean;
 }
+
+type RequireAtOnlyOneIcon<T> = T &
+  (
+    | {
+        iconOnly?: boolean;
+        startIcon: ReactElement;
+        endIcon?: never;
+      }
+    | {
+        iconOnly?: boolean;
+        startIcon?: never;
+        endIcon: ReactElement;
+      }
+    | {
+        iconOnly?: never;
+        startIcon?: ReactElement;
+        endIcon?: ReactElement;
+      }
+  );
 
 function DefaultButton({
   children,
@@ -21,10 +38,11 @@ function DefaultButton({
   round,
   startIcon,
   endIcon,
+  iconOnly = false,
   fullWidth = false,
   customStyle,
   ...props
-}: PropsWithChildren<DefaultButtonProps>) {
+}: PropsWithChildren<RequireAtOnlyOneIcon<DefaultButtonProps>>) {
   const { theme } = useTheme();
 
   return (
@@ -39,7 +57,7 @@ function DefaultButton({
     >
       <ButtonInner>
         {startIcon}
-        {children}
+        {!iconOnly && children}
         {endIcon}
       </ButtonInner>
     </StyledDefaultButton>
