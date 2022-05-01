@@ -1,11 +1,12 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { DefaultButtonProps, RequireAtOnlyOneIcon, ConditionalSupportColor } from '.';
+import { getBrandColorCodeByColorName } from '@utils';
+import { DefaultButtonProps } from '.';
 
 export const StyledDefaultButton = styled.button<
   Pick<
-    RequireAtOnlyOneIcon<ConditionalSupportColor<DefaultButtonProps>>,
-    'variant' | 'color' | 'size' | 'round' | 'fullWidth'
+    DefaultButtonProps,
+    'variant' | 'brandColor' | 'customColor' | 'size' | 'round' | 'fullWidth'
   >
 >`
   display: inline-flex;
@@ -17,22 +18,24 @@ export const StyledDefaultButton = styled.button<
   font-weight: 500;
   letter-spacing: -0.2px;
 
-  ${({ theme: { palette }, variant, color }): CSSObject => {
+  ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject;
+
+    const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
     switch (variant) {
       case 'contained':
         cssObject = {
           backgroundColor: palette.primary.light1,
-          color: palette.primary.main,
+          color: brandColorCode,
           '& svg': {
-            color: palette.primary.main
+            color: brandColorCode
           }
         };
 
-        if (color === 'grey') {
+        if (brandColor === 'grey') {
           cssObject = {
-            backgroundColor: palette.common.grey['20'],
+            backgroundColor: brandColorCode,
             color: palette.common.white,
             '& svg': {
               color: palette.common.white
@@ -40,9 +43,9 @@ export const StyledDefaultButton = styled.button<
           };
         }
 
-        if (color === 'grey-light') {
+        if (brandColor === 'grey-light') {
           cssObject = {
-            backgroundColor: palette.common.grey['96'],
+            backgroundColor: brandColorCode,
             color: palette.common.grey['20'],
             '& svg': {
               color: palette.common.grey['20']
@@ -65,6 +68,17 @@ export const StyledDefaultButton = styled.button<
 
     return cssObject;
   }}
+
+  ${({ theme: { palette }, customColor }): CSSObject =>
+    customColor
+      ? {
+          backgroundColor: customColor,
+          color: palette.common.white,
+          '& svg': {
+            color: palette.common.white
+          }
+        }
+      : {}}
 
   ${({ size }): CSSObject => {
     switch (size) {

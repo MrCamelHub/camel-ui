@@ -1,4 +1,4 @@
-import type { ColorKey, ColorCode } from '../../types';
+import { ColorKey, ColorCode } from '../../types';
 
 const grey: {
   [key in ColorKey]: ColorCode;

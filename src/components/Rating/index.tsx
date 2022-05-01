@@ -26,7 +26,7 @@ function Rating({ ref, count, value = 0, size = 'medium', ...props }: RatingProp
           key={`star-${index}`}
           name="StarFilled"
           size={size}
-          color={value > index ? '#FFD25E' : palette.common.grey['96']}
+          customColor={value > index ? '#FFD25E' : palette.common.grey['96']}
         />
       ))}
     </StyledRating>

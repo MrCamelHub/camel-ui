@@ -1,52 +1,50 @@
-import React, { memo, PropsWithChildren, ReactElement, ButtonHTMLAttributes } from 'react';
+import React, { memo, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
-import { GenericComponentProps, CSSValue, Variant, ComponentColor, Size } from '../../../types';
+import {
+  GenericComponentProps,
+  RequireAtOnlyOneIcon,
+  RequireAtOnlyOneColorProps,
+  CSSValue,
+  Variant,
+  BrandColor,
+  Size
+} from '../../../types';
 import { StyledDefaultButton } from './DefaultButton.styles';
 
-export interface DefaultButtonProps
+export interface BaseDefaultButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   size?: Size;
   round?: CSSValue;
   fullWidth?: boolean;
 }
 
-export type RequireAtOnlyOneIcon<T> = T &
-  (
-    | {
-        iconOnly?: boolean;
-        startIcon: ReactElement;
-        endIcon?: never;
-      }
-    | {
-        iconOnly?: boolean;
-        startIcon?: never;
-        endIcon: ReactElement;
-      }
-    | {
-        iconOnly?: never;
-        startIcon?: ReactElement;
-        endIcon?: ReactElement;
-      }
-  );
-
 export type ConditionalSupportColor<T> = T &
   (
-    | {
-        variant?: Extract<Variant, 'outlined'>;
-        color?: Extract<ComponentColor, 'grey'>;
-      }
-    | {
-        variant?: Extract<Variant, 'contained'>;
-        color?: Extract<ComponentColor, 'primary' | 'grey' | 'grey-light'>;
-      }
+    | RequireAtOnlyOneColorProps<
+        {
+          variant?: Extract<Variant, 'outlined'>;
+        },
+        Extract<BrandColor, 'grey'>
+      >
+    | RequireAtOnlyOneColorProps<
+        {
+          variant?: Extract<Variant, 'contained'>;
+        },
+        Extract<BrandColor, 'primary' | 'grey' | 'grey-light'>
+      >
   );
+
+export type DefaultButtonProps = RequireAtOnlyOneIcon<
+  ConditionalSupportColor<BaseDefaultButtonProps>
+>;
 
 function DefaultButton({
   children,
   ref,
   variant = 'outlined',
-  color = 'grey',
+  brandColor = 'grey',
+  customColor,
   size = 'medium',
   round,
   startIcon,
@@ -55,7 +53,7 @@ function DefaultButton({
   fullWidth = false,
   customStyle,
   ...props
-}: PropsWithChildren<RequireAtOnlyOneIcon<ConditionalSupportColor<DefaultButtonProps>>>) {
+}: PropsWithChildren<DefaultButtonProps>) {
   const { theme } = useTheme();
 
   return (
@@ -63,7 +61,8 @@ function DefaultButton({
       ref={ref}
       theme={theme}
       variant={variant}
-      color={color}
+      brandColor={brandColor}
+      customColor={customColor}
       size={size}
       round={round}
       fullWidth={fullWidth}

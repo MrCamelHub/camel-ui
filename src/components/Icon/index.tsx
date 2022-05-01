@@ -3,21 +3,26 @@ import { useTheme } from '@theme';
 
 import * as SvgIcons from '../../assets/icons';
 
-import { GenericComponentProps, Color, Size } from '../../types';
+import { GenericComponentProps, RequireAtOnlyOneColorProps, BrandColor, Size } from '../../types';
 import { StyledIcon } from './Icon.styles';
 
-export interface IconProps extends GenericComponentProps<SVGProps<SVGElement>, SVGElement> {
+export interface BaseIconProps extends GenericComponentProps<SVGProps<SVGElement>, SVGElement> {
   name: keyof typeof SvgIcons;
   size?: Exclude<Size, 'xsmall' | 'xlarge'>;
-  color?: Color;
 }
+
+export type IconProps = RequireAtOnlyOneColorProps<
+  BaseIconProps,
+  Extract<BrandColor, 'primary-light'>
+>;
 
 function Icon({
   ref,
   name,
   size = 'medium',
   viewBox = '0 0 24 24',
-  color,
+  brandColor,
+  customColor,
   customStyle,
   ...props
 }: IconProps) {
@@ -36,7 +41,8 @@ function Icon({
       theme={theme}
       name={name}
       size={size}
-      color={color}
+      brandColor={brandColor}
+      customColor={customColor}
       viewBox={hasSpecifyViewBox ? newViewBox : viewBox}
       css={customStyle}
       {...props}

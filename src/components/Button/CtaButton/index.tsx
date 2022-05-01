@@ -1,51 +1,45 @@
-import React, { memo, PropsWithChildren, ButtonHTMLAttributes, ReactElement } from 'react';
+import React, { memo, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
-import { GenericComponentProps, Variant, ComponentColor, Size } from '../../../types';
+import {
+  GenericComponentProps,
+  RequireAtOnlyOneIcon,
+  RequireAtOnlyOneColorProps,
+  Variant,
+  BrandColor,
+  Size
+} from '../../../types';
 import { StyledCtaButton } from './CtaButton.styles';
 
-export interface CtaButtonProps
+export interface BaseCtaButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   size?: Exclude<Size, 'xsmall' | 'small' | 'xlarge'>;
   fullWidth?: boolean;
 }
 
-export type RequireAtOnlyOneIcon<T> = T &
-  (
-    | {
-        iconOnly?: boolean;
-        startIcon: ReactElement;
-        endIcon?: never;
-      }
-    | {
-        iconOnly?: boolean;
-        startIcon?: never;
-        endIcon: ReactElement;
-      }
-    | {
-        iconOnly?: never;
-        startIcon?: ReactElement;
-        endIcon?: ReactElement;
-      }
-  );
-
 export type ConditionalSupportColor<T> = T &
   (
-    | {
-        variant?: Extract<Variant, 'outlined'>;
-        color?: Extract<ComponentColor, 'primary' | 'grey'>;
-      }
-    | {
-        variant?: Extract<Variant, 'contained'>;
-        color?: Extract<ComponentColor, 'primary' | 'black'>;
-      }
+    | RequireAtOnlyOneColorProps<
+        {
+          variant?: Extract<Variant, 'outlined'>;
+        },
+        Extract<BrandColor, 'primary' | 'grey'>
+      >
+    | RequireAtOnlyOneColorProps<
+        {
+          variant?: Extract<Variant, 'contained'>;
+        },
+        Extract<BrandColor, 'primary' | 'black'>
+      >
   );
+
+export type CtaButtonProps = RequireAtOnlyOneIcon<ConditionalSupportColor<BaseCtaButtonProps>>;
 
 function CtaButton({
   children,
   ref,
   variant = 'outlined',
-  color = 'primary',
+  brandColor = 'primary',
   size = 'medium',
   startIcon,
   endIcon,
@@ -53,7 +47,7 @@ function CtaButton({
   fullWidth,
   customStyle,
   ...props
-}: PropsWithChildren<RequireAtOnlyOneIcon<ConditionalSupportColor<CtaButtonProps>>>) {
+}: PropsWithChildren<CtaButtonProps>) {
   const { theme } = useTheme();
 
   return (
@@ -62,7 +56,7 @@ function CtaButton({
       ref={ref}
       variant={variant}
       size={size}
-      color={color}
+      brandColor={brandColor}
       fullWidth={fullWidth}
       css={customStyle}
       {...props}

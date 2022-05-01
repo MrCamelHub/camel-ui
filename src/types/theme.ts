@@ -1,9 +1,11 @@
-import type { ColorCode } from './css';
-import type { grey } from '../theme/colors';
+import { TypographyVariant, TypographyComponent, TypographyWeight } from './component';
+import { ColorCode, CSSValue } from './css';
+import { grey } from '../theme/colors';
 
 export type ThemeType = 'light';
 
 export interface MrCamelTheme {
+  type: ThemeType;
   palette: {
     primary: {
       main: ColorCode;
@@ -29,6 +31,15 @@ export interface MrCamelTheme {
         primary: ColorCode;
         grey: ColorCode;
       };
+    };
+  };
+  typography: {
+    [key in TypographyVariant]: {
+      component: TypographyComponent;
+      size: CSSValue;
+      weight: TypographyWeight;
+      lineHeight: CSSValue;
+      letterSpacing: CSSValue;
     };
   };
 }

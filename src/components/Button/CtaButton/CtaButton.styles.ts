@@ -1,12 +1,10 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { CtaButtonProps, RequireAtOnlyOneIcon, ConditionalSupportColor } from '.';
+import { getBrandColorCodeByColorName } from '@utils';
+import { CtaButtonProps } from '.';
 
 export const StyledCtaButton = styled.button<
-  Pick<
-    RequireAtOnlyOneIcon<ConditionalSupportColor<CtaButtonProps>>,
-    'variant' | 'color' | 'size' | 'fullWidth'
-  >
+  Pick<CtaButtonProps, 'variant' | 'brandColor' | 'customColor' | 'size' | 'fullWidth'>
 >`
   display: inline-flex;
   align-items: center;
@@ -18,45 +16,36 @@ export const StyledCtaButton = styled.button<
   font-weight: 700;
   letter-spacing: -0.2px;
 
-  ${({ theme: { palette }, variant, color }): CSSObject => {
+  ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject;
+
+    const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
     switch (variant) {
       case 'contained':
         cssObject = {
-          backgroundColor: palette.primary.main,
+          backgroundColor: brandColorCode,
           color: palette.common.white,
           '& svg': {
             color: palette.common.white
           }
         };
-
-        if (color === 'black') {
-          cssObject = {
-            backgroundColor: palette.common.black,
-            color: palette.common.white,
-            '& svg': {
-              color: palette.common.white
-            }
-          };
-        }
-
         break;
       default:
         cssObject = {
-          borderColor: palette.primary.main,
-          color: palette.primary.main,
+          borderColor: brandColorCode,
+          color: brandColorCode,
           '& svg': {
-            color: palette.primary.main
+            color: brandColorCode
           }
         };
 
-        if (color === 'grey') {
+        if (brandColor === 'grey') {
           cssObject = {
             borderColor: palette.common.grey['40'],
-            color: palette.common.grey['20'],
+            color: brandColorCode,
             '& svg': {
-              color: palette.common.grey['20']
+              color: brandColorCode
             }
           };
         }
@@ -84,6 +73,33 @@ export const StyledCtaButton = styled.button<
         };
     }
   }};
+
+  ${({ theme: { palette }, variant, customColor }): CSSObject => {
+    let cssObject: CSSObject;
+
+    switch (variant) {
+      case 'contained':
+        cssObject = {
+          backgroundColor: customColor,
+          color: palette.common.white,
+          '& svg': {
+            color: palette.common.white
+          }
+        };
+        break;
+      default:
+        cssObject = {
+          borderColor: customColor,
+          color: customColor,
+          '& svg': {
+            color: customColor
+          }
+        };
+        break;
+    }
+
+    return cssObject;
+  }}
 
   ${({ fullWidth }): CSSObject =>
     fullWidth

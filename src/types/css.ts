@@ -1,4 +1,4 @@
-import type { Property } from 'csstype';
+import { Property } from 'csstype';
 
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;

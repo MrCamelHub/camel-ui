@@ -1,17 +1,24 @@
 import styled, { CSSObject } from '@emotion/styled';
-import type { HeartFilled } from '../../assets/icons';
+import { HeartFilled } from '../../assets/icons';
 
 import { IconProps } from '.';
 
 export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<
-  Pick<IconProps, 'color' | 'size'>
+  Pick<IconProps, 'brandColor' | 'customColor' | 'size'>
 >`
   color: ${({ theme: { palette } }) => palette.common.grey['20']};
 
-  ${({ color }): CSSObject =>
-    color
+  ${({ brandColor }): CSSObject =>
+    brandColor
       ? {
-          color: `${color} !important`
+          color: `${brandColor} !important`
+        }
+      : {}};
+
+  ${({ customColor }): CSSObject =>
+    customColor
+      ? {
+          color: `${customColor} !important`
         }
       : {}};
 
