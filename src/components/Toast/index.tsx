@@ -1,28 +1,35 @@
-import React, { useEffect, useState, useRef, memo, PropsWithChildren, HTMLAttributes } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  useRef,
+  memo,
+  PropsWithChildren,
+  HTMLAttributes,
+  MouseEvent
+} from 'react';
 import { createPortal } from 'react-dom';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps, CSSValue } from '../../types';
-import { StyledToast } from './Toast.styles';
+import { Wrapper, StyledToast } from './Toast.styles';
 
 export interface ToastProps
-  extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>, HTMLDivElement> {
   open: boolean;
   bottom?: CSSValue;
   autoHideDuration?: number;
   transitionDuration?: number;
-  fullWidth?: boolean;
   onClose: () => void;
 }
 
 function Toast({
   children,
-  ref,
+  componentRef,
   open,
   bottom = '100px',
   autoHideDuration,
   transitionDuration = 225,
-  fullWidth,
   onClose,
   customStyle,
   ...props
@@ -37,6 +44,11 @@ function Toast({
   const toastCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toastAutoHideDurationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const handleClick = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => event.stopPropagation(),
+    []
+  );
+
   useEffect(() => {
     if (open && !isMounted) {
       let toast = document.getElementById('toast-root');
@@ -50,7 +62,6 @@ function Toast({
         toast.style.width = '100%';
         toast.style.height = '100%';
         toast.style.zIndex = '1000';
-        toast.onclick = onClose;
 
         toast.setAttribute('role', 'presentation');
 
@@ -85,7 +96,7 @@ function Toast({
         setIsMounted(false);
       }, transitionDuration + 100);
     }
-  }, [open, isMounted, transitionDuration, onClose]);
+  }, [open, isMounted, autoHideDuration, transitionDuration, onClose]);
 
   useEffect(() => {
     if (open && isMounted && autoHideDuration) {
@@ -95,19 +106,26 @@ function Toast({
 
   if (isMounted && toastRef.current) {
     return createPortal(
-      <StyledToast
-        ref={ref}
-        theme={theme}
+      <Wrapper
+        ref={componentRef}
         toastOpen={toastOpen}
         toastClose={!open}
-        bottom={bottom}
         transitionDuration={transitionDuration}
-        fullWidth={fullWidth}
-        css={customStyle}
-        {...props}
+        onClick={onClose}
       >
-        {children}
-      </StyledToast>,
+        <StyledToast
+          theme={theme}
+          toastOpen={toastOpen}
+          toastClose={!open}
+          bottom={bottom}
+          transitionDuration={transitionDuration}
+          onClick={handleClick}
+          css={customStyle}
+          {...props}
+        >
+          {children}
+        </StyledToast>
+      </Wrapper>,
       toastRef.current
     );
   }

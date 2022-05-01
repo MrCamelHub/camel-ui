@@ -20,7 +20,7 @@ export interface BaseLabelProps
 export type LabelProps = RequireAtOnlyOneColorProps<BaseLabelProps, BrandColor>;
 
 function Label({
-  ref,
+  componentRef,
   variant = 'outlined',
   text,
   round,
@@ -32,7 +32,7 @@ function Label({
 
   return (
     <StyledLabel
-      ref={ref}
+      ref={componentRef}
       theme={theme}
       variant={variant}
       round={round}

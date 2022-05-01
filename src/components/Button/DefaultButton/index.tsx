@@ -41,7 +41,7 @@ export type DefaultButtonProps = RequireAtOnlyOneIcon<
 
 function DefaultButton({
   children,
-  ref,
+  componentRef,
   variant = 'outlined',
   brandColor = 'common-grey',
   customColor,
@@ -58,7 +58,7 @@ function DefaultButton({
 
   return (
     <StyledDefaultButton
-      ref={ref}
+      ref={componentRef}
       theme={theme}
       variant={variant}
       brandColor={brandColor}

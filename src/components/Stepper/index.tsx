@@ -10,11 +10,11 @@ export interface StepperProps
   value?: number;
 }
 
-function Stepper({ ref, count, value = 0, customStyle, ...props }: StepperProps) {
+function Stepper({ componentRef, count, value = 0, customStyle, ...props }: StepperProps) {
   const { theme } = useTheme();
 
   return (
-    <StyledStepper ref={ref} css={customStyle} {...props}>
+    <StyledStepper ref={componentRef} css={customStyle} {...props}>
       {Array.from({ length: count }).map((_, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <StepperItem key={`stepper-${index}`} theme={theme} active={value === index + 1} />

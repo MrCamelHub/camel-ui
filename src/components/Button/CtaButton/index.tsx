@@ -37,7 +37,7 @@ export type CtaButtonProps = RequireAtOnlyOneIcon<ConditionalSupportColor<BaseCt
 
 function CtaButton({
   children,
-  ref,
+  componentRef,
   variant = 'outlined',
   brandColor = 'primary',
   customColor,
@@ -54,7 +54,7 @@ function CtaButton({
   return (
     <StyledCtaButton
       theme={theme}
-      ref={ref}
+      ref={componentRef}
       variant={variant}
       size={size}
       brandColor={brandColor}

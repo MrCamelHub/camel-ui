@@ -13,13 +13,13 @@ export interface RatingProps
   size?: Exclude<Size, 'xsmall' | 'xlarge'>;
 }
 
-function Rating({ ref, count, value = 0, size = 'medium', ...props }: RatingProps) {
+function Rating({ componentRef, count, value = 0, size = 'medium', ...props }: RatingProps) {
   const {
     theme: { palette }
   } = useTheme();
 
   return (
-    <StyledRating ref={ref} {...props}>
+    <StyledRating ref={componentRef} {...props}>
       {Array.from({ length: count }).map((_, index) => (
         <Icon
           // eslint-disable-next-line react/no-array-index-key

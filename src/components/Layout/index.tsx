@@ -15,7 +15,7 @@ export interface LayoutProps
 // #TODO 추후 개선
 function Layout({
   children,
-  ref,
+  componentRef,
   component = 'div',
   direction = 'horizontal',
   alignment,
@@ -26,7 +26,7 @@ function Layout({
   return (
     <StyledLayout
       as={component}
-      ref={ref}
+      ref={componentRef}
       layoutDirection={direction}
       alignment={alignment}
       justifyContent={justifyContent}

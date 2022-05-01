@@ -24,7 +24,7 @@ export interface DialogProps
 
 function Dialog({
   children,
-  ref,
+  componentRef,
   open,
   transitionDuration = 225,
   fullScreen,
@@ -99,13 +99,12 @@ function Dialog({
   if (isMounted && dialogPortalRef.current) {
     return createPortal(
       <Wrapper
-        ref={ref}
+        ref={componentRef}
         dialogOpen={dialogOpen}
         dialogClose={!open}
         transitionDuration={transitionDuration}
         fullScreen={fullScreen}
         onClick={onClose}
-        role="dialog"
       >
         <StyledDialog
           theme={theme}
@@ -116,6 +115,7 @@ function Dialog({
           onClick={handleClick}
           css={customStyle}
           {...props}
+          role="dialog"
         >
           {children}
         </StyledDialog>

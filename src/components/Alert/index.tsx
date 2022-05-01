@@ -21,6 +21,7 @@ export type AlertPropsWithColor = RequireAtOnlyOneColorProps<
 
 function Alert({
   children,
+  componentRef,
   brandColor = 'primary-light1',
   customColor,
   round,
@@ -31,6 +32,7 @@ function Alert({
 
   return (
     <StyledAlert
+      ref={componentRef}
       theme={theme}
       brandColor={brandColor}
       customColor={customColor}

@@ -4,6 +4,7 @@ import { grey } from '../theme/colors';
 
 export type ThemeType = 'light';
 
+// #TODO 추후 Layer 우선 순위 및 Breakpoints 에 따른 좌우 여백 정립
 export interface MrCamelTheme {
   type: ThemeType;
   palette: {

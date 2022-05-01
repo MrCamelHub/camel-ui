@@ -6,14 +6,14 @@ import { StyledFab, StyledFabInner } from './Fab.styles';
 
 function Fab({
   children,
-  ref,
+  componentRef,
   customStyle,
   ...props
 }: GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) {
   const { theme } = useTheme();
 
   return (
-    <StyledFab ref={ref} theme={theme} css={customStyle} {...props}>
+    <StyledFab ref={componentRef} theme={theme} css={customStyle} {...props}>
       <StyledFabInner>{children}</StyledFabInner>
     </StyledFab>
   );

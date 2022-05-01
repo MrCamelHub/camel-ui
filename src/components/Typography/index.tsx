@@ -21,7 +21,7 @@ export interface BaseTypographyProps
 export type TypographyProps = RequireAtOnlyOneColorProps<BaseTypographyProps, BrandColor>;
 
 function Typography({
-  ref,
+  componentRef,
   children,
   variant = 'body1',
   component,
@@ -34,7 +34,7 @@ function Typography({
 
   return (
     <StyledTypography
-      ref={ref}
+      ref={componentRef}
       theme={theme}
       variant={variant}
       as={component || theme.typography[variant].component}

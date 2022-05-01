@@ -2,8 +2,42 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { ToastProps } from '.';
 
+export const Wrapper = styled.div<
+  Pick<ToastProps, 'transitionDuration'> & {
+    toastOpen: boolean;
+    toastClose: boolean;
+  }
+>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  z-index: 1004;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
+    0ms;
+
+  ${({ toastOpen }): CSSObject =>
+    toastOpen
+      ? {
+          visibility: 'visible',
+          opacity: 1
+        }
+      : {}}
+  ${({ toastClose }): CSSObject =>
+    toastClose
+      ? {
+          opacity: 0
+        }
+      : {}}
+`;
+
 export const StyledToast = styled.div<
-  Pick<ToastProps, 'bottom' | 'transitionDuration' | 'fullWidth'> & {
+  Pick<ToastProps, 'bottom' | 'transitionDuration'> & {
     toastOpen: boolean;
     toastClose: boolean;
   }

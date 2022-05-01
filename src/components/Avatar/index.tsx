@@ -9,7 +9,7 @@ export interface AvatarProps
 }
 
 function Avatar({
-  ref,
+  componentRef,
   width = 24,
   height = 24,
   src,
@@ -20,7 +20,7 @@ function Avatar({
 }: AvatarProps) {
   return (
     <StyledAvatar
-      ref={ref}
+      ref={componentRef}
       width={width}
       height={height}
       src={src}

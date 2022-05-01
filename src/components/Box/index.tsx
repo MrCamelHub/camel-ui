@@ -8,9 +8,14 @@ export interface BoxProps
   component?: ElementType;
 }
 
-function Box({ children, ref, component = 'div', customStyle }: PropsWithChildren<BoxProps>) {
+function Box({
+  children,
+  componentRef,
+  component = 'div',
+  customStyle
+}: PropsWithChildren<BoxProps>) {
   return (
-    <StyledBox ref={ref} as={component} css={customStyle}>
+    <StyledBox ref={componentRef} as={component} css={customStyle}>
       {children}
     </StyledBox>
   );

@@ -13,7 +13,7 @@ export interface IconProps extends GenericComponentProps<SVGProps<SVGElement>, S
 }
 
 function Icon({
-  ref,
+  componentRef,
   name,
   size = 'medium',
   viewBox = '0 0 24 24',
@@ -32,7 +32,7 @@ function Icon({
 
   return (
     <StyledSvgIcon
-      ref={ref}
+      ref={componentRef}
       theme={theme}
       name={name}
       size={size}

@@ -24,7 +24,7 @@ export type TypographyWeight = {
 };
 
 export type GenericComponentProps<T, K> = T & {
-  ref?: RefObject<K>;
+  componentRef?: RefObject<K>;
   customStyle?: Interpolation<EmotionTheme>;
 };
 
