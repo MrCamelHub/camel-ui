@@ -10,3 +10,4 @@ export { default as Switch } from './Switch';
 export { default as Alert } from './Alert';
 export { default as Stepper } from './Stepper';
 export { default as Rating } from './Rating';
+export { default as BottomSheet } from './BottomSheet';
