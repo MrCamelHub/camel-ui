@@ -127,5 +127,12 @@ export const light: MrCamelTheme = {
       lineHeight: `${10 * 1.5}px`,
       letterSpacing: '-0.2px'
     }
+  },
+  breakpoints: {
+    xs: 0,
+    sm: 425,
+    md: 768,
+    lg: 1024,
+    xl: 1440
   }
 };
