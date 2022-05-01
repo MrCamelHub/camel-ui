@@ -24,7 +24,8 @@ function Toast({
   transitionDuration = 225,
   fullWidth,
   onClose,
-  customStyle
+  customStyle,
+  ...props
 }: PropsWithChildren<ToastProps>) {
   const { theme } = useTheme();
 
@@ -103,6 +104,7 @@ function Toast({
         transitionDuration={transitionDuration}
         fullWidth={fullWidth}
         css={customStyle}
+        {...props}
       >
         {children}
       </StyledToast>,
