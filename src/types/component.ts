@@ -7,6 +7,8 @@ export type BrandColor =
   | 'primary'
   | 'primary-light1'
   | 'primary-light2'
+  | 'primary-dark'
+  | 'secondary-red'
   | 'common-black'
   | 'common-grey'
   | 'common-grey-light';

@@ -10,10 +10,14 @@ export function getBrandColorCodeByColorName(
 
   if (colorName === 'primary') {
     colorCode = theme.palette.primary.main;
+  } else if (colorName === 'primary-dark') {
+    colorCode = theme.palette.primary.dark;
   } else if (colorName === 'primary-light1') {
     colorCode = theme.palette.primary.light1;
   } else if (colorName === 'primary-light2') {
     colorCode = theme.palette.primary.light2;
+  } else if (colorName === 'secondary-red') {
+    colorCode = theme.palette.secondary.red.main;
   } else if (colorName === 'common-black') {
     colorCode = theme.palette.common.black;
   } else if (colorName === 'common-grey') {
