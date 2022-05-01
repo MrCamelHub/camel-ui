@@ -25,13 +25,13 @@ export type ConditionalSupportColor<T> = T &
         {
           variant?: Extract<Variant, 'outlined'>;
         },
-        Extract<BrandColor, 'grey'>
+        Extract<BrandColor, 'common-grey'>
       >
     | RequireAtOnlyOneColorProps<
         {
           variant?: Extract<Variant, 'contained'>;
         },
-        Extract<BrandColor, 'primary' | 'grey' | 'grey-light'>
+        Extract<BrandColor, 'primary' | 'common-grey' | 'common-grey-light'>
       >
   );
 
@@ -43,7 +43,7 @@ function DefaultButton({
   children,
   ref,
   variant = 'outlined',
-  brandColor = 'grey',
+  brandColor = 'common-grey',
   customColor,
   size = 'medium',
   round,

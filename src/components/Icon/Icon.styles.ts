@@ -1,26 +1,29 @@
 import styled, { CSSObject } from '@emotion/styled';
+import { getBrandColorCodeByColorName } from '@utils';
 import { HeartFilled } from '../../assets/icons';
 
 import { IconProps } from '.';
 
 export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<
-  Pick<IconProps, 'brandColor' | 'customColor' | 'size'>
+  Pick<IconProps, 'color' | 'size'>
 >`
   color: ${({ theme: { palette } }) => palette.common.grey['20']};
 
-  ${({ brandColor }): CSSObject =>
-    brandColor
-      ? {
-          color: `${brandColor} !important`
-        }
-      : {}};
+  ${({ theme, color }): CSSObject => {
+    let cssObject: CSSObject = {};
 
-  ${({ customColor }): CSSObject =>
-    customColor
-      ? {
-          color: `${customColor} !important`
-        }
-      : {}};
+    if (color) {
+      cssObject = { color: `${color} !important` };
+
+      const brandColorCode = getBrandColorCodeByColorName(theme, color, false);
+
+      if (brandColorCode) {
+        cssObject = { color: `${brandColorCode} !important` };
+      }
+    }
+
+    return cssObject;
+  }};
 
   ${({ size }): CSSObject => {
     switch (size) {

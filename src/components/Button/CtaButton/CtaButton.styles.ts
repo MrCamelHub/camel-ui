@@ -40,7 +40,7 @@ export const StyledCtaButton = styled.button<
           }
         };
 
-        if (brandColor === 'grey') {
+        if (brandColor === 'common-grey') {
           cssObject = {
             borderColor: palette.common.grey['40'],
             color: brandColorCode,
@@ -54,25 +54,6 @@ export const StyledCtaButton = styled.button<
 
     return cssObject;
   }}
-
-  ${({ size }): CSSObject => {
-    switch (size) {
-      case 'large':
-        return {
-          height: 48,
-          padding: '0 12px',
-          lineHeight: '24px',
-          fontSize: 16
-        };
-      default:
-        return {
-          height: 41,
-          padding: '0 10px',
-          lineHeight: '21px',
-          fontSize: 14
-        };
-    }
-  }};
 
   ${({ theme: { palette }, variant, customColor }): CSSObject => {
     let cssObject: CSSObject;
@@ -100,6 +81,25 @@ export const StyledCtaButton = styled.button<
 
     return cssObject;
   }}
+
+  ${({ size }): CSSObject => {
+    switch (size) {
+      case 'large':
+        return {
+          height: 48,
+          padding: '0 12px',
+          lineHeight: '24px',
+          fontSize: 16
+        };
+      default:
+        return {
+          height: 41,
+          padding: '0 10px',
+          lineHeight: '21px',
+          fontSize: 14
+        };
+    }
+  }};
 
   ${({ fullWidth }): CSSObject =>
     fullWidth

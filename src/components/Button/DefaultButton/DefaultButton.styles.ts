@@ -33,7 +33,7 @@ export const StyledDefaultButton = styled.button<
           }
         };
 
-        if (brandColor === 'grey') {
+        if (brandColor === 'common-grey') {
           cssObject = {
             backgroundColor: brandColorCode,
             color: palette.common.white,
@@ -43,7 +43,7 @@ export const StyledDefaultButton = styled.button<
           };
         }
 
-        if (brandColor === 'grey-light') {
+        if (brandColor === 'common-grey-light') {
           cssObject = {
             backgroundColor: brandColorCode,
             color: palette.common.grey['20'],

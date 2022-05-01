@@ -16,7 +16,7 @@ export interface AlertProps
 
 export type AlertPropsWithColor = RequireAtOnlyOneColorProps<
   AlertProps,
-  Extract<BrandColor, 'primary-light1' | 'primary-light2' | 'grey-light'>
+  Extract<BrandColor, 'primary-light1' | 'primary-light2' | 'common-grey-light'>
 >;
 
 function Alert({

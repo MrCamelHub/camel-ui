@@ -23,13 +23,13 @@ export type ConditionalSupportColor<T> = T &
         {
           variant?: Extract<Variant, 'outlined'>;
         },
-        Extract<BrandColor, 'primary' | 'grey'>
+        Extract<BrandColor, 'primary' | 'common-grey'>
       >
     | RequireAtOnlyOneColorProps<
         {
           variant?: Extract<Variant, 'contained'>;
         },
-        Extract<BrandColor, 'primary' | 'black'>
+        Extract<BrandColor, 'primary' | 'common-black'>
       >
   );
 
@@ -40,6 +40,7 @@ function CtaButton({
   ref,
   variant = 'outlined',
   brandColor = 'primary',
+  customColor,
   size = 'medium',
   startIcon,
   endIcon,
@@ -57,6 +58,7 @@ function CtaButton({
       variant={variant}
       size={size}
       brandColor={brandColor}
+      customColor={customColor}
       fullWidth={fullWidth}
       css={customStyle}
       {...props}

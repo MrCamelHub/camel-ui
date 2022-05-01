@@ -7,9 +7,9 @@ export type BrandColor =
   | 'primary'
   | 'primary-light1'
   | 'primary-light2'
-  | 'black'
-  | 'grey'
-  | 'grey-light';
+  | 'common-black'
+  | 'common-grey'
+  | 'common-grey-light';
 export type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
 export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body1' | 'body2' | 'small1' | 'small2';
