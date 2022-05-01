@@ -2,7 +2,7 @@ import React, { memo, PropsWithChildren, ButtonHTMLAttributes, ReactElement } fr
 import { useTheme } from '@theme';
 
 import { GenericComponentProps, Variant, ComponentColor, Size } from '../../../types';
-import { StyledCtaButton, ButtonInner } from './CtaButton.styles';
+import { StyledCtaButton } from './CtaButton.styles';
 
 export interface CtaButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
@@ -67,11 +67,9 @@ function CtaButton({
       css={customStyle}
       {...props}
     >
-      <ButtonInner>
-        {startIcon}
-        {!iconOnly && children}
-        {endIcon}
-      </ButtonInner>
+      {startIcon}
+      {!iconOnly && children}
+      {endIcon}
     </StyledCtaButton>
   );
 }

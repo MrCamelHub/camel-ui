@@ -8,7 +8,10 @@ export const StyledCtaButton = styled.button<
     'variant' | 'color' | 'size' | 'fullWidth'
   >
 >`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: fit-content;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -97,11 +100,4 @@ export const StyledCtaButton = styled.button<
       color: ${({ theme: { palette } }) => palette.common.grey['60']};
     }
   }
-`;
-
-export const ButtonInner = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
 `;

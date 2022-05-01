@@ -8,7 +8,9 @@ export const StyledDefaultButton = styled.button<
     'variant' | 'color' | 'size' | 'round' | 'fullWidth'
   >
 >`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 9px;
   width: fit-content;
   border: 1px solid transparent;
@@ -126,11 +128,4 @@ export const StyledDefaultButton = styled.button<
   &:disabled {
     cursor: default;
   }
-`;
-
-export const ButtonInner = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
 `;
