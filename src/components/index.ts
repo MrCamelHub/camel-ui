@@ -11,3 +11,4 @@ export { default as Alert } from './Alert';
 export { default as Stepper } from './Stepper';
 export { default as Rating } from './Rating';
 export { default as BottomSheet } from './BottomSheet';
+export { default as Dialog } from './Dialog';

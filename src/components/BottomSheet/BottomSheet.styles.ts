@@ -79,8 +79,8 @@ export const Content = styled.div<{ maxHeight: number; swipeZoneHeight: number }
 `;
 
 export const Rectangle = styled.div`
-  width: 30px;
+  width: 48px;
   height: 4px;
-  background-color: ${({ theme: { palette } }) => palette.box.stroke.grey};
+  background-color: ${({ theme: { palette } }) => palette.common.grey['90']};
   border-radius: 2px;
 `;
