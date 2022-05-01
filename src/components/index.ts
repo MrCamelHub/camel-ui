@@ -13,3 +13,4 @@ export { default as Rating } from './Rating';
 export { default as BottomSheet } from './BottomSheet';
 export { default as Dialog } from './Dialog';
 export { default as Typography } from './Typography';
+export { default as Toast } from './Toast';
