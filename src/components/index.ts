@@ -15,3 +15,5 @@ export { default as Dialog } from './Dialog';
 export { default as Typography } from './Typography';
 export { default as Toast } from './Toast';
 export { default as Label } from './Label';
+export { default as Layout } from './Layout';
+export { default as Grid } from './Grid';
