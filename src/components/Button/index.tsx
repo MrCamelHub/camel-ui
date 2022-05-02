@@ -10,7 +10,7 @@ import {
   Size,
   BoxRoundKey
 } from '../../types';
-import { StyledDefaultButton } from './Button.styles';
+import { StyledButton } from './Button.styles';
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
@@ -55,7 +55,7 @@ function Button({
   const { theme } = useTheme();
 
   return (
-    <StyledDefaultButton
+    <StyledButton
       ref={componentRef}
       theme={theme}
       variant={variant}
@@ -70,7 +70,7 @@ function Button({
       {startIcon}
       {!iconOnly && children}
       {endIcon}
-    </StyledDefaultButton>
+    </StyledButton>
   );
 }
 

@@ -17,3 +17,4 @@ export { default as Toast } from './Toast';
 export { default as Label } from './Label';
 export { default as Flexbox } from './Flexbox';
 export { default as Grid } from './Grid';
+export { default as Tooltip } from './Tooltip';

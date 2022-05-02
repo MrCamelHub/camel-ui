@@ -3,7 +3,7 @@ import styled, { CSSObject } from '@emotion/styled';
 import { getBrandColorCodeByColorName } from '@utils';
 import { ButtonProps } from '.';
 
-export const StyledDefaultButton = styled.button<
+export const StyledButton = styled.button<
   Pick<ButtonProps, 'variant' | 'brandColor' | 'customColor' | 'size' | 'round' | 'fullWidth'>
 >`
   display: inline-flex;
@@ -12,8 +12,6 @@ export const StyledDefaultButton = styled.button<
   gap: 9px;
   width: fit-content;
   border: 1px solid transparent;
-  font-weight: 500;
-  letter-spacing: -0.2px;
 
   ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject;
