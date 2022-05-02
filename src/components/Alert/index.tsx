@@ -5,13 +5,13 @@ import {
   GenericComponentProps,
   RequireAtOnlyOneColorProps,
   BrandColor,
-  CSSValue
+  BoxRoundKey
 } from '../../types';
 import { StyledAlert } from './Alert.styles';
 
 export interface AlertProps
   extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  round?: CSSValue;
+  round?: BoxRoundKey;
 }
 
 export type AlertPropsWithColor = RequireAtOnlyOneColorProps<

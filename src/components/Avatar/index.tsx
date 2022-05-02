@@ -1,11 +1,12 @@
 import React, { memo, ImgHTMLAttributes } from 'react';
+import { useTheme } from '@theme';
 
-import { GenericComponentProps, CSSValue } from '../../types';
+import { GenericComponentProps, BoxRoundKey } from '../../types';
 import { StyledAvatar } from './Avatar.styles';
 
 export interface AvatarProps
   extends GenericComponentProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
-  round?: CSSValue;
+  round?: BoxRoundKey;
 }
 
 function Avatar({
@@ -15,12 +16,14 @@ function Avatar({
   src,
   alt,
   customStyle,
-  round = 4,
+  round = '4',
   ...props
 }: AvatarProps) {
+  const { theme } = useTheme();
   return (
     <StyledAvatar
       ref={componentRef}
+      theme={theme}
       width={width}
       height={height}
       src={src}

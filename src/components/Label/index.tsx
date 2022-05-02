@@ -5,8 +5,8 @@ import {
   GenericComponentProps,
   RequireAtOnlyOneColorProps,
   Variant,
-  CSSValue,
-  BrandColor
+  BrandColor,
+  BoxRoundKey
 } from '../../types';
 import { StyledLabel } from './Label.styles';
 
@@ -14,7 +14,7 @@ export interface BaseLabelProps
   extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   variant?: Variant;
   text: string;
-  round?: CSSValue;
+  round?: BoxRoundKey;
 }
 
 export type LabelProps = RequireAtOnlyOneColorProps<BaseLabelProps, BrandColor>;

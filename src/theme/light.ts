@@ -128,6 +128,23 @@ export const light: MrCamelTheme = {
       letterSpacing: '-0.2px'
     }
   },
+  box: {
+    round: {
+      '0': '0px',
+      '2': '2px',
+      '4': '4px',
+      '8': '8px',
+      '16': '16px',
+      '24': '24px'
+    },
+    shadow: {
+      icon: '0px 0px 2px rgba(0, 0, 0, 0.4)',
+      platformLogo: '0px 0px 2px rgba(0, 0, 0, 0.2)',
+      category: '0px 0px 8px rgba(0, 0, 0, 0.1)',
+      modal: '0px 0px 16px rgba(0, 0, 0, 0.1)',
+      tooltip: '0px 0px 16px rgba(0, 0, 0, 0.2)'
+    }
+  },
   breakpoints: {
     xs: 0,
     sm: 425,

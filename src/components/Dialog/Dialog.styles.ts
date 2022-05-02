@@ -52,6 +52,11 @@ export const StyledDialog = styled.div<
 >`
   border: 1px solid ${({ theme: { palette } }) => palette.common.grey['90']};
   background-color: ${({ theme: { palette } }) => palette.common.white};
+  box-shadow: ${({
+    theme: {
+      box: { shadow }
+    }
+  }) => shadow.modal};
 
   ${({ fullScreen }): CSSObject =>
     !fullScreen

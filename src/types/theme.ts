@@ -1,10 +1,10 @@
-import { TypographyVariant, TypographyComponent, TypographyWeight } from './component';
+import { TypographyVariant, TypographyComponent, TypographyWeight, BoxRoundKey } from './component';
 import { ColorCode, CSSValue } from './css';
 import { grey } from '../theme/colors';
 
 export type ThemeType = 'light';
 
-// #TODO 추후 Layer 우선 순위 및 Breakpoints 에 따른 좌우 여백 정립
+// #TODO 추후 Layer 우선 순위 정립
 export interface MrCamelTheme {
   type: ThemeType;
   palette: {
@@ -41,6 +41,18 @@ export interface MrCamelTheme {
       weight: TypographyWeight;
       lineHeight: CSSValue;
       letterSpacing: CSSValue;
+    };
+  };
+  box: {
+    round: {
+      [key in BoxRoundKey]: CSSValue;
+    };
+    shadow: {
+      icon: string;
+      platformLogo: string;
+      category: string;
+      modal: string;
+      tooltip: string;
     };
   };
   breakpoints: {

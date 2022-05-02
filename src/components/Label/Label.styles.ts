@@ -77,10 +77,15 @@ export const StyledLabel = styled.div<
     return cssObject;
   }};
 
-  ${({ round }): CSSObject =>
+  ${({
+    theme: {
+      box: { round: boxRound }
+    },
+    round
+  }): CSSObject =>
     round
       ? {
-          borderRadius: round
+          borderRadius: boxRound[round]
         }
       : {}}
 `;

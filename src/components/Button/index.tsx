@@ -5,17 +5,17 @@ import {
   GenericComponentProps,
   RequireAtOnlyOneIcon,
   RequireAtOnlyOneColorProps,
-  CSSValue,
   Variant,
   BrandColor,
-  Size
-} from '../../../types';
-import { StyledDefaultButton } from './DefaultButton.styles';
+  Size,
+  BoxRoundKey
+} from '../../types';
+import { StyledDefaultButton } from './Button.styles';
 
-export interface BaseDefaultButtonProps
+export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   size?: Size;
-  round?: CSSValue;
+  round?: BoxRoundKey;
   fullWidth?: boolean;
 }
 
@@ -35,11 +35,9 @@ export type ConditionalSupportColor<T> = T &
       >
   );
 
-export type DefaultButtonProps = RequireAtOnlyOneIcon<
-  ConditionalSupportColor<BaseDefaultButtonProps>
->;
+export type ButtonProps = RequireAtOnlyOneIcon<ConditionalSupportColor<BaseButtonProps>>;
 
-function DefaultButton({
+function Button({
   children,
   componentRef,
   variant = 'outlined',
@@ -53,7 +51,7 @@ function DefaultButton({
   fullWidth = false,
   customStyle,
   ...props
-}: PropsWithChildren<DefaultButtonProps>) {
+}: PropsWithChildren<ButtonProps>) {
   const { theme } = useTheme();
 
   return (
@@ -76,4 +74,4 @@ function DefaultButton({
   );
 }
 
-export default memo(DefaultButton);
+export default memo(Button);

@@ -38,6 +38,11 @@ export const StyledBottomSheet = styled.div<
   max-height: 90%;
   background-color: ${({ theme: { palette } }) => palette.common.white};
   border-radius: 16px 16px 0 0;
+  box-shadow: ${({
+    theme: {
+      box: { shadow }
+    }
+  }) => shadow.modal};
   transition: transform ${({ transitionDuration }) => transitionDuration}ms
     cubic-bezier(0, 0, 0.2, 1) 0ms;
   transform: translateY(100%);

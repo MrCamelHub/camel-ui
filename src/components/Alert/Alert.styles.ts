@@ -19,10 +19,15 @@ export const StyledAlert = styled.div<
         }
       : {}}
 
-  ${({ round }): CSSObject =>
+  ${({
+    theme: {
+      box: { round: boxRound }
+    },
+    round
+  }): CSSObject =>
     round
       ? {
-          borderRadius: round
+          borderRadius: boxRound[round]
         }
-      : {}};
+      : {}}
 `;

@@ -22,6 +22,7 @@ export type TypographyWeight = {
   regular: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   light: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 };
+export type BoxRoundKey = '0' | '2' | '4' | '8' | '16' | '24';
 
 export type GenericComponentProps<T, K> = T & {
   componentRef?: RefObject<K>;

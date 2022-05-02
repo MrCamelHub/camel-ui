@@ -5,7 +5,11 @@ export const StyledFab = styled.button`
   height: 48px;
   background-color: ${({ theme: { palette } }) => palette.common.white};
   border-radius: 50%;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({
+    theme: {
+      box: { shadow }
+    }
+  }) => shadow.modal};
 `;
 
 export const StyledFabInner = styled.div`

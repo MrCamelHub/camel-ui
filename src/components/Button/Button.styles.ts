@@ -1,13 +1,10 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
-import { DefaultButtonProps } from '.';
+import { ButtonProps } from '.';
 
 export const StyledDefaultButton = styled.button<
-  Pick<
-    DefaultButtonProps,
-    'variant' | 'brandColor' | 'customColor' | 'size' | 'round' | 'fullWidth'
-  >
+  Pick<ButtonProps, 'variant' | 'brandColor' | 'customColor' | 'size' | 'round' | 'fullWidth'>
 >`
   display: inline-flex;
   align-items: center;
@@ -135,10 +132,15 @@ export const StyledDefaultButton = styled.button<
     }
   }}
 
-  ${({ round }): CSSObject =>
+  ${({
+    theme: {
+      box: { round: boxRound }
+    },
+    round
+  }): CSSObject =>
     round
       ? {
-          borderRadius: round
+          borderRadius: boxRound[round]
         }
       : {}}
   

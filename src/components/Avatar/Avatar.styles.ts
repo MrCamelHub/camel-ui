@@ -5,10 +5,15 @@ import { AvatarProps } from '.';
 export const StyledAvatar = styled.img<Pick<AvatarProps, 'round'>>`
   display: inline-block;
 
-  ${({ round }): CSSObject =>
+  ${({
+    theme: {
+      box: { round: boxRound }
+    },
+    round
+  }): CSSObject =>
     round
       ? {
-          borderRadius: round
+          borderRadius: boxRound[round]
         }
       : {}}
 `;

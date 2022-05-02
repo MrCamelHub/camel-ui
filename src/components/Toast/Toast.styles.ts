@@ -47,9 +47,13 @@ export const StyledToast = styled.div<
   bottom: ${({ bottom }) => bottom};
   transform: translateX(-50%);
   width: fit-content;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: ${({
+    theme: {
+      box: { shadow }
+    }
+  }) => shadow.tooltip};
   color: ${({ theme: { palette } }) => palette.common.white};
   z-index: 1005;
 
