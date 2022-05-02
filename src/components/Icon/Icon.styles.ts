@@ -32,16 +32,18 @@ export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<
           width: 16,
           height: 16
         };
+      case 'medium':
+        return {
+          width: 20,
+          height: 20
+        };
       case 'large':
         return {
           width: 24,
           height: 24
         };
       default:
-        return {
-          width: 20,
-          height: 20
-        };
+        return {};
     }
   }}
 `;

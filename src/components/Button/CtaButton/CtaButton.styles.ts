@@ -13,8 +13,6 @@ export const StyledCtaButton = styled.button<
   width: fit-content;
   border: 1px solid transparent;
   border-radius: 8px;
-  font-weight: 700;
-  letter-spacing: -0.2px;
 
   ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject;
@@ -82,21 +80,25 @@ export const StyledCtaButton = styled.button<
     return cssObject;
   }}
 
-  ${({ size }): CSSObject => {
+  ${({ theme: { typography }, size }): CSSObject => {
     switch (size) {
       case 'large':
         return {
           height: 48,
           padding: '0 12px',
-          lineHeight: '24px',
-          fontSize: 16
+          fontSize: typography.h4.size,
+          fontWeight: typography.h4.weight.bold,
+          lineHeight: typography.h4.lineHeight,
+          letterSpacing: typography.h4.letterSpacing
         };
       default:
         return {
           height: 41,
           padding: '0 10px',
-          lineHeight: '21px',
-          fontSize: 14
+          fontSize: typography.body1.size,
+          fontWeight: typography.body1.weight.medium,
+          lineHeight: typography.body1.lineHeight,
+          letterSpacing: typography.body1.letterSpacing
         };
     }
   }};

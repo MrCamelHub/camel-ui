@@ -80,46 +80,56 @@ export const StyledDefaultButton = styled.button<
         }
       : {}}
 
-  ${({ size }): CSSObject => {
+  ${({ theme: { typography }, size }): CSSObject => {
     switch (size) {
       case 'xsmall':
         return {
           height: 25,
           padding: '0 8px',
-          lineHeight: '15px',
-          fontSize: 10,
+          fontSize: typography.small2.size,
+          fontWeight: typography.small2.weight.medium,
+          lineHeight: typography.small2.lineHeight,
+          letterSpacing: typography.small2.letterSpacing,
           borderRadius: 14
         };
       case 'small':
         return {
           height: 30,
           padding: '0 10px',
-          lineHeight: '18px',
-          fontSize: 12,
+          fontSize: typography.body2.size,
+          fontWeight: typography.body2.weight.medium,
+          lineHeight: typography.body2.lineHeight,
+          letterSpacing: typography.body2.letterSpacing,
           borderRadius: 18
         };
       case 'large':
         return {
           height: 45,
           padding: '0 16px',
-          lineHeight: '27px',
-          fontSize: 18,
+          fontSize: typography.h3.size,
+          fontWeight: typography.h3.weight.medium,
+          lineHeight: typography.h3.lineHeight,
+          letterSpacing: typography.h3.letterSpacing,
           borderRadius: 23
         };
       case 'xlarge':
         return {
           height: 60,
           padding: '0 22px',
-          lineHeight: '36px',
-          fontSize: 24,
+          fontSize: typography.h2.size,
+          fontWeight: typography.h2.weight.medium,
+          lineHeight: typography.h2.lineHeight,
+          letterSpacing: typography.h2.letterSpacing,
           borderRadius: 36
         };
       default:
         return {
           height: 35,
           padding: '0 12px',
-          lineHeight: '21px',
-          fontSize: 14,
+          fontSize: typography.body1.size,
+          fontWeight: typography.body1.weight.medium,
+          lineHeight: typography.body1.lineHeight,
+          letterSpacing: typography.body1.letterSpacing,
           borderRadius: 19
         };
     }

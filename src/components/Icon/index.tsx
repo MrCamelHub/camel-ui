@@ -15,7 +15,7 @@ export interface IconProps extends GenericComponentProps<SVGProps<SVGElement>, S
 function Icon({
   componentRef,
   name,
-  size = 'medium',
+  size,
   viewBox = '0 0 24 24',
   color,
   customStyle,

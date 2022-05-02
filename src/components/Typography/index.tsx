@@ -25,7 +25,7 @@ function Typography({
   children,
   variant = 'body1',
   component,
-  weight = 'medium',
+  weight = 'regular',
   brandColor,
   customColor,
   customStyle
