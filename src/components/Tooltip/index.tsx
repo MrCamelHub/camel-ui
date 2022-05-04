@@ -2,6 +2,7 @@ import React, {
   useEffect,
   useState,
   useRef,
+  forwardRef,
   memo,
   PropsWithChildren,
   ReactElement,
@@ -17,8 +18,7 @@ import {
 } from '../../types';
 import { Wrapper, StyledTooltip } from './Tooltip.styles';
 
-export interface BaseTooltipProps
-  extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface BaseTooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;
   message: ReactElement | string;
   placement?: 'top' | 'left' | 'right' | 'bottom';
@@ -30,21 +30,23 @@ export interface BaseTooltipProps
 
 export type TooltipProps = RequireAtOnlyOneColorProps<BaseTooltipProps, BrandColor>;
 
-function Tooltip({
-  componentRef,
-  children,
-  open,
-  message,
-  placement = 'top',
-  spaceBetween = 20,
-  transitionDuration = 225,
-  triangleLeft,
-  brandColor = 'common-black',
-  customColor,
-  round = '8',
-  customStyle,
-  ...props
-}: PropsWithChildren<TooltipProps>) {
+const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(function Tooltip(
+  {
+    children,
+    open,
+    message,
+    placement = 'top',
+    spaceBetween = 20,
+    transitionDuration = 225,
+    triangleLeft,
+    brandColor = 'common-black',
+    customColor,
+    round = '8',
+    customStyle,
+    ...props
+  },
+  ref
+) {
   const { theme } = useTheme();
 
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
@@ -88,7 +90,7 @@ function Tooltip({
   }, [isMounted]);
 
   return (
-    <Wrapper ref={componentRef} {...props}>
+    <Wrapper ref={ref} {...props}>
       {children}
       <StyledTooltip
         ref={tooltipRef}
@@ -110,6 +112,6 @@ function Tooltip({
       </StyledTooltip>
     </Wrapper>
   );
-}
+});
 
 export default memo(Tooltip);

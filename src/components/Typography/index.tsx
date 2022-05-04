@@ -1,4 +1,4 @@
-import React, { memo, PropsWithChildren, HTMLAttributes } from 'react';
+import React, { forwardRef, memo, PropsWithChildren, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -11,8 +11,7 @@ import {
 } from '../../types';
 import { StyledTypography } from './Typography.styles';
 
-export interface BaseTypographyProps
-  extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface BaseTypographyProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   variant?: TypographyVariant;
   component?: TypographyComponent;
   weight?: keyof TypographyWeight;
@@ -20,32 +19,36 @@ export interface BaseTypographyProps
 
 export type TypographyProps = RequireAtOnlyOneColorProps<BaseTypographyProps, BrandColor>;
 
-function Typography({
-  componentRef,
-  children,
-  variant = 'body1',
-  component,
-  weight = 'regular',
-  brandColor,
-  customColor,
-  customStyle
-}: PropsWithChildren<TypographyProps>) {
-  const { theme } = useTheme();
+const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>>(
+  function Typography(
+    {
+      children,
+      variant = 'body1',
+      component,
+      weight = 'regular',
+      brandColor,
+      customColor,
+      customStyle
+    },
+    ref
+  ) {
+    const { theme } = useTheme();
 
-  return (
-    <StyledTypography
-      ref={componentRef}
-      theme={theme}
-      variant={variant}
-      as={component || theme.typography[variant].component}
-      weight={weight}
-      brandColor={brandColor}
-      customColor={customColor}
-      css={customStyle}
-    >
-      {children}
-    </StyledTypography>
-  );
-}
+    return (
+      <StyledTypography
+        ref={ref}
+        theme={theme}
+        variant={variant}
+        as={component || theme.typography[variant].component}
+        weight={weight}
+        brandColor={brandColor}
+        customColor={customColor}
+        css={customStyle}
+      >
+        {children}
+      </StyledTypography>
+    );
+  }
+);
 
 export default memo(Typography);

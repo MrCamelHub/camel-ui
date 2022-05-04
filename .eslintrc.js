@@ -23,6 +23,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-var-requires': 'off',

@@ -1,4 +1,4 @@
-import React, { memo, PropsWithChildren, ButtonHTMLAttributes } from 'react';
+import React, { forwardRef, memo, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -12,7 +12,7 @@ import {
 import { StyledCtaButton } from './CtaButton.styles';
 
 export interface BaseCtaButtonProps
-  extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+  extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   size?: Exclude<Size, 'xsmall' | 'small' | 'xlarge'>;
   fullWidth?: boolean;
 }
@@ -35,39 +35,43 @@ export type ConditionalSupportColor<T> = T &
 
 export type CtaButtonProps = RequireAtOnlyOneIcon<ConditionalSupportColor<BaseCtaButtonProps>>;
 
-function CtaButton({
-  children,
-  componentRef,
-  variant = 'outlined',
-  brandColor = 'primary',
-  customColor,
-  size = 'medium',
-  startIcon,
-  endIcon,
-  iconOnly = false,
-  fullWidth,
-  customStyle,
-  ...props
-}: PropsWithChildren<CtaButtonProps>) {
-  const { theme } = useTheme();
+const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps>>(
+  function CtaButton(
+    {
+      children,
+      variant = 'outlined',
+      brandColor = 'primary',
+      customColor,
+      size = 'medium',
+      startIcon,
+      endIcon,
+      iconOnly = false,
+      fullWidth,
+      customStyle,
+      ...props
+    },
+    ref
+  ) {
+    const { theme } = useTheme();
 
-  return (
-    <StyledCtaButton
-      theme={theme}
-      ref={componentRef}
-      variant={variant}
-      size={size}
-      brandColor={brandColor}
-      customColor={customColor}
-      fullWidth={fullWidth}
-      css={customStyle}
-      {...props}
-    >
-      {startIcon}
-      {!iconOnly && children}
-      {endIcon}
-    </StyledCtaButton>
-  );
-}
+    return (
+      <StyledCtaButton
+        theme={theme}
+        ref={ref}
+        variant={variant}
+        size={size}
+        brandColor={brandColor}
+        customColor={customColor}
+        fullWidth={fullWidth}
+        css={customStyle}
+        {...props}
+      >
+        {startIcon}
+        {!iconOnly && children}
+        {endIcon}
+      </StyledCtaButton>
+    );
+  }
+);
 
 export default memo(CtaButton);

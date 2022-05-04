@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, memo } from 'react';
+import React, { forwardRef, memo, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -10,8 +10,7 @@ import {
 } from '../../types';
 import { StyledLabel } from './Label.styles';
 
-export interface BaseLabelProps
-  extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface BaseLabelProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   variant?: Variant;
   text: string;
   round?: BoxRoundKey;
@@ -19,20 +18,15 @@ export interface BaseLabelProps
 
 export type LabelProps = RequireAtOnlyOneColorProps<BaseLabelProps, BrandColor>;
 
-function Label({
-  componentRef,
-  variant = 'outlined',
-  text,
-  round,
-  brandColor = 'primary',
-  customColor,
-  customStyle
-}: LabelProps) {
+const Label = forwardRef<HTMLDivElement, LabelProps>(function Label(
+  { variant = 'outlined', text, round, brandColor = 'primary', customColor, customStyle },
+  ref
+) {
   const { theme } = useTheme();
 
   return (
     <StyledLabel
-      ref={componentRef}
+      ref={ref}
       theme={theme}
       variant={variant}
       round={round}
@@ -43,6 +37,6 @@ function Label({
       {text}
     </StyledLabel>
   );
-}
+});
 
 export default memo(Label);

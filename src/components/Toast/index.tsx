@@ -3,6 +3,7 @@ import React, {
   useState,
   useCallback,
   useRef,
+  forwardRef,
   memo,
   PropsWithChildren,
   HTMLAttributes,
@@ -15,7 +16,7 @@ import { GenericComponentProps, CSSValue } from '../../types';
 import { Wrapper, StyledToast } from './Toast.styles';
 
 export interface ToastProps
-  extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>, HTMLDivElement> {
+  extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {
   open: boolean;
   bottom?: CSSValue;
   autoHideDuration?: number;
@@ -23,17 +24,19 @@ export interface ToastProps
   onClose: () => void;
 }
 
-function Toast({
-  children,
-  componentRef,
-  open,
-  bottom = '100px',
-  autoHideDuration,
-  transitionDuration = 225,
-  onClose,
-  customStyle,
-  ...props
-}: PropsWithChildren<ToastProps>) {
+const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function Toast(
+  {
+    children,
+    open,
+    bottom = '100px',
+    autoHideDuration,
+    transitionDuration = 225,
+    onClose,
+    customStyle,
+    ...props
+  },
+  ref
+) {
   const { theme } = useTheme();
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -107,7 +110,7 @@ function Toast({
   if (isMounted && toastRef.current) {
     return createPortal(
       <Wrapper
-        ref={componentRef}
+        ref={ref}
         toastOpen={toastOpen}
         toastClose={!open}
         transitionDuration={transitionDuration}
@@ -131,6 +134,6 @@ function Toast({
   }
 
   return null;
-}
+});
 
 export default memo(Toast);
