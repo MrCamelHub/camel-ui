@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, ButtonHTMLAttributes } from 'react';
+import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps } from '../../types';
@@ -19,4 +19,4 @@ const Fab = forwardRef<HTMLButtonElement, FabProps>(function Fab(
   );
 });
 
-export default memo(Fab);
+export default Fab;

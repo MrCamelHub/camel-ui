@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, PropsWithChildren, ButtonHTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -76,4 +76,4 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
   );
 });
 
-export default memo(Button);
+export default Button;

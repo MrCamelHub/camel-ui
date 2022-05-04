@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import Icon from '@components/Icon';
@@ -35,4 +35,4 @@ const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
   );
 });
 
-export default memo(Rating);
+export default Rating;

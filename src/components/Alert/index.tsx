@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, PropsWithChildren, HTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -39,4 +39,4 @@ const Alert = forwardRef<HTMLDivElement, PropsWithChildren<AlertPropsWithColor>>
   );
 });
 
-export default memo(Alert);
+export default Alert;

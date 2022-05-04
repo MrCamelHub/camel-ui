@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, InputHTMLAttributes } from 'react';
+import React, { forwardRef, InputHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps } from '../../types';
@@ -27,4 +27,4 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
   );
 });
 
-export default memo(Checkbox);
+export default Checkbox;

@@ -1,10 +1,8 @@
 import React, {
   useEffect,
   useState,
-  useCallback,
   useRef,
   forwardRef,
-  memo,
   PropsWithChildren,
   HTMLAttributes,
   MouseEvent,
@@ -51,47 +49,38 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
     const sheetCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const sheetTranslateYRef = useRef<number>(0);
 
-    const handleClick = useCallback(
-      (event: MouseEvent<HTMLDivElement>) => event.stopPropagation(),
-      []
-    );
+    const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
-    const handleMouseDown = useCallback(() => setSwipeable(true), []);
+    const handleMouseDown = () => setSwipeable(true);
 
-    const handleMouseMove = useCallback(
-      (event: MouseEvent<HTMLDivElement>) => {
-        if (swipeable && sheetRef.current) {
-          const translateY =
-            event.clientY - (document.body.clientHeight - (sheetRef.current?.clientHeight || 0));
+    const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+      if (swipeable && sheetRef.current) {
+        const translateY =
+          event.clientY - (document.body.clientHeight - (sheetRef.current?.clientHeight || 0));
 
-          if (translateY < 0) return;
+        if (translateY < 0) return;
 
-          sheetRef.current?.setAttribute('style', `transform: translateY(${translateY}px)`);
-          sheetTranslateYRef.current = translateY;
-        }
-      },
-      [swipeable]
-    );
+        sheetRef.current?.setAttribute('style', `transform: translateY(${translateY}px)`);
+        sheetTranslateYRef.current = translateY;
+      }
+    };
 
-    const handleTouchStart = useCallback(() => setSwipeable(true), []);
+    const handleTouchStart = () => setSwipeable(true);
 
-    const handleTouchMove = useCallback(
-      (event: TouchEvent<HTMLDivElement>) => {
-        if (swipeable && sheetRef.current) {
-          const translateY =
-            event.touches.item(0).clientY -
-            (document.body.clientHeight - (sheetRef.current?.clientHeight || 0));
+    const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+      if (swipeable && sheetRef.current) {
+        const translateY =
+          event.touches.item(0).clientY -
+          (document.body.clientHeight - (sheetRef.current?.clientHeight || 0));
 
-          if (translateY < 0) return;
+        if (translateY < 0) return;
 
-          sheetRef.current?.setAttribute('style', `transform: translateY(${translateY}px)`);
-          sheetTranslateYRef.current = translateY;
-        }
-      },
-      [swipeable]
-    );
+        sheetRef.current?.setAttribute('style', `transform: translateY(${translateY}px)`);
+        sheetTranslateYRef.current = translateY;
+      }
+    };
 
-    const handleEndSwipeable = useCallback(() => {
+    const handleEndSwipeable = () => {
       if (swipeable && sheetRef.current) {
         const swipedPercentage =
           (sheetTranslateYRef.current / (sheetRef.current?.clientHeight || 0)) * 100;
@@ -104,7 +93,7 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
       }
 
       setSwipeable(false);
-    }, [swipeable, onClose]);
+    };
 
     useEffect(() => {
       if (open) {
@@ -215,4 +204,4 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
   }
 );
 
-export default memo(BottomSheet);
+export default BottomSheet;

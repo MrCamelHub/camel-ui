@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, PropsWithChildren, ButtonHTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -74,4 +74,4 @@ const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps
   }
 );
 
-export default memo(CtaButton);
+export default CtaButton;

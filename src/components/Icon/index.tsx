@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, SVGProps } from 'react';
+import React, { forwardRef, SVGProps } from 'react';
 import { useTheme } from '@theme';
 
 import * as SvgIcons from '../../assets/icons';
@@ -39,4 +39,4 @@ const Icon = forwardRef<SVGElement, IconProps>(function Icon(
   );
 });
 
-export default memo(Icon);
+export default Icon;

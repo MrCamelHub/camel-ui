@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, InputHTMLAttributes } from 'react';
+import React, { forwardRef, InputHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps } from '../../types';
@@ -20,4 +20,4 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   );
 });
 
-export default memo(Radio);
+export default Radio;

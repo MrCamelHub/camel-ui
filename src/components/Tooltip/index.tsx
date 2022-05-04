@@ -3,7 +3,6 @@ import React, {
   useState,
   useRef,
   forwardRef,
-  memo,
   PropsWithChildren,
   ReactElement,
   HTMLAttributes
@@ -114,4 +113,4 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
   );
 });
 
-export default memo(Tooltip);
+export default Tooltip;

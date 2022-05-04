@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, ImgHTMLAttributes } from 'react';
+import React, { forwardRef, ImgHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps, BoxRoundKey } from '../../types';
@@ -28,4 +28,4 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
   );
 });
 
-export default memo(Avatar);
+export default Avatar;

@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, ButtonHTMLAttributes, MouseEvent } from 'react';
+import React, { forwardRef, ButtonHTMLAttributes, MouseEvent } from 'react';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps } from '../../types';
@@ -34,4 +34,4 @@ const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch(
   );
 });
 
-export default memo(Switch);
+export default Switch;

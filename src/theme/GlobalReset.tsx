@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Global } from '@emotion/react';
 
 /*! tailwindcss v2.2.15 | MIT License | https://tailwindcss.com */
@@ -173,4 +173,4 @@ function GlobalReset() {
   );
 }
 
-export default memo(GlobalReset);
+export default GlobalReset;

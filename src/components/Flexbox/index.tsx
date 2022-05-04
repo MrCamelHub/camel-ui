@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
 
 import { GenericComponentProps } from '../../types';
 import { StyledFlexbox } from './Flexbox.styles';
@@ -39,4 +39,4 @@ const Flexbox = forwardRef<HTMLDivElement, PropsWithChildren<FlexboxProps>>(func
   );
 });
 
-export default memo(Flexbox);
+export default Flexbox;

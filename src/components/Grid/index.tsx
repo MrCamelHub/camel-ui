@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
 import useTheme from '@theme/provider/useTheme';
 
 import { GenericComponentProps } from '../../types';
@@ -120,4 +120,4 @@ const Grid = forwardRef<HTMLDivElement, PropsWithChildren<ConditionalSetGrid<Gri
   }
 );
 
-export default memo(Grid);
+export default Grid;

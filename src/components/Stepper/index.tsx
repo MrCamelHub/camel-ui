@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps } from '../../types';
@@ -25,4 +25,4 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>(function Stepper(
   );
 });
 
-export default memo(Stepper);
+export default Stepper;

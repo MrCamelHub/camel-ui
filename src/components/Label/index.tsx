@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -39,4 +39,4 @@ const Label = forwardRef<HTMLDivElement, LabelProps>(function Label(
   );
 });
 
-export default memo(Label);
+export default Label;

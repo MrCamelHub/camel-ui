@@ -1,10 +1,8 @@
 import React, {
   useEffect,
   useState,
-  useCallback,
   useRef,
   forwardRef,
-  memo,
   PropsWithChildren,
   HTMLAttributes,
   MouseEvent
@@ -47,10 +45,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   const toastCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toastAutoHideDurationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleClick = useCallback(
-    (event: MouseEvent<HTMLDivElement>) => event.stopPropagation(),
-    []
-  );
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
     if (open && !isMounted) {
@@ -136,4 +131,4 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   return null;
 });
 
-export default memo(Toast);
+export default Toast;

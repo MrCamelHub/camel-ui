@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
 
 import { GenericComponentProps } from '../../types';
 import { StyledBox } from './Box.styles';
@@ -18,4 +18,4 @@ const Box = forwardRef<HTMLDivElement, PropsWithChildren<BoxProps>>(function Box
   );
 });
 
-export default memo(Box);
+export default Box;

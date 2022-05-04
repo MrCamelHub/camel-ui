@@ -1,10 +1,8 @@
 import React, {
   useEffect,
   useState,
-  useCallback,
   useRef,
   forwardRef,
-  memo,
   PropsWithChildren,
   HTMLAttributes,
   MouseEvent
@@ -36,10 +34,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
   const dialogOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dialogCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleClick = useCallback(
-    (event: MouseEvent<HTMLDivElement>) => event.stopPropagation(),
-    []
-  );
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
     if (open) {
@@ -122,4 +117,4 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
   return null;
 });
 
-export default memo(Dialog);
+export default Dialog;

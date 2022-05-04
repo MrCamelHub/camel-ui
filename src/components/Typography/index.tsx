@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, PropsWithChildren, HTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -51,4 +51,4 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
   }
 );
 
-export default memo(Typography);
+export default Typography;
