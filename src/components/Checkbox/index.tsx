@@ -4,7 +4,8 @@ import { useTheme } from '@theme';
 import { GenericComponentProps } from '../../types';
 import { Wrapper, StyledCheckbox, Marker } from './Checkbox.styles';
 
-export interface CheckboxProps extends GenericComponentProps<InputHTMLAttributes<HTMLDivElement>> {}
+export interface CheckboxProps
+  extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {}
 
 const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
   { checked, customStyle, ...props },
