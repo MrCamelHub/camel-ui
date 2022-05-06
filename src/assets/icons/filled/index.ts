@@ -1,4 +1,4 @@
-export { default as AlramFilled } from './alarm-filled.svg';
+export { default as AlarmFilled } from './alarm-filled.svg';
 export { default as DownloadFilled } from './download-filled.svg';
 export { default as HeartFilled } from './heart-filled.svg';
 export { default as HomeFilled } from './home-filled.svg';
