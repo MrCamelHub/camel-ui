@@ -1,4 +1,4 @@
-import React, { memo, PropsWithChildren, HTMLAttributes } from 'react';
+import React, { forwardRef, PropsWithChildren, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import {
@@ -9,8 +9,7 @@ import {
 } from '../../types';
 import { StyledAlert } from './Alert.styles';
 
-export interface AlertProps
-  extends GenericComponentProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface AlertProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   round?: BoxRoundKey;
 }
 
@@ -19,20 +18,15 @@ export type AlertPropsWithColor = RequireAtOnlyOneColorProps<
   Extract<BrandColor, 'primary-light1' | 'primary-light2' | 'common-grey-light'>
 >;
 
-function Alert({
-  children,
-  componentRef,
-  brandColor = 'primary-light1',
-  customColor,
-  round,
-  customStyle,
-  ...props
-}: PropsWithChildren<AlertPropsWithColor>) {
+const Alert = forwardRef<HTMLDivElement, PropsWithChildren<AlertPropsWithColor>>(function Alert(
+  { children, brandColor = 'primary-light1', customColor, round, customStyle, ...props },
+  ref
+) {
   const { theme } = useTheme();
 
   return (
     <StyledAlert
-      ref={componentRef}
+      ref={ref}
       theme={theme}
       brandColor={brandColor}
       customColor={customColor}
@@ -43,6 +37,6 @@ function Alert({
       {children}
     </StyledAlert>
   );
-}
+});
 
-export default memo(Alert);
+export default Alert;

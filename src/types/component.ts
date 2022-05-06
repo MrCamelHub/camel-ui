@@ -1,4 +1,4 @@
-import { ReactElement, ElementType, RefObject } from 'react';
+import { ReactElement, ElementType } from 'react';
 import { Interpolation, Theme as EmotionTheme } from '@emotion/react';
 import { Color } from './css';
 
@@ -24,9 +24,10 @@ export type TypographyWeight = {
 };
 export type BoxRoundKey = '0' | '2' | '4' | '8' | '16' | '24';
 
-export type GenericComponentProps<T, K> = T & {
-  componentRef?: RefObject<K>;
-  customStyle?: Interpolation<EmotionTheme>;
+export type CustomStyle = Interpolation<EmotionTheme>;
+
+export type GenericComponentProps<T> = T & {
+  customStyle?: CustomStyle;
 };
 
 export type RequireAtOnlyOneIcon<T> = T &

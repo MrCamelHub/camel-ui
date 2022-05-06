@@ -1,18 +1,20 @@
-import React, { memo, InputHTMLAttributes } from 'react';
+import React, { forwardRef, InputHTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import { GenericComponentProps } from '../../types';
 import { Wrapper, StyledCheckbox, Marker } from './Checkbox.styles';
 
-export interface CheckboxProps
-  extends GenericComponentProps<InputHTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+export interface CheckboxProps extends GenericComponentProps<InputHTMLAttributes<HTMLDivElement>> {}
 
-function Checkbox({ componentRef, checked, customStyle, ...props }: CheckboxProps) {
+const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
+  { checked, customStyle, ...props },
+  ref
+) {
   const { theme } = useTheme();
 
   return (
     <Wrapper
-      ref={componentRef}
+      ref={ref}
       theme={theme}
       checked={checked}
       css={customStyle}
@@ -23,6 +25,6 @@ function Checkbox({ componentRef, checked, customStyle, ...props }: CheckboxProp
       <Marker theme={theme} />
     </Wrapper>
   );
-}
+});
 
-export default memo(Checkbox);
+export default Checkbox;
