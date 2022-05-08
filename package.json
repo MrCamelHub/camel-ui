@@ -14,8 +14,9 @@
   "private": false,
   "sideEffects": false,
   "scripts": {
+    "clean": "rimraf -rf ./dist",
     "build:dev": "rollup -c rollup.config.dev.js --watch",
-    "build": "rollup -c",
+    "build": "yarn run clean && rollup -c",
     "prettier": "prettier --write --config ./.prettierrc \"**/*.{js,ts,tsx}\"",
     "conventions": "yarn prettier && eslint --fix \"**/*.{js,ts,tsx}\""
   },
@@ -44,6 +45,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
     "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
     "rollup": "^2.70.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
