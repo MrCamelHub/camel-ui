@@ -1,4 +1,5 @@
 import { ReactElement, ElementType } from 'react';
+
 import { Interpolation, Theme as EmotionTheme } from '@emotion/react';
 
 export type Variant = 'outlined' | 'ghost' | 'contained';

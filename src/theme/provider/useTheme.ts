@@ -1,6 +1,7 @@
 import { useMemo, useContext } from 'react';
-import { light } from '../light';
+
 import ThemeContext from './ThemeContext';
+import { light } from '../light';
 
 function useTheme() {
   const themeContext = useContext(ThemeContext);

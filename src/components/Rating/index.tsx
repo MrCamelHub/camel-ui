@@ -1,10 +1,11 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
 import Icon from '@components/Icon';
 
-import { GenericComponentProps, Size } from '../../types';
+import { useTheme } from '@theme';
+
 import { StyledRating } from './Rating.styles';
+import { GenericComponentProps, Size } from '../../types';
 
 export interface RatingProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   count: number;

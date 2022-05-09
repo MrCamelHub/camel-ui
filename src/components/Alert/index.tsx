@@ -1,7 +1,7 @@
 import React, { forwardRef, PropsWithChildren, HTMLAttributes } from 'react';
 
-import { GenericComponentProps, BrandColor, BrandExtendsColor, BoxRoundKey } from '../../types';
 import { StyledAlert } from './Alert.styles';
+import { GenericComponentProps, BrandColor, BrandExtendsColor, BoxRoundKey } from '../../types';
 
 export interface AlertProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   round?: BoxRoundKey;

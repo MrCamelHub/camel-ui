@@ -1,6 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { RadioProps } from '.';
 
 export const Wrapper = styled.div<Pick<RadioProps, 'checked' | 'brandColor'>>`

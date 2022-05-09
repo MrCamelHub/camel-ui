@@ -1,5 +1,5 @@
-import { TypographyVariant, TypographyComponent, TypographyWeight, BoxRoundKey } from './component';
 import { ColorCode, CSSValue } from './css';
+import { TypographyVariant, TypographyComponent, TypographyWeight, BoxRoundKey } from './component';
 import { grey } from '../theme/colors';
 
 export type ThemeType = 'light';

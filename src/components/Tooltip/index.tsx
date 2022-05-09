@@ -8,8 +8,8 @@ import React, {
   HTMLAttributes
 } from 'react';
 
-import { GenericComponentProps, BrandColor, BrandExtendsColor, BoxRoundKey } from '../../types';
 import { Wrapper, StyledTooltip } from './Tooltip.styles';
+import { GenericComponentProps, BrandColor, BrandExtendsColor, BoxRoundKey } from '../../types';
 
 export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;

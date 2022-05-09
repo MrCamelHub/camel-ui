@@ -1,6 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { AlertProps } from '.';
 
 export const StyledAlert = styled.div<Pick<AlertProps, 'brandColor' | 'round'>>`

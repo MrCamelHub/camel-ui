@@ -26,6 +26,45 @@ module.exports = {
     'react/prop-types': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', ['parent', 'sibling'], 'index'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before'
+          },
+          {
+            pattern: '@components',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@theme',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@types',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@utils',
+            group: 'internal',
+            position: 'before'
+          }
+        ],
+        alphabetize: {
+          order: 'desc',
+          caseInsensitive: true
+        },
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always-and-inside-groups'
+      }
+    ],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-interface': 'off'
   },

@@ -1,7 +1,7 @@
 import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 
-import { GenericComponentProps } from '../../types';
 import { StyledFab, StyledFabInner } from './Fab.styles';
+import { GenericComponentProps } from '../../types';
 
 export interface FabProps extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {}
 

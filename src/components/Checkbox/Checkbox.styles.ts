@@ -1,5 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
+
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { CheckboxProps } from '.';
 
 export const Wrapper = styled.div<

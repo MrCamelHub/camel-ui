@@ -1,6 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { TooltipProps } from '.';
 
 export const Wrapper = styled.div`

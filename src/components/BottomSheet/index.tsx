@@ -8,10 +8,11 @@ import React, {
   MouseEvent,
   TouchEvent
 } from 'react';
+
 import { createPortal } from 'react-dom';
 
-import { GenericComponentProps } from '../../types';
 import { Wrapper, StyledBottomSheet, SwipeZone, Content, Rectangle } from './BottomSheet.styles';
+import { GenericComponentProps } from '../../types';
 
 export interface BottomSheetProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;

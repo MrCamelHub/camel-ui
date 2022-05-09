@@ -7,10 +7,11 @@ import React, {
   HTMLAttributes,
   MouseEvent
 } from 'react';
+
 import { createPortal } from 'react-dom';
 
-import { GenericComponentProps } from '../../types';
 import { Wrapper, StyledDialog } from './Dialog.styles';
+import { GenericComponentProps } from '../../types';
 
 export interface DialogProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {

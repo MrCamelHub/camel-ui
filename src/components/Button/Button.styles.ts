@@ -1,6 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { ButtonProps } from '.';
 
 export const StyledButton = styled.button<

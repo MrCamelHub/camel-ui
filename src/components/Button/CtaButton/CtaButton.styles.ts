@@ -1,6 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { CtaButtonProps } from '.';
 
 export const StyledCtaButton = styled.button<

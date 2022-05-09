@@ -1,6 +1,7 @@
 import React, { useMemo, PropsWithChildren } from 'react';
-import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+
 import { light } from '@theme/light';
+import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
 import ThemeContext from './ThemeContext';
 import { ThemeType } from '../../types';

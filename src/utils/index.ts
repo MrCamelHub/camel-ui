@@ -1,4 +1,5 @@
 import { Theme } from '@emotion/react';
+
 import { BrandColor, BrandExtendsColor, Color } from '../types';
 
 export function getBrandColorCodeByColorName(

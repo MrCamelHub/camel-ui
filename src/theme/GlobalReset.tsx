@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Global } from '@emotion/react';
 
 /*! tailwindcss v2.2.15 | MIT License | https://tailwindcss.com */

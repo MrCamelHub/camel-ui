@@ -1,6 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { LabelProps } from '.';
 
 export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'round' | 'brandColor'>>`

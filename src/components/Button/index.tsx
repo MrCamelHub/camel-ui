@@ -1,5 +1,6 @@
 import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 
+import { StyledButton } from './Button.styles';
 import {
   GenericComponentProps,
   RequireAtOnlyOneIcon,
@@ -8,7 +9,6 @@ import {
   Size,
   BoxRoundKey
 } from '../../types';
-import { StyledButton } from './Button.styles';
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {

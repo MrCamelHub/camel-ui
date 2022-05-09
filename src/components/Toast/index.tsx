@@ -7,10 +7,11 @@ import React, {
   HTMLAttributes,
   MouseEvent
 } from 'react';
+
 import { createPortal } from 'react-dom';
 
-import { GenericComponentProps, CSSValue } from '../../types';
 import { Wrapper, StyledToast } from './Toast.styles';
+import { GenericComponentProps, CSSValue } from '../../types';
 
 export interface ToastProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {
