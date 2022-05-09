@@ -3,7 +3,6 @@ import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'reac
 import {
   GenericComponentProps,
   RequireAtOnlyOneIcon,
-  RequireAtOnlyOneColorProps,
   Variant,
   BrandColor,
   Size
@@ -12,35 +11,20 @@ import { StyledCtaButton } from './CtaButton.styles';
 
 export interface BaseCtaButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
+  variant?: Variant;
+  brandColor?: BrandColor;
   size?: Exclude<Size, 'xsmall' | 'small' | 'xlarge'>;
   fullWidth?: boolean;
 }
 
-export type ConditionalSupportColor<T> = T &
-  (
-    | RequireAtOnlyOneColorProps<
-        {
-          variant?: Extract<Variant, 'outlined'>;
-        },
-        Extract<BrandColor, 'primary' | 'common-grey'>
-      >
-    | RequireAtOnlyOneColorProps<
-        {
-          variant?: Extract<Variant, 'contained'>;
-        },
-        Extract<BrandColor, 'primary' | 'common-black'>
-      >
-  );
-
-export type CtaButtonProps = RequireAtOnlyOneIcon<ConditionalSupportColor<BaseCtaButtonProps>>;
+export type CtaButtonProps = RequireAtOnlyOneIcon<BaseCtaButtonProps>;
 
 const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps>>(
   function CtaButton(
     {
       children,
       variant = 'outlined',
-      brandColor = 'primary',
-      customColor,
+      brandColor = 'grey',
       size = 'medium',
       startIcon,
       endIcon,
@@ -57,7 +41,6 @@ const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps
         variant={variant}
         size={size}
         brandColor={brandColor}
-        customColor={customColor}
         fullWidth={fullWidth}
         css={customStyle}
         {...props}

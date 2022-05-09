@@ -2,13 +2,13 @@ import React, { forwardRef, SVGProps } from 'react';
 
 import * as SvgIcons from '../../assets/icons';
 
-import { GenericComponentProps, BrandColor, Color, Size } from '../../types';
+import { GenericComponentProps, BrandColor, BrandExtendsColor, Color, Size } from '../../types';
 import { StyledIcon } from './Icon.styles';
 
 export interface IconProps extends GenericComponentProps<SVGProps<SVGElement>> {
   name: keyof typeof SvgIcons;
   size?: Exclude<Size, 'xsmall' | 'xlarge'>;
-  color?: BrandColor | Color;
+  color?: BrandColor | `${Extract<BrandColor, 'primary'>}-${BrandExtendsColor}` | Color;
 }
 
 const Icon = forwardRef<SVGElement, IconProps>(function Icon(

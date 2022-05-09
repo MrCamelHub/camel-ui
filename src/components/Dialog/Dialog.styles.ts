@@ -45,11 +45,15 @@ export const Wrapper = styled.div<
 `;
 
 export const StyledDialog = styled.div<
-  Pick<DialogProps, 'fullScreen' | 'transitionDuration'> & {
+  Pick<DialogProps, 'fullScreen' | 'transitionDuration' | 'disablePadding'> & {
     dialogOpen: boolean;
     dialogClose: boolean;
   }
 >`
+  padding: 16px 20px;
+
+  ${({ disablePadding }): CSSObject => (disablePadding ? { padding: 0 } : {})}
+
   border: 1px solid ${({ theme: { palette } }) => palette.common.grey['90']};
   background-color: ${({ theme: { palette } }) => palette.common.white};
   box-shadow: ${({

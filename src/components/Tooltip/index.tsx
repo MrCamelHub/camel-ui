@@ -8,25 +8,23 @@ import React, {
   HTMLAttributes
 } from 'react';
 
-import {
-  GenericComponentProps,
-  RequireAtOnlyOneColorProps,
-  BrandColor,
-  BoxRoundKey
-} from '../../types';
+import { GenericComponentProps, BrandColor, BrandExtendsColor, BoxRoundKey } from '../../types';
 import { Wrapper, StyledTooltip } from './Tooltip.styles';
 
-export interface BaseTooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
+export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;
   message: ReactElement | string;
+  brandColor?:
+    | Extract<BrandColor, 'black'>
+    | `${Extract<BrandColor, 'primary'>}-${Extract<BrandExtendsColor, 'highlight'>}`;
   placement?: 'top' | 'left' | 'right' | 'bottom';
   spaceBetween?: number;
   transitionDuration?: number;
   triangleLeft?: number;
-  round?: BoxRoundKey;
+  round?: Extract<BoxRoundKey, '8' | '16'>;
+  disablePadding?: boolean;
+  disableShadow?: boolean;
 }
-
-export type TooltipProps = RequireAtOnlyOneColorProps<BaseTooltipProps, BrandColor>;
 
 const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(function Tooltip(
   {
@@ -37,9 +35,10 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
     spaceBetween = 20,
     transitionDuration = 225,
     triangleLeft,
-    brandColor = 'common-black',
-    customColor,
+    brandColor = 'black',
     round = '8',
+    disablePadding = false,
+    disableShadow = false,
     customStyle,
     ...props
   },
@@ -99,8 +98,9 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
         transitionDuration={transitionDuration}
         triangleLeft={triangleLeft}
         brandColor={brandColor}
-        customColor={customColor}
         round={round}
+        disablePadding={disablePadding}
+        disableShadow={disableShadow}
         css={customStyle}
       >
         {message}

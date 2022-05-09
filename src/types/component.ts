@@ -1,17 +1,10 @@
 import { ReactElement, ElementType } from 'react';
 import { Interpolation, Theme as EmotionTheme } from '@emotion/react';
-import { Color } from './css';
 
-export type Variant = 'outlined' | 'contained';
-export type BrandColor =
-  | 'primary'
-  | 'primary-light1'
-  | 'primary-light2'
-  | 'primary-dark'
-  | 'secondary-red'
-  | 'common-black'
-  | 'common-grey'
-  | 'common-grey-light';
+export type Variant = 'outlined' | 'ghost' | 'contained';
+export type BrandColor = 'grey' | 'black' | 'primary' | 'red' | 'purple';
+export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
+
 export type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
 export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body1' | 'body2' | 'small1' | 'small2';
@@ -46,17 +39,5 @@ export type RequireAtOnlyOneIcon<T> = T &
         iconOnly?: never;
         startIcon?: ReactElement;
         endIcon?: ReactElement;
-      }
-  );
-
-export type RequireAtOnlyOneColorProps<T, K extends BrandColor> = T &
-  (
-    | {
-        brandColor?: K;
-        customColor?: never;
-      }
-    | {
-        brandColor?: never;
-        customColor?: Color;
       }
   );

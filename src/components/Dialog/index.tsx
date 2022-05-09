@@ -17,11 +17,21 @@ export interface DialogProps
   open: boolean;
   transitionDuration?: number;
   fullScreen?: boolean;
+  disablePadding?: boolean;
   onClose: () => void;
 }
 
 const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(function Dialog(
-  { children, open, transitionDuration = 225, fullScreen, onClose, customStyle, ...props },
+  {
+    children,
+    open,
+    transitionDuration = 225,
+    fullScreen,
+    disablePadding = false,
+    onClose,
+    customStyle,
+    ...props
+  },
   ref
 ) {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -98,6 +108,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
           dialogClose={!open}
           transitionDuration={transitionDuration}
           fullScreen={fullScreen}
+          disablePadding={disablePadding}
           onClick={handleClick}
           css={customStyle}
           {...props}

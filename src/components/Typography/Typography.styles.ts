@@ -4,7 +4,7 @@ import { getBrandColorCodeByColorName } from '@utils';
 import { TypographyProps } from '.';
 
 export const StyledTypography = styled.div<
-  Pick<TypographyProps, 'variant' | 'weight' | 'brandColor' | 'customColor'>
+  Pick<TypographyProps, 'variant' | 'weight' | 'brandColor'>
 >`
   color: ${({ theme: { palette } }) => palette.common.grey['20']};
 
@@ -19,13 +19,6 @@ export const StyledTypography = styled.div<
     brandColor
       ? {
           color: getBrandColorCodeByColorName(theme, brandColor)
-        }
-      : {}}
-
-  ${({ customColor }): CSSObject =>
-    customColor
-      ? {
-          color: customColor
         }
       : {}}
 `;

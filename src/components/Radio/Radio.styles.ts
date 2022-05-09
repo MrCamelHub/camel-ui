@@ -1,22 +1,34 @@
 import styled, { CSSObject } from '@emotion/styled';
 
+import { getBrandColorCodeByColorName } from '@utils';
 import { RadioProps } from '.';
 
-export const Wrapper = styled.div<Pick<RadioProps, 'checked'>>`
+export const Wrapper = styled.div<Pick<RadioProps, 'checked' | 'brandColor'>>`
   position: relative;
   display: inline-block;
   width: 24px;
   height: 24px;
-  border: 1px solid ${({ theme: { palette } }) => palette.common.grey['80']};
   border-radius: 50%;
   background-color: ${({ theme: { palette } }) => palette.common.white};
   cursor: pointer;
 
-  ${({ theme: { palette }, checked }): CSSObject =>
+  ${({ theme, brandColor }): CSSObject => {
+    if (brandColor === 'black') {
+      return {
+        border: `1px solid ${theme.palette.common.grey['60']}`
+      };
+    }
+
+    return {
+      border: `1px solid ${getBrandColorCodeByColorName(theme, brandColor)}`
+    };
+  }}
+
+  ${({ theme, brandColor, checked }): CSSObject =>
     checked
       ? {
           borderColor: 'transparent',
-          backgroundColor: palette.common.grey['20']
+          backgroundColor: getBrandColorCodeByColorName(theme, brandColor)
         }
       : {}}
 `;

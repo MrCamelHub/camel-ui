@@ -18,6 +18,7 @@ export interface ToastProps
   bottom?: CSSValue;
   autoHideDuration?: number;
   transitionDuration?: number;
+  disablePadding?: boolean;
   onClose: () => void;
 }
 
@@ -28,6 +29,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
     bottom = '100px',
     autoHideDuration,
     transitionDuration = 225,
+    disablePadding,
     onClose,
     customStyle,
     ...props
@@ -113,6 +115,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
           toastClose={!open}
           bottom={bottom}
           transitionDuration={transitionDuration}
+          disablePadding={disablePadding}
           onClick={handleClick}
           css={customStyle}
           {...props}

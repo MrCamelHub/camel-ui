@@ -4,7 +4,7 @@ type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 type HEX = `#${string}`;
 
-export type ColorKey = '20' | '40' | '60' | '80' | '90' | '96' | '98';
+export type ColorKey = '20' | '40' | '60' | '80' | '90' | '95' | '98';
 
 export type ColorProperty = Property.Color;
 export type ColorCode = RGB | RGBA | HEX;

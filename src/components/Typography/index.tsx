@@ -3,7 +3,6 @@ import { useTheme } from '@theme';
 
 import {
   GenericComponentProps,
-  RequireAtOnlyOneColorProps,
   TypographyVariant,
   TypographyComponent,
   TypographyWeight,
@@ -11,25 +10,16 @@ import {
 } from '../../types';
 import { StyledTypography } from './Typography.styles';
 
-export interface BaseTypographyProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
+export interface TypographyProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   variant?: TypographyVariant;
   component?: TypographyComponent;
+  brandColor?: BrandColor;
   weight?: keyof TypographyWeight;
 }
 
-export type TypographyProps = RequireAtOnlyOneColorProps<BaseTypographyProps, BrandColor>;
-
 const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>>(
   function Typography(
-    {
-      children,
-      variant = 'body1',
-      component,
-      weight = 'regular',
-      brandColor,
-      customColor,
-      customStyle
-    },
+    { children, variant = 'body1', component, weight = 'regular', brandColor, customStyle },
     ref
   ) {
     const {
@@ -43,7 +33,6 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
         as={component || typography[variant].component}
         weight={weight}
         brandColor={brandColor}
-        customColor={customColor}
         css={customStyle}
       >
         {children}
