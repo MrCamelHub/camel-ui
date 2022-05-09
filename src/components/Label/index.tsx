@@ -1,5 +1,4 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
 import {
   GenericComponentProps,
@@ -22,12 +21,9 @@ const Label = forwardRef<HTMLDivElement, LabelProps>(function Label(
   { variant = 'outlined', text, round, brandColor = 'primary', customColor, customStyle },
   ref
 ) {
-  const { theme } = useTheme();
-
   return (
     <StyledLabel
       ref={ref}
-      theme={theme}
       variant={variant}
       round={round}
       brandColor={brandColor}

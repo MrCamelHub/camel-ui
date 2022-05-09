@@ -32,14 +32,15 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
     },
     ref
   ) {
-    const { theme } = useTheme();
+    const {
+      theme: { typography }
+    } = useTheme();
 
     return (
       <StyledTypography
         ref={ref}
-        theme={theme}
         variant={variant}
-        as={component || theme.typography[variant].component}
+        as={component || typography[variant].component}
         weight={weight}
         brandColor={brandColor}
         customColor={customColor}

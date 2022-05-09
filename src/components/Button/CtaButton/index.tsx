@@ -1,5 +1,4 @@
 import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
 import {
   GenericComponentProps,
@@ -52,11 +51,8 @@ const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps
     },
     ref
   ) {
-    const { theme } = useTheme();
-
     return (
       <StyledCtaButton
-        theme={theme}
         ref={ref}
         variant={variant}
         size={size}

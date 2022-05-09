@@ -1,5 +1,4 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
 import { GenericComponentProps } from '../../types';
 import { Wrapper, StyledRadio, Marker } from './Radio.styles';
@@ -10,12 +9,10 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   { checked, customStyle, ...props },
   ref
 ) {
-  const { theme } = useTheme();
-
   return (
-    <Wrapper ref={ref} theme={theme} checked={checked} css={customStyle} tabIndex={0} role="radio">
+    <Wrapper ref={ref} checked={checked} css={customStyle} tabIndex={0} role="radio">
       <StyledRadio type="radio" checked={checked} {...props} />
-      {checked && <Marker theme={theme} />}
+      {checked && <Marker />}
     </Wrapper>
   );
 });

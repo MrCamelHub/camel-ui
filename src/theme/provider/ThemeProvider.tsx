@@ -1,4 +1,7 @@
-import React, { PropsWithChildren } from 'react';
+import React, { useMemo, PropsWithChildren } from 'react';
+import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import { light } from '@theme/light';
+
 import ThemeContext from './ThemeContext';
 import { ThemeType } from '../../types';
 
@@ -7,7 +10,13 @@ export interface ThemeProviderProps {
 }
 
 function ThemeProvider({ children, theme }: PropsWithChildren<ThemeProviderProps>) {
-  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
+  const mrcamelTheme = useMemo(() => light, []);
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      <EmotionThemeProvider theme={mrcamelTheme}>{children}</EmotionThemeProvider>
+    </ThemeContext.Provider>
+  );
 }
 
 export default ThemeProvider;

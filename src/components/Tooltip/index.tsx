@@ -7,7 +7,6 @@ import React, {
   ReactElement,
   HTMLAttributes
 } from 'react';
-import { useTheme } from '@theme';
 
 import {
   GenericComponentProps,
@@ -46,8 +45,6 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
   },
   ref
 ) {
-  const { theme } = useTheme();
-
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -93,7 +90,6 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
       {children}
       <StyledTooltip
         ref={tooltipRef}
-        theme={theme}
         tooltipOpen={tooltipOpen}
         tooltipClose={!open}
         placement={placement}

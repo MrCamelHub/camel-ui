@@ -8,7 +8,6 @@ import React, {
   MouseEvent
 } from 'react';
 import { createPortal } from 'react-dom';
-import { useTheme } from '@theme';
 
 import { GenericComponentProps, CSSValue } from '../../types';
 import { Wrapper, StyledToast } from './Toast.styles';
@@ -35,8 +34,6 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   },
   ref
 ) {
-  const { theme } = useTheme();
-
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [toastOpen, setToastOpen] = useState<boolean>(false);
 
@@ -112,7 +109,6 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
         onClick={onClose}
       >
         <StyledToast
-          theme={theme}
           toastOpen={toastOpen}
           toastClose={!open}
           bottom={bottom}

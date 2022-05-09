@@ -1,5 +1,4 @@
 import React, { forwardRef, PropsWithChildren, HTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
 import {
   GenericComponentProps,
@@ -22,12 +21,9 @@ const Alert = forwardRef<HTMLDivElement, PropsWithChildren<AlertPropsWithColor>>
   { children, brandColor = 'primary-light1', customColor, round, customStyle, ...props },
   ref
 ) {
-  const { theme } = useTheme();
-
   return (
     <StyledAlert
       ref={ref}
-      theme={theme}
       brandColor={brandColor}
       customColor={customColor}
       round={round}

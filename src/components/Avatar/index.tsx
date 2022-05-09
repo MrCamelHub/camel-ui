@@ -1,5 +1,4 @@
 import React, { forwardRef, ImgHTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
 import { GenericComponentProps, BoxRoundKey } from '../../types';
 import { StyledAvatar } from './Avatar.styles';
@@ -12,11 +11,9 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
   { width = 24, height = 24, src, alt, customStyle, round = '4', ...props },
   ref
 ) {
-  const { theme } = useTheme();
   return (
     <StyledAvatar
       ref={ref}
-      theme={theme}
       width={width}
       height={height}
       src={src}
