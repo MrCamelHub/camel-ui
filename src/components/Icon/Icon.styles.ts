@@ -15,12 +15,12 @@ export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<
     let cssObject: CSSObject = {};
 
     if (color) {
-      cssObject = { color: `${color} !important` };
-
       const brandColorCode = getBrandColorCodeByColorName(theme, color, false);
 
       if (brandColorCode) {
         cssObject = { color: `${brandColorCode} !important` };
+      } else {
+        cssObject = { color: `${color} !important` };
       }
     }
 

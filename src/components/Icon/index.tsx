@@ -1,11 +1,11 @@
-import React, { forwardRef, SVGProps } from 'react';
+import React, { SVGProps, forwardRef } from 'react';
 
 import { StyledIcon } from './Icon.styles';
 import type {
-  GenericComponentProps,
   BrandColor,
   BrandExtendsColor,
   Color,
+  GenericComponentProps,
   Size
 } from '../../types';
 import * as SvgIcons from '../../assets/icons';

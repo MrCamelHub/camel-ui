@@ -1,4 +1,4 @@
-import React, { forwardRef, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
+import React, { ElementType, HTMLAttributes, PropsWithChildren, forwardRef } from 'react';
 
 import { StyledFlexbox } from './Flexbox.styles';
 import type { GenericComponentProps } from '../../types';

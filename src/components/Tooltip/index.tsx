@@ -1,19 +1,19 @@
 import React, {
-  useEffect,
-  useState,
-  useRef,
-  forwardRef,
+  HTMLAttributes,
   PropsWithChildren,
   ReactElement,
-  HTMLAttributes
+  forwardRef,
+  useEffect,
+  useRef,
+  useState
 } from 'react';
 
-import { Wrapper, StyledTooltip } from './Tooltip.styles';
+import { StyledTooltip, Wrapper } from './Tooltip.styles';
 import type {
-  GenericComponentProps,
+  BoxRoundKey,
   BrandColor,
   BrandExtendsColor,
-  BoxRoundKey
+  GenericComponentProps
 } from '../../types';
 
 export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {

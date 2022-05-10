@@ -65,6 +65,12 @@ module.exports = {
         'newlines-between': 'always-and-inside-groups'
       }
     ],
+    'sort-imports': [
+      'error',
+      {
+        ignoreDeclarationSort: true
+      }
+    ],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-interface': 'off'
   },

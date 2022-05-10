@@ -1,9 +1,9 @@
-import type { ColorCode, CSSValue } from './css';
+import type { CSSValue, ColorCode } from './css';
 import type {
-  TypographyVariant,
+  BoxRoundKey,
   TypographyComponent,
-  TypographyWeight,
-  BoxRoundKey
+  TypographyVariant,
+  TypographyWeight
 } from './component';
 import { grey } from '../theme/colors';
 

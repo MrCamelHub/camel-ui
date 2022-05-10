@@ -1,12 +1,12 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 
 import { StyledLabel } from './Label.styles';
 import type {
-  GenericComponentProps,
-  Variant,
+  BoxRoundKey,
   BrandColor,
   BrandExtendsColor,
-  BoxRoundKey
+  GenericComponentProps,
+  Variant
 } from '../../types';
 
 export interface LabelProps extends GenericComponentProps<HTMLAttributes<HTMLLabelElement>> {

@@ -1,17 +1,17 @@
 import React, {
-  useEffect,
-  useState,
-  useRef,
-  forwardRef,
-  PropsWithChildren,
   HTMLAttributes,
   MouseEvent,
-  TouchEvent
+  PropsWithChildren,
+  TouchEvent,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState
 } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import { Wrapper, StyledBottomSheet, SwipeZone, Content, Rectangle } from './BottomSheet.styles';
+import { Content, Rectangle, StyledBottomSheet, SwipeZone, Wrapper } from './BottomSheet.styles';
 import type { GenericComponentProps } from '../../types';
 
 export interface BottomSheetProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {

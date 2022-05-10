@@ -13,3 +13,6 @@ export { default as TrophyFilled } from './trophy-filled.svg';
 export { default as UnderFilled } from './under-filled.svg';
 export { default as UserFilled } from './user-filled.svg';
 export { default as UserLargeFilled } from './user-large-filled.svg';
+export { default as BookmarkFilled } from './bookmark-filled.svg';
+export { default as WarningFilled } from './warning-filled.svg';
+export { default as QuestionFilled } from './question-filled.svg';
