@@ -1,6 +1,6 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledStepper, StepperItem } from './Stepper.styles';
+import { StepperItem, StyledStepper } from './Stepper.styles';
 import type { GenericComponentProps } from '../../types';
 
 export interface StepperProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {

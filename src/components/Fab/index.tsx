@@ -1,4 +1,4 @@
-import React, { forwardRef, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 
 import { StyledFab, StyledFabInner } from './Fab.styles';
 import type { GenericComponentProps } from '../../types';

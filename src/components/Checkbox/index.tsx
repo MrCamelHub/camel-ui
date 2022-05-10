@@ -1,7 +1,7 @@
-import React, { forwardRef, InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, forwardRef } from 'react';
 
-import { Wrapper, StyledCheckbox, Marker } from './Checkbox.styles';
-import type { GenericComponentProps, BrandColor } from '../../types';
+import { Marker, StyledCheckbox, Wrapper } from './Checkbox.styles';
+import type { BrandColor, GenericComponentProps } from '../../types';
 
 export interface CheckboxProps
   extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {

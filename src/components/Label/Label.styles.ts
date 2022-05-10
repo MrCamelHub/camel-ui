@@ -8,7 +8,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'round' | '
   display: inline-flex;
   align-items: center;
   padding: 0 4px;
-  min-width: 36px;
+  min-width: fit-content;
   height: 19px;
   border: 1px solid transparent;
   border-radius: 4px;

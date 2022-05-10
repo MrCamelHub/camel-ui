@@ -1,14 +1,14 @@
-import React, { forwardRef, PropsWithChildren, HTMLAttributes } from 'react';
+import React, { HTMLAttributes, PropsWithChildren, forwardRef } from 'react';
 
 import { useTheme } from '@theme';
 
 import { StyledTypography } from './Typography.styles';
 import type {
+  BrandColor,
   GenericComponentProps,
-  TypographyVariant,
   TypographyComponent,
-  TypographyWeight,
-  BrandColor
+  TypographyVariant,
+  TypographyWeight
 } from '../../types';
 
 export interface TypographyProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {

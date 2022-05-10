@@ -1,7 +1,7 @@
-import React, { forwardRef, InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, forwardRef } from 'react';
 
-import { Wrapper, StyledRadio, Marker } from './Radio.styles';
-import type { GenericComponentProps, BrandColor } from '../../types';
+import { Marker, StyledRadio, Wrapper } from './Radio.styles';
+import type { BrandColor, GenericComponentProps } from '../../types';
 
 export interface RadioProps extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
   brandColor?: Exclude<BrandColor, 'grey'>;

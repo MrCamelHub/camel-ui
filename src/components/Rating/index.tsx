@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 
 import Icon from '@components/Icon';
 

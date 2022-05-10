@@ -1,16 +1,16 @@
 import React, {
-  useEffect,
-  useState,
-  useRef,
-  forwardRef,
-  PropsWithChildren,
   HTMLAttributes,
-  MouseEvent
+  MouseEvent,
+  PropsWithChildren,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState
 } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import { Wrapper, StyledDialog } from './Dialog.styles';
+import { StyledDialog, Wrapper } from './Dialog.styles';
 import type { GenericComponentProps } from '../../types';
 
 export interface DialogProps

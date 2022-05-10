@@ -1,4 +1,4 @@
-import { useMemo, useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 import ThemeContext from './ThemeContext';
 import { light } from '../light';

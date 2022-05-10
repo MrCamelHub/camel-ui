@@ -25,3 +25,4 @@ export { default as StarOutlined } from './star-outlined.svg';
 export { default as TrophyOutlined } from './trophy-outlined.svg';
 export { default as UserLargeOutlined } from './user-large-outlined.svg';
 export { default as ViewOutlined } from './view-outlined.svg';
+export { default as FilterOutlined } from './filter-outlined.svg';

@@ -1,13 +1,13 @@
-import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
 
 import { StyledButton } from './Button.styles';
 import type {
+  BoxRoundKey,
+  BrandColor,
   GenericComponentProps,
   RequireAtOnlyOneIcon,
-  Variant,
-  BrandColor,
   Size,
-  BoxRoundKey
+  Variant
 } from '../../types';
 
 export interface BaseButtonProps
