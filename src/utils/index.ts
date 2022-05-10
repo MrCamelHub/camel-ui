@@ -1,6 +1,6 @@
-import { Theme } from '@emotion/react';
+import type { Theme } from '@emotion/react';
 
-import { BrandColor, BrandExtendsColor, Color } from '../types';
+import type { BrandColor, BrandExtendsColor, Color } from '../types';
 
 export function getBrandColorCodeByColorName(
   theme: Theme,

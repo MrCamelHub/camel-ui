@@ -3,7 +3,7 @@ import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 import Icon from '@components/Icon';
 
 import { StyledIconButton } from './CircleIconButton.styles';
-import { GenericComponentProps, BrandColor } from '../../../types';
+import type { GenericComponentProps, BrandColor } from '../../../types';
 import type * as SvgIcons from '../../../assets/icons';
 
 export interface CircleIconButtonProps

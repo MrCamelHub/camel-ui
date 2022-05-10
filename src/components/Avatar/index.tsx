@@ -1,7 +1,7 @@
 import React, { forwardRef, ImgHTMLAttributes } from 'react';
 
 import { StyledAvatar } from './Avatar.styles';
-import { GenericComponentProps, BoxRoundKey } from '../../types';
+import type { GenericComponentProps, BoxRoundKey } from '../../types';
 
 export interface AvatarProps extends GenericComponentProps<ImgHTMLAttributes<HTMLImageElement>> {
   round?: BoxRoundKey;

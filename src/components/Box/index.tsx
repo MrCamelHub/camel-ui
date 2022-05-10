@@ -1,7 +1,7 @@
 import React, { forwardRef, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
 
 import { StyledBox } from './Box.styles';
-import { GenericComponentProps } from '../../types';
+import type { GenericComponentProps } from '../../types';
 
 export interface BoxProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   component?: ElementType;

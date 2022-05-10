@@ -1,7 +1,7 @@
 import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 
 import { StyledButton } from './Button.styles';
-import {
+import type {
   GenericComponentProps,
   RequireAtOnlyOneIcon,
   Variant,

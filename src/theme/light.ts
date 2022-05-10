@@ -1,6 +1,6 @@
 import { grey } from '@theme/colors';
 
-import { MrCamelTheme } from '../types';
+import type { MrCamelTheme } from '../types';
 
 export const light: MrCamelTheme = {
   type: 'light',

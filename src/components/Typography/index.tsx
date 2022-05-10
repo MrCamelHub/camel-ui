@@ -3,7 +3,7 @@ import React, { forwardRef, PropsWithChildren, HTMLAttributes } from 'react';
 import { useTheme } from '@theme';
 
 import { StyledTypography } from './Typography.styles';
-import {
+import type {
   GenericComponentProps,
   TypographyVariant,
   TypographyComponent,

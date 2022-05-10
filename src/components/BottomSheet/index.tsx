@@ -12,7 +12,7 @@ import React, {
 import { createPortal } from 'react-dom';
 
 import { Wrapper, StyledBottomSheet, SwipeZone, Content, Rectangle } from './BottomSheet.styles';
-import { GenericComponentProps } from '../../types';
+import type { GenericComponentProps } from '../../types';
 
 export interface BottomSheetProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;

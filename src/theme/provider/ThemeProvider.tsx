@@ -4,7 +4,7 @@ import { light } from '@theme/light';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
 import ThemeContext from './ThemeContext';
-import { ThemeType } from '../../types';
+import type { ThemeType } from '../../types';
 
 export interface ThemeProviderProps {
   theme: ThemeType;

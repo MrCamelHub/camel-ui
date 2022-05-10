@@ -11,7 +11,7 @@ import React, {
 import { createPortal } from 'react-dom';
 
 import { Wrapper, StyledDialog } from './Dialog.styles';
-import { GenericComponentProps } from '../../types';
+import type { GenericComponentProps } from '../../types';
 
 export interface DialogProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {

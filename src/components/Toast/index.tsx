@@ -11,7 +11,7 @@ import React, {
 import { createPortal } from 'react-dom';
 
 import { Wrapper, StyledToast } from './Toast.styles';
-import { GenericComponentProps, CSSValue } from '../../types';
+import type { GenericComponentProps, CSSValue } from '../../types';
 
 export interface ToastProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {

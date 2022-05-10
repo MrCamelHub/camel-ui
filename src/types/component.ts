@@ -1,6 +1,6 @@
-import { ReactElement, ElementType } from 'react';
+import type { ReactElement, ElementType } from 'react';
 
-import { Interpolation, Theme as EmotionTheme } from '@emotion/react';
+import type { Interpolation, Theme as EmotionTheme } from '@emotion/react';
 
 export type Variant = 'outlined' | 'ghost' | 'contained';
 export type BrandColor = 'grey' | 'black' | 'primary' | 'red' | 'purple';

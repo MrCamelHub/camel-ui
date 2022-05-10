@@ -1,7 +1,7 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 
 import { StyledLabel } from './Label.styles';
-import {
+import type {
   GenericComponentProps,
   Variant,
   BrandColor,
