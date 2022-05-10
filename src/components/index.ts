@@ -5,6 +5,7 @@ export { default as Radio } from './Radio';
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';
 export { default as CtaButton } from './Button/CtaButton';
+export { default as CircleIconButton } from './Button/CircleIconButton';
 export { default as Fab } from './Fab';
 export { default as Switch } from './Switch';
 export { default as Alert } from './Alert';

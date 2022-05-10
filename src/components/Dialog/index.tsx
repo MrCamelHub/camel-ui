@@ -7,26 +7,34 @@ import React, {
   HTMLAttributes,
   MouseEvent
 } from 'react';
-import { createPortal } from 'react-dom';
-import useTheme from '@theme/provider/useTheme';
 
-import { GenericComponentProps } from '../../types';
+import { createPortal } from 'react-dom';
+
 import { Wrapper, StyledDialog } from './Dialog.styles';
+import type { GenericComponentProps } from '../../types';
 
 export interface DialogProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {
   open: boolean;
   transitionDuration?: number;
   fullScreen?: boolean;
+  disablePadding?: boolean;
   onClose: () => void;
 }
 
 const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(function Dialog(
-  { children, open, transitionDuration = 225, fullScreen, onClose, customStyle, ...props },
+  {
+    children,
+    open,
+    transitionDuration = 225,
+    fullScreen,
+    disablePadding = false,
+    onClose,
+    customStyle,
+    ...props
+  },
   ref
 ) {
-  const { theme } = useTheme();
-
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [dialogOpen, setDialogOpen] = useState<boolean>(false);
 
@@ -97,11 +105,11 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
         onClick={onClose}
       >
         <StyledDialog
-          theme={theme}
           dialogOpen={dialogOpen}
           dialogClose={!open}
           transitionDuration={transitionDuration}
           fullScreen={fullScreen}
+          disablePadding={disablePadding}
           onClick={handleClick}
           css={customStyle}
           {...props}

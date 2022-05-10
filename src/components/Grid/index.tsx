@@ -1,8 +1,7 @@
 import React, { forwardRef, PropsWithChildren, ElementType, HTMLAttributes } from 'react';
-import useTheme from '@theme/provider/useTheme';
 
-import { GenericComponentProps } from '../../types';
 import { StyledGrid } from './Grid.styles';
+import type { GenericComponentProps } from '../../types';
 
 export interface GridProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   component?: Extract<ElementType, 'div' | 'section' | 'main' | 'article'>;
@@ -89,13 +88,10 @@ const Grid = forwardRef<HTMLDivElement, PropsWithChildren<ConditionalSetGrid<Gri
     },
     ref
   ) {
-    const { theme } = useTheme();
-
     return (
       <StyledGrid
         as={component}
         ref={ref}
-        theme={theme}
         container={container}
         className={item ? 'grid-item' : undefined}
         rowGap={rowGap}

@@ -1,29 +1,31 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
-import { GenericComponentProps } from '../../types';
 import { Wrapper, StyledCheckbox, Marker } from './Checkbox.styles';
+import type { GenericComponentProps, BrandColor } from '../../types';
 
 export interface CheckboxProps
-  extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {}
+  extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
+  variant?: 'round' | 'circle';
+  brandColor?: Exclude<BrandColor, 'grey'>;
+}
 
 const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
-  { checked, customStyle, ...props },
+  { variant, checked, brandColor = 'black', customStyle, disabled, ...props },
   ref
 ) {
-  const { theme } = useTheme();
-
   return (
     <Wrapper
       ref={ref}
-      theme={theme}
+      variant={variant}
       checked={checked}
+      brandColor={brandColor}
       css={customStyle}
+      disabled={disabled}
       tabIndex={0}
       role="checkbox"
     >
-      <StyledCheckbox type="checkbox" checked={checked} {...props} />
-      <Marker theme={theme} />
+      <StyledCheckbox type="checkbox" checked={checked} disabled={disabled} {...props} />
+      <Marker variant={variant} checked={checked} brandColor={brandColor} />
     </Wrapper>
   );
 });

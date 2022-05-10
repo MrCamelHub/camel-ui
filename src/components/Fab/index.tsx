@@ -1,8 +1,7 @@
 import React, { forwardRef, ButtonHTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
-import { GenericComponentProps } from '../../types';
 import { StyledFab, StyledFabInner } from './Fab.styles';
+import type { GenericComponentProps } from '../../types';
 
 export interface FabProps extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {}
 
@@ -10,10 +9,8 @@ const Fab = forwardRef<HTMLButtonElement, FabProps>(function Fab(
   { children, customStyle, ...props },
   ref
 ) {
-  const { theme } = useTheme();
-
   return (
-    <StyledFab ref={ref} theme={theme} css={customStyle} {...props}>
+    <StyledFab ref={ref} css={customStyle} {...props}>
       <StyledFabInner>{children}</StyledFabInner>
     </StyledFab>
   );

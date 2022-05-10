@@ -1,48 +1,31 @@
 import React, { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
-import {
+import { StyledButton } from './Button.styles';
+import type {
   GenericComponentProps,
   RequireAtOnlyOneIcon,
-  RequireAtOnlyOneColorProps,
   Variant,
   BrandColor,
   Size,
   BoxRoundKey
 } from '../../types';
-import { StyledButton } from './Button.styles';
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
+  variant: Variant;
+  brandColor?: BrandColor;
   size?: Size;
   round?: BoxRoundKey;
   fullWidth?: boolean;
 }
 
-export type ConditionalSupportColor<T> = T &
-  (
-    | RequireAtOnlyOneColorProps<
-        {
-          variant?: Extract<Variant, 'outlined'>;
-        },
-        Extract<BrandColor, 'common-grey'>
-      >
-    | RequireAtOnlyOneColorProps<
-        {
-          variant?: Extract<Variant, 'contained'>;
-        },
-        Extract<BrandColor, 'primary' | 'common-grey' | 'common-grey-light'>
-      >
-  );
-
-export type ButtonProps = RequireAtOnlyOneIcon<ConditionalSupportColor<BaseButtonProps>>;
+export type ButtonProps = RequireAtOnlyOneIcon<BaseButtonProps>;
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(function Button(
   {
     children,
     variant = 'outlined',
-    brandColor = 'common-grey',
-    customColor,
+    brandColor = 'grey',
     size = 'medium',
     round,
     startIcon,
@@ -54,15 +37,11 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
   },
   ref
 ) {
-  const { theme } = useTheme();
-
   return (
     <StyledButton
       ref={ref}
-      theme={theme}
       variant={variant}
       brandColor={brandColor}
-      customColor={customColor}
       size={size}
       round={round}
       fullWidth={fullWidth}

@@ -1,6 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { TooltipProps } from '.';
 
 export const Wrapper = styled.div`
@@ -17,8 +18,9 @@ export const StyledTooltip = styled.div<
     | 'transitionDuration'
     | 'triangleLeft'
     | 'brandColor'
-    | 'customColor'
     | 'round'
+    | 'disablePadding'
+    | 'disableShadow'
   > & {
     tooltipOpen: boolean;
     tooltipClose: boolean;
@@ -77,24 +79,40 @@ export const StyledTooltip = styled.div<
         }
       : {}}
 
-  ${({ theme, brandColor }): CSSObject => ({
-    backgroundColor: getBrandColorCodeByColorName(theme, brandColor)
-  })}
-
-  ${({ customColor }) =>
-    customColor
-      ? {
-          backgroundColor: customColor
-        }
-      : {}}
-
-  filter: drop-shadow(
-    ${({
+  ${({ round }): CSSObject => {
+    switch (round) {
+      case '16':
+        return {
+          padding: '8px 16px'
+        };
+      default:
+        return {
+          padding: 16
+        };
+    }
+  }}
+  
+  filter: drop-shadow(${({
     theme: {
       box: { shadow }
     }
-  }) => shadow.tooltip}
-  );
+  }) => shadow.tooltip});
+
+  ${({ disablePadding }): CSSObject => (disablePadding ? { padding: 0 } : {})}
+
+  ${({ disableShadow }): CSSObject => (disableShadow ? { filter: 'inherit' } : {})}
+
+  ${({ theme, brandColor }): CSSObject => {
+    let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
+
+    if (brandColor === 'black') {
+      brandColorCode = theme.palette.common.black;
+    }
+
+    return {
+      backgroundColor: brandColorCode
+    };
+  }}
 
   ${({ tooltipOpen }): CSSObject =>
     tooltipOpen
@@ -115,16 +133,14 @@ export const StyledTooltip = styled.div<
     content: '';
     position: absolute;
 
-    ${({ theme, brandColor, customColor, placement, triangleLeft }): CSSObject => {
-      let colorCode = getBrandColorCodeByColorName(theme, brandColor);
-
-      if (customColor) colorCode = customColor;
+    ${({ theme, brandColor, placement, triangleLeft }): CSSObject => {
+      const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
       switch (placement) {
         case 'left':
           return {
             borderTop: '12.5px solid transparent',
-            borderLeft: `15px solid ${colorCode}`,
+            borderLeft: `15px solid ${brandColorCode}`,
             borderRight: '0 solid transparent',
             borderBottom: '12.5px solid transparent',
             top: '50%',
@@ -134,7 +150,7 @@ export const StyledTooltip = styled.div<
         case 'right':
           return {
             borderTop: '12.5px solid transparent',
-            borderRight: `15px solid ${colorCode}`,
+            borderRight: `15px solid ${brandColorCode}`,
             borderLeft: '0 solid transparent',
             borderBottom: '12.5px solid transparent',
             top: '50%',
@@ -146,14 +162,14 @@ export const StyledTooltip = styled.div<
             borderTop: '0 solid transparent',
             borderRight: '12.5px solid transparent',
             borderLeft: '12.5px solid transparent',
-            borderBottom: `15px solid ${colorCode}`,
+            borderBottom: `15px solid ${brandColorCode}`,
             top: -15,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
             transform: `${triangleLeft ? 'none' : 'translateX(-50%)'}`
           };
         default:
           return {
-            borderTop: `15px solid ${colorCode}`,
+            borderTop: `15px solid ${brandColorCode}`,
             borderRight: '12.5px solid transparent',
             borderLeft: '12.5px solid transparent',
             borderBottom: '0 solid transparent',

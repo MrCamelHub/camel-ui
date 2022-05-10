@@ -1,5 +1,6 @@
 import { grey } from '@theme/colors';
-import { MrCamelTheme } from '../types';
+
+import type { MrCamelTheme } from '../types';
 
 export const light: MrCamelTheme = {
   type: 'light',
@@ -7,27 +8,30 @@ export const light: MrCamelTheme = {
     primary: {
       main: '#1833FF',
       dark: '#000F80',
-      light1: '#E5E8FF',
-      light2: '#F5F6FF'
+      light: '#808EFF',
+      highlight: '#E5E8FF',
+      bgLight: '#F5F6FF'
     },
     secondary: {
       red: {
-        main: '#E5001B'
+        main: '#E5001B',
+        dark: '#B20015',
+        light: '#FF808E',
+        highlight: '#FFE5E8',
+        bgLight: '#FFF5F6'
       },
       purple: {
-        main: '#5800E5'
+        main: '#5800E5',
+        dark: '#4400B2',
+        light: '#B080FF',
+        highlight: '#EFE5FF',
+        bgLight: '#F9F5FF'
       }
     },
     common: {
       black: '#000000',
       white: '#FFFFFF',
       grey
-    },
-    box: {
-      stroke: {
-        primary: '#1833FF',
-        grey: grey['80']
-      }
     }
   },
   typography: {

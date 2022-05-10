@@ -7,11 +7,11 @@ import React, {
   HTMLAttributes,
   MouseEvent
 } from 'react';
-import { createPortal } from 'react-dom';
-import { useTheme } from '@theme';
 
-import { GenericComponentProps, CSSValue } from '../../types';
+import { createPortal } from 'react-dom';
+
 import { Wrapper, StyledToast } from './Toast.styles';
+import type { GenericComponentProps, CSSValue } from '../../types';
 
 export interface ToastProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {
@@ -19,6 +19,7 @@ export interface ToastProps
   bottom?: CSSValue;
   autoHideDuration?: number;
   transitionDuration?: number;
+  disablePadding?: boolean;
   onClose: () => void;
 }
 
@@ -29,14 +30,13 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
     bottom = '100px',
     autoHideDuration,
     transitionDuration = 225,
+    disablePadding,
     onClose,
     customStyle,
     ...props
   },
   ref
 ) {
-  const { theme } = useTheme();
-
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [toastOpen, setToastOpen] = useState<boolean>(false);
 
@@ -112,11 +112,11 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
         onClick={onClose}
       >
         <StyledToast
-          theme={theme}
           toastOpen={toastOpen}
           toastClose={!open}
           bottom={bottom}
           transitionDuration={transitionDuration}
+          disablePadding={disablePadding}
           onClick={handleClick}
           css={customStyle}
           {...props}

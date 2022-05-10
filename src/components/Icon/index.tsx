@@ -1,22 +1,25 @@
 import React, { forwardRef, SVGProps } from 'react';
-import { useTheme } from '@theme';
 
-import * as SvgIcons from '../../assets/icons';
-
-import { GenericComponentProps, BrandColor, Color, Size } from '../../types';
 import { StyledIcon } from './Icon.styles';
+import type {
+  GenericComponentProps,
+  BrandColor,
+  BrandExtendsColor,
+  Color,
+  Size
+} from '../../types';
+import * as SvgIcons from '../../assets/icons';
 
 export interface IconProps extends GenericComponentProps<SVGProps<SVGElement>> {
   name: keyof typeof SvgIcons;
   size?: Exclude<Size, 'xsmall' | 'xlarge'>;
-  color?: BrandColor | Color;
+  color?: BrandColor | `${Extract<BrandColor, 'primary'>}-${BrandExtendsColor}` | Color;
 }
 
 const Icon = forwardRef<SVGElement, IconProps>(function Icon(
   { name, size, viewBox = '0 0 24 24', color, customStyle, ...props },
   ref
 ) {
-  const { theme } = useTheme();
   const SvgIcon = SvgIcons[name];
 
   const splitNames = name.split('_');
@@ -28,7 +31,6 @@ const Icon = forwardRef<SVGElement, IconProps>(function Icon(
   return (
     <StyledSvgIcon
       ref={ref}
-      theme={theme}
       name={name}
       size={size}
       color={color}

@@ -1,15 +1,15 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { LabelProps } from '.';
 
-export const StyledLabel = styled.div<
-  Pick<LabelProps, 'variant' | 'round' | 'brandColor' | 'customColor'>
->`
+export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'round' | 'brandColor'>>`
   display: inline-flex;
   align-items: center;
-  padding: 0 6px;
-  height: 23px;
+  padding: 0 4px;
+  min-width: 36px;
+  height: 19px;
   border: 1px solid transparent;
   border-radius: 4px;
 
@@ -35,6 +35,46 @@ export const StyledLabel = styled.div<
           }
         };
         break;
+      case 'ghost':
+        cssObject = {
+          backgroundColor: palette.primary.highlight,
+          color: brandColorCode,
+          '& svg': {
+            color: brandColorCode
+          }
+        };
+
+        if (brandColor === 'grey') {
+          cssObject = {
+            backgroundColor: palette.common.grey['90'],
+            color: palette.common.grey['40'],
+            '& svg': {
+              color: palette.common.grey['40']
+            }
+          };
+        }
+
+        if (brandColor === 'red') {
+          cssObject = {
+            backgroundColor: palette.secondary.red.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        if (brandColor === 'purple') {
+          cssObject = {
+            backgroundColor: palette.secondary.purple.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        break;
       default:
         cssObject = {
           backgroundColor: palette.common.white,
@@ -42,33 +82,6 @@ export const StyledLabel = styled.div<
           color: brandColorCode,
           '& svg': {
             color: brandColorCode
-          }
-        };
-        break;
-    }
-
-    return cssObject;
-  }};
-
-  ${({ theme: { palette }, variant, customColor }): CSSObject => {
-    let cssObject: CSSObject;
-
-    switch (variant) {
-      case 'contained':
-        cssObject = {
-          backgroundColor: customColor,
-          color: palette.common.white,
-          '& svg': {
-            color: palette.common.white
-          }
-        };
-        break;
-      default:
-        cssObject = {
-          backgroundColor: palette.common.white,
-          borderColor: customColor,
-          '& svg': {
-            color: customColor
           }
         };
         break;

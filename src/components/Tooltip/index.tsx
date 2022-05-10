@@ -7,27 +7,29 @@ import React, {
   ReactElement,
   HTMLAttributes
 } from 'react';
-import { useTheme } from '@theme';
 
-import {
+import { Wrapper, StyledTooltip } from './Tooltip.styles';
+import type {
   GenericComponentProps,
-  RequireAtOnlyOneColorProps,
   BrandColor,
+  BrandExtendsColor,
   BoxRoundKey
 } from '../../types';
-import { Wrapper, StyledTooltip } from './Tooltip.styles';
 
-export interface BaseTooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
+export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;
   message: ReactElement | string;
+  brandColor?:
+    | Extract<BrandColor, 'black'>
+    | `${Extract<BrandColor, 'primary'>}-${Extract<BrandExtendsColor, 'highlight'>}`;
   placement?: 'top' | 'left' | 'right' | 'bottom';
   spaceBetween?: number;
   transitionDuration?: number;
   triangleLeft?: number;
-  round?: BoxRoundKey;
+  round?: Extract<BoxRoundKey, '8' | '16'>;
+  disablePadding?: boolean;
+  disableShadow?: boolean;
 }
-
-export type TooltipProps = RequireAtOnlyOneColorProps<BaseTooltipProps, BrandColor>;
 
 const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(function Tooltip(
   {
@@ -38,16 +40,15 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
     spaceBetween = 20,
     transitionDuration = 225,
     triangleLeft,
-    brandColor = 'common-black',
-    customColor,
+    brandColor = 'black',
     round = '8',
+    disablePadding = false,
+    disableShadow = false,
     customStyle,
     ...props
   },
   ref
 ) {
-  const { theme } = useTheme();
-
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -93,7 +94,6 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
       {children}
       <StyledTooltip
         ref={tooltipRef}
-        theme={theme}
         tooltipOpen={tooltipOpen}
         tooltipClose={!open}
         placement={placement}
@@ -103,8 +103,9 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
         transitionDuration={transitionDuration}
         triangleLeft={triangleLeft}
         brandColor={brandColor}
-        customColor={customColor}
         round={round}
+        disablePadding={disablePadding}
+        disableShadow={disableShadow}
         css={customStyle}
       >
         {message}

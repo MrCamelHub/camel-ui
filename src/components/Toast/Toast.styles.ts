@@ -37,7 +37,7 @@ export const Wrapper = styled.div<
 `;
 
 export const StyledToast = styled.div<
-  Pick<ToastProps, 'bottom' | 'transitionDuration'> & {
+  Pick<ToastProps, 'bottom' | 'transitionDuration' | 'disablePadding'> & {
     toastOpen: boolean;
     toastClose: boolean;
   }
@@ -47,6 +47,7 @@ export const StyledToast = styled.div<
   bottom: ${({ bottom }) => bottom};
   transform: translateX(-50%);
   width: fit-content;
+  padding: 16px 24px;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: ${({
@@ -61,6 +62,13 @@ export const StyledToast = styled.div<
   opacity: 0;
   transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
     0ms;
+
+  ${({ disablePadding }): CSSObject =>
+    disablePadding
+      ? {
+          padding: 0
+        }
+      : {}}
 
   ${({ toastOpen }): CSSObject =>
     toastOpen

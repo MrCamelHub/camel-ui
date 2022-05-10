@@ -1,10 +1,11 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { ButtonProps } from '.';
 
 export const StyledButton = styled.button<
-  Pick<ButtonProps, 'variant' | 'brandColor' | 'customColor' | 'size' | 'round' | 'fullWidth'>
+  Pick<ButtonProps, 'variant' | 'brandColor' | 'size' | 'round' | 'fullWidth'>
 >`
   display: inline-flex;
   align-items: center;
@@ -14,31 +15,22 @@ export const StyledButton = styled.button<
   border: 1px solid transparent;
 
   ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
-    let cssObject: CSSObject;
+    let cssObject: CSSObject = {};
 
     const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
     switch (variant) {
       case 'contained':
         cssObject = {
-          backgroundColor: palette.primary.light1,
-          color: brandColorCode,
+          backgroundColor: brandColorCode,
+          color: palette.common.white,
           '& svg': {
-            color: brandColorCode
+            color: palette.common.white
           }
         };
-
-        if (brandColor === 'common-grey') {
-          cssObject = {
-            backgroundColor: brandColorCode,
-            color: palette.common.white,
-            '& svg': {
-              color: palette.common.white
-            }
-          };
-        }
-
-        if (brandColor === 'common-grey-light') {
+        break;
+      case 'ghost':
+        if (brandColor === 'grey') {
           cssObject = {
             backgroundColor: brandColorCode,
             color: palette.common.grey['20'],
@@ -48,32 +40,71 @@ export const StyledButton = styled.button<
           };
         }
 
+        if (brandColor === 'black') {
+          cssObject = {
+            backgroundColor: palette.common.grey['95'],
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        if (brandColor === 'primary') {
+          cssObject = {
+            backgroundColor: palette.primary.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        if (brandColor === 'red') {
+          cssObject = {
+            backgroundColor: palette.secondary.red.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        if (brandColor === 'purple') {
+          cssObject = {
+            backgroundColor: palette.secondary.purple.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
         break;
       default:
         cssObject = {
           backgroundColor: palette.common.white,
-          borderColor: palette.common.grey['80'],
-          color: palette.common.grey['40'],
+          borderColor: brandColorCode,
+          color: brandColorCode,
           '& > svg': {
-            color: palette.common.grey['40']
+            color: brandColorCode
           }
         };
+
+        if (brandColor === 'grey') {
+          cssObject = {
+            backgroundColor: palette.common.white,
+            borderColor: brandColorCode,
+            color: palette.common.grey['20'],
+            '& > svg': {
+              color: palette.common.grey['20']
+            }
+          };
+        }
         break;
     }
 
     return cssObject;
   }}
-
-  ${({ theme: { palette }, customColor }): CSSObject =>
-    customColor
-      ? {
-          backgroundColor: customColor,
-          color: palette.common.white,
-          '& svg': {
-            color: palette.common.white
-          }
-        }
-      : {}}
 
   ${({ theme: { typography }, size }): CSSObject => {
     switch (size) {
@@ -148,8 +179,15 @@ export const StyledButton = styled.button<
           width: '100%'
         }
       : {}}
-  
+
   &:disabled {
-    cursor: default;
+    ${({ theme: { palette } }): CSSObject => ({
+      borderColor: 'transparent',
+      backgroundColor: palette.common.grey['80'],
+      color: palette.common.grey['60'],
+      '& svg': {
+        color: palette.common.grey['60']
+      }
+    })}
   }
 `;

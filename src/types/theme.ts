@@ -1,5 +1,10 @@
-import { TypographyVariant, TypographyComponent, TypographyWeight, BoxRoundKey } from './component';
-import { ColorCode, CSSValue } from './css';
+import type { ColorCode, CSSValue } from './css';
+import type {
+  TypographyVariant,
+  TypographyComponent,
+  TypographyWeight,
+  BoxRoundKey
+} from './component';
 import { grey } from '../theme/colors';
 
 export type ThemeType = 'light';
@@ -11,27 +16,30 @@ export interface MrCamelTheme {
     primary: {
       main: ColorCode;
       dark: ColorCode;
-      light1: ColorCode;
-      light2: ColorCode;
+      light: ColorCode;
+      highlight: ColorCode;
+      bgLight: ColorCode;
     };
     secondary: {
       red: {
         main: ColorCode;
+        dark: ColorCode;
+        light: ColorCode;
+        highlight: ColorCode;
+        bgLight: ColorCode;
       };
       purple: {
         main: ColorCode;
+        dark: ColorCode;
+        light: ColorCode;
+        highlight: ColorCode;
+        bgLight: ColorCode;
       };
     };
     common: {
       black: ColorCode;
       white: ColorCode;
       grey: typeof grey;
-    };
-    box: {
-      stroke: {
-        primary: ColorCode;
-        grey: ColorCode;
-      };
     };
   };
   typography: {

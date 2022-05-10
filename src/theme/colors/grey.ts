@@ -1,4 +1,4 @@
-import { ColorKey, ColorCode } from '../../types';
+import type { ColorKey, ColorCode } from '../../types';
 
 const grey: {
   [key in ColorKey]: ColorCode;
@@ -8,7 +8,7 @@ const grey: {
   '60': '#999999',
   '80': '#CCCCCC',
   '90': '#E6E6E6',
-  '96': '#F5F5F5',
+  '95': '#F2F2F2',
   '98': '#FAFAFA'
 };
 

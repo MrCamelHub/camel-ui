@@ -1,10 +1,11 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { useTheme } from '@theme';
 
 import Icon from '@components/Icon';
 
-import { GenericComponentProps, Size } from '../../types';
+import { useTheme } from '@theme';
+
 import { StyledRating } from './Rating.styles';
+import type { GenericComponentProps, Size } from '../../types';
 
 export interface RatingProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   count: number;
@@ -28,7 +29,7 @@ const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
           key={`star-${index}`}
           name="StarFilled"
           size={size}
-          color={value > index ? '#FFD25E' : palette.common.grey['96']}
+          color={value > index ? '#FFD25E' : palette.common.grey['95']}
         />
       ))}
     </StyledRating>

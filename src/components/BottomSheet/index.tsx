@@ -8,11 +8,11 @@ import React, {
   MouseEvent,
   TouchEvent
 } from 'react';
-import { createPortal } from 'react-dom';
-import useTheme from '@theme/provider/useTheme';
 
-import { GenericComponentProps } from '../../types';
+import { createPortal } from 'react-dom';
+
 import { Wrapper, StyledBottomSheet, SwipeZone, Content, Rectangle } from './BottomSheet.styles';
+import type { GenericComponentProps } from '../../types';
 
 export interface BottomSheetProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;
@@ -34,8 +34,6 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
     },
     ref
   ) {
-    const { theme } = useTheme();
-
     const [isMounted, setIsMounted] = useState<boolean>(false);
     const [sheetOpen, setSheetOpen] = useState<boolean>(false);
     const [swipeable, setSwipeable] = useState<boolean>(false);
@@ -169,7 +167,6 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
         >
           <StyledBottomSheet
             ref={sheetRef}
-            theme={theme}
             sheetOpen={sheetOpen}
             sheetClose={!open}
             transitionDuration={transitionDuration}
@@ -184,7 +181,7 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleEndSwipeable}
               >
-                <Rectangle theme={theme} />
+                <Rectangle />
               </SwipeZone>
             )}
             <Content

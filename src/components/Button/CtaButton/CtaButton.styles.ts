@@ -1,10 +1,11 @@
 import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
+
 import { CtaButtonProps } from '.';
 
 export const StyledCtaButton = styled.button<
-  Pick<CtaButtonProps, 'variant' | 'brandColor' | 'customColor' | 'size' | 'fullWidth'>
+  Pick<CtaButtonProps, 'variant' | 'brandColor' | 'size' | 'fullWidth'>
 >`
   display: inline-flex;
   align-items: center;
@@ -15,7 +16,7 @@ export const StyledCtaButton = styled.button<
   border-radius: 8px;
 
   ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
-    let cssObject: CSSObject;
+    let cssObject: CSSObject = {};
 
     const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
@@ -29,18 +30,50 @@ export const StyledCtaButton = styled.button<
           }
         };
         break;
-      default:
-        cssObject = {
-          borderColor: brandColorCode,
-          color: brandColorCode,
-          '& svg': {
-            color: brandColorCode
-          }
-        };
-
-        if (brandColor === 'common-grey') {
+      case 'ghost':
+        if (brandColor === 'grey') {
           cssObject = {
-            borderColor: palette.common.grey['40'],
+            backgroundColor: brandColorCode,
+            color: palette.common.grey['20'],
+            '& svg': {
+              color: palette.common.grey['20']
+            }
+          };
+        }
+
+        if (brandColor === 'black') {
+          cssObject = {
+            backgroundColor: palette.common.grey['95'],
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        if (brandColor === 'primary') {
+          cssObject = {
+            backgroundColor: palette.primary.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        if (brandColor === 'red') {
+          cssObject = {
+            backgroundColor: palette.secondary.red.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+
+        if (brandColor === 'purple') {
+          cssObject = {
+            backgroundColor: palette.secondary.purple.highlight,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -48,32 +81,26 @@ export const StyledCtaButton = styled.button<
           };
         }
         break;
-    }
-
-    return cssObject;
-  }}
-
-  ${({ theme: { palette }, variant, customColor }): CSSObject => {
-    let cssObject: CSSObject;
-
-    switch (variant) {
-      case 'contained':
-        cssObject = {
-          backgroundColor: customColor,
-          color: palette.common.white,
-          '& svg': {
-            color: palette.common.white
-          }
-        };
-        break;
       default:
         cssObject = {
-          borderColor: customColor,
-          color: customColor,
-          '& svg': {
-            color: customColor
+          backgroundColor: palette.common.white,
+          borderColor: brandColorCode,
+          color: brandColorCode,
+          '& > svg': {
+            color: brandColorCode
           }
         };
+
+        if (brandColor === 'grey') {
+          cssObject = {
+            backgroundColor: palette.common.white,
+            borderColor: brandColorCode,
+            color: palette.common.grey['20'],
+            '& > svg': {
+              color: palette.common.grey['20']
+            }
+          };
+        }
         break;
     }
 
@@ -111,11 +138,13 @@ export const StyledCtaButton = styled.button<
       : {}};
 
   &:disabled {
-    background-color: ${({ theme: { palette } }) => palette.common.grey['80']};
-    color: ${({ theme: { palette } }) => palette.common.grey['60']};
-    cursor: default;
-    & svg {
-      color: ${({ theme: { palette } }) => palette.common.grey['60']};
-    }
+    ${({ theme: { palette } }): CSSObject => ({
+      borderColor: 'transparent',
+      backgroundColor: palette.common.grey['80'],
+      color: palette.common.grey['60'],
+      '& svg': {
+        color: palette.common.grey['60']
+      }
+    })}
   }
 `;
