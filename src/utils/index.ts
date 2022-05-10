@@ -17,6 +17,8 @@ export function getBrandColorCodeByColorName(
     colorCode = theme.palette.secondary.red.main;
   } else if (colorName === 'purple') {
     colorCode = theme.palette.secondary.purple.main;
+  } else if (colorName === 'primary') {
+    colorCode = theme.palette.primary.main;
   } else if (colorName === 'primary-dark') {
     colorCode = theme.palette.primary.dark;
   } else if (colorName === 'primary-light') {
