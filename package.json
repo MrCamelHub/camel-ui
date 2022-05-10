@@ -17,7 +17,8 @@
     "build:dev": "rollup -c rollup.config.dev.js --watch",
     "build": "rollup -c",
     "prettier": "prettier --write --config ./.prettierrc \"**/*.{js,ts,tsx}\"",
-    "conventions": "yarn prettier && eslint --fix \"**/*.{js,ts,tsx}\""
+    "conventions": "yarn prettier && eslint --fix \"**/*.{js,ts,tsx}\"",
+    "prepare": "rm -rf dist && yarn build"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
