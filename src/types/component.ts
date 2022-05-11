@@ -1,5 +1,6 @@
 import { ReactElement, ElementType } from 'react';
-import { Interpolation, Theme as EmotionTheme } from '@emotion/react';
+import { Theme as EmotionTheme } from '@emotion/react';
+import { InterpolationWithTheme } from '@emotion/core';
 import { Color } from './css';
 
 export type Variant = 'outlined' | 'contained';
@@ -24,7 +25,7 @@ export type TypographyWeight = {
 };
 export type BoxRoundKey = '0' | '2' | '4' | '8' | '16' | '24';
 
-export type CustomStyle = Interpolation<EmotionTheme>;
+export type CustomStyle = InterpolationWithTheme<EmotionTheme>;
 
 export type GenericComponentProps<T> = T & {
   customStyle?: CustomStyle;
