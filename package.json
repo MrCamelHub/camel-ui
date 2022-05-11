@@ -14,9 +14,9 @@
   "private": false,
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf -rf ./dist",
+    "prebuild": "rimraf -rf dist",
     "build:dev": "rollup -c rollup.config.dev.js --watch",
-    "build": "yarn run clean && rollup -c",
+    "build": "rollup -c",
     "prettier": "prettier --write --config ./.prettierrc \"**/*.{js,ts,tsx}\"",
     "conventions": "yarn prettier && eslint --fix \"**/*.{js,ts,tsx}\""
   },
