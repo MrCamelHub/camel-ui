@@ -61,8 +61,8 @@ module.exports = {
           order: 'desc',
           caseInsensitive: true
         },
-        pathGroupsExcludedImportTypes: ['builtin'],
-        'newlines-between': 'always-and-inside-groups'
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always'
       }
     ],
     'sort-imports': [

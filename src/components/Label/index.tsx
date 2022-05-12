@@ -1,4 +1,5 @@
-import React, { HTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { StyledLabel } from './Label.styles';
 import type {

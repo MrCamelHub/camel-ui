@@ -1,13 +1,5 @@
-import React, {
-  HTMLAttributes,
-  MouseEvent,
-  PropsWithChildren,
-  TouchEvent,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import type { HTMLAttributes, MouseEvent, PropsWithChildren, TouchEvent } from 'react';
 
 import { createPortal } from 'react-dom';
 
