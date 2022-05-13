@@ -22,7 +22,8 @@
     "conventions": "yarn prettier && eslint --fix \"**/*.{js,ts,tsx}\"",
     "prepare": "rm -rf dist && yarn build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=d02fd59e2a96"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -49,6 +50,7 @@
     "@typescript-eslint/parser": "^5.20.0",
     "babel-loader": "^8.2.5",
     "babel-preset-react-app": "^10.0.1",
+    "chromatic": "^6.5.4",
     "eslint": "^8.13.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
