@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
 import { StyledCtaButton } from './CtaButton.styles';
 import type {

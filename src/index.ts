@@ -1,3 +1,14 @@
 export * from './components';
 export * from './theme';
-export { CustomStyle } from './types';
+export {
+  Variant,
+  BrandColor,
+  BrandExtendsColor,
+  Size,
+  TypographyVariant,
+  TypographyComponent,
+  TypographyWeight,
+  BoxRoundKey,
+  CustomStyle,
+  CSSValue
+} from './types';

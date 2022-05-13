@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
 import { StyledButton } from './Button.styles';
 import type {
@@ -12,7 +13,7 @@ import type {
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
-  variant: Variant;
+  variant?: Variant;
   brandColor?: BrandColor;
   size?: Size;
   round?: BoxRoundKey;
