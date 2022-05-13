@@ -12,7 +12,7 @@ import type {
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
-  variant: Variant;
+  variant?: Variant;
   brandColor?: BrandColor;
   size?: Size;
   round?: BoxRoundKey;
