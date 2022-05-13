@@ -1,4 +1,5 @@
-import React, { SVGProps, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import type { SVGProps } from 'react';
 
 import { StyledIcon } from './Icon.styles';
 import type {

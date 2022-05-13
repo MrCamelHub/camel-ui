@@ -1,4 +1,5 @@
-import React, { HTMLAttributes, PropsWithChildren, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import type { HTMLAttributes, PropsWithChildren } from 'react';
 
 import { StyledAlert } from './Alert.styles';
 import type {

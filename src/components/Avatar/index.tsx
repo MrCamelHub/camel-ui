@@ -1,4 +1,5 @@
-import React, { ImgHTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 
 import { StyledAvatar } from './Avatar.styles';
 import type { BoxRoundKey, GenericComponentProps } from '../../types';

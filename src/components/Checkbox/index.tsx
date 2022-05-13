@@ -1,4 +1,5 @@
-import React, { InputHTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import type { InputHTMLAttributes } from 'react';
 
 import { Marker, StyledCheckbox, Wrapper } from './Checkbox.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';
