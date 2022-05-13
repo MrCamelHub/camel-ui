@@ -7,7 +7,6 @@ export const StyledSwitch = styled.button<Pick<SwitchProps, 'checked'>>`
   width: 50px;
   height: 30px;
   border-radius: 15px;
-  box-sizing: content-box;
   background-color: ${({ theme: { palette } }) => palette.common.grey['80']};
   border: 1px solid transparent;
 
@@ -21,11 +20,12 @@ export const StyledSwitch = styled.button<Pick<SwitchProps, 'checked'>>`
 
 export const Circle = styled.div<Pick<SwitchProps, 'checked'>>`
   position: absolute;
-  top: 2px;
+  top: 50%;
   left: 2px;
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  transform: translateY(-50%);
   background-color: ${({ theme: { palette } }) => palette.common.white};
 
   ${({ checked }): CSSObject =>

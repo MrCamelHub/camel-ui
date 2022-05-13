@@ -134,7 +134,11 @@ export const StyledTooltip = styled.div<
     position: absolute;
 
     ${({ theme, brandColor, placement, triangleLeft }): CSSObject => {
-      const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
+      let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
+
+      if (brandColor === 'black') {
+        brandColorCode = theme.palette.common.black;
+      }
 
       switch (placement) {
         case 'left':
