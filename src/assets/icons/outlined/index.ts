@@ -12,6 +12,7 @@ export { default as CheckOutlined } from './check-outlined.svg';
 export { default as CloseOutlined } from './close-outlined.svg';
 export { default as ClothesOutlined } from './clothes-outlined.svg';
 export { default as HeartFavoriteOutlined } from './heart-favorite-outlined.svg';
+export { default as HeartShadowOutlined } from './heart-shadow-outlined.svg';
 export { default as HeartOutlined } from './heart-outlined.svg';
 export { default as HomeOutlined } from './home-outlined.svg';
 export { default as MenuOutlined } from './menu-outlined.svg';

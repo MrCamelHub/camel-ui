@@ -97,6 +97,7 @@ export function OutlinedIcons() {
             'CloseOutlined',
             'ClothesOutlined',
             'HeartFavoriteOutlined',
+            'HeartShadowOutlined',
             'HeartOutlined',
             'HomeOutlined',
             'MenuOutlined',
