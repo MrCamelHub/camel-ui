@@ -21,7 +21,15 @@ export interface TypographyProps extends GenericComponentProps<HTMLAttributes<HT
 
 const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>>(
   function Typography(
-    { children, variant = 'body1', component, weight = 'regular', brandColor, customStyle },
+    {
+      children,
+      variant = 'body1',
+      component,
+      weight = 'regular',
+      brandColor,
+      customStyle,
+      ...props
+    },
     ref
   ) {
     const {
@@ -36,6 +44,7 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
         weight={weight}
         brandColor={brandColor}
         css={customStyle}
+        {...props}
       >
         {children}
       </StyledTypography>

@@ -9,11 +9,11 @@ export interface BoxProps extends GenericComponentProps<HTMLAttributes<HTMLDivEl
 }
 
 const Box = forwardRef<HTMLDivElement, PropsWithChildren<BoxProps>>(function Box(
-  { children, component = 'div', customStyle },
+  { children, component = 'div', customStyle, ...props },
   ref
 ) {
   return (
-    <StyledBox ref={ref} as={component} css={customStyle}>
+    <StyledBox ref={ref} as={component} css={customStyle} {...props}>
       {children}
     </StyledBox>
   );

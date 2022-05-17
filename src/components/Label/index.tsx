@@ -20,7 +20,7 @@ export interface LabelProps extends GenericComponentProps<HTMLAttributes<HTMLLab
 }
 
 const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
-  { variant = 'outlined', text, round, brandColor = 'grey', customStyle },
+  { variant = 'outlined', text, round, brandColor = 'grey', customStyle, ...props },
   ref
 ) {
   return (
@@ -30,6 +30,7 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
       round={round}
       brandColor={brandColor}
       css={customStyle}
+      {...props}
     >
       {text}
     </StyledLabel>
