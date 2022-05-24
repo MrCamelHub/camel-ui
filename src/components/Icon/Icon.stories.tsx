@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     justify-content: center;
   }
   & svg {
-    padding: 20px;
+    margin: 20px;
   }
 `;
 
