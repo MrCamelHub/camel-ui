@@ -3,7 +3,7 @@ import React from 'react';
 import type { ComponentMeta } from '@storybook/react';
 import Avatar from '@components/Avatar';
 
-import { ThemeProvider, useTheme } from '@theme';
+import { ThemeProvider } from '@theme';
 
 export default {
   title: 'Components/Avatar',
