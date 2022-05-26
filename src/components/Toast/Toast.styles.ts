@@ -15,7 +15,7 @@ export const Wrapper = styled.div<
   height: 100%;
 
   overflow: hidden;
-  z-index: 1004;
+  z-index: ${({ theme: { zIndex } }) => zIndex.toast};
   opacity: 0;
   visibility: hidden;
   transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
@@ -56,7 +56,7 @@ export const StyledToast = styled.div<
     }
   }) => shadow.tooltip};
   color: ${({ theme: { palette } }) => palette.common.white};
-  z-index: 1005;
+  z-index: ${({ theme: { zIndex } }) => zIndex.toast};
 
   visibility: hidden;
   opacity: 0;
