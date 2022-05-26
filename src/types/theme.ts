@@ -1,6 +1,7 @@
 import type { CSSValue, ColorCode } from './css';
 import type {
   BoxRoundKey,
+  Palette,
   TypographyComponent,
   TypographyVariant,
   TypographyWeight
@@ -13,28 +14,10 @@ export type ThemeType = 'light';
 export interface MrCamelTheme {
   type: ThemeType;
   palette: {
-    primary: {
-      main: ColorCode;
-      dark: ColorCode;
-      light: ColorCode;
-      highlight: ColorCode;
-      bgLight: ColorCode;
-    };
+    primary: Palette;
     secondary: {
-      red: {
-        main: ColorCode;
-        dark: ColorCode;
-        light: ColorCode;
-        highlight: ColorCode;
-        bgLight: ColorCode;
-      };
-      purple: {
-        main: ColorCode;
-        dark: ColorCode;
-        light: ColorCode;
-        highlight: ColorCode;
-        bgLight: ColorCode;
-      };
+      red: Palette;
+      purple: Palette;
     };
     common: {
       black: ColorCode;
@@ -55,21 +38,13 @@ export interface MrCamelTheme {
     round: {
       [key in BoxRoundKey]: CSSValue;
     };
-    shadow: {
-      icon: string;
-      platformLogo: string;
-      category: string;
-      modal: string;
-      tooltip: string;
-    };
+    shadow: Record<'icon' | 'platformLogo' | 'category' | 'modal' | 'tooltip', string>;
   };
-  breakpoints: {
-    xs: number;
-    sm: number;
-    md: number;
-    lg: number;
-    xl: number;
-  };
+  breakpoints: Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', number>;
+  zIndex: Record<
+    'button' | 'header' | 'bottomNav' | 'dialog' | 'sheet' | 'alert' | 'toast',
+    number
+  >;
 }
 
 declare module '@emotion/react' {

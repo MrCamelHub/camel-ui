@@ -11,7 +11,7 @@ export const Wrapper = styled.div<
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   overflow: hidden;
-  z-index: 1001;
+  z-index: ${({ theme: { zIndex } }) => zIndex.sheet};
   opacity: 0;
   visibility: hidden;
   transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
@@ -46,7 +46,7 @@ export const StyledBottomSheet = styled.div<
   transition: transform ${({ transitionDuration }) => transitionDuration}ms
     cubic-bezier(0, 0, 0.2, 1) 0ms;
   transform: translateY(100%);
-  z-index: 1002;
+  z-index: ${({ theme: { zIndex } }) => zIndex.sheet};
   ${({ sheetOpen }) =>
     sheetOpen
       ? `

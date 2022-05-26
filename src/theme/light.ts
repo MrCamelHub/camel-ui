@@ -155,5 +155,14 @@ export const light: MrCamelTheme = {
     md: 768,
     lg: 1024,
     xl: 1440
+  },
+  zIndex: {
+    button: 10,
+    header: 10,
+    bottomNav: 10,
+    dialog: 20,
+    sheet: 20,
+    alert: 20,
+    toast: 30
   }
 };
