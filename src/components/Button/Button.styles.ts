@@ -111,7 +111,7 @@ export const StyledButton = styled.button<
       case 'xsmall':
         return {
           height: 25,
-          padding: '0 8px',
+          padding: '0 6px',
           fontSize: typography.small2.size,
           fontWeight: typography.small2.weight.medium,
           lineHeight: typography.small2.lineHeight,
@@ -121,7 +121,7 @@ export const StyledButton = styled.button<
       case 'small':
         return {
           height: 30,
-          padding: '0 10px',
+          padding: '0 8px',
           fontSize: typography.body2.size,
           fontWeight: typography.body2.weight.medium,
           lineHeight: typography.body2.lineHeight,
@@ -131,7 +131,7 @@ export const StyledButton = styled.button<
       case 'large':
         return {
           height: 45,
-          padding: '0 16px',
+          padding: '0 14px',
           fontSize: typography.h3.size,
           fontWeight: typography.h3.weight.medium,
           lineHeight: typography.h3.lineHeight,
@@ -141,7 +141,7 @@ export const StyledButton = styled.button<
       case 'xlarge':
         return {
           height: 60,
-          padding: '0 22px',
+          padding: '0 20px',
           fontSize: typography.h2.size,
           fontWeight: typography.h2.weight.medium,
           lineHeight: typography.h2.lineHeight,
@@ -151,7 +151,7 @@ export const StyledButton = styled.button<
       default:
         return {
           height: 35,
-          padding: '0 12px',
+          padding: '0 10px',
           fontSize: typography.body1.size,
           fontWeight: typography.body1.weight.medium,
           lineHeight: typography.body1.lineHeight,

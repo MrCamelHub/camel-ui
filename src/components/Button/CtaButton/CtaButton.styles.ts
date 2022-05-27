@@ -113,10 +113,10 @@ export const StyledCtaButton = styled.button<
         return {
           height: 48,
           padding: '0 12px',
-          fontSize: typography.h4.size,
-          fontWeight: typography.h4.weight.bold,
-          lineHeight: typography.h4.lineHeight,
-          letterSpacing: typography.h4.letterSpacing
+          fontSize: typography.body1.size,
+          fontWeight: typography.body1.weight.bold,
+          lineHeight: typography.body1.lineHeight,
+          letterSpacing: typography.body1.letterSpacing
         };
       default:
         return {
