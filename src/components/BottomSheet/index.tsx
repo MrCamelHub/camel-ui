@@ -115,6 +115,12 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
 
         sheetOpenTimerRef.current = setTimeout(() => setSheetOpen(true), 100);
       }
+      return () => {
+        const sheet = document.getElementById('sheet-root');
+        if (sheet) {
+          sheet.style.display = 'none';
+        }
+      };
     }, [open]);
 
     useEffect(() => {

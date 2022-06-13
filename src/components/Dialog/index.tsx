@@ -67,6 +67,12 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
 
       dialogOpenTimerRef.current = setTimeout(() => setDialogOpen(true), 100);
     }
+    return () => {
+      const dialog = document.getElementById('dialog-root');
+      if (dialog) {
+        dialog.style.display = 'none';
+      }
+    };
   }, [open]);
 
   useEffect(() => {
