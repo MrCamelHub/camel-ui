@@ -117,8 +117,9 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
       }
       return () => {
         const sheet = document.getElementById('sheet-root');
-        if (sheet) {
-          sheet.style.display = 'none';
+        if (sheet && isMounted) {
+          document.body.removeChild(sheet);
+          document.body.style.overflow = 'unset';
         }
       };
     }, [open]);
