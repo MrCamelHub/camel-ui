@@ -69,9 +69,9 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
     }
     return () => {
       const dialog = document.getElementById('dialog-root');
-      if (dialog && isMounted) {
+      if (dialog) {
         document.body.removeChild(dialog);
-        document.body.style.overflow = 'unset';
+        document.body.removeAttribute('style');
       }
     };
   }, [open]);
