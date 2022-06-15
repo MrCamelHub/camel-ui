@@ -50,7 +50,7 @@ export const StyledDialog = styled.div<
     dialogClose: boolean;
   }
 >`
-  padding: 16px 20px;
+  padding: 20px;
 
   ${({ disablePadding }): CSSObject => (disablePadding ? { padding: 0 } : {})}
 

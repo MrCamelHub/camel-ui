@@ -7,7 +7,7 @@ import type { BrandColor, GenericComponentProps } from '../../types';
 export interface CheckboxProps
   extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
   variant?: 'round' | 'circle';
-  brandColor?: Exclude<BrandColor, 'grey'>;
+  brandColor?: Extract<BrandColor, 'black' | 'primary'>;
 }
 
 const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(

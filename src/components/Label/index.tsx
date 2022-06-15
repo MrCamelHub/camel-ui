@@ -2,33 +2,25 @@ import React, { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
 
 import { StyledLabel } from './Label.styles';
-import type {
-  BoxRoundKey,
-  BrandColor,
-  BrandExtendsColor,
-  GenericComponentProps,
-  Variant
-} from '../../types';
+import type { BrandColor, GenericComponentProps, Size, Variant } from '../../types';
 
 export interface LabelProps extends GenericComponentProps<HTMLAttributes<HTMLLabelElement>> {
   variant?: Variant;
-  brandColor?:
-    | BrandColor
-    | `${Extract<BrandColor, 'primary'>}-${Extract<BrandExtendsColor, 'dark'>}`;
+  brandColor?: Extract<BrandColor, 'black' | 'primary' | 'red'>;
+  size?: Extract<Size, 'small' | 'xsmall'>;
   text: string;
-  round?: BoxRoundKey;
 }
 
 const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
-  { variant = 'outlined', text, round, brandColor = 'grey', customStyle, ...props },
+  { variant = 'outlined', text, brandColor = 'primary', size = 'small', customStyle, ...props },
   ref
 ) {
   return (
     <StyledLabel
       ref={ref}
       variant={variant}
-      round={round}
       brandColor={brandColor}
+      size={size}
       css={customStyle}
       {...props}
     >

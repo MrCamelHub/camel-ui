@@ -9,12 +9,14 @@ import type {
   Size,
   Variant
 } from '../../../types';
+import { TypographyWeight } from '../../../types';
 
 export interface BaseCtaButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
-  brandColor?: BrandColor;
+  brandColor?: Extract<BrandColor, 'black' | 'primary'>;
   size?: Exclude<Size, 'xsmall' | 'small' | 'xlarge'>;
+  weight?: keyof TypographyWeight;
   fullWidth?: boolean;
 }
 
@@ -25,8 +27,9 @@ const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps
     {
       children,
       variant = 'outlined',
-      brandColor = 'grey',
+      brandColor = 'black',
       size = 'medium',
+      weight = 'regular',
       startIcon,
       endIcon,
       iconOnly = false,
@@ -41,6 +44,7 @@ const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps
         ref={ref}
         variant={variant}
         size={size}
+        weight={weight}
         brandColor={brandColor}
         fullWidth={fullWidth}
         css={customStyle}

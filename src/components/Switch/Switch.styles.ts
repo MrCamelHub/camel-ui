@@ -22,8 +22,8 @@ export const Circle = styled.div<Pick<SwitchProps, 'checked'>>`
   position: absolute;
   top: 50%;
   left: 2px;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   transform: translateY(-50%);
   background-color: ${({ theme: { palette } }) => palette.common.white};

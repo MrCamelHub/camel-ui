@@ -2,18 +2,16 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { ButtonProps } from '.';
+import { ChipProps } from '.';
 
-export const StyledButton = styled.button<
-  Pick<ButtonProps, 'variant' | 'brandColor' | 'size' | 'weight' | 'fullWidth'>
+export const StyledChip = styled.button<
+  Pick<ChipProps, 'variant' | 'brandColor' | 'size' | 'weight' | 'isRound' | 'fullWidth'>
 >`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;
   width: fit-content;
   border: 1px solid transparent;
-  border-radius: 4px;
 
   ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject = {};
@@ -51,7 +49,6 @@ export const StyledButton = styled.button<
             }
           };
         }
-
         break;
       }
       case 'outlinedGhost': {
@@ -93,8 +90,8 @@ export const StyledButton = styled.button<
       case 'contained': {
         if (brandColor === 'grey') {
           cssObject = {
-            backgroundColor: palette.common.grey['95'],
-            color: palette.common.grey['60'],
+            backgroundColor: palette.common.grey['60'],
+            color: palette.common.white,
             '& svg': {
               color: palette.common.white
             }
@@ -131,6 +128,7 @@ export const StyledButton = styled.button<
             }
           };
         }
+
         break;
       }
     }
@@ -138,12 +136,13 @@ export const StyledButton = styled.button<
     return cssObject;
   }}
 
-  ${({ theme: { typography }, size, weight = 'medium' }): CSSObject => {
+  ${({ theme: { typography }, size, weight = 'regular', isRound }): CSSObject => {
     switch (size) {
       case 'small': {
         return {
-          height: 34,
-          padding: '8px 10px',
+          height: 30,
+          padding: isRound ? '6px 8px' : 6,
+          gap: 2,
           fontSize: typography.body2.size,
           fontWeight: typography.body2.weight[weight],
           lineHeight: typography.body2.lineHeight,
@@ -156,8 +155,9 @@ export const StyledButton = styled.button<
       }
       case 'large': {
         return {
-          height: 48,
-          padding: '12px 16px',
+          height: 40,
+          padding: isRound ? '8px 12px' : '8px 10px',
+          gap: 4,
           fontSize: typography.h4.size,
           fontWeight: typography.h4.weight[weight],
           lineHeight: typography.h4.lineHeight,
@@ -170,8 +170,9 @@ export const StyledButton = styled.button<
       }
       case 'xlarge': {
         return {
-          height: 59,
-          padding: '16px 20px',
+          height: 47,
+          padding: isRound ? '10px 14px' : '10px 12px',
+          gap: 4,
           fontSize: typography.h3.size,
           fontWeight: typography.h3.weight[weight],
           lineHeight: typography.h3.lineHeight,
@@ -184,8 +185,9 @@ export const StyledButton = styled.button<
       }
       default: {
         return {
-          height: 41,
-          padding: '10px 12px',
+          height: 33,
+          padding: isRound ? '6px 10px' : '6px 8px',
+          gap: 2,
           fontSize: typography.body1.size,
           fontWeight: typography.body1.weight[weight],
           lineHeight: typography.body1.lineHeight,
@@ -198,7 +200,11 @@ export const StyledButton = styled.button<
       }
     }
   }}
-  
+
+  ${({ isRound }): CSSObject => ({
+    borderRadius: isRound ? 36 : 8
+  })}
+
   ${({ fullWidth }): CSSObject =>
     fullWidth
       ? {

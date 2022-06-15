@@ -1,34 +1,37 @@
 import React, { forwardRef } from 'react';
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
-import { StyledButton } from './Button.styles';
+import { StyledChip } from './Chip.styles';
 import type {
+  BoxRoundKey,
   BrandColor,
   GenericComponentProps,
   RequireAtOnlyOneIcon,
   Size,
   Variant
-} from '../../types';
-import { TypographyWeight } from '../../types';
+} from '../../../types';
+import { TypographyWeight } from '../../../types';
 
-export interface BaseButtonProps
+export interface BaseChipProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
   brandColor?: Extract<BrandColor, 'black' | 'primary' | 'grey'>;
   size?: Exclude<Size, 'xsmall'>;
   weight?: keyof TypographyWeight;
+  isRound?: boolean;
   fullWidth?: boolean;
 }
 
-export type ButtonProps = RequireAtOnlyOneIcon<BaseButtonProps>;
+export type ChipProps = RequireAtOnlyOneIcon<BaseChipProps>;
 
-const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(function Button(
+const Chip = forwardRef<HTMLButtonElement, PropsWithChildren<ChipProps>>(function Button(
   {
     children,
     variant = 'outlined',
     brandColor = 'grey',
     size = 'medium',
     weight = 'regular',
+    isRound = true,
     startIcon,
     endIcon,
     iconOnly = false,
@@ -39,12 +42,13 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
   ref
 ) {
   return (
-    <StyledButton
+    <StyledChip
       ref={ref}
       variant={variant}
       weight={weight}
       brandColor={brandColor}
       size={size}
+      isRound={isRound}
       fullWidth={fullWidth}
       css={customStyle}
       {...props}
@@ -52,8 +56,8 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
       {startIcon}
       {!iconOnly && children}
       {endIcon}
-    </StyledButton>
+    </StyledChip>
   );
 });
 
-export default Button;
+export default Chip;

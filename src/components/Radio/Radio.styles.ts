@@ -7,8 +7,8 @@ import { RadioProps } from '.';
 export const Wrapper = styled.div<Pick<RadioProps, 'checked' | 'brandColor'>>`
   position: relative;
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background-color: ${({ theme: { palette } }) => palette.common.white};
   cursor: pointer;
@@ -59,8 +59,8 @@ export const Marker = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     background-color: ${({ theme: { palette } }) => palette.common.white};

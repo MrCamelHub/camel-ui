@@ -47,7 +47,7 @@ export const StyledToast = styled.div<
   bottom: ${({ bottom }) => bottom};
   transform: translateX(-50%);
   width: fit-content;
-  padding: 16px 24px;
+  padding: 12px 20px;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: ${({

@@ -132,6 +132,7 @@ export const StyledTooltip = styled.div<
   &:after {
     content: '';
     position: absolute;
+    border-radius: 2px;
 
     ${({ theme, brandColor, placement, triangleLeft }): CSSObject => {
       let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);

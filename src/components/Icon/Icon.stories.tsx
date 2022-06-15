@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   & div {
-    min-width: 150px;
+    min-width: 200px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -47,13 +47,18 @@ export function FilledIcons() {
         {(
           [
             'AlarmFilled',
+            'BangFilled',
+            'BookmarkFilled',
             'DownloadFilled',
-            'HeartFilled',
             'HeartFavoriteFilled',
+            'HeartFilled',
             'HomeFilled',
             'KakaoFilled',
             'MoreFilled',
             'NewFilled',
+            'NotiFilled',
+            'QuestionFilled',
+            'RankFilled',
             'SafeFilled',
             'SettingFilled',
             'ShareFilled',
@@ -62,9 +67,7 @@ export function FilledIcons() {
             'UnderFilled',
             'UserFilled',
             'UserLargeFilled',
-            'BookmarkFilled',
-            'WarningFilled',
-            'QuestionFilled'
+            'WarningFilled'
           ] as (keyof typeof FilledSvgIcons)[]
         ).map((name) => (
           <div key={`filled-icon-${name}`}>
@@ -92,23 +95,29 @@ export function OutlinedIcons() {
             'CaretLeftOutlined',
             'CaretRightOutlined',
             'CaretUpOutlined',
+            'CategoryOutlined',
             'ChatOutlined',
             'CheckOutlined',
             'CloseOutlined',
             'ClothesOutlined',
+            'EditOutlined',
             'HeartFavoriteOutlined',
             'HeartShadowOutlined',
             'HeartOutlined',
             'HomeOutlined',
             'MenuOutlined',
             'MessageOutlined',
+            'MinusOutlined',
+            'NotiOutlined',
             'PantsOutlined',
             'PlusOutlined',
+            'RankOutlined',
             'SearchOutlined',
             'ShareOutlined',
             'ShoesOutlined',
             'StarOutlined',
             'TrophyOutlined',
+            'UserOutlined',
             'UserLargeOutlined',
             'ViewOutlined',
             'FilterOutlined'

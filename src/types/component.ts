@@ -5,7 +5,7 @@ import type { InterpolationWithTheme } from '@emotion/core';
 
 import type { ColorCode } from './css';
 
-export type Variant = 'outlined' | 'ghost' | 'contained';
+export type Variant = 'outlined' | 'ghost' | 'outlinedGhost' | 'contained';
 export type BrandColor = 'grey' | 'black' | 'primary' | 'red' | 'purple';
 export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
 export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', ColorCode>;

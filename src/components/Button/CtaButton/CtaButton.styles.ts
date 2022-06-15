@@ -5,12 +5,12 @@ import { getBrandColorCodeByColorName } from '@utils';
 import { CtaButtonProps } from '.';
 
 export const StyledCtaButton = styled.button<
-  Pick<CtaButtonProps, 'variant' | 'brandColor' | 'size' | 'fullWidth'>
+  Pick<CtaButtonProps, 'variant' | 'brandColor' | 'size' | 'weight' | 'fullWidth'>
 >`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   width: fit-content;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -21,7 +21,7 @@ export const StyledCtaButton = styled.button<
     const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
     switch (variant) {
-      case 'contained':
+      case 'contained': {
         cssObject = {
           backgroundColor: brandColorCode,
           color: palette.common.white,
@@ -30,17 +30,8 @@ export const StyledCtaButton = styled.button<
           }
         };
         break;
-      case 'ghost':
-        if (brandColor === 'grey') {
-          cssObject = {
-            backgroundColor: brandColorCode,
-            color: palette.common.grey['20'],
-            '& svg': {
-              color: palette.common.grey['20']
-            }
-          };
-        }
-
+      }
+      case 'ghost': {
         if (brandColor === 'black') {
           cssObject = {
             backgroundColor: palette.common.grey['95'],
@@ -61,27 +52,9 @@ export const StyledCtaButton = styled.button<
           };
         }
 
-        if (brandColor === 'red') {
-          cssObject = {
-            backgroundColor: palette.secondary.red.highlight,
-            color: brandColorCode,
-            '& svg': {
-              color: brandColorCode
-            }
-          };
-        }
-
-        if (brandColor === 'purple') {
-          cssObject = {
-            backgroundColor: palette.secondary.purple.highlight,
-            color: brandColorCode,
-            '& svg': {
-              color: brandColorCode
-            }
-          };
-        }
         break;
-      default:
+      }
+      default: {
         cssObject = {
           backgroundColor: palette.common.white,
           borderColor: brandColorCode,
@@ -91,17 +64,8 @@ export const StyledCtaButton = styled.button<
           }
         };
 
-        if (brandColor === 'grey') {
-          cssObject = {
-            backgroundColor: palette.common.white,
-            borderColor: brandColorCode,
-            color: palette.common.grey['20'],
-            '& > svg': {
-              color: palette.common.grey['20']
-            }
-          };
-        }
         break;
+      }
     }
 
     return cssObject;
@@ -109,24 +73,34 @@ export const StyledCtaButton = styled.button<
 
   ${({ theme: { typography }, size }): CSSObject => {
     switch (size) {
-      case 'large':
+      case 'large': {
         return {
           height: 48,
-          padding: '0 12px',
+          padding: '12px 16px',
+          fontSize: typography.h4.size,
+          fontWeight: typography.h4.weight.bold,
+          lineHeight: typography.h4.lineHeight,
+          letterSpacing: typography.h4.letterSpacing,
+          '& > svg': {
+            width: 20,
+            height: 20
+          }
+        };
+      }
+      default: {
+        return {
+          height: 41,
+          padding: '10px 12px',
           fontSize: typography.body1.size,
           fontWeight: typography.body1.weight.bold,
           lineHeight: typography.body1.lineHeight,
-          letterSpacing: typography.body1.letterSpacing
+          letterSpacing: typography.body1.letterSpacing,
+          '& > svg': {
+            width: 18,
+            height: 18
+          }
         };
-      default:
-        return {
-          height: 41,
-          padding: '0 10px',
-          fontSize: typography.body1.size,
-          fontWeight: typography.body1.weight.medium,
-          lineHeight: typography.body1.lineHeight,
-          letterSpacing: typography.body1.letterSpacing
-        };
+      }
     }
   }};
 

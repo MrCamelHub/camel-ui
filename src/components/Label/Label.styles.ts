@@ -4,21 +4,12 @@ import { getBrandColorCodeByColorName } from '@utils';
 
 import { LabelProps } from '.';
 
-export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'round' | 'brandColor'>>`
+export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor' | 'size'>>`
   display: inline-flex;
   align-items: center;
-  padding: 0 4px;
   min-width: fit-content;
-  height: 19px;
   border: 1px solid transparent;
   border-radius: 4px;
-
-  ${({ theme: { typography } }): CSSObject => ({
-    fontSize: typography.small2.size,
-    fontWeight: typography.small2.weight.medium,
-    lineHeight: typography.small2.lineHeight,
-    letterSpacing: typography.small2.letterSpacing
-  })}
 
   ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject;
@@ -44,16 +35,6 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'round' | '
           }
         };
 
-        if (brandColor === 'grey') {
-          cssObject = {
-            backgroundColor: palette.common.grey['90'],
-            color: palette.common.grey['40'],
-            '& svg': {
-              color: palette.common.grey['40']
-            }
-          };
-        }
-
         if (brandColor === 'red') {
           cssObject = {
             backgroundColor: palette.secondary.red.highlight,
@@ -64,9 +45,9 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'round' | '
           };
         }
 
-        if (brandColor === 'purple') {
+        if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.secondary.purple.highlight,
+            backgroundColor: palette.common.grey['90'],
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -90,15 +71,28 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'round' | '
     return cssObject;
   }};
 
-  ${({
-    theme: {
-      box: { round: boxRound }
-    },
-    round
-  }): CSSObject =>
-    round
-      ? {
-          borderRadius: boxRound[round]
-        }
-      : {}}
+  ${({ theme: { typography }, size }): CSSObject => {
+    switch (size) {
+      case 'small': {
+        return {
+          height: 19,
+          padding: '2px 4px',
+          fontSize: typography.small2.size,
+          fontWeight: typography.small2.weight.medium,
+          lineHeight: typography.small2.lineHeight,
+          letterSpacing: typography.small2.letterSpacing
+        };
+      }
+      default: {
+        return {
+          height: 26,
+          padding: '4px 6px',
+          fontSize: typography.small1.size,
+          fontWeight: typography.small1.weight.medium,
+          lineHeight: typography.small1.lineHeight,
+          letterSpacing: typography.small1.letterSpacing
+        };
+      }
+    }
+  }}
 `;

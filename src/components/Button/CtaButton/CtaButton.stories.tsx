@@ -42,7 +42,9 @@ export function Variants() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <CtaButton variant="outlined">outlined</CtaButton>
+        <CtaButton variant="outlined" brandColor="primary">
+          outlined
+        </CtaButton>
         <CtaButton variant="ghost" brandColor="primary">
           ghost
         </CtaButton>
@@ -57,58 +59,31 @@ export function Variants() {
 export function BrandColors() {
   return (
     <ThemeProvider theme="light">
+      <p>outline</p>
       <Wrapper>
-        <p>outline</p>
-        <CtaButton variant="outlined" brandColor="grey">
-          grey
-        </CtaButton>
         <CtaButton variant="outlined" brandColor="black">
           black
         </CtaButton>
         <CtaButton variant="outlined" brandColor="primary">
           primary
         </CtaButton>
-        <CtaButton variant="outlined" brandColor="red">
-          red
-        </CtaButton>
-        <CtaButton variant="outlined" brandColor="purple">
-          purple
-        </CtaButton>
       </Wrapper>
+      <p>ghost</p>
       <Wrapper>
-        <p>outline</p>
-        <CtaButton variant="ghost" brandColor="grey">
-          grey
-        </CtaButton>
         <CtaButton variant="ghost" brandColor="black">
           black
         </CtaButton>
         <CtaButton variant="ghost" brandColor="primary">
           primary
         </CtaButton>
-        <CtaButton variant="ghost" brandColor="red">
-          red
-        </CtaButton>
-        <CtaButton variant="ghost" brandColor="purple">
-          purple
-        </CtaButton>
       </Wrapper>
+      <p>contained</p>
       <Wrapper>
-        <p>outline</p>
-        <CtaButton variant="contained" brandColor="grey">
-          grey
-        </CtaButton>
         <CtaButton variant="contained" brandColor="black">
           black
         </CtaButton>
         <CtaButton variant="contained" brandColor="primary">
           primary
-        </CtaButton>
-        <CtaButton variant="contained" brandColor="red">
-          red
-        </CtaButton>
-        <CtaButton variant="contained" brandColor="purple">
-          purple
         </CtaButton>
       </Wrapper>
     </ThemeProvider>
@@ -150,20 +125,8 @@ export function Icons() {
           variant="contained"
           brandColor="primary"
           startIcon={<Icon name="AlarmOutlined" />}
-        >
-          Button
-        </CtaButton>
-        <CtaButton variant="contained" brandColor="primary" endIcon={<Icon name="CloseOutlined" />}>
-          Button
-        </CtaButton>
-        <CtaButton variant="contained" brandColor="primary">
-          <Icon name="CloseOutlined" />
-        </CtaButton>
-        <CtaButton
-          variant="contained"
-          brandColor="primary"
-          startIcon={<Icon name="HeartFilled" />}
           endIcon={<Icon name="CloseOutlined" />}
+          fullWidth
         >
           Button
         </CtaButton>

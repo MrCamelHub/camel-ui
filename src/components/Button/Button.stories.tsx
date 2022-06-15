@@ -42,9 +42,18 @@ export function Variants() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Button variant="outlined">outlined</Button>
-        <Button variant="ghost">ghost</Button>
-        <Button variant="contained">contained</Button>
+        <Button variant="outlined" brandColor="primary">
+          outlined
+        </Button>
+        <Button variant="ghost" brandColor="primary">
+          ghost
+        </Button>
+        <Button variant="outlinedGhost" brandColor="primary">
+          ghost
+        </Button>
+        <Button variant="contained" brandColor="primary">
+          contained
+        </Button>
       </Wrapper>
     </ThemeProvider>
   );
@@ -53,58 +62,52 @@ export function Variants() {
 export function BrandColors() {
   return (
     <ThemeProvider theme="light">
+      <p>outlined</p>
       <Wrapper>
-        <p>outlined</p>
-        <Button variant="outlined" brandColor="grey">
-          grey
-        </Button>
         <Button variant="outlined" brandColor="black">
           black
         </Button>
         <Button variant="outlined" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlined" brandColor="red">
-          red
-        </Button>
-        <Button variant="outlined" brandColor="purple">
-          purple
-        </Button>
-      </Wrapper>
-      <Wrapper>
-        <p>ghost</p>
-        <Button variant="ghost" brandColor="grey">
+        <Button variant="outlined" brandColor="grey">
           grey
         </Button>
+      </Wrapper>
+      <p>ghost</p>
+      <Wrapper>
         <Button variant="ghost" brandColor="black">
           black
         </Button>
         <Button variant="ghost" brandColor="primary">
           primary
         </Button>
-        <Button variant="ghost" brandColor="red">
-          red
-        </Button>
-        <Button variant="ghost" brandColor="purple">
-          purple
-        </Button>
-      </Wrapper>
-      <Wrapper>
-        <p>contained</p>
-        <Button variant="contained" brandColor="grey">
+        <Button variant="ghost" brandColor="grey">
           grey
         </Button>
+      </Wrapper>
+      <p>outlinedGhost</p>
+      <Wrapper>
+        <Button variant="outlinedGhost" brandColor="black">
+          black
+        </Button>
+        <Button variant="outlinedGhost" brandColor="primary">
+          primary
+        </Button>
+        <Button variant="outlinedGhost" brandColor="grey">
+          grey
+        </Button>
+      </Wrapper>
+      <p>contained</p>
+      <Wrapper>
         <Button variant="contained" brandColor="black">
           black
         </Button>
         <Button variant="contained" brandColor="primary">
           primary
         </Button>
-        <Button variant="contained" brandColor="red">
-          red
-        </Button>
-        <Button variant="contained" brandColor="purple">
-          purple
+        <Button variant="contained" brandColor="grey">
+          grey
         </Button>
       </Wrapper>
     </ThemeProvider>
@@ -115,9 +118,6 @@ export function Sizes() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Button size="xsmall" variant="contained" brandColor="primary">
-          xsmall
-        </Button>
         <Button size="small" variant="contained" brandColor="primary">
           small
         </Button>
@@ -129,33 +129,6 @@ export function Sizes() {
         </Button>
         <Button size="xlarge" variant="contained" brandColor="primary">
           xlarge
-        </Button>
-      </Wrapper>
-    </ThemeProvider>
-  );
-}
-
-export function Rounds() {
-  return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Button round="0" variant="contained" brandColor="primary">
-          0
-        </Button>
-        <Button round="2" variant="contained" brandColor="primary">
-          2
-        </Button>
-        <Button round="4" variant="contained" brandColor="primary">
-          4
-        </Button>
-        <Button round="8" variant="contained" brandColor="primary">
-          8
-        </Button>
-        <Button round="16" variant="contained" brandColor="primary">
-          16
-        </Button>
-        <Button round="24" variant="contained" brandColor="primary">
-          24
         </Button>
       </Wrapper>
     </ThemeProvider>
@@ -178,22 +151,25 @@ export function Icons() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Button variant="contained" brandColor="primary" startIcon={<Icon name="HeartFilled" />}>
-          Button
-        </Button>
-        <Button variant="contained" brandColor="primary" endIcon={<Icon name="CloseOutlined" />}>
-          Button
-        </Button>
         <Button
           variant="contained"
           brandColor="primary"
-          startIcon={<Icon name="HeartFilled" />}
+          startIcon={<Icon name="AlarmFilled" />}
           endIcon={<Icon name="CloseOutlined" />}
         >
           Button
         </Button>
-        <Button variant="contained" brandColor="primary">
-          <Icon name="HeartFilled" />
+      </Wrapper>
+    </ThemeProvider>
+  );
+}
+
+export function Status() {
+  return (
+    <ThemeProvider theme="light">
+      <Wrapper>
+        <Button size="medium" variant="contained" brandColor="primary" disabled>
+          disabled
         </Button>
       </Wrapper>
     </ThemeProvider>

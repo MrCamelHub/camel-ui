@@ -9,22 +9,28 @@ export const Wrapper = styled.div<
 >`
   position: relative;
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   background-color: ${({ theme: { palette } }) => palette.common.white};
 
   ${({ theme, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject = {};
 
     switch (variant) {
-      case 'circle':
-        cssObject = {
-          border: `1px solid ${getBrandColorCodeByColorName(theme, brandColor)}`,
-          borderRadius: '50%'
-        };
-        break;
+      case 'circle': {
+        cssObject.borderRadius = '50%';
 
-      default:
+        if (brandColor === 'black') {
+          cssObject.border = `1px solid ${theme.palette.common.grey['60']}`;
+        }
+
+        if (brandColor === 'primary') {
+          cssObject.border = `1px solid ${getBrandColorCodeByColorName(theme, brandColor)}`;
+        }
+
+        break;
+      }
+      default: {
         if (brandColor === 'black') {
           cssObject = {
             border: `1px solid ${theme.palette.common.grey['60']}`,
@@ -39,20 +45,8 @@ export const Wrapper = styled.div<
           };
         }
 
-        if (brandColor === 'red') {
-          cssObject = {
-            border: `1px solid ${theme.palette.secondary.red.light}`,
-            borderRadius: 4
-          };
-        }
-
-        if (brandColor === 'purple') {
-          cssObject = {
-            border: `1px solid ${theme.palette.secondary.purple.light}`,
-            borderRadius: 4
-          };
-        }
         break;
+      }
     }
 
     return cssObject;
@@ -92,24 +86,22 @@ export const Marker = styled.div<Pick<CheckboxProps, 'variant' | 'checked' | 'br
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 8px;
-    height: 10px;
-    transform: translate(-50%, calc(-50% - 2px)) rotate(45deg);
+    width: 6px;
+    height: 9px;
+    transform: translate(-50%, calc(-50% - 1px)) rotate(45deg);
     border: solid;
-    border-width: 0 2px 2px 0;
+    border-width: 0 1.5px 1.5px 0;
     
     ${({ theme, variant, brandColor }): CSSObject => {
-      let cssObject: CSSObject;
+      const cssObject: CSSObject = {};
       switch (variant) {
         case 'circle':
-          cssObject = {
-            borderColor: getBrandColorCodeByColorName(theme, brandColor)
-          };
+          cssObject.borderColor = getBrandColorCodeByColorName(theme, brandColor);
+
           break;
         default:
-          cssObject = {
-            borderColor: theme.palette.common.white
-          };
+          cssObject.borderColor = theme.palette.common.white;
+
           break;
       }
 
