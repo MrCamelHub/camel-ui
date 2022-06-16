@@ -3,7 +3,6 @@ import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
 import { StyledChip } from './Chip.styles';
 import type {
-  BoxRoundKey,
   BrandColor,
   GenericComponentProps,
   RequireAtOnlyOneIcon,
