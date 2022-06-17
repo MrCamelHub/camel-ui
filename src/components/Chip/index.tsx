@@ -8,8 +8,8 @@ import type {
   RequireAtOnlyOneIcon,
   Size,
   Variant
-} from '../../../types';
-import { TypographyWeight } from '../../../types';
+} from '../../types';
+import { TypographyWeight } from '../../types';
 
 export interface BaseChipProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {

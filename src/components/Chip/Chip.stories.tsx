@@ -3,12 +3,12 @@ import React from 'react';
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Icon from '@components/Icon';
-import Chip from '@components/Button/Chip';
+import Chip from '@components/Chip/index';
 
 import { ThemeProvider } from '@theme';
 
 export default {
-  title: 'Components/Buttons/Chip',
+  title: 'Components/Chip',
   component: Chip
 } as ComponentMeta<typeof Chip>;
 
