@@ -1,6 +1,7 @@
 export { default as AlarmFilled } from './alarm-filled.svg';
 export { default as BangFilled } from './bang-filled.svg';
 export { default as BookmarkFilled } from './bookmark-filled.svg';
+export { default as CameraFilled } from './camera-filled.svg';
 export { default as DownloadFilled } from './download-filled.svg';
 export { default as HeartFavoriteFilled } from './heart-favorite-filled.svg';
 export { default as HeartFilled } from './heart-filled.svg';
