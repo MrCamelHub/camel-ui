@@ -86,7 +86,7 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
     };
 
     useEffect(() => {
-      if (open) {
+      if (open && !isMounted) {
         document.body.style.overflow = 'hidden';
 
         let sheet = document.getElementById('sheet-root');
@@ -115,14 +115,20 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
 
         sheetOpenTimerRef.current = setTimeout(() => setSheetOpen(true), 100);
       }
-      return () => {
-        const sheet = document.getElementById('sheet-root');
-        if (sheet) {
-          document.body.removeChild(sheet);
-          document.body.removeAttribute('style');
+      if (!open && isMounted && sheetPortalRef.current) {
+        if (sheetOpenTimerRef.current) {
+          clearTimeout(sheetOpenTimerRef.current);
         }
-      };
-    }, [open]);
+        sheetCloseTimerRef.current = setTimeout(() => {
+          sheetPortalRef.current?.remove();
+          sheetPortalRef.current = null;
+          setSheetOpen(false);
+          setIsMounted(false);
+          setSwipeable(false);
+          document.body.removeAttribute('style');
+        }, transitionDuration + 100);
+      }
+    }, [open, isMounted, transitionDuration]);
 
     useEffect(() => {
       if (sheetOpen && sheetRef.current) {
@@ -133,25 +139,6 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
         setSheetSwipeZoneHeight(sheetSwipeZoneRef.current?.clientHeight);
       }
     }, [sheetOpen]);
-
-    useEffect(() => {
-      if (!open && sheetOpen && sheetPortalRef.current) {
-        if (sheetOpenTimerRef.current) {
-          clearTimeout(sheetOpenTimerRef.current);
-        }
-
-        sheetCloseTimerRef.current = setTimeout(() => {
-          sheetPortalRef.current?.remove();
-          sheetPortalRef.current = null;
-
-          setIsMounted(false);
-          setSheetOpen(false);
-          setSwipeable(false);
-
-          document.body.removeAttribute('style');
-        }, transitionDuration + 100);
-      }
-    }, [open, sheetOpen, transitionDuration]);
 
     if (isMounted && sheetPortalRef.current) {
       return createPortal(

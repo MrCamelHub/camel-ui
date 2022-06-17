@@ -38,7 +38,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
-    if (open) {
+    if (open && !isMounted) {
       document.body.style.overflow = 'hidden';
 
       let dialog = document.getElementById('dialog-root');
@@ -67,17 +67,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
 
       dialogOpenTimerRef.current = setTimeout(() => setDialogOpen(true), 100);
     }
-    return () => {
-      const dialog = document.getElementById('dialog-root');
-      if (dialog) {
-        document.body.removeChild(dialog);
-        document.body.removeAttribute('style');
-      }
-    };
-  }, [open]);
-
-  useEffect(() => {
-    if (!open && dialogOpen && dialogPortalRef.current) {
+    if (!open && isMounted && dialogPortalRef.current) {
       if (dialogOpenTimerRef.current) {
         clearTimeout(dialogOpenTimerRef.current);
       }
@@ -85,14 +75,13 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
       dialogCloseTimerRef.current = setTimeout(() => {
         dialogPortalRef.current?.remove();
         dialogPortalRef.current = null;
-
-        setIsMounted(false);
         setDialogOpen(false);
+        setIsMounted(false);
 
         document.body.removeAttribute('style');
       }, transitionDuration + 100);
     }
-  }, [open, dialogOpen, transitionDuration]);
+  }, [open, isMounted, transitionDuration]);
 
   if (isMounted && dialogPortalRef.current) {
     return createPortal(
