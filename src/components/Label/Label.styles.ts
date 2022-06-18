@@ -73,7 +73,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
 
   ${({ theme: { typography }, size }): CSSObject => {
     switch (size) {
-      case 'small': {
+      case 'xsmall': {
         return {
           height: 19,
           padding: '2px 4px',
