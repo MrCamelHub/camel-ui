@@ -29,7 +29,7 @@ const CtaButton = forwardRef<HTMLButtonElement, PropsWithChildren<CtaButtonProps
       variant = 'outlined',
       brandColor = 'black',
       size = 'medium',
-      weight = 'regular',
+      weight = 'medium',
       startIcon,
       endIcon,
       iconOnly = false,

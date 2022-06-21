@@ -36,6 +36,8 @@ export const StyledBottomSheet = styled.div<
 >`
   width: 100%;
   max-height: 90%;
+  display: flex;
+  flex-direction: column;
   background-color: ${({ theme: { palette } }) => palette.common.white};
   border-radius: 16px 16px 0 0;
   box-shadow: ${({
@@ -71,14 +73,8 @@ export const SwipeZone = styled.div`
   touch-action: none;
 `;
 
-export const Content = styled.div<{ maxHeight: number; swipeZoneHeight: number }>`
-  ${({ maxHeight, swipeZoneHeight }): CSSObject => {
-    let calcMaxHeight = maxHeight ? `${maxHeight}px` : '100%';
-    if (swipeZoneHeight) calcMaxHeight = `calc(${calcMaxHeight} - ${swipeZoneHeight}px)`;
-    return {
-      maxHeight: calcMaxHeight
-    };
-  }};
+export const Content = styled.div`
+  flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
 `;

@@ -29,7 +29,7 @@ const Chip = forwardRef<HTMLButtonElement, PropsWithChildren<ChipProps>>(functio
     variant = 'outlined',
     brandColor = 'grey',
     size = 'medium',
-    weight = 'regular',
+    weight = 'medium',
     isRound = true,
     startIcon,
     endIcon,
