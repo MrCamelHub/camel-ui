@@ -28,7 +28,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
     variant = 'outlined',
     brandColor = 'grey',
     size = 'medium',
-    weight = 'regular',
+    weight = 'medium',
     startIcon,
     endIcon,
     iconOnly = false,

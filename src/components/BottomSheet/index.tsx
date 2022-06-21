@@ -29,8 +29,6 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
     const [isMounted, setIsMounted] = useState<boolean>(false);
     const [sheetOpen, setSheetOpen] = useState<boolean>(false);
     const [swipeable, setSwipeable] = useState<boolean>(false);
-    const [sheetContentHeight, setSheetContentHeight] = useState<number>(0);
-    const [sheetSwipeZoneHeight, setSheetSwipeZoneHeight] = useState<number>(0);
 
     const sheetPortalRef = useRef<HTMLElement | null>(null);
     const sheetRef = useRef<HTMLDivElement | null>(null);
@@ -130,16 +128,6 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
       }
     }, [open, isMounted, transitionDuration]);
 
-    useEffect(() => {
-      if (sheetOpen && sheetRef.current) {
-        setSheetContentHeight(sheetRef.current?.clientHeight);
-      }
-
-      if (sheetOpen && sheetSwipeZoneRef.current) {
-        setSheetSwipeZoneHeight(sheetSwipeZoneRef.current?.clientHeight);
-      }
-    }, [sheetOpen]);
-
     if (isMounted && sheetPortalRef.current) {
       return createPortal(
         <Wrapper
@@ -170,13 +158,7 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
                 <Rectangle />
               </SwipeZone>
             )}
-            <Content
-              maxHeight={sheetContentHeight}
-              swipeZoneHeight={sheetSwipeZoneHeight}
-              {...props}
-            >
-              {children}
-            </Content>
+            <Content {...props}>{children}</Content>
           </StyledBottomSheet>
         </Wrapper>,
         sheetPortalRef.current
