@@ -33,7 +33,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [toastOpen, setToastOpen] = useState<boolean>(false);
 
-  const toastRef = useRef<HTMLElement | null>(null);
+  const toastPortalRef = useRef<HTMLElement | null>(null);
   const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toastCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toastAutoHideDurationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -41,7 +41,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
-    if (open && !isMounted) {
+    if (open) {
       let toast = document.getElementById('toast-root');
 
       if (!toast) {
@@ -53,7 +53,6 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
         toast.style.width = '100%';
         toast.style.height = '100%';
         toast.style.zIndex = '1000';
-
         toast.setAttribute('role', 'presentation');
 
         document.body.appendChild(toast);
@@ -61,7 +60,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
 
       setIsMounted(true);
 
-      toastRef.current = toast;
+      toastPortalRef.current = toast;
 
       if (toastCloseTimerRef.current) {
         clearTimeout(toastCloseTimerRef.current);
@@ -71,7 +70,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
       }
 
       toastOpenTimerRef.current = setTimeout(() => setToastOpen(true), 100);
-    } else if (!open && isMounted && toastRef.current) {
+    } else if (!open && isMounted && toastPortalRef.current) {
       if (toastOpenTimerRef.current) {
         clearTimeout(toastOpenTimerRef.current);
       }
@@ -80,8 +79,8 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
       }
 
       toastCloseTimerRef.current = setTimeout(() => {
-        toastRef.current?.remove();
-        toastRef.current = null;
+        toastPortalRef.current?.remove();
+        toastPortalRef.current = null;
 
         setToastOpen(false);
         setIsMounted(false);
@@ -90,12 +89,30 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   }, [open, isMounted, autoHideDuration, transitionDuration, onClose]);
 
   useEffect(() => {
-    if (open && isMounted && autoHideDuration) {
+    if (open && isMounted && toastOpen && autoHideDuration) {
       toastAutoHideDurationTimerRef.current = setTimeout(onClose, autoHideDuration);
     }
-  }, [open, isMounted, autoHideDuration, onClose]);
+  }, [open, isMounted, toastOpen, autoHideDuration, onClose]);
 
-  if (isMounted && toastRef.current) {
+  useEffect(() => {
+    return () => {
+      if (toastOpenTimerRef.current) {
+        clearTimeout(toastOpenTimerRef.current);
+      }
+      if (toastCloseTimerRef.current) {
+        clearTimeout(toastCloseTimerRef.current);
+      }
+      if (toastAutoHideDurationTimerRef.current) {
+        clearTimeout(toastAutoHideDurationTimerRef.current);
+      }
+      if (toastPortalRef.current) {
+        toastPortalRef.current?.remove();
+        toastPortalRef.current = null;
+      }
+    };
+  }, []);
+
+  if (isMounted && toastPortalRef.current) {
     return createPortal(
       <Wrapper
         ref={ref}
@@ -117,7 +134,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
           {children}
         </StyledToast>
       </Wrapper>,
-      toastRef.current
+      toastPortalRef.current
     );
   }
 

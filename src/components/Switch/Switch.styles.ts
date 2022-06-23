@@ -8,7 +8,6 @@ export const StyledSwitch = styled.button<Pick<SwitchProps, 'checked'>>`
   height: 30px;
   border-radius: 15px;
   background-color: ${({ theme: { palette } }) => palette.common.grey['80']};
-  border: 1px solid transparent;
 
   ${({ theme: { palette }, checked }): CSSObject =>
     checked

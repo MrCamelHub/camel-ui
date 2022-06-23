@@ -17,6 +17,7 @@ export const StyledTooltip = styled.div<
     | 'spaceBetween'
     | 'transitionDuration'
     | 'triangleLeft'
+    | 'triangleCompact'
     | 'brandColor'
     | 'round'
     | 'disablePadding'
@@ -129,12 +130,11 @@ export const StyledTooltip = styled.div<
         }
       : {}}
 
-  &:after {
+  & > svg {
     content: '';
     position: absolute;
-    border-radius: 2px;
 
-    ${({ theme, brandColor, placement, triangleLeft }): CSSObject => {
+    ${({ theme, brandColor, placement, triangleLeft, triangleCompact }): CSSObject => {
       let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
       if (brandColor === 'black') {
@@ -144,43 +144,31 @@ export const StyledTooltip = styled.div<
       switch (placement) {
         case 'left':
           return {
-            borderTop: '12.5px solid transparent',
-            borderLeft: `15px solid ${brandColorCode}`,
-            borderRight: '0 solid transparent',
-            borderBottom: '12.5px solid transparent',
             top: '50%',
-            right: -15,
-            transform: 'translateY(-50%)'
+            right: triangleCompact ? -10 : -15,
+            color: brandColorCode,
+            transform: 'translateY(-50%) rotate(90deg)'
           };
         case 'right':
           return {
-            borderTop: '12.5px solid transparent',
-            borderRight: `15px solid ${brandColorCode}`,
-            borderLeft: '0 solid transparent',
-            borderBottom: '12.5px solid transparent',
             top: '50%',
-            left: -15,
-            transform: 'translateY(-50%)'
+            left: triangleCompact ? -10 : -15,
+            color: brandColorCode,
+            transform: 'translateY(-50%) rotate(270deg)'
           };
         case 'bottom':
           return {
-            borderTop: '0 solid transparent',
-            borderRight: '12.5px solid transparent',
-            borderLeft: '12.5px solid transparent',
-            borderBottom: `15px solid ${brandColorCode}`,
-            top: -15,
+            top: -10,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
-            transform: `${triangleLeft ? 'none' : 'translateX(-50%)'}`
+            color: brandColorCode,
+            transform: `${triangleLeft ? 'none' : 'translateX(-50%) rotate(0deg)'}`
           };
         default:
           return {
-            borderTop: `15px solid ${brandColorCode}`,
-            borderRight: '12.5px solid transparent',
-            borderLeft: '12.5px solid transparent',
-            borderBottom: '0 solid transparent',
-            bottom: -15,
+            bottom: -10,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
-            transform: `${triangleLeft ? 'none' : 'translateX(-50%)'}`
+            color: brandColorCode,
+            transform: `${triangleLeft ? 'none' : 'translateX(-50%) rotate(180deg)'}`
           };
       }
     }}

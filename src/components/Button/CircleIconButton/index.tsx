@@ -14,9 +14,9 @@ export interface CircleIconButtonProps
 }
 
 const CircleIconButton = forwardRef<HTMLButtonElement, CircleIconButtonProps>(
-  function CircleIconButton({ iconName, brandColor = 'grey', ...props }, ref) {
+  function CircleIconButton({ iconName, brandColor = 'grey', customStyle, ...props }, ref) {
     return (
-      <StyledIconButton ref={ref} brandColor={brandColor} {...props}>
+      <StyledIconButton ref={ref} brandColor={brandColor} css={customStyle} {...props}>
         <Icon name={iconName} />
       </StyledIconButton>
     );

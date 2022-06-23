@@ -38,7 +38,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
-    if (open && !isMounted) {
+    if (open) {
       document.body.style.overflow = 'hidden';
 
       let dialog = document.getElementById('dialog-root');
@@ -67,7 +67,10 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
 
       dialogOpenTimerRef.current = setTimeout(() => setDialogOpen(true), 100);
     }
-    if (!open && isMounted && dialogPortalRef.current) {
+  }, [open]);
+
+  useEffect(() => {
+    if (!open && dialogOpen && dialogPortalRef.current) {
       if (dialogOpenTimerRef.current) {
         clearTimeout(dialogOpenTimerRef.current);
       }
@@ -75,13 +78,30 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
       dialogCloseTimerRef.current = setTimeout(() => {
         dialogPortalRef.current?.remove();
         dialogPortalRef.current = null;
-        setDialogOpen(false);
+
         setIsMounted(false);
+        setDialogOpen(false);
 
         document.body.removeAttribute('style');
       }, transitionDuration + 100);
     }
-  }, [open, isMounted, transitionDuration]);
+  }, [open, dialogOpen, transitionDuration]);
+
+  useEffect(() => {
+    return () => {
+      if (dialogOpenTimerRef.current) {
+        clearTimeout(dialogOpenTimerRef.current);
+      }
+      if (dialogCloseTimerRef.current) {
+        clearTimeout(dialogCloseTimerRef.current);
+      }
+      if (dialogPortalRef.current) {
+        dialogPortalRef.current?.remove();
+        dialogPortalRef.current = null;
+      }
+      document.body.removeAttribute('style');
+    };
+  }, []);
 
   if (isMounted && dialogPortalRef.current) {
     return createPortal(

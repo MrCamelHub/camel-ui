@@ -118,6 +118,9 @@ export function Sizes() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
+        <Chip size="xsmall" variant="contained" brandColor="primary">
+          xsmall
+        </Chip>
         <Chip size="small" variant="contained" brandColor="primary">
           small
         </Chip>
@@ -132,6 +135,9 @@ export function Sizes() {
         </Chip>
       </Wrapper>
       <Wrapper>
+        <Chip size="xsmall" variant="contained" brandColor="primary" isRound={false}>
+          xsmall
+        </Chip>
         <Chip size="small" variant="contained" brandColor="primary" isRound={false}>
           small
         </Chip>

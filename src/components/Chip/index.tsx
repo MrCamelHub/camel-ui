@@ -15,7 +15,7 @@ export interface BaseChipProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
   brandColor?: Extract<BrandColor, 'black' | 'primary' | 'grey'>;
-  size?: Exclude<Size, 'xsmall'>;
+  size?: Size;
   weight?: keyof TypographyWeight;
   isRound?: boolean;
   fullWidth?: boolean;
