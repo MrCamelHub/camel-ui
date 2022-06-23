@@ -84,7 +84,7 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
     };
 
     useEffect(() => {
-      if (open && !isMounted) {
+      if (open) {
         document.body.style.overflow = 'hidden';
 
         let sheet = document.getElementById('sheet-root');
@@ -113,20 +113,42 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
 
         sheetOpenTimerRef.current = setTimeout(() => setSheetOpen(true), 100);
       }
-      if (!open && isMounted && sheetPortalRef.current) {
+    }, [open]);
+
+    useEffect(() => {
+      if (!open && sheetOpen && sheetPortalRef.current) {
         if (sheetOpenTimerRef.current) {
           clearTimeout(sheetOpenTimerRef.current);
         }
+
         sheetCloseTimerRef.current = setTimeout(() => {
           sheetPortalRef.current?.remove();
           sheetPortalRef.current = null;
-          setSheetOpen(false);
+
           setIsMounted(false);
+          setSheetOpen(false);
           setSwipeable(false);
+
           document.body.removeAttribute('style');
         }, transitionDuration + 100);
       }
-    }, [open, isMounted, transitionDuration]);
+    }, [open, sheetOpen, transitionDuration]);
+
+    useEffect(() => {
+      return () => {
+        if (sheetOpenTimerRef.current) {
+          clearTimeout(sheetOpenTimerRef.current);
+        }
+        if (sheetCloseTimerRef.current) {
+          clearTimeout(sheetCloseTimerRef.current);
+        }
+        if (sheetPortalRef.current) {
+          sheetPortalRef.current?.remove();
+          sheetPortalRef.current = null;
+        }
+        document.body.removeAttribute('style');
+      };
+    }, []);
 
     if (isMounted && sheetPortalRef.current) {
       return createPortal(

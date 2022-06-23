@@ -22,20 +22,18 @@ const Wrapper = styled.div`
 export function Default({ ...args }) {
   const [open, setOpen] = useState(false);
 
-  const anchorRef = useRef<HTMLButtonElement | null>(null);
-
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Button
-          variant="contained"
-          ref={anchorRef}
-          onMouseEnter={() => setOpen(true)}
-          onMouseLeave={() => setOpen(false)}
-        >
-          Open
-        </Button>
-        <Tooltip open={open} message={<Typography>MrCamel Tooltip!</Typography>} {...args} />
+        <Tooltip open={open} message={<Typography>MrCamel Tooltip!</Typography>} {...args}>
+          <Button
+            variant="contained"
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+          >
+            Open
+          </Button>
+        </Tooltip>
       </Wrapper>
     </ThemeProvider>
   );

@@ -138,10 +138,27 @@ export const StyledChip = styled.button<
 
   ${({ theme: { typography }, size, weight = 'regular', isRound }): CSSObject => {
     switch (size) {
+      case 'xsmall': {
+        return {
+          height: 23,
+          padding: isRound ? '6px 8px' : 6,
+          borderRadius: isRound ? 36 : 4,
+          gap: 2,
+          fontSize: typography.small2.size,
+          fontWeight: typography.small2.weight[weight],
+          lineHeight: typography.small2.lineHeight,
+          letterSpacing: typography.small2.letterSpacing,
+          '& > svg': {
+            width: 15,
+            height: 15
+          }
+        };
+      }
       case 'small': {
         return {
           height: 30,
           padding: isRound ? '6px 8px' : 6,
+          borderRadius: isRound ? 36 : 4,
           gap: 2,
           fontSize: typography.body2.size,
           fontWeight: typography.body2.weight[weight],
@@ -157,6 +174,7 @@ export const StyledChip = styled.button<
         return {
           height: 40,
           padding: isRound ? '8px 12px' : '8px 10px',
+          borderRadius: isRound ? 36 : 8,
           gap: 4,
           fontSize: typography.h4.size,
           fontWeight: typography.h4.weight[weight],
@@ -172,6 +190,7 @@ export const StyledChip = styled.button<
         return {
           height: 47,
           padding: isRound ? '10px 14px' : '10px 12px',
+          borderRadius: isRound ? 36 : 8,
           gap: 4,
           fontSize: typography.h3.size,
           fontWeight: typography.h3.weight[weight],
@@ -187,6 +206,7 @@ export const StyledChip = styled.button<
         return {
           height: 33,
           padding: isRound ? '6px 10px' : '6px 8px',
+          borderRadius: isRound ? 36 : 4,
           gap: 2,
           fontSize: typography.body1.size,
           fontWeight: typography.body1.weight[weight],
@@ -200,11 +220,7 @@ export const StyledChip = styled.button<
       }
     }
   }}
-
-  ${({ isRound }): CSSObject => ({
-    borderRadius: isRound ? 36 : 8
-  })}
-
+  
   ${({ fullWidth }): CSSObject =>
     fullWidth
       ? {
