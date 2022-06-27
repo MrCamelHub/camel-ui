@@ -165,6 +165,9 @@ function GlobalReset() {
         '[hidden]': {
           display: 'none'
         },
+        '*': {
+          '-webkit-tap-highlight-color': 'transparent'
+        },
         '*,::before,::after': {
           '--tw-border-opacity': 1,
           borderColor: 'rgba(229, 231, 235, var(--tw-border-opacity))'

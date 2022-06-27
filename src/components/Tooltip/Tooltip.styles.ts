@@ -161,14 +161,14 @@ export const StyledTooltip = styled.div<
             top: -10,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
             color: brandColorCode,
-            transform: `${triangleLeft ? 'none' : 'translateX(-50%) rotate(0deg)'}`
+            transform: `${triangleLeft ? 'rotate(0deg)' : 'translateX(-50%) rotate(0deg)'}`
           };
         default:
           return {
             bottom: -10,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
             color: brandColorCode,
-            transform: `${triangleLeft ? 'none' : 'translateX(-50%) rotate(180deg)'}`
+            transform: `${triangleLeft ? 'rotate(180deg)' : 'translateX(-50%) rotate(180deg)'}`
           };
       }
     }}
