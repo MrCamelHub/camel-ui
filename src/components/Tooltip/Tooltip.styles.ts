@@ -17,7 +17,6 @@ export const StyledTooltip = styled.div<
     | 'spaceBetween'
     | 'transitionDuration'
     | 'triangleLeft'
-    | 'triangleCompact'
     | 'brandColor'
     | 'round'
     | 'disablePadding'
@@ -134,7 +133,7 @@ export const StyledTooltip = styled.div<
     content: '';
     position: absolute;
 
-    ${({ theme, brandColor, placement, triangleLeft, triangleCompact }): CSSObject => {
+    ${({ theme, brandColor, placement, triangleLeft, round }): CSSObject => {
       let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
       if (brandColor === 'black') {
@@ -145,14 +144,14 @@ export const StyledTooltip = styled.div<
         case 'left':
           return {
             top: '50%',
-            right: triangleCompact ? -10 : -15,
+            right: round === '16' ? -10 : -15,
             color: brandColorCode,
             transform: 'translateY(-50%) rotate(90deg)'
           };
         case 'right':
           return {
             top: '50%',
-            left: triangleCompact ? -10 : -15,
+            left: round === '16' ? -10 : -15,
             color: brandColorCode,
             transform: 'translateY(-50%) rotate(270deg)'
           };

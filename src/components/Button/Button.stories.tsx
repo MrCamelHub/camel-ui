@@ -49,7 +49,7 @@ export function Variants() {
           ghost
         </Button>
         <Button variant="outlinedGhost" brandColor="primary">
-          ghost
+          outlinedGhost
         </Button>
         <Button variant="contained" brandColor="primary">
           contained

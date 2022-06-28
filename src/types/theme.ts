@@ -42,7 +42,7 @@ export interface MrCamelTheme {
   };
   breakpoints: Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', number>;
   zIndex: Record<
-    'button' | 'header' | 'bottomNav' | 'dialog' | 'sheet' | 'alert' | 'toast',
+    'button' | 'header' | 'bottomNav' | 'dialog' | 'sheet' | 'alert' | 'toast' | 'tooltip',
     number
   >;
 }

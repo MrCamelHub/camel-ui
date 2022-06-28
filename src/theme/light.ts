@@ -163,6 +163,7 @@ export const light: MrCamelTheme = {
     dialog: 20,
     sheet: 20,
     alert: 20,
-    toast: 30
+    toast: 30,
+    tooltip: 40
   }
 };
