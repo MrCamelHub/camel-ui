@@ -13,7 +13,7 @@ import { TypographyWeight } from '../../../types';
 
 export interface BaseCtaButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
-  variant?: Variant;
+  variant?: Exclude<Variant, 'outlinedGhost'>;
   brandColor?: Extract<BrandColor, 'black' | 'primary'>;
   size?: Exclude<Size, 'xsmall' | 'small' | 'xlarge'>;
   weight?: keyof TypographyWeight;

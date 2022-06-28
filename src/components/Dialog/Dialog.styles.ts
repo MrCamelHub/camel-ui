@@ -62,11 +62,15 @@ export const StyledDialog = styled.div<
     }
   }) => shadow.modal};
 
-  ${({ fullScreen }): CSSObject =>
+  ${({
+    fullScreen,
+    theme: {
+      box: { round }
+    }
+  }): CSSObject =>
     !fullScreen
       ? {
-          borderRadius: 8,
-          boxShadow: '0 0 16px rgba(0, 0, 0, 0.1)'
+          borderRadius: round['16']
         }
       : {
           width: '100%',

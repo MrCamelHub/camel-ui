@@ -19,7 +19,6 @@ export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLD
   spaceBetween?: number;
   transitionDuration?: number;
   triangleLeft?: number;
-  triangleCompact?: boolean;
   round?: Extract<BoxRoundKey, '8' | '16'>;
   disablePadding?: boolean;
   disableShadow?: boolean;
@@ -34,11 +33,10 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
     spaceBetween = 20,
     transitionDuration = 225,
     triangleLeft,
-    triangleCompact = false,
     brandColor = 'black',
-    round = '8',
+    round = '16',
     disablePadding = false,
-    disableShadow = false,
+    disableShadow = true,
     customStyle,
     ...props
   },
@@ -92,7 +90,6 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
         spaceBetween={spaceBetween}
         transitionDuration={transitionDuration}
         triangleLeft={triangleLeft}
-        triangleCompact={triangleCompact}
         brandColor={brandColor}
         round={round}
         disablePadding={disablePadding}
@@ -100,7 +97,7 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
         css={customStyle}
       >
         {message}
-        {triangleCompact ? <TriangleCompact /> : <Triangle />}
+        {round === '16' ? <TriangleCompact /> : <Triangle />}
       </StyledTooltip>
     </Wrapper>
   );

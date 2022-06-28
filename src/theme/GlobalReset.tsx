@@ -166,7 +166,7 @@ function GlobalReset() {
           display: 'none'
         },
         '*': {
-          '-webkit-tap-highlight-color': 'transparent'
+          WebkitTapHighlightColor: 'transparent'
         },
         '*,::before,::after': {
           '--tw-border-opacity': 1,
