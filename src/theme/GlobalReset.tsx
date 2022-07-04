@@ -101,7 +101,7 @@ function GlobalReset() {
           height: '100%',
           lineHeight: 'inherit',
           fontFamily:
-            'Spoqa Han Sans Neo, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+            'Camel Product Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
           WebkitFontSmoothing: 'antialiased'
         },
         '*, ::before, ::after': {
