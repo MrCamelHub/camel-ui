@@ -1,15 +1,17 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, MouseEvent, PropsWithChildren } from 'react';
 
 import { createPortal } from 'react-dom';
+import PortalCounterContext from '@theme/provider/PortalCounterContext';
 
-import { StyledToast, Wrapper } from './Toast.styles';
+import { StyledToast } from './Toast.styles';
 import type { CSSValue, GenericComponentProps } from '../../types';
 
 export interface ToastProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {
   open: boolean;
   bottom?: CSSValue;
+  edgeSpacing?: number;
   autoHideDuration?: number;
   transitionDuration?: number;
   disablePadding?: boolean;
@@ -21,7 +23,8 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
     children,
     open,
     bottom = '100px',
-    autoHideDuration,
+    edgeSpacing = 20,
+    autoHideDuration = 2000,
     transitionDuration = 225,
     disablePadding,
     onClose,
@@ -30,8 +33,12 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   },
   ref
 ) {
+  const [count, setCount] = useContext(PortalCounterContext);
+
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [toastOpen, setToastOpen] = useState<boolean>(false);
+
+  const prevOpenRef = useRef<boolean>(false);
 
   const toastPortalRef = useRef<HTMLElement | null>(null);
   const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -41,26 +48,20 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
-    if (open) {
-      let toast = document.getElementById('toast-root');
+    if (!prevOpenRef.current && open) {
+      let toast = document.getElementById(`toast-root-${count}`);
 
       if (!toast) {
         toast = document.createElement('div');
-        toast.id = 'toast-root';
-        toast.style.position = 'fixed';
-        toast.style.top = '0';
-        toast.style.left = '0';
-        toast.style.width = '100%';
-        toast.style.height = '100%';
-        toast.style.zIndex = '1000';
+        toast.id = `toast-root-${count}`;
         toast.setAttribute('role', 'presentation');
 
         document.body.appendChild(toast);
       }
 
-      setIsMounted(true);
-
       toastPortalRef.current = toast;
+
+      setIsMounted(true);
 
       if (toastCloseTimerRef.current) {
         clearTimeout(toastCloseTimerRef.current);
@@ -70,6 +71,10 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
       }
 
       toastOpenTimerRef.current = setTimeout(() => setToastOpen(true), 100);
+
+      if (autoHideDuration) {
+        toastAutoHideDurationTimerRef.current = setTimeout(onClose, autoHideDuration);
+      }
     } else if (!open && isMounted && toastPortalRef.current) {
       if (toastOpenTimerRef.current) {
         clearTimeout(toastOpenTimerRef.current);
@@ -86,13 +91,18 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
         setIsMounted(false);
       }, transitionDuration + 100);
     }
-  }, [open, isMounted, autoHideDuration, transitionDuration, onClose]);
+  }, [open, isMounted, autoHideDuration, transitionDuration, onClose, count]);
 
   useEffect(() => {
-    if (open && isMounted && toastOpen && autoHideDuration) {
-      toastAutoHideDurationTimerRef.current = setTimeout(onClose, autoHideDuration);
+    // TODO 추후 로직 보완 필요
+    if (toastOpen && setCount) {
+      setCount((prevCount) => prevCount + 1);
     }
-  }, [open, isMounted, toastOpen, autoHideDuration, onClose]);
+  }, [toastOpen, setCount]);
+
+  useEffect(() => {
+    prevOpenRef.current = open;
+  }, [open]);
 
   useEffect(() => {
     return () => {
@@ -114,26 +124,20 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
 
   if (isMounted && toastPortalRef.current) {
     return createPortal(
-      <Wrapper
+      <StyledToast
         ref={ref}
         toastOpen={toastOpen}
         toastClose={!open}
+        bottom={bottom}
+        edgeSpacing={edgeSpacing}
         transitionDuration={transitionDuration}
-        onClick={onClose}
+        disablePadding={disablePadding}
+        onClick={handleClick}
+        css={customStyle}
+        {...props}
       >
-        <StyledToast
-          toastOpen={toastOpen}
-          toastClose={!open}
-          bottom={bottom}
-          transitionDuration={transitionDuration}
-          disablePadding={disablePadding}
-          onClick={handleClick}
-          css={customStyle}
-          {...props}
-        >
-          {children}
-        </StyledToast>
-      </Wrapper>,
+        {children}
+      </StyledToast>,
       toastPortalRef.current
     );
   }

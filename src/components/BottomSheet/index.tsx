@@ -97,7 +97,7 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
           sheet.style.left = '0';
           sheet.style.width = '100%';
           sheet.style.height = '100%';
-          sheet.style.zIndex = '1000';
+          sheet.style.zIndex = '20';
           sheet.setAttribute('role', 'presentation');
 
           document.body.appendChild(sheet);
