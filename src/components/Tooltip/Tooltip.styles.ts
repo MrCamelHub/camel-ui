@@ -97,6 +97,7 @@ export const StyledTooltip = styled.div<
       box: { shadow }
     }
   }) => shadow.tooltip});
+  z-index: ${({ theme: { zIndex } }) => zIndex.tooltip};
 
   ${({ disablePadding }): CSSObject => (disablePadding ? { padding: 0 } : {})}
 

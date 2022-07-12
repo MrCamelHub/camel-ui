@@ -49,19 +49,25 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
   const [tooltipHeight, setTooltipHeight] = useState<number>(0);
 
   const tooltipRef = useRef<HTMLDivElement | null>(null);
-  const toolTipCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tooltipOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tooltipCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (open && !isMounted) {
       setIsMounted(true);
 
-      if (toolTipCloseTimerRef.current) {
-        clearTimeout(toolTipCloseTimerRef.current);
+      if (tooltipOpenTimerRef.current) {
+        clearTimeout(tooltipOpenTimerRef.current);
       }
 
       setTooltipOpen(true);
+      tooltipOpenTimerRef.current = setTimeout(() => setTooltipOpen(true), 100);
     } else if (!open && isMounted && tooltipRef.current) {
-      toolTipCloseTimerRef.current = setTimeout(() => {
+      if (tooltipOpenTimerRef.current) {
+        clearTimeout(tooltipOpenTimerRef.current);
+      }
+
+      tooltipCloseTimerRef.current = setTimeout(() => {
         setTooltipOpen(false);
         setIsMounted(false);
       }, transitionDuration);
@@ -76,6 +82,17 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
       setTooltipHeight(clientHeight);
     }
   }, [isMounted]);
+
+  useEffect(() => {
+    return () => {
+      if (tooltipOpenTimerRef.current) {
+        clearTimeout(tooltipOpenTimerRef.current);
+      }
+      if (tooltipCloseTimerRef.current) {
+        clearTimeout(tooltipCloseTimerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <Wrapper ref={ref} {...props}>

@@ -51,7 +51,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
         dialog.style.left = '0';
         dialog.style.width = '100%';
         dialog.style.height = '100%';
-        dialog.style.zIndex = '1000';
+        dialog.style.zIndex = '20';
         dialog.setAttribute('role', 'presentation');
 
         document.body.appendChild(dialog);
