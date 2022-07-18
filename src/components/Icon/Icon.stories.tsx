@@ -68,7 +68,13 @@ export function FilledIcons() {
             'UnderFilled',
             'UserFilled',
             'UserLargeFilled',
-            'WarningFilled'
+            'WarningFilled',
+            'AppleFilled',
+            'ArrowDropRightFilled',
+            'FilterFilled',
+            'OpinionAuthenticFilled',
+            'OpinionFakeFilled',
+            'OpinionImpossibleFilled'
           ] as (keyof typeof FilledSvgIcons)[]
         ).map((name) => (
           <div key={`filled-icon-${name}`}>
@@ -127,7 +133,9 @@ export function OutlinedIcons() {
             'TrophyOutlined',
             'UserOutlined',
             'UserLargeOutlined',
-            'ViewOutlined'
+            'ViewOutlined',
+            'FocusOutlined',
+            'PinOutlined'
           ] as (keyof typeof OutlinedSvgIcons)[]
         ).map((name) => (
           <div key={`outlined-icon-${name}`}>
