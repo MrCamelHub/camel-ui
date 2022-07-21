@@ -41,3 +41,8 @@ export { default as UserOutlined } from './user-outlined.svg';
 export { default as ViewOutlined } from './view-outlined.svg';
 export { default as PinOutlined } from './pin-outlined.svg';
 export { default as FocusOutlined } from './focus-outlined.svg';
+export { default as LegitOutlined } from './legit-outlined.svg';
+export { default as NewCategoryOutlined } from './new-category-outlined.svg';
+export { default as NewHeartFavoriteOutlined } from './new-heart-favorite-outlined.svg';
+export { default as NewHomeOutlined } from './new-home-outlined.svg';
+export { default as NewUserLargeOutlined } from './new-user-large-outlined.svg';
