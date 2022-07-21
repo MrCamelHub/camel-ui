@@ -27,3 +27,8 @@ export { default as FilterFilled } from './filter-filled.svg';
 export { default as OpinionAuthenticFilled } from './opinion-authentic-filled.svg';
 export { default as OpinionFakeFilled } from './opinion-fake-filled.svg';
 export { default as OpinionImpossibleFilled } from './opinion-impossible-filled.svg';
+export { default as LegitFilled } from './legit-filled.svg';
+export { default as NewCategoryFilled } from './new-category-filled.svg';
+export { default as NewHeartFavoriteFilled } from './new-heart-favorite-filled.svg';
+export { default as NewHomeFilled } from './new-home-filled.svg';
+export { default as NewUserLargeFilled } from './new-user-large-filled.svg';
