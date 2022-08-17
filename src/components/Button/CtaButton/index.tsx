@@ -15,7 +15,7 @@ export interface BaseCtaButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Exclude<Variant, 'outlinedGhost'>;
   brandColor?: Extract<BrandColor, 'black' | 'primary'>;
-  size?: Exclude<Size, 'xsmall' | 'small' | 'xlarge'>;
+  size?: Exclude<Size, 'xsmall' | 'small'>;
   weight?: keyof TypographyWeight;
   fullWidth?: boolean;
 }
