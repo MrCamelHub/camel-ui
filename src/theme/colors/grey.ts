@@ -3,13 +3,13 @@ import type { ColorCode, ColorKey } from '../../types';
 const grey: {
   [key in ColorKey]: ColorCode;
 } = {
-  '20': '#333333',
-  '40': '#666666',
-  '60': '#999999',
-  '80': '#CCCCCC',
-  '90': '#E6E6E6',
-  '95': '#F2F2F2',
-  '98': '#FAFAFA'
+  '20': '#313438',
+  '40': '#5E6066',
+  '60': '#71737A',
+  '80': '#C2C3CC',
+  '90': '#DCDDE0',
+  '95': '#EDEEF0',
+  '98': '#F5F6F7'
 };
 
 export default grey;

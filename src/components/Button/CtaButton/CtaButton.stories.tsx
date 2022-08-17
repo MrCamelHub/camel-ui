@@ -100,6 +100,9 @@ export function Sizes() {
         <CtaButton size="large" variant="contained" brandColor="primary">
           large
         </CtaButton>
+        <CtaButton size="xlarge" variant="contained" brandColor="primary">
+          xlarge
+        </CtaButton>
       </Wrapper>
     </ThemeProvider>
   );

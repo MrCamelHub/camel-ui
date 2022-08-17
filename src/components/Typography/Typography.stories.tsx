@@ -45,10 +45,10 @@ export function Sizes() {
         </tr>
         {(
           [
-            { component: 'Header 1', variant: 'h1', size: 36 },
+            { component: 'Header 1', variant: 'h1', size: 32 },
             { component: 'Header 2', variant: 'h2', size: 24 },
-            { component: 'Header 3', variant: 'h3', size: 18 },
-            { component: 'Header 4', variant: 'h4', size: 16 },
+            { component: 'Header 3', variant: 'h3', size: 17 },
+            { component: 'Header 4', variant: 'h4', size: 15 },
             { component: 'Body 1', variant: 'body1', size: 14 },
             { component: 'Body 2', variant: 'body2', size: 12 },
             { component: 'Small Text1', variant: 'small1', size: 12 },

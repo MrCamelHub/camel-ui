@@ -6,26 +6,26 @@ export const light: MrCamelTheme = {
   type: 'light',
   palette: {
     primary: {
-      main: '#1833FF',
-      dark: '#000F80',
-      light: '#808EFF',
-      highlight: '#E5E8FF',
-      bgLight: '#F5F6FF'
+      main: '#2937FF',
+      dark: '#373D8C',
+      light: '#5C67FF',
+      highlight: '#E0E2FF',
+      bgLight: '#F0F1FF'
     },
     secondary: {
       red: {
-        main: '#E5001B',
-        dark: '#B20015',
-        light: '#FF808E',
-        highlight: '#FFE5E8',
-        bgLight: '#FFF5F6'
+        main: '#E52535',
+        dark: '#8C2B33',
+        light: '#FF5260',
+        highlight: '#FFE0E3',
+        bgLight: '#FFF0F1'
       },
       purple: {
-        main: '#5800E5',
-        dark: '#4400B2',
-        light: '#B080FF',
-        highlight: '#EFE5FF',
-        bgLight: '#F9F5FF'
+        main: '#6314FF',
+        dark: '#4B2B8C',
+        light: '#8547FF',
+        highlight: '#EAE0FF',
+        bgLight: '#F5F0FF'
       }
     },
     common: {
@@ -37,14 +37,14 @@ export const light: MrCamelTheme = {
   typography: {
     h1: {
       component: 'h1',
-      size: '36px',
+      size: '32px',
       weight: {
         bold: 700,
         medium: 500,
         regular: 400,
         light: 300
       },
-      lineHeight: `${36 * 1.5}px`,
+      lineHeight: '42px',
       letterSpacing: '-0.2px'
     },
     h2: {
@@ -56,31 +56,31 @@ export const light: MrCamelTheme = {
         regular: 400,
         light: 300
       },
-      lineHeight: `${24 * 1.5}px`,
+      lineHeight: '32px',
       letterSpacing: '-0.2px'
     },
     h3: {
       component: 'h3',
-      size: '18px',
+      size: '17px',
       weight: {
         bold: 700,
         medium: 500,
         regular: 400,
         light: 300
       },
-      lineHeight: `${18 * 1.5}px`,
+      lineHeight: '24px',
       letterSpacing: '-0.2px'
     },
     h4: {
       component: 'h4',
-      size: '16px',
+      size: '15px',
       weight: {
         bold: 700,
         medium: 500,
         regular: 400,
         light: 300
       },
-      lineHeight: `${16 * 1.5}px`,
+      lineHeight: '20px',
       letterSpacing: '-0.2px'
     },
     body1: {
@@ -92,7 +92,7 @@ export const light: MrCamelTheme = {
         regular: 400,
         light: 300
       },
-      lineHeight: `${14 * 1.5}px`,
+      lineHeight: '20px',
       letterSpacing: '-0.2px'
     },
     body2: {
@@ -104,7 +104,7 @@ export const light: MrCamelTheme = {
         regular: 400,
         light: 300
       },
-      lineHeight: `${12 * 1.5}px`,
+      lineHeight: '16px',
       letterSpacing: '-0.2px'
     },
     small1: {
@@ -116,7 +116,7 @@ export const light: MrCamelTheme = {
         regular: 400,
         light: 300
       },
-      lineHeight: `${12 * 1.5}px`,
+      lineHeight: '16px',
       letterSpacing: '-0.2px'
     },
     small2: {
@@ -128,7 +128,7 @@ export const light: MrCamelTheme = {
         regular: 400,
         light: 300
       },
-      lineHeight: `${10 * 1.5}px`,
+      lineHeight: '12px',
       letterSpacing: '-0.2px'
     }
   },

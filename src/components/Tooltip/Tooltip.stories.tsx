@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';

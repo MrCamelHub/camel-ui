@@ -10,10 +10,10 @@ export const StyledButton = styled.button<
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 4px;
   width: fit-content;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 8px;
 
   ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject = {};
@@ -59,7 +59,7 @@ export const StyledButton = styled.button<
           cssObject = {
             backgroundColor: palette.common.grey['95'],
             color: brandColorCode,
-            borderColor: palette.common.grey['80'],
+            borderColor: palette.common.grey['90'],
             '& svg': {
               color: brandColorCode
             }
@@ -81,7 +81,7 @@ export const StyledButton = styled.button<
           cssObject = {
             backgroundColor: palette.common.grey['95'],
             color: palette.common.grey['60'],
-            borderColor: palette.common.grey['80'],
+            borderColor: palette.common.grey['90'],
             '& svg': {
               color: palette.common.grey['60']
             }
@@ -142,63 +142,63 @@ export const StyledButton = styled.button<
     switch (size) {
       case 'small': {
         return {
-          height: 34,
-          padding: '8px 10px',
+          height: 32,
+          padding: 8,
           fontSize: typography.body2.size,
           fontWeight: typography.body2.weight[weight],
           lineHeight: typography.body2.lineHeight,
           letterSpacing: typography.body2.letterSpacing,
           '& > svg': {
-            width: 15,
-            height: 15
+            width: 'auto',
+            height: 16
           }
         };
       }
       case 'large': {
         return {
-          height: 48,
-          padding: '12px 16px',
+          height: 44,
+          padding: 12,
           fontSize: typography.h4.size,
           fontWeight: typography.h4.weight[weight],
           lineHeight: typography.h4.lineHeight,
           letterSpacing: typography.h4.letterSpacing,
           '& > svg': {
-            width: 20,
+            width: 'auto',
             height: 20
           }
         };
       }
       case 'xlarge': {
         return {
-          height: 59,
-          padding: '16px 20px',
+          height: 52,
+          padding: 14,
           fontSize: typography.h3.size,
           fontWeight: typography.h3.weight[weight],
           lineHeight: typography.h3.lineHeight,
           letterSpacing: typography.h3.letterSpacing,
           '& > svg': {
-            width: 23,
-            height: 23
+            width: 'auto',
+            height: 24
           }
         };
       }
       default: {
         return {
-          height: 41,
-          padding: '10px 12px',
+          height: 36,
+          padding: 8,
           fontSize: typography.body1.size,
           fontWeight: typography.body1.weight[weight],
           lineHeight: typography.body1.lineHeight,
           letterSpacing: typography.body1.letterSpacing,
           '& > svg': {
-            width: 18,
-            height: 18
+            width: 20,
+            height: 20
           }
         };
       }
     }
   }}
-  
+
   ${({ fullWidth }): CSSObject =>
     fullWidth
       ? {

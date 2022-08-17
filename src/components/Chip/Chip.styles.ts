@@ -56,7 +56,7 @@ export const StyledChip = styled.button<
           cssObject = {
             backgroundColor: palette.common.grey['95'],
             color: brandColorCode,
-            borderColor: palette.common.grey['80'],
+            borderColor: palette.common.grey['90'],
             '& svg': {
               color: brandColorCode
             }
@@ -78,7 +78,7 @@ export const StyledChip = styled.button<
           cssObject = {
             backgroundColor: palette.common.grey['95'],
             color: palette.common.grey['60'],
-            borderColor: palette.common.grey['80'],
+            borderColor: palette.common.grey['90'],
             '& svg': {
               color: palette.common.grey['60']
             }
@@ -140,56 +140,56 @@ export const StyledChip = styled.button<
     switch (size) {
       case 'xsmall': {
         return {
-          height: 23,
+          height: 26,
           padding: isRound ? '6px 8px' : 6,
-          borderRadius: isRound ? 36 : 4,
+          borderRadius: isRound ? 13 : 8,
           gap: 2,
           fontSize: typography.small2.size,
           fontWeight: typography.small2.weight[weight],
           lineHeight: typography.small2.lineHeight,
           letterSpacing: typography.small2.letterSpacing,
           '& > svg': {
-            width: 15,
-            height: 15
+            width: 'auto',
+            height: 12
           }
         };
       }
       case 'small': {
         return {
-          height: 30,
+          height: 28,
           padding: isRound ? '6px 8px' : 6,
-          borderRadius: isRound ? 36 : 4,
-          gap: 2,
+          borderRadius: isRound ? 14 : 8,
+          gap: 4,
           fontSize: typography.body2.size,
           fontWeight: typography.body2.weight[weight],
           lineHeight: typography.body2.lineHeight,
           letterSpacing: typography.body2.letterSpacing,
           '& > svg': {
-            width: 15,
-            height: 15
+            width: 'auto',
+            height: 16
           }
         };
       }
       case 'large': {
         return {
-          height: 40,
-          padding: isRound ? '8px 12px' : '8px 10px',
-          borderRadius: isRound ? 36 : 8,
+          height: 36,
+          padding: isRound ? '8px 12px' : 8,
+          borderRadius: isRound ? 18 : 8,
           gap: 4,
           fontSize: typography.h4.size,
           fontWeight: typography.h4.weight[weight],
           lineHeight: typography.h4.lineHeight,
           letterSpacing: typography.h4.letterSpacing,
           '& > svg': {
-            width: 20,
+            width: 'auto',
             height: 20
           }
         };
       }
       case 'xlarge': {
         return {
-          height: 47,
-          padding: isRound ? '10px 14px' : '10px 12px',
+          height: 44,
+          padding: isRound ? '10px 14px' : 10,
           borderRadius: isRound ? 36 : 8,
           gap: 4,
           fontSize: typography.h3.size,
@@ -197,30 +197,30 @@ export const StyledChip = styled.button<
           lineHeight: typography.h3.lineHeight,
           letterSpacing: typography.h3.letterSpacing,
           '& > svg': {
-            width: 23,
-            height: 23
+            width: 'auto',
+            height: 24
           }
         };
       }
       default: {
         return {
-          height: 33,
-          padding: isRound ? '6px 10px' : '6px 8px',
-          borderRadius: isRound ? 36 : 4,
-          gap: 2,
+          height: 32,
+          padding: isRound ? '6px 10px' : 6,
+          borderRadius: isRound ? 16 : 8,
+          gap: 4,
           fontSize: typography.body1.size,
           fontWeight: typography.body1.weight[weight],
           lineHeight: typography.body1.lineHeight,
           letterSpacing: typography.body1.letterSpacing,
           '& > svg': {
-            width: 18,
-            height: 18
+            width: 'auto',
+            height: 20
           }
         };
       }
     }
   }}
-  
+
   ${({ fullWidth }): CSSObject =>
     fullWidth
       ? {

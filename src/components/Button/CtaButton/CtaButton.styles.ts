@@ -75,29 +75,43 @@ export const StyledCtaButton = styled.button<
     switch (size) {
       case 'large': {
         return {
-          height: 48,
-          padding: '12px 16px',
+          height: 44,
+          padding: 12,
           fontSize: typography.h4.size,
           fontWeight: typography.h4.weight.bold,
           lineHeight: typography.h4.lineHeight,
           letterSpacing: typography.h4.letterSpacing,
           '& > svg': {
-            width: 20,
+            width: 'auto',
             height: 20
+          }
+        };
+      }
+      case 'xlarge': {
+        return {
+          height: 52,
+          padding: 14,
+          fontSize: typography.h3.size,
+          fontWeight: typography.h3.weight.bold,
+          lineHeight: typography.h3.lineHeight,
+          letterSpacing: typography.h3.letterSpacing,
+          '& > svg': {
+            width: 'auto',
+            height: 24
           }
         };
       }
       default: {
         return {
-          height: 41,
-          padding: '10px 12px',
+          height: 36,
+          padding: 8,
           fontSize: typography.body1.size,
           fontWeight: typography.body1.weight.bold,
           lineHeight: typography.body1.lineHeight,
           letterSpacing: typography.body1.letterSpacing,
           '& > svg': {
-            width: 18,
-            height: 18
+            width: 'auto',
+            height: 20
           }
         };
       }

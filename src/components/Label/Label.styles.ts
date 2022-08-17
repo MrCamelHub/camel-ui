@@ -75,8 +75,8 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
     switch (size) {
       case 'xsmall': {
         return {
-          height: 19,
-          padding: '2px 4px',
+          height: 18,
+          padding: '3px 4px',
           fontSize: typography.small2.size,
           fontWeight: typography.small2.weight.medium,
           lineHeight: typography.small2.lineHeight,
@@ -85,7 +85,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
       }
       default: {
         return {
-          height: 26,
+          height: 24,
           padding: '4px 6px',
           fontSize: typography.small1.size,
           fontWeight: typography.small1.weight.medium,
