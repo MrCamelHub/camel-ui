@@ -4,7 +4,7 @@ export { default as Arrow1DownOutlined } from './arrow1-down-outlined.svg';
 export { default as Arrow1FrontOutlined } from './arrow1-front-outlined.svg';
 export { default as Arrow1UpOutlined } from './arrow1-up-outlined.svg';
 export { default as Arrow2DownOutlined } from './arrow2-down-outlined.svg';
-export { default as Arrow2LeftOutlined } from './arrow2-Left-outlined.svg';
+export { default as Arrow2LeftOutlined } from './arrow2-left-outlined.svg';
 export { default as Arrow2RightOutlined } from './arrow2-right-outlined.svg';
 export { default as Arrow2UpOutlined } from './arrow2-up-outlined.svg';
 export { default as ArrowDownOutlined } from './arrow-down-outlined.svg';
