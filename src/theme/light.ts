@@ -10,7 +10,7 @@ export const light: MrCamelTheme = {
       dark: '#373D8C',
       light: '#5C67FF',
       highlight: '#E0E2FF',
-      bgLight: '#F0F1FF'
+      bgLight: '#F5F5FF'
     },
     secondary: {
       red: {
@@ -18,14 +18,14 @@ export const light: MrCamelTheme = {
         dark: '#8C2B33',
         light: '#FF5260',
         highlight: '#FFE0E3',
-        bgLight: '#FFF0F1'
+        bgLight: '#FFF5F6'
       },
       purple: {
         main: '#6314FF',
         dark: '#4B2B8C',
         light: '#8547FF',
         highlight: '#EAE0FF',
-        bgLight: '#F5F0FF'
+        bgLight: '#F8F5FF'
       }
     },
     common: {
