@@ -4,17 +4,16 @@ import type { ButtonHTMLAttributes } from 'react';
 import Icon from '@components/Icon';
 
 import { StyledIconButton } from './CircleIconButton.styles';
-import type { BrandColor, GenericComponentProps } from '../../../types';
-import type * as SvgIcons from '../../../assets/icons';
+import type { BrandColor, GenericComponentProps, IconName } from '../../../types';
 
 export interface CircleIconButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
-  iconName: keyof typeof SvgIcons;
+  iconName: IconName;
   brandColor?: BrandColor;
 }
 
 const CircleIconButton = forwardRef<HTMLButtonElement, CircleIconButtonProps>(
-  function CircleIconButton({ iconName, brandColor = 'grey', customStyle, ...props }, ref) {
+  function CircleIconButton({ iconName, brandColor = 'gray', customStyle, ...props }, ref) {
     return (
       <StyledIconButton ref={ref} brandColor={brandColor} css={customStyle} {...props}>
         <Icon name={iconName} />

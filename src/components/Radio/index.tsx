@@ -5,7 +5,7 @@ import { Marker, StyledRadio, Wrapper } from './Radio.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';
 
 export interface RadioProps extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
-  brandColor?: Exclude<BrandColor, 'grey'>;
+  brandColor?: Exclude<BrandColor, 'gray'>;
 }
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(

@@ -107,7 +107,7 @@ export const StyledTooltip = styled.div<
     let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
     if (brandColor === 'black') {
-      brandColorCode = theme.palette.common.black;
+      brandColorCode = theme.palette.common.gray.uiBlack;
     }
 
     return {
@@ -138,7 +138,7 @@ export const StyledTooltip = styled.div<
       let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
       if (brandColor === 'black') {
-        brandColorCode = theme.palette.common.black;
+        brandColorCode = theme.palette.common.gray.uiBlack;
       }
 
       switch (placement) {

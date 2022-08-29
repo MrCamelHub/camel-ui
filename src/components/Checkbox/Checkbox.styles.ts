@@ -11,7 +11,7 @@ export const Wrapper = styled.div<
   display: inline-block;
   width: 22px;
   height: 22px;
-  background-color: ${({ theme: { palette } }) => palette.common.white};
+  background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
 
   ${({ theme, variant, brandColor }): CSSObject => {
     let cssObject: CSSObject = {};
@@ -21,7 +21,7 @@ export const Wrapper = styled.div<
         cssObject.borderRadius = '50%';
 
         if (brandColor === 'black') {
-          cssObject.border = `1px solid ${theme.palette.common.grey['60']}`;
+          cssObject.border = `1px solid ${theme.palette.common.gray.ui60}`;
         }
 
         if (brandColor === 'primary') {
@@ -33,7 +33,7 @@ export const Wrapper = styled.div<
       default: {
         if (brandColor === 'black') {
           cssObject = {
-            border: `1px solid ${theme.palette.common.grey['60']}`,
+            border: `1px solid ${theme.palette.common.gray.ui60}`,
             borderRadius: 4
           };
         }
@@ -100,7 +100,7 @@ export const Marker = styled.div<Pick<CheckboxProps, 'variant' | 'checked' | 'br
 
           break;
         default:
-          cssObject.borderColor = theme.palette.common.white;
+          cssObject.borderColor = theme.palette.common.gray.uiWhite;
 
           break;
       }
@@ -111,7 +111,7 @@ export const Marker = styled.div<Pick<CheckboxProps, 'variant' | 'checked' | 'br
     ${({ theme: { palette }, checked }): CSSObject =>
       checked
         ? {
-            borderColor: palette.common.white
+            borderColor: palette.common.gray.uiWhite
           }
         : {}}
 `;

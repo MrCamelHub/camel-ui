@@ -10,13 +10,13 @@ export const Wrapper = styled.div<Pick<RadioProps, 'checked' | 'brandColor'>>`
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: ${({ theme: { palette } }) => palette.common.white};
+  background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
   cursor: pointer;
 
   ${({ theme, brandColor }): CSSObject => {
     if (brandColor === 'black') {
       return {
-        border: `1px solid ${theme.palette.common.grey['60']}`
+        border: `1px solid ${theme.palette.common.gray.ui60}`
       };
     }
 
@@ -63,6 +63,6 @@ export const Marker = styled.div`
     height: 10px;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${({ theme: { palette } }) => palette.common.white};
+    background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
   }
 `;

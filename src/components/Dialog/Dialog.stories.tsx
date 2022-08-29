@@ -22,7 +22,7 @@ export function Default({ ...args }) {
       <Dialog open={isOpen} onClose={() => setIsOpen(false)} {...args}>
         <h1>MrCamel Dialog!</h1>
         <div>
-          <Button variant="outlined" brandColor="grey" onClick={() => setIsOpen(false)}>
+          <Button variant="outlined" brandColor="gray" onClick={() => setIsOpen(false)}>
             Close
           </Button>
         </div>

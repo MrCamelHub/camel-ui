@@ -22,7 +22,7 @@ export const StyledChip = styled.button<
       case 'ghost': {
         if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.common.grey['95'],
+            backgroundColor: palette.common.gray.ui95,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -40,12 +40,12 @@ export const StyledChip = styled.button<
           };
         }
 
-        if (brandColor === 'grey') {
+        if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.grey['95'],
-            color: palette.common.grey['60'],
+            backgroundColor: palette.common.gray.ui95,
+            color: palette.common.gray.ui60,
             '& svg': {
-              color: palette.common.grey['60']
+              color: palette.common.gray.ui60
             }
           };
         }
@@ -54,9 +54,9 @@ export const StyledChip = styled.button<
       case 'outlinedGhost': {
         if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.common.grey['95'],
+            backgroundColor: palette.common.gray.ui95,
             color: brandColorCode,
-            borderColor: palette.common.grey['90'],
+            borderColor: palette.common.gray.ui90,
             '& svg': {
               color: brandColorCode
             }
@@ -74,13 +74,13 @@ export const StyledChip = styled.button<
           };
         }
 
-        if (brandColor === 'grey') {
+        if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.grey['95'],
-            color: palette.common.grey['60'],
-            borderColor: palette.common.grey['90'],
+            backgroundColor: palette.common.gray.ui95,
+            color: palette.common.gray.ui60,
+            borderColor: palette.common.gray.ui90,
             '& svg': {
-              color: palette.common.grey['60']
+              color: palette.common.gray.ui60
             }
           };
         }
@@ -88,20 +88,20 @@ export const StyledChip = styled.button<
         break;
       }
       case 'contained': {
-        if (brandColor === 'grey') {
+        if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.grey['60'],
-            color: palette.common.white,
+            backgroundColor: palette.common.gray.ui60,
+            color: palette.common.gray.uiWhite,
             '& svg': {
-              color: palette.common.white
+              color: palette.common.gray.uiWhite
             }
           };
         } else {
           cssObject = {
             backgroundColor: brandColorCode,
-            color: palette.common.white,
+            color: palette.common.gray.uiWhite,
             '& svg': {
-              color: palette.common.white
+              color: palette.common.gray.uiWhite
             }
           };
         }
@@ -110,7 +110,7 @@ export const StyledChip = styled.button<
       }
       default: {
         cssObject = {
-          backgroundColor: palette.common.white,
+          backgroundColor: palette.common.gray.uiWhite,
           borderColor: brandColorCode,
           color: brandColorCode,
           '& > svg': {
@@ -118,13 +118,13 @@ export const StyledChip = styled.button<
           }
         };
 
-        if (brandColor === 'grey') {
+        if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.white,
+            backgroundColor: palette.common.gray.uiWhite,
             borderColor: brandColorCode,
-            color: palette.common.grey['20'],
+            color: palette.common.gray.ui20,
             '& > svg': {
-              color: palette.common.grey['20']
+              color: palette.common.gray.ui20
             }
           };
         }
@@ -231,10 +231,10 @@ export const StyledChip = styled.button<
   &:disabled {
     ${({ theme: { palette } }): CSSObject => ({
       borderColor: 'transparent',
-      backgroundColor: palette.common.grey['80'],
-      color: palette.common.grey['60'],
+      backgroundColor: palette.common.gray.ui80,
+      color: palette.common.gray.ui60,
       '& svg': {
-        color: palette.common.grey['60']
+        color: palette.common.gray.ui60
       }
     })}
   }

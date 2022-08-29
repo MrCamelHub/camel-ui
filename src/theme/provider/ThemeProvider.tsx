@@ -1,12 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 
-import { light } from '@theme/light';
+import ThemeContext from '@theme/provider/ThemeContext';
+import PortalCounterContext from '@theme/provider/PortalCounterContext';
+import light from '@theme/light';
 import GlobalReset from '@theme/GlobalReset';
+import dark from '@theme/dark';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
-import ThemeContext from './ThemeContext';
-import PortalCounterContext from './PortalCounterContext';
 import type { ThemeType } from '../../types';
 
 export interface ThemeProviderProps {
@@ -14,7 +15,7 @@ export interface ThemeProviderProps {
 }
 
 function ThemeProvider({ children, theme }: PropsWithChildren<ThemeProviderProps>) {
-  const mrcamelTheme = useMemo(() => light, []);
+  const mrcamelTheme = useMemo(() => (theme === 'light' ? light : dark), [theme]);
   const [count, setCount] = useState(0);
   const counter = useMemo<Partial<[number, Dispatch<SetStateAction<number>>]>>(
     () => [count, setCount],

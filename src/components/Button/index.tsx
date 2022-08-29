@@ -14,7 +14,7 @@ import { TypographyWeight } from '../../types';
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
-  brandColor?: Extract<BrandColor, 'black' | 'primary' | 'grey'>;
+  brandColor?: Extract<BrandColor, 'black' | 'primary' | 'gray'>;
   size?: Exclude<Size, 'xsmall'>;
   weight?: keyof TypographyWeight;
   fullWidth?: boolean;
@@ -26,7 +26,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
   {
     children,
     variant = 'outlined',
-    brandColor = 'grey',
+    brandColor = 'gray',
     size = 'medium',
     weight = 'medium',
     startIcon,

@@ -14,7 +14,7 @@ import { TypographyWeight } from '../../types';
 export interface BaseChipProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
-  brandColor?: Extract<BrandColor, 'black' | 'primary' | 'grey'>;
+  brandColor?: Extract<BrandColor, 'black' | 'primary' | 'gray'>;
   size?: Size;
   weight?: keyof TypographyWeight;
   isRound?: boolean;
@@ -27,7 +27,7 @@ const Chip = forwardRef<HTMLButtonElement, PropsWithChildren<ChipProps>>(functio
   {
     children,
     variant = 'outlined',
-    brandColor = 'grey',
+    brandColor = 'gray',
     size = 'medium',
     weight = 'medium',
     isRound = true,

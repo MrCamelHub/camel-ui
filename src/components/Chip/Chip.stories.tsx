@@ -70,8 +70,8 @@ export function BrandColors() {
         <Chip variant="outlined" brandColor="primary">
           primary
         </Chip>
-        <Chip variant="outlined" brandColor="grey">
-          grey
+        <Chip variant="outlined" brandColor="gray">
+          gray
         </Chip>
       </Wrapper>
       <p>ghost</p>
@@ -82,8 +82,8 @@ export function BrandColors() {
         <Chip variant="ghost" brandColor="primary">
           primary
         </Chip>
-        <Chip variant="ghost" brandColor="grey">
-          grey
+        <Chip variant="ghost" brandColor="gray">
+          gray
         </Chip>
       </Wrapper>
       <p>outlinedGhost</p>
@@ -94,8 +94,8 @@ export function BrandColors() {
         <Chip variant="outlinedGhost" brandColor="primary">
           primary
         </Chip>
-        <Chip variant="outlinedGhost" brandColor="grey">
-          grey
+        <Chip variant="outlinedGhost" brandColor="gray">
+          gray
         </Chip>
       </Wrapper>
       <p>contained</p>
@@ -106,8 +106,8 @@ export function BrandColors() {
         <Chip variant="contained" brandColor="primary">
           primary
         </Chip>
-        <Chip variant="contained" brandColor="grey">
-          grey
+        <Chip variant="contained" brandColor="gray">
+          gray
         </Chip>
       </Wrapper>
     </ThemeProvider>

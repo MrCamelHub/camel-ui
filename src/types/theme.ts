@@ -1,14 +1,14 @@
-import type { CSSValue, ColorCode } from './css';
+import type { CSSValue } from './css';
 import type {
   BoxRoundKey,
+  CommonPalette,
   Palette,
   TypographyComponent,
   TypographyVariant,
   TypographyWeight
 } from './component';
-import { grey } from '../theme/colors';
 
-export type ThemeType = 'light';
+export type ThemeType = 'light' | 'dark';
 
 // #TODO 추후 Layer 우선 순위 정립
 export interface MrCamelTheme {
@@ -17,12 +17,11 @@ export interface MrCamelTheme {
     primary: Palette;
     secondary: {
       red: Palette;
+      blue: Palette;
       purple: Palette;
     };
     common: {
-      black: ColorCode;
-      white: ColorCode;
-      grey: typeof grey;
+      gray: CommonPalette;
     };
   };
   typography: {

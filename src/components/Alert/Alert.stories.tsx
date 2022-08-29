@@ -56,7 +56,7 @@ export function BrandColors() {
         <Alert brandColor="primary-bgLight">primary-highlight</Alert>
         <Alert brandColor="red">red</Alert>
         <Alert brandColor="purple">purple</Alert>
-        <Alert brandColor="grey">grey</Alert>
+        <Alert brandColor="gray">gray</Alert>
         <Alert brandColor="black">black</Alert>
       </AlertWrapper>
     </ThemeProvider>

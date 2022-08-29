@@ -14,9 +14,9 @@ export const StyledIconButton = styled.button<Pick<CircleIconButtonProps, 'brand
 
   ${({ theme, brandColor }): CSSObject => ({
     backgroundColor: getBrandColorCodeByColorName(theme, brandColor),
-    color: theme.palette.common.white,
+    color: theme.palette.common.gray.uiWhite,
     '& svg': {
-      color: theme.palette.common.white
+      color: theme.palette.common.gray.uiWhite
     }
   })}
 `;

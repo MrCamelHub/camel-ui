@@ -30,7 +30,7 @@ const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
           key={`star-${index}`}
           name="StarFilled"
           size={size}
-          color={value > index ? '#FFD25E' : palette.common.grey['95']}
+          color={value > index ? '#FFD25E' : palette.common.gray.ui95}
         />
       ))}
     </StyledRating>

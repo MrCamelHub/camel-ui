@@ -70,8 +70,8 @@ export function BrandColors() {
         <Button variant="outlined" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlined" brandColor="grey">
-          grey
+        <Button variant="outlined" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
       <p>ghost</p>
@@ -82,8 +82,8 @@ export function BrandColors() {
         <Button variant="ghost" brandColor="primary">
           primary
         </Button>
-        <Button variant="ghost" brandColor="grey">
-          grey
+        <Button variant="ghost" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
       <p>outlinedGhost</p>
@@ -94,8 +94,8 @@ export function BrandColors() {
         <Button variant="outlinedGhost" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlinedGhost" brandColor="grey">
-          grey
+        <Button variant="outlinedGhost" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
       <p>contained</p>
@@ -106,8 +106,8 @@ export function BrandColors() {
         <Button variant="contained" brandColor="primary">
           primary
         </Button>
-        <Button variant="contained" brandColor="grey">
-          grey
+        <Button variant="contained" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
     </ThemeProvider>

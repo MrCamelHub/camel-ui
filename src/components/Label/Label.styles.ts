@@ -20,9 +20,9 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
       case 'contained':
         cssObject = {
           backgroundColor: brandColorCode,
-          color: palette.common.white,
+          color: palette.common.gray.uiWhite,
           '& svg': {
-            color: palette.common.white
+            color: palette.common.gray.uiWhite
           }
         };
         break;
@@ -47,7 +47,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
 
         if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.common.grey['90'],
+            backgroundColor: palette.common.gray.ui90,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -58,7 +58,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
         break;
       default:
         cssObject = {
-          backgroundColor: palette.common.white,
+          backgroundColor: palette.common.gray.uiWhite,
           borderColor: brandColorCode,
           color: brandColorCode,
           '& svg': {
