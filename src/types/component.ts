@@ -6,7 +6,7 @@ import type { InterpolationWithTheme } from '@emotion/core';
 import type { ColorCode } from './css';
 import type * as SvgIcons from '../assets/icons';
 
-export type Variant = 'outlined' | 'ghost' | 'outlinedGhost' | 'contained';
+export type Variant = 'outlined' | 'ghost' | 'outlinedGhost' | 'contained' | 'inline';
 export type BrandColor = 'gray' | 'black' | 'primary' | 'red' | 'purple';
 export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
 export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', ColorCode>;

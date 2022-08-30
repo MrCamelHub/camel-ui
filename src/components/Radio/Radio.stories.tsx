@@ -52,12 +52,8 @@ export function BrandColors() {
       <Wrapper>
         <Radio />
         <Radio checked />
-        <Radio brandColor="primary" />
-        <Radio brandColor="primary" checked />
-        <Radio brandColor="red" />
-        <Radio brandColor="red" checked />
-        <Radio brandColor="purple" />
-        <Radio brandColor="purple" checked />
+        <Radio brandColor="black" />
+        <Radio brandColor="black" checked />
       </Wrapper>
     </ThemeProvider>
   );

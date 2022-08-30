@@ -54,14 +54,10 @@ export function BrandColors() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Checkbox brandColor="black" />
-        <Checkbox brandColor="black" checked />
         <Checkbox brandColor="primary" />
         <Checkbox brandColor="primary" checked />
       </Wrapper>
       <Wrapper>
-        <Checkbox variant="circle" brandColor="black" />
-        <Checkbox variant="circle" brandColor="black" checked />
         <Checkbox variant="circle" brandColor="primary" />
         <Checkbox variant="circle" brandColor="primary" checked />
       </Wrapper>

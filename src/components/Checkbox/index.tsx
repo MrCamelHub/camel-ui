@@ -7,11 +7,11 @@ import type { BrandColor, GenericComponentProps } from '../../types';
 export interface CheckboxProps
   extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
   variant?: 'round' | 'circle';
-  brandColor?: Extract<BrandColor, 'black' | 'primary'>;
+  brandColor?: Extract<BrandColor, 'primary' | 'black'>;
 }
 
 const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
-  { variant, checked, brandColor = 'black', customStyle, disabled, ...props },
+  { variant, checked, brandColor = 'primary', customStyle, disabled, ...props },
   ref
 ) {
   return (
@@ -26,7 +26,19 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
       role="checkbox"
     >
       <StyledCheckbox type="checkbox" checked={checked} disabled={disabled} {...props} />
-      <Marker variant={variant} checked={checked} brandColor={brandColor} />
+      {variant === 'circle' ? (
+        <Marker
+          name={!checked ? 'CheckCircleOutlined' : 'CheckCircleFilled'}
+          checked={checked}
+          brandColor={brandColor}
+        />
+      ) : (
+        <Marker
+          name={!checked ? 'CheckboxOutlined' : 'CheckboxCheckedFilled'}
+          checked={checked}
+          brandColor={brandColor}
+        />
+      )}
     </Wrapper>
   );
 });

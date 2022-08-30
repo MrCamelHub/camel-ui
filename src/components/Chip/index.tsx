@@ -9,12 +9,14 @@ import type {
   Size,
   Variant
 } from '../../types';
-import { TypographyWeight } from '../../types';
+import { BrandExtendsColor, TypographyWeight } from '../../types';
 
 export interface BaseChipProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
-  variant?: Variant;
-  brandColor?: Extract<BrandColor, 'black' | 'primary' | 'gray'>;
+  variant?: Exclude<Variant, 'inline'>;
+  brandColor?:
+    | Extract<BrandColor, 'black' | 'primary' | 'gray'>
+    | `${Extract<BrandColor, 'primary'>}-${Extract<BrandExtendsColor, 'light'>}`;
   size?: Size;
   weight?: keyof TypographyWeight;
   isRound?: boolean;

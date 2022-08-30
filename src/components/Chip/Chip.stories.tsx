@@ -33,7 +33,7 @@ const ColWrapper = styled(Wrapper)`
 export function Default({ ...args }) {
   return (
     <ThemeProvider theme="light">
-      <Chip {...args}>Button</Chip>
+      <Chip {...args}>Chip</Chip>
     </ThemeProvider>
   );
 }

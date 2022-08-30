@@ -31,6 +31,17 @@ export const StyledToast = styled.div<
   transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
     0ms;
 
+  ${({
+    theme: {
+      typography: { body1 }
+    }
+  }): CSSObject => ({
+    fontSize: body1.size,
+    fontWeight: body1.weight.medium,
+    lineHeight: body1.lineHeight,
+    letterSpacing: body1.letterSpacing
+  })};
+
   ${({ disablePadding }): CSSObject =>
     disablePadding
       ? {

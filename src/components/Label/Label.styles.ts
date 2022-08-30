@@ -55,6 +55,34 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
           };
         }
 
+        if (brandColor === 'primary-light') {
+          cssObject = {
+            backgroundColor: palette.primary.highlight,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
+        break;
+      case 'darked':
+        cssObject = {
+          backgroundColor: palette.primary.dark,
+          color: palette.common.gray.uiWhite,
+          '& svg': {
+            color: palette.common.gray.uiWhite
+          }
+        };
+
+        if (brandColor === 'red') {
+          cssObject = {
+            backgroundColor: palette.secondary.red.dark,
+            color: palette.common.gray.uiWhite,
+            '& svg': {
+              color: palette.common.gray.uiWhite
+            }
+          };
+        }
         break;
       default:
         cssObject = {

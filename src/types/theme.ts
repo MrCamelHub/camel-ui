@@ -10,15 +10,14 @@ import type {
 
 export type ThemeType = 'light' | 'dark';
 
-// #TODO 추후 Layer 우선 순위 정립
 export interface MrCamelTheme {
   type: ThemeType;
   palette: {
     primary: Palette;
     secondary: {
+      purple: Palette;
       red: Palette;
       blue: Palette;
-      purple: Palette;
     };
     common: {
       gray: CommonPalette;

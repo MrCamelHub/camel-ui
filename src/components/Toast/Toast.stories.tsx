@@ -20,7 +20,7 @@ export function Default({ ...args }) {
         Open
       </Button>
       <Toast open={isOpen} onClose={() => setIsOpen(false)} {...args}>
-        <h1>MrCamel Toast!!</h1>
+        MrCamel Toast!!
       </Toast>
     </ThemeProvider>
   );
