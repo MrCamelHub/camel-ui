@@ -19,3 +19,5 @@ export { default as Flexbox } from './Flexbox';
 export { default as Grid } from './Grid';
 export { default as Tooltip } from './Tooltip';
 export { default as Input } from './Input';
+export { default as Tab } from './Tab';
+export { default as Tabs } from './Tabs';
