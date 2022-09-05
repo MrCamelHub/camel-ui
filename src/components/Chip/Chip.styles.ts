@@ -68,9 +68,11 @@ export const StyledChip = styled.button<
       case 'contained': {
         cssObject = {
           backgroundColor: brandColorCode,
-          color: palette.common.gray.solidText,
+          color:
+            brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText,
           '& svg': {
-            color: palette.common.gray.solidText
+            color:
+              brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText
           }
         };
 

@@ -35,6 +35,7 @@ export function Variants() {
         <Label variant="outlined" text="outlined" />
         <Label variant="ghost" text="ghost" />
         <Label variant="contained" text="contained" />
+        <Label variant="darked" text="darked" />
       </Wrapper>
     </ThemeProvider>
   );
@@ -60,6 +61,11 @@ export function BrandColors() {
         <Label variant="contained" brandColor="black" text="black" />
         <Label variant="contained" brandColor="primary" text="primary" />
         <Label variant="contained" brandColor="red" text="red" />
+      </Wrapper>
+      <Wrapper>
+        <p>dakred</p>
+        <Label variant="darked" brandColor="primary-light" text="primary-light" />
+        <Label variant="darked" brandColor="red" text="red" />
       </Wrapper>
     </ThemeProvider>
   );

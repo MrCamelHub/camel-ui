@@ -70,9 +70,11 @@ export const StyledButton = styled.button<
       case 'contained': {
         cssObject = {
           backgroundColor: brandColorCode,
-          color: palette.common.gray.solidText,
+          color:
+            brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText,
           '& svg': {
-            color: palette.common.gray.solidText
+            color:
+              brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText
           }
         };
 
@@ -80,7 +82,7 @@ export const StyledButton = styled.button<
       }
       case 'inline':
         cssObject = {
-          backgroundColor: palette.common.gray.uiWhite,
+          backgroundColor: 'transparent',
           borderColor: 'transparent',
           color: brandColorCode,
           '& > svg': {

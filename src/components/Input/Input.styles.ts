@@ -130,7 +130,8 @@ export const StyledInput = styled.div<
         break;
       case 'inline':
         cssObject = {
-          borderRadius: 0
+          borderRadius: 0,
+          backgroundColor: 'transparent'
         };
         break;
       case 'underline':

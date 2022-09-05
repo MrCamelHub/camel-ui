@@ -20,9 +20,11 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
       case 'contained':
         cssObject = {
           backgroundColor: brandColorCode,
-          color: palette.common.gray.uiWhite,
+          color:
+            brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText,
           '& svg': {
-            color: palette.common.gray.uiWhite
+            color:
+              brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText
           }
         };
         break;
