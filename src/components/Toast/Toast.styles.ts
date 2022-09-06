@@ -22,7 +22,7 @@ export const StyledToast = styled.div<
       box: { shadow }
     }
   }) => shadow.tooltip};
-  color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
+  color: ${({ theme: { palette } }) => palette.common.gray.solidText};
   z-index: ${({ theme: { zIndex } }) => zIndex.toast};
   text-align: center;
 

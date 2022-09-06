@@ -2,26 +2,28 @@ import React, { forwardRef, useState } from 'react';
 import type { InputHTMLAttributes, ReactElement } from 'react';
 
 import { BaseInput, StyledInput } from './Input.styles';
-import { GenericComponentProps, Size, Variant } from '../../types';
+import { CustomStyle, GenericComponentProps, Size, Variant } from '../../types';
 
 export interface InputProps
   extends GenericComponentProps<Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>> {
   variant?: Exclude<Variant, 'ghost' | 'outlinedGhost'> | 'underline';
   size?: Exclude<Size, 'xsmall'> | 'xxlarge';
-  startIcon?: ReactElement;
-  endIcon?: ReactElement;
+  startAdornment?: string | ReactElement;
+  endAdornment?: string | ReactElement;
   unit?: string;
   fullWidth?: boolean;
+  inputCustomStyle?: CustomStyle;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
     variant = 'outlined',
     size = 'medium',
-    startIcon,
-    endIcon,
+    startAdornment,
+    endAdornment,
     unit,
     fullWidth,
+    inputCustomStyle,
     customStyle,
     ...props
   },
@@ -41,10 +43,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       focused={focused}
       css={customStyle}
     >
-      {startIcon}
-      <BaseInput {...props} onFocus={handleFocus} onBlur={handleBlur} />
+      {startAdornment}
+      <BaseInput {...props} css={inputCustomStyle} onFocus={handleFocus} onBlur={handleBlur} />
       {unit}
-      {endIcon}
+      {endAdornment}
     </StyledInput>
   );
 });

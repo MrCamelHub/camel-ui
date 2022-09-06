@@ -67,12 +67,12 @@ export function FullWidths() {
   );
 }
 
-export function Icons() {
+export function Adornments() {
   return (
     <ThemeProvider theme="light">
       <Input
-        startIcon={<Icon name="SearchOutlined" />}
-        endIcon={<Icon name="DeleteCircleFilled" />}
+        startAdornment={<Icon name="SearchOutlined" />}
+        endAdornment={<Icon name="DeleteCircleFilled" />}
         placeholder="Text"
       />
     </ThemeProvider>
@@ -83,8 +83,8 @@ export function Unit() {
   return (
     <ThemeProvider theme="light">
       <Input
-        startIcon={<Icon name="SearchOutlined" />}
-        endIcon={<Icon name="DeleteCircleFilled" />}
+        startAdornment={<Icon name="SearchOutlined" />}
+        endAdornment={<Icon name="DeleteCircleFilled" />}
         placeholder="Text"
         unit="원"
       />

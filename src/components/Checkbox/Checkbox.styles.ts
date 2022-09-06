@@ -5,11 +5,11 @@ import { getBrandColorCodeByColorName } from '@utils';
 
 import { CheckboxProps } from '.';
 
-export const Wrapper = styled.div<
-  Pick<CheckboxProps, 'variant' | 'checked' | 'brandColor' | 'disabled'>
->`
+export const Wrapper = styled.div<Pick<CheckboxProps, 'checked' | 'brandColor' | 'disabled'>>`
   position: relative;
   display: inline-block;
+  width: 20px;
+  height: 20px;
   background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
 `;
 
@@ -27,6 +27,7 @@ export const StyledCheckbox = styled.input`
 `;
 
 export const Marker = styled(Icon)<Pick<CheckboxProps, 'checked' | 'brandColor'>>`
+  vertical-align: inherit;
   color: ${({ theme, brandColor, checked }) =>
     checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.gray.ui80};
 `;

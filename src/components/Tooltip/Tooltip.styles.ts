@@ -115,7 +115,7 @@ export const StyledTooltip = styled.div<
       default:
         cssObject = {
           backgroundColor: getBrandColorCodeByColorName(theme, brandColor),
-          color: theme.palette.common.gray.uiWhite
+          color: theme.palette.common.gray.solidText
         };
         break;
     }
@@ -158,13 +158,13 @@ export const StyledTooltip = styled.div<
           };
         case 'bottom':
           return {
-            top: -6,
+            top: -5,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
             transform: `${triangleLeft ? 'rotate(0deg)' : 'translateX(-50%) rotate(0deg)'}`
           };
         default:
           return {
-            bottom: -6,
+            bottom: -5,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
             transform: `${triangleLeft ? 'rotate(180deg)' : 'translateX(-50%) rotate(180deg)'}`
           };

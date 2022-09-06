@@ -39,12 +39,23 @@ export function Default({ ...args }) {
   );
 }
 
-export function Variants() {
+export function DefaultCheckMarker() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Checkbox variant="round" />
-        <Checkbox variant="circle" />
+        <Checkbox hideDefaultCheckMarker={false} />
+        <Checkbox isRound={false} hideDefaultCheckMarker={false} />
+      </Wrapper>
+    </ThemeProvider>
+  );
+}
+
+export function Rounds() {
+  return (
+    <ThemeProvider theme="light">
+      <Wrapper>
+        <Checkbox />
+        <Checkbox isRound={false} />
       </Wrapper>
     </ThemeProvider>
   );
@@ -58,8 +69,8 @@ export function BrandColors() {
         <Checkbox brandColor="primary" checked />
       </Wrapper>
       <Wrapper>
-        <Checkbox variant="circle" brandColor="primary" />
-        <Checkbox variant="circle" brandColor="primary" checked />
+        <Checkbox isRound={false} brandColor="primary" />
+        <Checkbox isRound={false} brandColor="primary" checked />
       </Wrapper>
     </ThemeProvider>
   );
