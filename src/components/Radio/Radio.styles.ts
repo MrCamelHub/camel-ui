@@ -8,7 +8,10 @@ import { RadioProps } from '.';
 export const Wrapper = styled.div<Pick<RadioProps, 'checked' | 'brandColor'>>`
   position: relative;
   display: inline-block;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
+  background-color: ${({ theme: { palette } }) => palette.common.uiWhite};
 `;
 
 export const StyledRadio = styled.input`
@@ -25,6 +28,7 @@ export const StyledRadio = styled.input`
 `;
 
 export const Marker = styled(Icon)<Pick<RadioProps, 'checked' | 'brandColor'>>`
+  vertical-align: inherit;
   color: ${({ theme, brandColor, checked }) =>
     checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.ui80};
 `;
