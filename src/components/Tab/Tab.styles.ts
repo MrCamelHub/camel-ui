@@ -18,7 +18,7 @@ export const StyledTab = styled.button<
     theme: {
       palette: { common }
     }
-  }) => common.gray.ui60};
+  }) => common.ui60};
   ${({
     theme: {
       typography: { h4 }
@@ -33,11 +33,9 @@ export const StyledTab = styled.button<
   &.selected {
     color: ${({
       theme: {
-        palette: {
-          common: { gray }
-        }
+        palette: { common }
       }
-    }) => gray.ui20};
+    }) => common.ui20};
     ${({
       theme: {
         typography: { h4 }
@@ -56,11 +54,9 @@ export const StyledTab = styled.button<
     &.black {
       border-bottom-color: ${({
         theme: {
-          palette: {
-            common: { gray }
-          }
+          palette: { common }
         }
-      }) => gray.ui20};
+      }) => common.ui20};
     }
     &.hideIndicator {
       border-bottom-color: transparent;
@@ -71,9 +67,7 @@ export const StyledTab = styled.button<
     theme,
     theme: {
       typography: { h4 },
-      palette: {
-        common: { gray }
-      }
+      palette: { common }
     },
     brandColor,
     selected
@@ -82,7 +76,7 @@ export const StyledTab = styled.button<
       ? {
           borderBottomColor: getBrandColorCodeByColorName(theme, brandColor),
           fontWeight: h4.weight.bold,
-          color: gray.ui20
+          color: common.ui20
         }
       : {}};
 

@@ -1,7 +1,7 @@
-import type { ColorCode, ColorKey } from '../../types';
+import type { Color, ColorKey } from '../../types';
 
 const purple: {
-  [key in ColorKey]: ColorCode;
+  [key in ColorKey]: Color;
 } = {
   '10': '#F8F5FF',
   '20': '#EAE0FF',

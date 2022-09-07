@@ -10,7 +10,7 @@ export const Wrapper = styled.div<Pick<CheckboxProps, 'checked' | 'brandColor' |
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
+  background-color: ${({ theme: { palette } }) => palette.common.uiWhite};
 `;
 
 export const StyledCheckbox = styled.input`
@@ -29,5 +29,5 @@ export const StyledCheckbox = styled.input`
 export const Marker = styled(Icon)<Pick<CheckboxProps, 'checked' | 'brandColor'>>`
   vertical-align: inherit;
   color: ${({ theme, brandColor, checked }) =>
-    checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.gray.ui80};
+    checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.ui80};
 `;

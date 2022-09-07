@@ -11,7 +11,7 @@ import type {
 } from '../../types';
 import * as SvgIcons from '../../assets/icons';
 
-export interface IconProps extends GenericComponentProps<SVGProps<SVGElement>> {
+export interface IconProps extends GenericComponentProps<Omit<SVGProps<SVGElement>, 'color'>> {
   name: keyof typeof SvgIcons;
   size?: Exclude<Size, 'xsmall' | 'xlarge'>;
   color?: BrandColor | `${Extract<BrandColor, 'primary'>}-${BrandExtendsColor}` | Color;

@@ -11,5 +11,6 @@ export {
   BoxRoundKey,
   CustomStyle,
   CSSValue,
+  Color,
   IconName
 } from './types';

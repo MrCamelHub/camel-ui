@@ -36,22 +36,28 @@ const dark: MrCamelTheme = {
       }
     },
     common: {
-      gray: {
-        ui20: common.white,
-        ui60: gray['50'],
-        ui80: gray['60'],
-        ui90: gray['70'],
-        ui95: gray['80'],
-        ui98: gray['90'],
-        uiWhite: common.black,
-        uiBlack: common.white,
-        bg01: common.black,
-        bg02: gray['80'],
-        bg03: gray['90'],
-        line01: gray['70'],
-        line02: gray['80'],
-        solidText: common.white
-      }
+      ui20: common.white,
+      ui60: gray['50'],
+      ui80: gray['60'],
+      ui90: gray['70'],
+      ui95: gray['80'],
+      ui98: gray['90'],
+      uiWhite: common.black,
+      uiBlack: common.white,
+      bg01: common.black,
+      bg02: gray['80'],
+      bg03: gray['90'],
+      line01: gray['70'],
+      line02: gray['80'],
+      gradation0: `linear-gradient(180deg, ${common.gradationB[0]} 0%, ${common.gradationB[1]} 100%)`,
+      gradation180: `linear-gradient(180deg, ${common.gradationB[1]} 0%, ${common.gradationB[0]} 100%)`,
+      overlay60: 'rgba(0, 0, 0, 0.6)',
+      overlay40: 'rgba(0, 0, 0, 0.4)',
+      overlay20: 'rgba(0, 0, 0, 0.2)',
+      cmnW: common.white,
+      cmnB: common.black,
+      cmn80: gray['80'],
+      cmb20: gray['20']
     }
   },
   typography: {

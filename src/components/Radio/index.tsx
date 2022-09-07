@@ -24,6 +24,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
       <StyledRadio type="radio" checked={checked} {...props} />
       <Marker
         name={!checked ? 'RadioOutlined' : 'RadioCheckedFilled'}
+        size="medium"
         checked={checked}
         brandColor={brandColor}
       />

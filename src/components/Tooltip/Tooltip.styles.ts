@@ -107,15 +107,15 @@ export const StyledTooltip = styled.div<
         }
         if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: theme.palette.common.gray.ui95,
-            color: theme.palette.common.gray.ui20
+            backgroundColor: theme.palette.common.ui95,
+            color: theme.palette.common.ui20
           };
         }
         break;
       default:
         cssObject = {
           backgroundColor: getBrandColorCodeByColorName(theme, brandColor),
-          color: theme.palette.common.gray.solidText
+          color: theme.palette.common.cmnW
         };
         break;
     }
@@ -181,7 +181,7 @@ export const StyledTooltip = styled.div<
           }
           if (brandColor === 'black') {
             return {
-              color: theme.palette.common.gray.ui95
+              color: theme.palette.common.ui95
             };
           }
           return {};

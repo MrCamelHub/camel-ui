@@ -19,9 +19,7 @@ export interface MrCamelTheme {
       red: Palette;
       blue: Palette;
     };
-    common: {
-      gray: CommonPalette;
-    };
+    common: CommonPalette;
   };
   typography: {
     [key in TypographyVariant]: {

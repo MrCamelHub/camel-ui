@@ -20,12 +20,12 @@ export const StyledInput = styled.div<
     theme: {
       palette: { common }
     }
-  }) => common.gray.uiWhite};
+  }) => common.uiWhite};
   color: ${({
     theme: {
       palette: { common }
     }
-  }) => common.gray.ui20};
+  }) => common.ui20};
 
   ${({
     theme: {
@@ -108,9 +108,7 @@ export const StyledInput = styled.div<
 
   ${({
     theme: {
-      palette: {
-        common: { gray }
-      }
+      palette: { common }
     },
     variant,
     size
@@ -120,12 +118,12 @@ export const StyledInput = styled.div<
     switch (variant) {
       case 'outlined':
         cssObject = {
-          borderColor: gray.line01
+          borderColor: common.line01
         };
         break;
       case 'contained':
         cssObject = {
-          backgroundColor: gray.ui95
+          backgroundColor: common.ui95
         };
         break;
       case 'inline':
@@ -137,7 +135,7 @@ export const StyledInput = styled.div<
       case 'underline':
         cssObject = {
           borderRadius: 0,
-          borderBottomColor: gray.line01,
+          borderBottomColor: common.line01,
           borderBottomWidth: 2
         };
 
@@ -216,10 +214,8 @@ export const BaseInput = styled.input`
   &::placeholder {
     color: ${({
       theme: {
-        palette: {
-          common: { gray }
-        }
+        palette: { common }
       }
-    }) => gray.ui80};
+    }) => common.ui80};
   }
 `;
