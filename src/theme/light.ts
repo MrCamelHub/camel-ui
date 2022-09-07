@@ -3,7 +3,7 @@ import { blue, common, gray, indgo, purple, red } from '@theme/colors';
 import type { MrCamelTheme } from '../types';
 
 const light: MrCamelTheme = {
-  type: 'light',
+  mode: 'light',
   palette: {
     primary: {
       main: indgo['50A'],

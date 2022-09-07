@@ -8,10 +8,10 @@ import GlobalReset from '@theme/GlobalReset';
 import dark from '@theme/dark';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
-import type { ThemeType } from '../../types';
+import type { ThemeMode } from '../../types';
 
 export interface ThemeProviderProps {
-  theme: ThemeType;
+  theme: ThemeMode;
 }
 
 function ThemeProvider({ children, theme }: PropsWithChildren<ThemeProviderProps>) {

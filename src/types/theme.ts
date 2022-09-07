@@ -8,10 +8,10 @@ import type {
   TypographyWeight
 } from './component';
 
-export type ThemeType = 'light' | 'dark';
+export type ThemeMode = 'light' | 'dark';
 
 export interface MrCamelTheme {
-  type: ThemeType;
+  mode: ThemeMode;
   palette: {
     primary: Palette;
     secondary: {

@@ -38,7 +38,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [toastOpen, setToastOpen] = useState<boolean>(false);
 
-  const prevOpenRef = useRef<boolean>(false);
+  const updatedCountRef = useRef<boolean>(false);
 
   const toastPortalRef = useRef<HTMLElement | null>(null);
   const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -48,7 +48,12 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
-    if (!prevOpenRef.current && open) {
+    const handleClose = () => {
+      updatedCountRef.current = false;
+      onClose();
+    };
+
+    if (!updatedCountRef.current && open) {
       let toast = document.getElementById(`toast-root-${count}`);
 
       if (!toast) {
@@ -73,7 +78,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
       toastOpenTimerRef.current = setTimeout(() => setToastOpen(true), 100);
 
       if (autoHideDuration) {
-        toastAutoHideDurationTimerRef.current = setTimeout(onClose, autoHideDuration);
+        toastAutoHideDurationTimerRef.current = setTimeout(handleClose, autoHideDuration);
       }
     } else if (!open && isMounted && toastPortalRef.current) {
       if (toastOpenTimerRef.current) {
@@ -84,6 +89,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
       }
 
       toastCloseTimerRef.current = setTimeout(() => {
+        updatedCountRef.current = false;
         toastPortalRef.current?.remove();
         toastPortalRef.current = null;
 
@@ -94,15 +100,11 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   }, [open, isMounted, autoHideDuration, transitionDuration, onClose, count]);
 
   useEffect(() => {
-    // TODO 추후 로직 보완 필요
-    if (toastOpen && setCount) {
+    if (toastOpen && setCount && !updatedCountRef.current) {
       setCount((prevCount) => prevCount + 1);
+      updatedCountRef.current = true;
     }
   }, [toastOpen, setCount]);
-
-  useEffect(() => {
-    prevOpenRef.current = open;
-  }, [open]);
 
   useEffect(() => {
     return () => {

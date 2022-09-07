@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
-import type { ThemeType } from '../../types';
+import { ThemeMode } from '../../types';
 
-const ThemeContext = createContext<ThemeType>('light');
+const ThemeContext = createContext<ThemeMode>('light');
 
 export default ThemeContext;
