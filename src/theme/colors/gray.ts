@@ -1,8 +1,8 @@
-import type { ColorCode, ColorKey } from '../../types';
+import type { Color, ColorKey } from '../../types';
 
 const gray: Omit<
   {
-    [key in ColorKey]: ColorCode;
+    [key in ColorKey]: Color;
   },
   '50A'
 > = {

@@ -49,15 +49,15 @@ const light: MrCamelTheme = {
       bg03: gray['10'],
       line01: gray['30'],
       line02: gray['20'],
-      gradation0: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)',
-      gradation180: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)',
+      gradation0: `linear-gradient(180deg, ${common.gradationW[0]} 0%, ${common.gradationW[1]} 100%)`,
+      gradation180: `linear-gradient(180deg, ${common.gradationW[1]} 0%, ${common.gradationW[0]} 100%)`,
       overlay60: 'rgba(0, 0, 0, 0.6)',
       overlay40: 'rgba(0, 0, 0, 0.4)',
       overlay20: 'rgba(0, 0, 0, 0.2)',
       cmnW: common.white,
       cmnB: common.black,
-      cmb20: gray['20'],
-      cmn80: gray['80']
+      cmn80: gray['80'],
+      cmb20: gray['20']
     }
   },
   typography: {
