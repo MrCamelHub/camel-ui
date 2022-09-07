@@ -10,5 +10,6 @@ export {
   TypographyWeight,
   BoxRoundKey,
   CustomStyle,
-  CSSValue
+  CSSValue,
+  IconName
 } from './types';

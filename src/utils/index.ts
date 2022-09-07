@@ -9,10 +9,10 @@ export function getBrandColorCodeByColorName(
 ): Color | undefined {
   let colorCode = !initialColorCode ? undefined : theme.palette.primary.main;
 
-  if (colorName === 'grey') {
-    colorCode = theme.palette.common.grey['80'];
+  if (colorName === 'gray') {
+    colorCode = theme.palette.common.gray.ui60;
   } else if (colorName === 'black') {
-    colorCode = theme.palette.common.grey['20'];
+    colorCode = theme.palette.common.gray.ui20;
   } else if (colorName === 'red') {
     colorCode = theme.palette.secondary.red.main;
   } else if (colorName === 'purple') {
@@ -27,6 +27,8 @@ export function getBrandColorCodeByColorName(
     colorCode = theme.palette.primary.highlight;
   } else if (colorName === 'primary-bgLight') {
     colorCode = theme.palette.primary.bgLight;
+  } else if (colorName === 'red-dark') {
+    colorCode = theme.palette.secondary.red.dark;
   }
 
   return colorCode;

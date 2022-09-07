@@ -15,7 +15,7 @@ export interface AlertProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
 }
 
 const Alert = forwardRef<HTMLDivElement, PropsWithChildren<AlertProps>>(function Alert(
-  { children, brandColor = 'grey', round, customStyle, ...props },
+  { children, brandColor = 'gray', round, customStyle, ...props },
   ref
 ) {
   return (

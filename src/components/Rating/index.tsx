@@ -15,7 +15,7 @@ export interface RatingProps extends GenericComponentProps<HTMLAttributes<HTMLDi
 }
 
 const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
-  { count, value = 0, size = 'medium', ...props },
+  { count, value = 0, size = 'medium', customStyle, ...props },
   ref
 ) {
   const {
@@ -23,14 +23,14 @@ const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating(
   } = useTheme();
 
   return (
-    <StyledRating ref={ref} {...props}>
+    <StyledRating ref={ref} {...props} css={customStyle}>
       {Array.from({ length: count }).map((_, index) => (
         <Icon
           // eslint-disable-next-line react/no-array-index-key
           key={`star-${index}`}
           name="StarFilled"
           size={size}
-          color={value > index ? '#FFD25E' : palette.common.grey['95']}
+          color={value > index ? '#FFD25E' : palette.common.gray.ui95}
         />
       ))}
     </StyledRating>

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const StyledFab = styled.button`
   width: 48px;
   height: 48px;
-  background-color: ${({ theme: { palette } }) => palette.common.white};
+  background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
   border-radius: 50%;
   box-shadow: ${({
     theme: {

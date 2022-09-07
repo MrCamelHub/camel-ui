@@ -2,54 +2,54 @@ import { blue, common, gray, indgo, purple, red } from '@theme/colors';
 
 import type { MrCamelTheme } from '../types';
 
-const light: MrCamelTheme = {
-  mode: 'light',
+const dark: MrCamelTheme = {
+  mode: 'dark',
   palette: {
     primary: {
-      main: indgo['50A'],
-      light: indgo['50'],
-      dark: indgo['70'],
-      highlight: indgo['20'],
-      bgLight: indgo['10']
+      main: indgo['50'],
+      light: indgo['40'],
+      dark: indgo['20'],
+      highlight: indgo['80'],
+      bgLight: indgo['90']
     },
     secondary: {
       purple: {
-        main: purple['50A'],
-        light: purple['50'],
-        dark: purple['70'],
-        highlight: purple['20'],
-        bgLight: purple['10']
+        main: purple['50'],
+        light: purple['40'],
+        dark: purple['20'],
+        highlight: purple['80'],
+        bgLight: purple['90']
       },
       red: {
-        main: red['50A'],
-        light: red['50'],
-        dark: red['70'],
-        highlight: red['20'],
-        bgLight: red['10']
+        main: red['50'],
+        light: red['40'],
+        dark: red['20'],
+        highlight: red['80'],
+        bgLight: red['90']
       },
       blue: {
-        main: blue['50A'],
-        light: blue['50'],
-        dark: blue['70'],
-        highlight: blue['20'],
-        bgLight: blue['10']
+        main: blue['50'],
+        light: blue['40'],
+        dark: blue['20'],
+        highlight: blue['80'],
+        bgLight: blue['90']
       }
     },
     common: {
       gray: {
-        ui20: gray['70'],
-        ui60: gray['60'],
-        ui80: gray['40'],
-        ui90: gray['30'],
-        ui95: gray['20'],
-        ui98: gray['10'],
-        uiWhite: common.white,
-        uiBlack: common.black,
-        bg01: common.white,
-        bg02: gray['20'],
-        bg03: gray['10'],
-        line01: gray['30'],
-        line02: gray['20'],
+        ui20: common.white,
+        ui60: gray['50'],
+        ui80: gray['60'],
+        ui90: gray['70'],
+        ui95: gray['80'],
+        ui98: gray['90'],
+        uiWhite: common.black,
+        uiBlack: common.white,
+        bg01: common.black,
+        bg02: gray['80'],
+        bg03: gray['90'],
+        line01: gray['70'],
+        line02: gray['80'],
         solidText: common.white
       }
     }
@@ -200,4 +200,4 @@ const light: MrCamelTheme = {
   }
 };
 
-export default light;
+export default dark;

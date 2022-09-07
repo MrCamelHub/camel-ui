@@ -20,9 +20,9 @@ export const StyledChip = styled.button<
 
     switch (variant) {
       case 'ghost': {
-        if (brandColor === 'black') {
+        if (brandColor === 'black' || brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.grey['95'],
+            backgroundColor: palette.common.gray.ui95,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -30,101 +30,71 @@ export const StyledChip = styled.button<
           };
         }
 
-        if (brandColor === 'primary') {
+        if (brandColor === 'primary' || brandColor === 'primary-light') {
           cssObject = {
             backgroundColor: palette.primary.highlight,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
-            }
-          };
-        }
-
-        if (brandColor === 'grey') {
-          cssObject = {
-            backgroundColor: palette.common.grey['95'],
-            color: palette.common.grey['60'],
-            '& svg': {
-              color: palette.common.grey['60']
             }
           };
         }
         break;
       }
       case 'outlinedGhost': {
-        if (brandColor === 'black') {
+        if (brandColor === 'black' || brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.grey['95'],
+            backgroundColor: palette.common.gray.ui95,
             color: brandColorCode,
-            borderColor: palette.common.grey['90'],
+            borderColor: palette.common.gray.line01,
             '& svg': {
               color: brandColorCode
             }
           };
         }
 
-        if (brandColor === 'primary') {
+        if (brandColor === 'primary' || brandColor === 'primary-light') {
           cssObject = {
             backgroundColor: palette.primary.highlight,
             color: brandColorCode,
-            borderColor: palette.primary.light,
+            borderColor: brandColorCode,
             '& svg': {
               color: brandColorCode
             }
           };
         }
-
-        if (brandColor === 'grey') {
-          cssObject = {
-            backgroundColor: palette.common.grey['95'],
-            color: palette.common.grey['60'],
-            borderColor: palette.common.grey['90'],
-            '& svg': {
-              color: palette.common.grey['60']
-            }
-          };
-        }
-
         break;
       }
       case 'contained': {
-        if (brandColor === 'grey') {
-          cssObject = {
-            backgroundColor: palette.common.grey['60'],
-            color: palette.common.white,
-            '& svg': {
-              color: palette.common.white
-            }
-          };
-        } else {
-          cssObject = {
-            backgroundColor: brandColorCode,
-            color: palette.common.white,
-            '& svg': {
-              color: palette.common.white
-            }
-          };
-        }
+        cssObject = {
+          backgroundColor: brandColorCode,
+          color:
+            brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText,
+          '& svg': {
+            color:
+              brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText
+          }
+        };
 
         break;
       }
       default: {
-        cssObject = {
-          backgroundColor: palette.common.white,
-          borderColor: brandColorCode,
-          color: brandColorCode,
-          '& > svg': {
-            color: brandColorCode
-          }
-        };
-
-        if (brandColor === 'grey') {
+        if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.white,
-            borderColor: brandColorCode,
-            color: palette.common.grey['20'],
+            backgroundColor: palette.common.gray.uiWhite,
+            borderColor: palette.common.gray.line01,
+            color: palette.common.gray.ui20,
             '& > svg': {
-              color: palette.common.grey['20']
+              color: palette.common.gray.ui20
+            }
+          };
+        } else {
+          cssObject = {
+            backgroundColor: palette.common.gray.uiWhite,
+            borderColor: brandColorCode,
+            color: brandColorCode,
+            '& > svg': {
+              color: brandColorCode
             }
           };
         }
@@ -231,10 +201,10 @@ export const StyledChip = styled.button<
   &:disabled {
     ${({ theme: { palette } }): CSSObject => ({
       borderColor: 'transparent',
-      backgroundColor: palette.common.grey['80'],
-      color: palette.common.grey['60'],
+      backgroundColor: palette.common.gray.ui80,
+      color: palette.common.gray.ui60,
       '& svg': {
-        color: palette.common.grey['60']
+        color: palette.common.gray.ui60
       }
     })}
   }

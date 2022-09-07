@@ -8,7 +8,7 @@ import Button from '@components/Button';
 import { ThemeProvider } from '@theme';
 
 export default {
-  title: 'Components/Buttons/Button',
+  title: 'Components/Button',
   component: Button
 } as ComponentMeta<typeof Button>;
 
@@ -42,6 +42,9 @@ export function Variants() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
+        <Button variant="inline" brandColor="primary">
+          inline
+        </Button>
         <Button variant="outlined" brandColor="primary">
           outlined
         </Button>
@@ -62,6 +65,21 @@ export function Variants() {
 export function BrandColors() {
   return (
     <ThemeProvider theme="light">
+      <p>inline</p>
+      <Wrapper>
+        <Button variant="inline" brandColor="black">
+          black
+        </Button>
+        <Button variant="inline" brandColor="primary">
+          primary
+        </Button>
+        <Button variant="inline" brandColor="primary-light">
+          primary-light
+        </Button>
+        <Button variant="inline" brandColor="gray">
+          gray
+        </Button>
+      </Wrapper>
       <p>outlined</p>
       <Wrapper>
         <Button variant="outlined" brandColor="black">
@@ -70,8 +88,11 @@ export function BrandColors() {
         <Button variant="outlined" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlined" brandColor="grey">
-          grey
+        <Button variant="outlined" brandColor="primary-light">
+          primary-light
+        </Button>
+        <Button variant="outlined" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
       <p>ghost</p>
@@ -82,8 +103,11 @@ export function BrandColors() {
         <Button variant="ghost" brandColor="primary">
           primary
         </Button>
-        <Button variant="ghost" brandColor="grey">
-          grey
+        <Button variant="ghost" brandColor="primary-light">
+          primary-light
+        </Button>
+        <Button variant="ghost" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
       <p>outlinedGhost</p>
@@ -94,8 +118,11 @@ export function BrandColors() {
         <Button variant="outlinedGhost" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlinedGhost" brandColor="grey">
-          grey
+        <Button variant="outlinedGhost" brandColor="primary-light">
+          primary-light
+        </Button>
+        <Button variant="outlinedGhost" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
       <p>contained</p>
@@ -106,8 +133,11 @@ export function BrandColors() {
         <Button variant="contained" brandColor="primary">
           primary
         </Button>
-        <Button variant="contained" brandColor="grey">
-          grey
+        <Button variant="contained" brandColor="primary-light">
+          primary-light
+        </Button>
+        <Button variant="contained" brandColor="gray">
+          gray
         </Button>
       </Wrapper>
     </ThemeProvider>

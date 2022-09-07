@@ -13,12 +13,12 @@ export const Wrapper = styled.div`
 export const StyledTooltip = styled.div<
   Pick<
     TooltipProps,
+    | 'variant'
     | 'placement'
     | 'spaceBetween'
     | 'transitionDuration'
     | 'triangleLeft'
     | 'brandColor'
-    | 'round'
     | 'disablePadding'
     | 'disableShadow'
   > & {
@@ -29,12 +29,15 @@ export const StyledTooltip = styled.div<
   }
 >`
   position: absolute;
-  min-width: 100px;
+  min-width: fit-content;
+  padding: 6px 10px;
+  border-radius: 16px;
   visibility: hidden;
   opacity: 0;
   transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
     0ms;
   pointer-events: none;
+  text-align: center;
 
   ${({ placement, tooltipWidth, tooltipHeight, spaceBetween = 20 }): CSSObject => {
     switch (placement) {
@@ -63,56 +66,61 @@ export const StyledTooltip = styled.div<
           transform: `translate(-50%, -${tooltipHeight + spaceBetween}px);`
         };
     }
-  }}
-
-  white-space: nowrap;
+  }};
 
   ${({
     theme: {
-      box: { round: boxRound }
-    },
-    round
-  }): CSSObject =>
-    round
-      ? {
-          borderRadius: boxRound[round]
-        }
-      : {}}
+      typography: { body2 }
+    }
+  }): CSSObject => ({
+    fontSize: body2.size,
+    fontWeight: body2.weight.medium,
+    lineHeight: body2.lineHeight,
+    letterSpacing: body2.letterSpacing
+  })};
 
-  ${({ round }): CSSObject => {
-    switch (round) {
-      case '16':
-        return {
-          padding: '8px 16px'
-        };
-      default:
-        return {
-          padding: 16
-        };
-    }
-  }}
-  
-  filter: drop-shadow(${({
-    theme: {
-      box: { shadow }
-    }
-  }) => shadow.tooltip});
+  white-space: nowrap;
+
+  filter: drop-shadow(
+    ${({
+      theme: {
+        box: { shadow }
+      }
+    }) => shadow.tooltip}
+  );
   z-index: ${({ theme: { zIndex } }) => zIndex.tooltip};
 
   ${({ disablePadding }): CSSObject => (disablePadding ? { padding: 0 } : {})}
 
   ${({ disableShadow }): CSSObject => (disableShadow ? { filter: 'inherit' } : {})}
 
-  ${({ theme, brandColor }): CSSObject => {
-    let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
+  ${({ theme, variant, brandColor }): CSSObject => {
+    let cssObject: CSSObject = {};
 
-    if (brandColor === 'black') {
-      brandColorCode = theme.palette.common.black;
+    switch (variant) {
+      case 'ghost':
+        if (brandColor === 'primary') {
+          cssObject = {
+            backgroundColor: theme.palette.primary.highlight,
+            color: theme.palette.primary.main
+          };
+        }
+        if (brandColor === 'black') {
+          cssObject = {
+            backgroundColor: theme.palette.common.gray.ui95,
+            color: theme.palette.common.gray.ui20
+          };
+        }
+        break;
+      default:
+        cssObject = {
+          backgroundColor: getBrandColorCodeByColorName(theme, brandColor),
+          color: theme.palette.common.gray.solidText
+        };
+        break;
     }
 
-    return {
-      backgroundColor: brandColorCode
-    };
+    return cssObject;
   }}
 
   ${({ tooltipOpen }): CSSObject =>
@@ -134,41 +142,52 @@ export const StyledTooltip = styled.div<
     content: '';
     position: absolute;
 
-    ${({ theme, brandColor, placement, triangleLeft, round }): CSSObject => {
-      let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
-
-      if (brandColor === 'black') {
-        brandColorCode = theme.palette.common.black;
-      }
-
+    ${({ placement, triangleLeft }): CSSObject => {
       switch (placement) {
         case 'left':
           return {
             top: '50%',
-            right: round === '16' ? -10 : -15,
-            color: brandColorCode,
+            right: -7,
             transform: 'translateY(-50%) rotate(90deg)'
           };
         case 'right':
           return {
             top: '50%',
-            left: round === '16' ? -10 : -15,
-            color: brandColorCode,
+            left: -7,
             transform: 'translateY(-50%) rotate(270deg)'
           };
         case 'bottom':
           return {
-            top: -10,
+            top: -5,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
-            color: brandColorCode,
             transform: `${triangleLeft ? 'rotate(0deg)' : 'translateX(-50%) rotate(0deg)'}`
           };
         default:
           return {
-            bottom: -10,
+            bottom: -5,
             left: `${triangleLeft ? `${triangleLeft}px` : '50%'}`,
-            color: brandColorCode,
             transform: `${triangleLeft ? 'rotate(180deg)' : 'translateX(-50%) rotate(180deg)'}`
+          };
+      }
+    }}
+
+    ${({ theme, variant, brandColor }): CSSObject => {
+      switch (variant) {
+        case 'ghost':
+          if (brandColor === 'primary') {
+            return {
+              color: theme.palette.primary.highlight
+            };
+          }
+          if (brandColor === 'black') {
+            return {
+              color: theme.palette.common.gray.ui95
+            };
+          }
+          return {};
+        default:
+          return {
+            color: getBrandColorCodeByColorName(theme, brandColor)
           };
       }
     }}

@@ -5,11 +5,11 @@ import { Marker, StyledRadio, Wrapper } from './Radio.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';
 
 export interface RadioProps extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
-  brandColor?: Exclude<BrandColor, 'grey'>;
+  brandColor?: Extract<BrandColor, 'primary' | 'black'>;
 }
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
-  { checked, brandColor = 'black', customStyle, ...props },
+  { checked, brandColor = 'primary', customStyle, ...props },
   ref
 ) {
   return (
@@ -22,7 +22,11 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
       role="radio"
     >
       <StyledRadio type="radio" checked={checked} {...props} />
-      {checked && <Marker />}
+      <Marker
+        name={!checked ? 'RadioOutlined' : 'RadioCheckedFilled'}
+        checked={checked}
+        brandColor={brandColor}
+      />
     </Wrapper>
   );
 });

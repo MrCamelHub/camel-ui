@@ -10,8 +10,8 @@ export const StyledAlert = styled.div<Pick<AlertProps, 'brandColor' | 'round'>>`
   ${({ theme, brandColor }): CSSObject => {
     let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
-    if (brandColor === 'grey') {
-      brandColorCode = theme.palette.common.grey['95'];
+    if (brandColor === 'gray') {
+      brandColorCode = theme.palette.common.gray.ui95;
     }
 
     return {

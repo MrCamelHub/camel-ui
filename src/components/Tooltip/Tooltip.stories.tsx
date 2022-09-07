@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
-import Typography from '@components/Typography';
 import Tooltip from '@components/Tooltip';
 import Button from '@components/Button';
 
@@ -25,7 +24,7 @@ export function Default({ ...args }) {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Tooltip open={open} message={<Typography>MrCamel Tooltip!</Typography>} {...args}>
+        <Tooltip open={open} message="MrCamel Tooltip!" {...args}>
           <Button
             variant="contained"
             onMouseEnter={() => setOpen(true)}
@@ -43,15 +42,10 @@ export function BrandColors({ ...args }) {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Tooltip open brandColor="black" message={<Typography>black</Typography>} {...args} />
+        <Tooltip open brandColor="black" message="black" {...args} />
       </Wrapper>
       <Wrapper>
-        <Tooltip
-          open
-          brandColor="primary-highlight"
-          message={<Typography>primary-highlight</Typography>}
-          {...args}
-        />
+        <Tooltip open variant="ghost" brandColor="primary" message="primary" {...args} />
       </Wrapper>
     </ThemeProvider>
   );
@@ -61,23 +55,10 @@ export function Placements() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        <Tooltip open placement="bottom" message={<Typography>bottom</Typography>} />
-        <Tooltip open placement="top" message={<Typography>top</Typography>} />
-        <Tooltip open placement="left" message={<Typography>left</Typography>} />
-        <Tooltip open placement="right" message={<Typography>right</Typography>} />
-      </Wrapper>
-    </ThemeProvider>
-  );
-}
-
-export function Rounds() {
-  return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Tooltip open round="8" message={<Typography>8</Typography>} />
-      </Wrapper>
-      <Wrapper>
-        <Tooltip open round="16" message={<Typography>16</Typography>} />
+        <Tooltip open placement="bottom" message="bottom" />
+        <Tooltip open placement="top" message="top" />
+        <Tooltip open placement="left" message="left" />
+        <Tooltip open placement="right" message="right" />
       </Wrapper>
     </ThemeProvider>
   );

@@ -4,16 +4,46 @@ import type { Theme as EmotionTheme } from '@emotion/react';
 import type { InterpolationWithTheme } from '@emotion/core';
 
 import type { ColorCode } from './css';
+import type * as SvgIcons from '../assets/icons';
 
-export type Variant = 'outlined' | 'ghost' | 'outlinedGhost' | 'contained';
-export type BrandColor = 'grey' | 'black' | 'primary' | 'red' | 'purple';
+export type Variant = 'outlined' | 'ghost' | 'outlinedGhost' | 'contained' | 'inline';
+export type BrandColor = 'gray' | 'black' | 'primary' | 'red' | 'purple';
 export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
 export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', ColorCode>;
+export type CommonPalette = Record<
+  | 'ui20'
+  | 'ui60'
+  | 'ui80'
+  | 'ui90'
+  | 'ui95'
+  | 'ui98'
+  | 'uiWhite'
+  | 'uiBlack'
+  | 'solidText'
+  | 'bg01'
+  | 'bg02'
+  | 'bg03'
+  | 'line01'
+  | 'line02',
+  ColorCode
+>;
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
-export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body1' | 'body2' | 'small1' | 'small2';
-export type TypographyComponent = Extract<ElementType, 'h1' | 'h2' | 'h3' | 'h4' | 'div'>;
+export type TypographyVariant =
+  | 'h0'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'body1'
+  | 'body2'
+  | 'small1'
+  | 'small2';
+export type TypographyComponent = Extract<
+  ElementType,
+  'h1' | 'h2' | 'h3' | 'h4' | 'div' | 'span' | 'p' | 'article'
+>;
 export type TypographyWeight = {
   bold: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   medium: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
@@ -46,3 +76,5 @@ export type RequireAtOnlyOneIcon<T> = T &
         endIcon?: ReactElement;
       }
   );
+
+export type IconName = keyof typeof SvgIcons;

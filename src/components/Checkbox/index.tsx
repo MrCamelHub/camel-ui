@@ -6,18 +6,26 @@ import type { BrandColor, GenericComponentProps } from '../../types';
 
 export interface CheckboxProps
   extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
-  variant?: 'round' | 'circle';
-  brandColor?: Extract<BrandColor, 'black' | 'primary'>;
+  brandColor?: Extract<BrandColor, 'primary' | 'black'>;
+  isRound?: boolean;
+  hideDefaultCheckMarker?: boolean;
 }
 
 const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
-  { variant, checked, brandColor = 'black', customStyle, disabled, ...props },
+  {
+    checked,
+    brandColor = 'primary',
+    isRound = true,
+    hideDefaultCheckMarker = true,
+    customStyle,
+    disabled,
+    ...props
+  },
   ref
 ) {
   return (
     <Wrapper
       ref={ref}
-      variant={variant}
       checked={checked}
       brandColor={brandColor}
       css={customStyle}
@@ -26,7 +34,38 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
       role="checkbox"
     >
       <StyledCheckbox type="checkbox" checked={checked} disabled={disabled} {...props} />
-      <Marker variant={variant} checked={checked} brandColor={brandColor} />
+      {!isRound && hideDefaultCheckMarker && (
+        <Marker
+          name={!checked ? 'CircleOutlined' : 'CheckCircleFilled'}
+          size="medium"
+          checked={checked}
+          brandColor={brandColor}
+        />
+      )}
+      {!isRound && !hideDefaultCheckMarker && (
+        <Marker
+          name={!checked ? 'CheckCircleOutlined' : 'CheckCircleFilled'}
+          size="medium"
+          checked={checked}
+          brandColor={brandColor}
+        />
+      )}
+      {isRound && hideDefaultCheckMarker && (
+        <Marker
+          name={!checked ? 'CheckboxOutlined' : 'CheckboxCheckedFilled'}
+          size="medium"
+          checked={checked}
+          brandColor={brandColor}
+        />
+      )}
+      {isRound && !hideDefaultCheckMarker && (
+        <Marker
+          name={!checked ? 'CheckboxCheckedOutlined' : 'CheckboxCheckedFilled'}
+          size="medium"
+          checked={checked}
+          brandColor={brandColor}
+        />
+      )}
     </Wrapper>
   );
 });

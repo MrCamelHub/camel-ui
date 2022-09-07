@@ -9,12 +9,14 @@ import type {
   Size,
   Variant
 } from '../../types';
-import { TypographyWeight } from '../../types';
+import { BrandExtendsColor, TypographyWeight } from '../../types';
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
-  brandColor?: Extract<BrandColor, 'black' | 'primary' | 'grey'>;
+  brandColor?:
+    | Extract<BrandColor, 'black' | 'primary' | 'gray'>
+    | `${Extract<BrandColor, 'primary'>}-${Extract<BrandExtendsColor, 'light'>}`;
   size?: Exclude<Size, 'xsmall'>;
   weight?: keyof TypographyWeight;
   fullWidth?: boolean;
@@ -26,7 +28,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
   {
     children,
     variant = 'outlined',
-    brandColor = 'grey',
+    brandColor = 'gray',
     size = 'medium',
     weight = 'medium',
     startIcon,

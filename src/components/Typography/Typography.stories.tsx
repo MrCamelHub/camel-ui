@@ -45,6 +45,7 @@ export function Sizes() {
         </tr>
         {(
           [
+            { component: 'Header 0', variant: 'h1', size: 40 },
             { component: 'Header 1', variant: 'h1', size: 32 },
             { component: 'Header 2', variant: 'h2', size: 24 },
             { component: 'Header 3', variant: 'h3', size: 17 },

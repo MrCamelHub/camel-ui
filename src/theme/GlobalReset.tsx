@@ -1,10 +1,16 @@
 import React from 'react';
 
+import useTheme from '@theme/provider/useTheme';
 import { Global } from '@emotion/react';
 
 /*! tailwindcss v2.2.15 | MIT License | https://tailwindcss.com */
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 function GlobalReset() {
+  const {
+    theme: {
+      palette: { common }
+    }
+  } = useTheme();
   return (
     <Global
       styles={{
@@ -99,6 +105,8 @@ function GlobalReset() {
         body: {
           margin: 0,
           height: '100%',
+          backgroundColor: common.gray.uiWhite,
+          color: common.gray.ui20,
           lineHeight: 'inherit',
           fontFamily:
             'Camel Product Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
