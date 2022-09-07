@@ -9,7 +9,7 @@ import { IconProps } from '.';
 export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<
   Pick<IconProps, 'color' | 'size'>
 >`
-  color: ${({ theme: { palette } }) => palette.common.gray.ui20};
+  color: ${({ theme: { palette } }) => palette.common.ui20};
 
   ${({ theme, color }): CSSObject => {
     let cssObject: CSSObject = {};

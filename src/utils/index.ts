@@ -10,9 +10,9 @@ export function getBrandColorCodeByColorName(
   let colorCode = !initialColorCode ? undefined : theme.palette.primary.main;
 
   if (colorName === 'gray') {
-    colorCode = theme.palette.common.gray.ui60;
+    colorCode = theme.palette.common.ui60;
   } else if (colorName === 'black') {
-    colorCode = theme.palette.common.gray.ui20;
+    colorCode = theme.palette.common.ui20;
   } else if (colorName === 'red') {
     colorCode = theme.palette.secondary.red.main;
   } else if (colorName === 'purple') {

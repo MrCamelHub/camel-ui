@@ -3,13 +3,13 @@ import type { ElementType, ReactElement } from 'react';
 import type { Theme as EmotionTheme } from '@emotion/react';
 import type { InterpolationWithTheme } from '@emotion/core';
 
-import type { ColorCode } from './css';
+import type { Color } from './css';
 import type * as SvgIcons from '../assets/icons';
 
 export type Variant = 'outlined' | 'ghost' | 'outlinedGhost' | 'contained' | 'inline';
 export type BrandColor = 'gray' | 'black' | 'primary' | 'red' | 'purple';
 export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
-export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', ColorCode>;
+export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', Color>;
 export type CommonPalette = Record<
   | 'ui20'
   | 'ui60'
@@ -19,13 +19,21 @@ export type CommonPalette = Record<
   | 'ui98'
   | 'uiWhite'
   | 'uiBlack'
-  | 'solidText'
   | 'bg01'
   | 'bg02'
   | 'bg03'
   | 'line01'
-  | 'line02',
-  ColorCode
+  | 'line02'
+  | 'gradation0'
+  | 'gradation180'
+  | 'overlay60'
+  | 'overlay40'
+  | 'overlay20'
+  | 'cmnW'
+  | 'cmnB'
+  | 'cmb20'
+  | 'cmn80',
+  Color
 >;
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';

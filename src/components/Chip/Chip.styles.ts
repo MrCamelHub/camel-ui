@@ -22,7 +22,7 @@ export const StyledChip = styled.button<
       case 'ghost': {
         if (brandColor === 'black' || brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.gray.ui95,
+            backgroundColor: palette.common.ui95,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -44,9 +44,9 @@ export const StyledChip = styled.button<
       case 'outlinedGhost': {
         if (brandColor === 'black' || brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.gray.ui95,
+            backgroundColor: palette.common.ui95,
             color: brandColorCode,
-            borderColor: palette.common.gray.line01,
+            borderColor: palette.common.line01,
             '& svg': {
               color: brandColorCode
             }
@@ -68,11 +68,9 @@ export const StyledChip = styled.button<
       case 'contained': {
         cssObject = {
           backgroundColor: brandColorCode,
-          color:
-            brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText,
+          color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW,
           '& svg': {
-            color:
-              brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText
+            color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW
           }
         };
 
@@ -81,16 +79,16 @@ export const StyledChip = styled.button<
       default: {
         if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.gray.uiWhite,
-            borderColor: palette.common.gray.line01,
-            color: palette.common.gray.ui20,
+            backgroundColor: palette.common.uiWhite,
+            borderColor: palette.common.line01,
+            color: palette.common.ui20,
             '& > svg': {
-              color: palette.common.gray.ui20
+              color: palette.common.ui20
             }
           };
         } else {
           cssObject = {
-            backgroundColor: palette.common.gray.uiWhite,
+            backgroundColor: palette.common.uiWhite,
             borderColor: brandColorCode,
             color: brandColorCode,
             '& > svg': {
@@ -201,10 +199,10 @@ export const StyledChip = styled.button<
   &:disabled {
     ${({ theme: { palette } }): CSSObject => ({
       borderColor: 'transparent',
-      backgroundColor: palette.common.gray.ui80,
-      color: palette.common.gray.ui60,
+      backgroundColor: palette.common.ui80,
+      color: palette.common.ui60,
       '& svg': {
-        color: palette.common.gray.ui60
+        color: palette.common.ui60
       }
     })}
   }

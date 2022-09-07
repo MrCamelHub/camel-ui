@@ -26,5 +26,5 @@ export const StyledRadio = styled.input`
 
 export const Marker = styled(Icon)<Pick<RadioProps, 'checked' | 'brandColor'>>`
   color: ${({ theme, brandColor, checked }) =>
-    checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.gray.ui80};
+    checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.ui80};
 `;

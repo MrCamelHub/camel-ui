@@ -5,7 +5,7 @@ import { SwitchProps } from '.';
 export const StyledSwitch = styled.button<Pick<SwitchProps, 'checked' | 'size'>>`
   position: relative;
   border-radius: 15px;
-  background-color: ${({ theme: { palette } }) => palette.common.gray.ui80};
+  background-color: ${({ theme: { palette } }) => palette.common.ui80};
 
   ${({ theme: { palette }, checked }): CSSObject =>
     checked
@@ -36,7 +36,7 @@ export const Circle = styled.div<Pick<SwitchProps, 'checked' | 'size'>>`
   left: 2px;
   border-radius: 50%;
   transform: translateY(-50%);
-  background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
+  background-color: ${({ theme: { palette } }) => palette.common.uiWhite};
 
   ${({ checked }): CSSObject =>
     checked

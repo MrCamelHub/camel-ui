@@ -7,7 +7,11 @@ import { TypographyProps } from '.';
 export const StyledTypography = styled.div<
   Pick<TypographyProps, 'variant' | 'weight' | 'brandColor'>
 >`
-  color: ${({ theme: { palette } }) => palette.common.gray.ui20};
+  color: ${({
+    theme: {
+      palette: { common }
+    }
+  }) => common.ui20};
 
   ${({ theme: { typography }, variant = 'body1', weight = 'medium' }): CSSObject => ({
     fontSize: typography[variant].size,

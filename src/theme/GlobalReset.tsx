@@ -105,8 +105,8 @@ function GlobalReset() {
         body: {
           margin: 0,
           height: '100%',
-          backgroundColor: common.gray.uiWhite,
-          color: common.gray.ui20,
+          backgroundColor: common.uiWhite,
+          color: common.ui20,
           lineHeight: 'inherit',
           fontFamily:
             'Camel Product Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',

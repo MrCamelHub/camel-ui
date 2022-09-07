@@ -12,7 +12,7 @@ export const StepperItem = styled.span<{
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: ${({ theme: { palette } }) => palette.common.gray.ui80};
+  background-color: ${({ theme: { palette } }) => palette.common.ui80};
 
   ${({ theme: { palette }, active }): CSSObject =>
     active

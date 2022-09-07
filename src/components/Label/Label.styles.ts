@@ -20,11 +20,9 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
       case 'contained':
         cssObject = {
           backgroundColor: brandColorCode,
-          color:
-            brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText,
+          color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW,
           '& svg': {
-            color:
-              brandColor === 'black' ? palette.common.gray.uiWhite : palette.common.gray.solidText
+            color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW
           }
         };
         break;
@@ -49,7 +47,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
 
         if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.common.gray.ui90,
+            backgroundColor: palette.common.ui90,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -70,25 +68,25 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
       case 'darked':
         cssObject = {
           backgroundColor: palette.primary.dark,
-          color: palette.common.gray.uiWhite,
+          color: palette.common.uiWhite,
           '& svg': {
-            color: palette.common.gray.uiWhite
+            color: palette.common.uiWhite
           }
         };
 
         if (brandColor === 'red') {
           cssObject = {
             backgroundColor: palette.secondary.red.dark,
-            color: palette.common.gray.uiWhite,
+            color: palette.common.uiWhite,
             '& svg': {
-              color: palette.common.gray.uiWhite
+              color: palette.common.uiWhite
             }
           };
         }
         break;
       default:
         cssObject = {
-          backgroundColor: palette.common.gray.uiWhite,
+          backgroundColor: palette.common.uiWhite,
           borderColor: brandColorCode,
           color: brandColorCode,
           '& svg': {

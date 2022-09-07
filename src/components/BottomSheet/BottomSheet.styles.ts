@@ -38,7 +38,7 @@ export const StyledBottomSheet = styled.div<
   max-height: 90%;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme: { palette } }) => palette.common.gray.uiWhite};
+  background-color: ${({ theme: { palette } }) => palette.common.uiWhite};
   border-radius: 16px 16px 0 0;
   box-shadow: ${({
     theme: {
@@ -82,6 +82,6 @@ export const Content = styled.div`
 export const Rectangle = styled.div`
   width: 48px;
   height: 4px;
-  background-color: ${({ theme: { palette } }) => palette.common.gray.ui90};
+  background-color: ${({ theme: { palette } }) => palette.common.ui90};
   border-radius: 2px;
 `;
