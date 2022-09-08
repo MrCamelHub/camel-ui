@@ -31,7 +31,7 @@ export type CommonPalette = Record<
   | 'overlay20'
   | 'cmnW'
   | 'cmnB'
-  | 'cmb20'
+  | 'cmn20'
   | 'cmn80',
   Color
 >;
