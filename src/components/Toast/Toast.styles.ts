@@ -16,7 +16,11 @@ export const StyledToast = styled.div<
   max-width: 335px;
   padding: 12px 20px;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: ${({
+    theme: {
+      palette: { common }
+    }
+  }) => common.ui20};
   box-shadow: ${({
     theme: {
       box: { shadow }
@@ -26,7 +30,7 @@ export const StyledToast = styled.div<
     theme: {
       palette: { common }
     }
-  }) => common.cmnW};
+  }) => common.uiWhite};
   z-index: ${({ theme: { zIndex } }) => zIndex.toast};
   text-align: center;
 
