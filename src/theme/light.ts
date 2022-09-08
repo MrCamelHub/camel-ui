@@ -57,7 +57,7 @@ const light: MrCamelTheme = {
       cmnW: common.white,
       cmnB: common.black,
       cmn80: gray['80'],
-      cmb20: gray['20']
+      cmn20: gray['20']
     }
   },
   typography: {

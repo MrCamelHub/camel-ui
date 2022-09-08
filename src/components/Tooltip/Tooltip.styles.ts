@@ -115,7 +115,7 @@ export const StyledTooltip = styled.div<
       default:
         cssObject = {
           backgroundColor: getBrandColorCodeByColorName(theme, brandColor),
-          color: theme.palette.common.cmnW
+          color: theme.palette.common.uiWhite
         };
         break;
     }
