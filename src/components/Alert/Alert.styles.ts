@@ -5,7 +5,7 @@ import { getBrandColorCodeByColorName } from '@utils';
 import { AlertProps } from '.';
 
 export const StyledAlert = styled.div<Pick<AlertProps, 'brandColor' | 'round'>>`
-  border-radius: 0 24px 24px 24px;
+  border-radius: 0 8px 8px 8px;
 
   ${({ theme, brandColor }): CSSObject => {
     let brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
