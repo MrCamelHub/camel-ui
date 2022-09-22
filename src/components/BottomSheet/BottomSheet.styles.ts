@@ -38,7 +38,7 @@ export const StyledBottomSheet = styled.div<
   max-height: 90%;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme: { palette } }) => palette.common.uiWhite};
+  background-color: ${({ theme: { palette } }) => palette.common.bg01};
   border-radius: 16px 16px 0 0;
   box-shadow: ${({
     theme: {
