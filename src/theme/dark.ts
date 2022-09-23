@@ -36,7 +36,7 @@ const dark: MrCamelTheme = {
       }
     },
     common: {
-      ui20: common.white,
+      ui20: gray['20'],
       ui60: gray['50'],
       ui80: gray['60'],
       ui90: gray['70'],
