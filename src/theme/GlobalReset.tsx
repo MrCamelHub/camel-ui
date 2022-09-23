@@ -105,7 +105,7 @@ function GlobalReset() {
         body: {
           margin: 0,
           height: '100%',
-          backgroundColor: common.uiWhite,
+          backgroundColor: common.bg01,
           color: common.ui20,
           lineHeight: 'inherit',
           fontFamily:
