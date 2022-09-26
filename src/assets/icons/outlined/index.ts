@@ -39,6 +39,7 @@ export { default as HeartFavoriteOutlined } from './heart-favorite-outlined.svg'
 export { default as HeartShadowOutlined } from './heart-shadow-outlined.svg';
 export { default as HeartOutlined } from './heart-outlined.svg';
 export { default as HomeOutlined } from './home-outlined.svg';
+export { default as HyperlinkOutlined } from './hyperlink-outlined.svg';
 export { default as ImageOutlined } from './image-outlined.svg';
 export { default as MenuOutlined } from './menu-outlined.svg';
 export { default as MessageOutlined } from './message-outlined.svg';
@@ -58,6 +59,7 @@ export { default as SearchOutlined } from './search-outlined.svg';
 export { default as SettingOutlined } from './setting-outlined.svg';
 export { default as ShareOutlined } from './share-outlined.svg';
 export { default as ShoesOutlined } from './shoes-outlined.svg';
+export { default as ShopOutlined } from './shop-outlined.svg';
 export { default as StarOutlined } from './star-outlined.svg';
 export { default as TimeOutlined } from './time-outlined.svg';
 export { default as TrophyOutlined } from './trophy-outlined.svg';

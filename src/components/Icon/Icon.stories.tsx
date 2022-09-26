@@ -44,44 +44,7 @@ export function FilledIcons() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        {(
-          [
-            'AlarmFilled',
-            'BangFilled',
-            'BookmarkFilled',
-            'CameraFilled',
-            'DownloadFilled',
-            'HeartFavoriteFilled',
-            'HeartFilled',
-            'HomeFilled',
-            'KakaoFilled',
-            'MoreFilled',
-            'NewFilled',
-            'NotiFilled',
-            'QuestionFilled',
-            'RankFilled',
-            'SafeFilled',
-            'SettingFilled',
-            'ShareFilled',
-            'StarFilled',
-            'TrophyFilled',
-            'UnderFilled',
-            'UserFilled',
-            'UserLargeFilled',
-            'WarningFilled',
-            'AppleFilled',
-            'ArrowDropRightFilled',
-            'FilterFilled',
-            'OpinionAuthenticFilled',
-            'OpinionFakeFilled',
-            'OpinionImpossibleFilled',
-            'LegitFilled',
-            'NewCategoryFilled',
-            'NewHeartFavoriteFilled',
-            'NewHomeFilled',
-            'NewUserLargeFilled'
-          ] as (keyof typeof FilledSvgIcons)[]
-        ).map((name) => (
+        {(Object.keys(FilledSvgIcons) as Array<keyof typeof FilledSvgIcons>).map((name) => (
           <div key={`filled-icon-${name}`}>
             <Icon name={name} />
             {name}
@@ -96,58 +59,7 @@ export function OutlinedIcons() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        {(
-          [
-            'AlarmOutlined',
-            'ArrowDownOutlined',
-            'ArrowLeftOutlined',
-            'ArrowRightOutlined',
-            'ArrowUpOutlined',
-            'BoxOutlined',
-            'CaretDownOutlined',
-            'CaretLeftOutlined',
-            'CaretRightOutlined',
-            'CaretUpOutlined',
-            'CategoryOutlined',
-            'ChangeStatusOutlined',
-            'ChatOutlined',
-            'CheckOutlined',
-            'CloseOutlined',
-            'ClothesOutlined',
-            'DeleteOutlined',
-            'EditOutlined',
-            'FilterOutlined',
-            'HeartFavoriteOutlined',
-            'HeartShadowOutlined',
-            'HeartOutlined',
-            'HomeOutlined',
-            'MenuOutlined',
-            'MessageOutlined',
-            'MinusOutlined',
-            'NotiOutlined',
-            'PantsOutlined',
-            'PlusOutlined',
-            'PullUpOutlined',
-            'RankOutlined',
-            'RotateOutlined',
-            'SearchOutlined',
-            'ShareOutlined',
-            'ShoesOutlined',
-            'StarOutlined',
-            'TimeOutlined',
-            'TrophyOutlined',
-            'UserOutlined',
-            'UserLargeOutlined',
-            'ViewOutlined',
-            'FocusOutlined',
-            'PinOutlined',
-            'LegitOutlined',
-            'NewCategoryOutlined',
-            'NewHeartFavoriteOutlined',
-            'NewHomeOutlined',
-            'NewUserLargeOutlined'
-          ] as (keyof typeof OutlinedSvgIcons)[]
-        ).map((name) => (
+        {(Object.keys(OutlinedSvgIcons) as Array<keyof typeof OutlinedSvgIcons>).map((name) => (
           <div key={`outlined-icon-${name}`}>
             <Icon name={name} />
             {name}
@@ -162,14 +74,7 @@ export function SpecifyIcons() {
   return (
     <ThemeProvider theme="light">
       <Wrapper>
-        {(
-          [
-            'LongCaretDownSpecify_66_11',
-            'LongCaretUpSpecify_66_11',
-            'Logo_45_45',
-            'LogoText_96_20'
-          ] as (keyof typeof SpecifySvgIcons)[]
-        ).map((name) => (
+        {(Object.keys(SpecifySvgIcons) as Array<keyof typeof SpecifySvgIcons>).map((name) => (
           <div key={`specify-icon-${name}`}>
             <Icon name={name} />
             {name}
