@@ -12,9 +12,14 @@ import type { ThemeMode } from '../../types';
 
 export interface ThemeProviderProps {
   theme: ThemeMode;
+  disableResetCSS?: boolean;
 }
 
-function ThemeProvider({ children, theme }: PropsWithChildren<ThemeProviderProps>) {
+function ThemeProvider({
+  children,
+  theme,
+  disableResetCSS = true
+}: PropsWithChildren<ThemeProviderProps>) {
   const mrcamelTheme = useMemo(() => (theme === 'light' ? light : dark), [theme]);
   const [count, setCount] = useState(0);
   const counter = useMemo<Partial<[number, Dispatch<SetStateAction<number>>]>>(
@@ -24,7 +29,7 @@ function ThemeProvider({ children, theme }: PropsWithChildren<ThemeProviderProps
 
   return (
     <ThemeContext.Provider value={theme}>
-      <GlobalReset />
+      {!disableResetCSS && <GlobalReset />}
       <EmotionThemeProvider theme={mrcamelTheme}>
         <PortalCounterContext.Provider value={counter}>{children}</PortalCounterContext.Provider>
       </EmotionThemeProvider>
