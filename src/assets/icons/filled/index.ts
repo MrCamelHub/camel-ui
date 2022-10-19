@@ -56,3 +56,5 @@ export { default as NewCategoryFilled } from './new-category-filled.svg';
 export { default as NewHeartFavoriteFilled } from './new-heart-favorite-filled.svg';
 export { default as NewHomeFilled } from './new-home-filled.svg';
 export { default as NewUserLargeFilled } from './new-user-large-filled.svg';
+export { default as WonFilled } from './won-filled.svg';
+export { default as ReportFilled } from './report-filled.svg';
