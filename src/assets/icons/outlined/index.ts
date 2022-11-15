@@ -83,3 +83,5 @@ export { default as NewCategoryOutlined } from './new-category-outlined.svg';
 export { default as NewHeartFavoriteOutlined } from './new-heart-favorite-outlined.svg';
 export { default as NewHomeOutlined } from './new-home-outlined.svg';
 export { default as NewUserLargeOutlined } from './new-user-large-outlined.svg';
+export { default as SandOutlined } from './sand-outlined.svg';
+export { default as StarHalfOutlined } from './star-half-outlined.svg';
