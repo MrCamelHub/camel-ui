@@ -31,40 +31,34 @@ const ColWrapper = styled(Wrapper)`
 `;
 
 export function Default({ ...args }) {
-  return (
-    <ThemeProvider theme="light">
-      <Button {...args}>Button</Button>
-    </ThemeProvider>
-  );
+  return <Button {...args}>Button</Button>;
 }
 
 export function Variants() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Button variant="inline" brandColor="primary">
-          inline
-        </Button>
-        <Button variant="outlined" brandColor="primary">
-          outlined
-        </Button>
-        <Button variant="ghost" brandColor="primary">
-          ghost
-        </Button>
-        <Button variant="outlinedGhost" brandColor="primary">
-          outlinedGhost
-        </Button>
-        <Button variant="contained" brandColor="primary">
-          contained
-        </Button>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Button variant="inline" brandColor="primary">
+        inline
+      </Button>
+      <Button variant="outlined" brandColor="primary">
+        outlined
+      </Button>
+      <Button variant="ghost" brandColor="primary">
+        ghost
+      </Button>
+      <Button variant="outlinedGhost" brandColor="primary">
+        outlinedGhost
+      </Button>
+      <Button variant="contained" brandColor="primary">
+        contained
+      </Button>
+    </Wrapper>
   );
 }
 
 export function BrandColors() {
   return (
-    <ThemeProvider theme="light">
+    <>
       <p>inline</p>
       <Wrapper>
         <Button variant="inline" brandColor="black">
@@ -140,7 +134,7 @@ export function BrandColors() {
           gray
         </Button>
       </Wrapper>
-    </ThemeProvider>
+    </>
   );
 }
 
@@ -167,41 +161,35 @@ export function Sizes() {
 
 export function FullWidths() {
   return (
-    <ThemeProvider theme="light">
-      <ColWrapper>
-        <Button fullWidth variant="contained" brandColor="primary">
-          Button
-        </Button>
-      </ColWrapper>
-    </ThemeProvider>
+    <ColWrapper>
+      <Button fullWidth variant="contained" brandColor="primary">
+        Button
+      </Button>
+    </ColWrapper>
   );
 }
 
 export function Icons() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Button
-          variant="contained"
-          brandColor="primary"
-          startIcon={<Icon name="AlarmFilled" />}
-          endIcon={<Icon name="CloseOutlined" />}
-        >
-          Button
-        </Button>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Button
+        variant="contained"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
+        Button
+      </Button>
+    </Wrapper>
   );
 }
 
 export function Status() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Button size="medium" variant="contained" brandColor="primary" disabled>
-          disabled
-        </Button>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Button size="medium" variant="contained" brandColor="primary" disabled>
+        disabled
+      </Button>
+    </Wrapper>
   );
 }

@@ -1,5 +1,5 @@
-import React, { forwardRef, useState } from 'react';
 import type { InputHTMLAttributes, ReactElement } from 'react';
+import React, { forwardRef, useState } from 'react';
 
 import { BaseInput, StyledInput } from './Input.styles';
 import { CustomStyle, GenericComponentProps, Size, Variant } from '../../types';

@@ -4,8 +4,6 @@ import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Label from '@components/Label';
 
-import { ThemeProvider } from '@theme';
-
 export default {
   title: 'Components/Label',
   component: Label
@@ -21,29 +19,23 @@ const Wrapper = styled.div`
 `;
 
 export function Default({ ...args }) {
-  return (
-    <ThemeProvider theme="light">
-      <Label {...args} text="LABEL" />
-    </ThemeProvider>
-  );
+  return <Label {...args} text="LABEL" />;
 }
 
 export function Variants() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Label variant="outlined" text="outlined" />
-        <Label variant="ghost" text="ghost" />
-        <Label variant="contained" text="contained" />
-        <Label variant="darked" text="darked" />
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Label variant="outlined" text="outlined" />
+      <Label variant="ghost" text="ghost" />
+      <Label variant="contained" text="contained" />
+      <Label variant="darked" text="darked" />
+    </Wrapper>
   );
 }
 
 export function BrandColors() {
   return (
-    <ThemeProvider theme="light">
+    <>
       <Wrapper>
         <p>outlined</p>
         <Label variant="outlined" brandColor="black" text="black" />
@@ -67,17 +59,15 @@ export function BrandColors() {
         <Label variant="darked" brandColor="primary-light" text="primary-light" />
         <Label variant="darked" brandColor="red" text="red" />
       </Wrapper>
-    </ThemeProvider>
+    </>
   );
 }
 
 export function Sizes() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Label text="small" size="small" />
-        <Label text="xsmall" size="xsmall" />
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Label text="small" size="small" />
+      <Label text="xsmall" size="xsmall" />
+    </Wrapper>
   );
 }

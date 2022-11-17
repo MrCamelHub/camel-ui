@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
 
 import { StyledChip } from './Chip.styles';
 import type {

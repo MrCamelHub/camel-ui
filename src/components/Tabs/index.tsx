@@ -1,5 +1,5 @@
-import React, { forwardRef, useEffect, useRef } from 'react';
 import type { HTMLAttributes, MouseEvent } from 'react';
+import React, { forwardRef, useEffect, useRef } from 'react';
 
 import { StyledTabs, TabsInner } from './Tabs.styles';
 import { BrandColor, GenericComponentProps } from '../../types';

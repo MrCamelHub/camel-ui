@@ -1,3 +1,5 @@
+import ThemeProvider from '../src/theme/provider/ThemeProvider';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -12,3 +14,15 @@ export const parameters = {
     }
   }
 };
+
+export const argTypes = { darkMode: { control: 'boolean' }, customStyle: { control: false } };
+
+export const args = { darkMode: false };
+
+export const decorators = [
+  (Story, { args: { darkMode } }) => (
+    <ThemeProvider theme={darkMode ? 'dark' : 'light'} disableResetCSS={false}>
+      <Story />
+    </ThemeProvider>
+  )
+];

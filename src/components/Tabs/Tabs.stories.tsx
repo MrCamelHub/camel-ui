@@ -5,8 +5,6 @@ import styled from '@emotion/styled';
 import Tabs from '@components/Tabs';
 import Tab from '@components/Tab';
 
-import { ThemeProvider } from '@theme';
-
 export default {
   title: 'Components/Tabs',
   component: Tabs
@@ -25,13 +23,11 @@ export function Default({ ...args }) {
   const handleChange = (newValue: string | number) => setValue(newValue);
 
   return (
-    <ThemeProvider theme="light">
-      <Tabs {...args} onChange={handleChange} value={value}>
-        <Tab text="Tab1" value="tab1" />
-        <Tab text="Tab2" value="tab2" />
-        <Tab text="Tab3" value="tab3" />
-      </Tabs>
-    </ThemeProvider>
+    <Tabs {...args} onChange={handleChange} value={value}>
+      <Tab text="Tab1" value="tab1" />
+      <Tab text="Tab2" value="tab2" />
+      <Tab text="Tab3" value="tab3" />
+    </Tabs>
   );
 }
 
@@ -41,7 +37,7 @@ export function BrandColors() {
   const handleChange = (newValue: string | number) => setValue(newValue);
 
   return (
-    <ThemeProvider theme="light">
+    <>
       <Wrapper>
         <Tabs brandColor="primary" onChange={handleChange} value={value}>
           <Tab text="Tab1" value="tab1" />
@@ -56,7 +52,7 @@ export function BrandColors() {
           <Tab text="Tab3" value="tab3" />
         </Tabs>
       </Wrapper>
-    </ThemeProvider>
+    </>
   );
 }
 
@@ -66,13 +62,11 @@ export function FullWidths() {
   const handleChange = (newValue: string | number) => setValue(newValue);
 
   return (
-    <ThemeProvider theme="light">
-      <Tabs fullWidth onChange={handleChange} value={value}>
-        <Tab text="Tab1" value="tab1" />
-        <Tab text="Tab2" value="tab2" />
-        <Tab text="Tab3" value="tab3" />
-      </Tabs>
-    </ThemeProvider>
+    <Tabs fullWidth onChange={handleChange} value={value}>
+      <Tab text="Tab1" value="tab1" />
+      <Tab text="Tab2" value="tab2" />
+      <Tab text="Tab3" value="tab3" />
+    </Tabs>
   );
 }
 
@@ -82,12 +76,10 @@ export function HideIndicators() {
   const handleChange = (newValue: string | number) => setValue(newValue);
 
   return (
-    <ThemeProvider theme="light">
-      <Tabs hideIndicator onChange={handleChange} value={value}>
-        <Tab text="Tab1" value="tab1" />
-        <Tab text="Tab2" value="tab2" />
-        <Tab text="Tab3" value="tab3" />
-      </Tabs>
-    </ThemeProvider>
+    <Tabs hideIndicator onChange={handleChange} value={value}>
+      <Tab text="Tab1" value="tab1" />
+      <Tab text="Tab2" value="tab2" />
+      <Tab text="Tab3" value="tab3" />
+    </Tabs>
   );
 }

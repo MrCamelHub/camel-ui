@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
 import type { ButtonHTMLAttributes, MouseEvent } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Circle, StyledSwitch } from './Switch.styles';
 import type { GenericComponentProps, Size } from '../../types';

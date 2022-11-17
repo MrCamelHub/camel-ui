@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
 import type { HTMLAttributes, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
 
 import { useTheme } from '@theme';
 

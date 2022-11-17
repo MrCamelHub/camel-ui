@@ -1,5 +1,5 @@
-import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, MouseEvent, PropsWithChildren } from 'react';
+import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 import PortalCounterContext from '@theme/provider/PortalCounterContext';

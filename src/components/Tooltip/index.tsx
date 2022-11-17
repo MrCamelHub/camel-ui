@@ -1,5 +1,5 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 
 import { StyledTooltip, Wrapper } from './Tooltip.styles';
 import type { BrandColor, GenericComponentProps, Variant } from '../../types';

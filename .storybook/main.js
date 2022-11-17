@@ -1,26 +1,7 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const path = require('path');
-const toPath = (_path) => path.join(process.cwd(), _path);
-
-/**
- * @typedef {import('@storybook/core-common').StorybookConfig} StorybookBaseConfig
- *
- * @typedef {{
- *   babel: (options: Record<string, unknown>) => Promise<Record<string, unknown>>;
- * }} StorybookExtraConfig
- *
- * @typedef {StorybookBaseConfig &
- *   Required<Pick<StorybookBaseConfig, 'stories' | 'addons' | 'webpackFinal'>> &
- *   StorybookExtraConfig
- * } StorybookConfig
- *
- * @typedef  {{loader: string; options: { [index: string]: any }}} LoaderObjectDef
- */
 
 module.exports = {
-  features: {
-    postcss: false
-  },
+  typescript: { reactDocgen: 'react-docgen' },
   stories: ['../src/**/*.stories.@(ts|tsx|mdx)'],
   addons: [
     '@storybook/addon-links',
@@ -28,6 +9,9 @@ module.exports = {
     '@storybook/addon-interactions'
   ],
   framework: '@storybook/react',
+  core: {
+    builder: '@storybook/builder-webpack5'
+  },
   webpackFinal: async (config) => {
     config.module.rules.find((rule) => rule.test.test('.svg')).exclude = /\.svg$/;
     config.module.rules.push({
@@ -44,14 +28,12 @@ module.exports = {
         ]
       }
     });
-    config.resolve.extensions.push('.ts', '.tsx');
-    config.resolve.plugins.push(new TsconfigPathsPlugin({ extensions: config.resolve.extensions }));
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@emotion/core': toPath('node_modules/@emotion/react'),
-      '@emotion/styled': toPath('node_modules/@emotion/styled'),
-      'emotion-theming': toPath('node_modules/@emotion/react')
-    };
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({
+        extensions: config.resolve.extensions
+      })
+    ];
 
     return config;
   }

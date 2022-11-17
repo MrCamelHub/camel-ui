@@ -4,8 +4,6 @@ import type { ComponentMeta } from '@storybook/react';
 import Button from '@components/Button';
 import BottomSheet from '@components/BottomSheet';
 
-import { ThemeProvider } from '@theme';
-
 export default {
   title: 'Components/BottomSheet',
   component: BottomSheet
@@ -15,7 +13,7 @@ export function Default({ ...args }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <ThemeProvider theme="light">
+    <>
       <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(true)}>
         Open
       </Button>
@@ -25,6 +23,6 @@ export function Default({ ...args }) {
           Close
         </Button>
       </BottomSheet>
-    </ThemeProvider>
+    </>
   );
 }

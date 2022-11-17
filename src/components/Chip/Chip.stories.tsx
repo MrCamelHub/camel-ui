@@ -5,8 +5,6 @@ import styled from '@emotion/styled';
 import Icon from '@components/Icon';
 import Chip from '@components/Chip/index';
 
-import { ThemeProvider } from '@theme';
-
 export default {
   title: 'Components/Chip',
   component: Chip
@@ -31,37 +29,31 @@ const ColWrapper = styled(Wrapper)`
 `;
 
 export function Default({ ...args }) {
-  return (
-    <ThemeProvider theme="light">
-      <Chip {...args}>Chip</Chip>
-    </ThemeProvider>
-  );
+  return <Chip {...args}>Chip</Chip>;
 }
 
 export function Variants() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Chip variant="outlined" brandColor="primary">
-          outlined
-        </Chip>
-        <Chip variant="ghost" brandColor="primary">
-          ghost
-        </Chip>
-        <Chip variant="outlinedGhost" brandColor="primary">
-          outlinedGhost
-        </Chip>
-        <Chip variant="contained" brandColor="primary">
-          contained
-        </Chip>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Chip variant="outlined" brandColor="primary">
+        outlined
+      </Chip>
+      <Chip variant="ghost" brandColor="primary">
+        ghost
+      </Chip>
+      <Chip variant="outlinedGhost" brandColor="primary">
+        outlinedGhost
+      </Chip>
+      <Chip variant="contained" brandColor="primary">
+        contained
+      </Chip>
+    </Wrapper>
   );
 }
 
 export function BrandColors() {
   return (
-    <ThemeProvider theme="light">
+    <>
       <p>outlined</p>
       <Wrapper>
         <Chip variant="outlined" brandColor="black">
@@ -110,13 +102,13 @@ export function BrandColors() {
           gray
         </Chip>
       </Wrapper>
-    </ThemeProvider>
+    </>
   );
 }
 
 export function Sizes() {
   return (
-    <ThemeProvider theme="light">
+    <>
       <Wrapper>
         <Chip size="xsmall" variant="contained" brandColor="primary">
           xsmall
@@ -151,62 +143,54 @@ export function Sizes() {
           xlarge
         </Chip>
       </Wrapper>
-    </ThemeProvider>
+    </>
   );
 }
 
 export function Rounds() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Chip variant="contained" brandColor="primary">
-          button
-        </Chip>
-        <Chip isRound={false} variant="contained" brandColor="primary">
-          button
-        </Chip>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Chip variant="contained" brandColor="primary">
+        button
+      </Chip>
+      <Chip isRound={false} variant="contained" brandColor="primary">
+        button
+      </Chip>
+    </Wrapper>
   );
 }
 
 export function FullWidths() {
   return (
-    <ThemeProvider theme="light">
-      <ColWrapper>
-        <Chip fullWidth variant="contained" brandColor="primary">
-          Button
-        </Chip>
-      </ColWrapper>
-    </ThemeProvider>
+    <ColWrapper>
+      <Chip fullWidth variant="contained" brandColor="primary">
+        Button
+      </Chip>
+    </ColWrapper>
   );
 }
 
 export function Icons() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Chip
-          variant="contained"
-          brandColor="primary"
-          startIcon={<Icon name="AlarmFilled" />}
-          endIcon={<Icon name="CloseOutlined" />}
-        >
-          Button
-        </Chip>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Chip
+        variant="contained"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
+        Button
+      </Chip>
+    </Wrapper>
   );
 }
 
 export function Status() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Chip size="medium" variant="contained" brandColor="primary" disabled>
-          disabled
-        </Chip>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Chip size="medium" variant="contained" brandColor="primary" disabled>
+        disabled
+      </Chip>
+    </Wrapper>
   );
 }
