@@ -6,7 +6,7 @@ import Tooltip from '@components/Tooltip';
 import Button from '@components/Button';
 
 export default {
-  title: 'Components/Tooltip',
+  title: 'Experiment/Tooltip',
   component: Tooltip
 } as ComponentMeta<typeof Tooltip>;
 
