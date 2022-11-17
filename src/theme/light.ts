@@ -37,7 +37,7 @@ const light: MrCamelTheme = {
     },
     common: {
       ui20: gray['70'],
-      ui60: gray['60'],
+      ui60: gray['50'],
       ui80: gray['40'],
       ui90: gray['30'],
       ui95: gray['20'],
@@ -51,6 +51,9 @@ const light: MrCamelTheme = {
       line02: gray['20'],
       gradation0: `linear-gradient(180deg, ${common.gradationW[0]} 0%, ${common.gradationW[1]} 100%)`,
       gradation180: `linear-gradient(180deg, ${common.gradationW[1]} 0%, ${common.gradationW[0]} 100%)`,
+      alpha60: 'rgba(255, 255, 255, 0.6)',
+      alpha40: 'rgba(255, 255, 255, 0.4)',
+      alpha20: 'rgba(255, 255, 255, 0.2)',
       overlay60: 'rgba(0, 0, 0, 0.6)',
       overlay40: 'rgba(0, 0, 0, 0.4)',
       overlay20: 'rgba(0, 0, 0, 0.2)',
