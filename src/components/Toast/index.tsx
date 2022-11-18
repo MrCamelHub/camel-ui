@@ -35,10 +35,10 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
 ) {
   const [count, setCount] = useContext(PortalCounterContext);
 
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [toastOpen, setToastOpen] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [toastOpen, setToastOpen] = useState(false);
 
-  const updatedCountRef = useRef<boolean>(false);
+  const updatedCountRef = useRef(false);
 
   const toastPortalRef = useRef<HTMLElement | null>(null);
   const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);

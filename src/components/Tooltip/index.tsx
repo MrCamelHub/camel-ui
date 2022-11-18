@@ -35,13 +35,13 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
   },
   ref
 ) {
-  const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const [tooltipWidth, setTooltipWidth] = useState<number>(0);
-  const [tooltipHeight, setTooltipHeight] = useState<number>(0);
+  const [tooltipWidth, setTooltipWidth] = useState(0);
+  const [tooltipHeight, setTooltipHeight] = useState(0);
 
-  const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
   const tooltipOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tooltipCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 

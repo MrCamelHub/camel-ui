@@ -22,7 +22,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
     open,
     transitionDuration = 225,
     fullScreen,
-    disablePadding = false,
+    disablePadding,
     disableFullScreenSwipeable = true,
     onClose,
     customStyle,
@@ -30,8 +30,8 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
   },
   ref
 ) {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [swipeable, setSwipeable] = useState(false);
 
   const dialogPortalRef = useRef<HTMLElement | null>(null);

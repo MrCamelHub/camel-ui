@@ -20,7 +20,7 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
       children,
       open,
       transitionDuration = 225,
-      disableSwipeable = false,
+      disableSwipeable,
       disableContentSwipeable = true,
       onClose,
       customStyle,
@@ -28,14 +28,14 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
     },
     ref
   ) {
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-    const [sheetOpen, setSheetOpen] = useState<boolean>(false);
-    const [swipeable, setSwipeable] = useState<boolean>(false);
+    const [isMounted, setIsMounted] = useState(false);
+    const [sheetOpen, setSheetOpen] = useState(false);
+    const [swipeable, setSwipeable] = useState(false);
     const [swipeableContent, setSwipeableContent] = useState<boolean>(false);
 
     const sheetPortalRef = useRef<HTMLElement | null>(null);
-    const sheetRef = useRef<HTMLDivElement | null>(null);
-    const sheetSwipeZoneRef = useRef<HTMLDivElement | null>(null);
+    const sheetRef = useRef<HTMLDivElement>(null);
+    const sheetSwipeZoneRef = useRef<HTMLDivElement>(null);
     const sheetOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const sheetCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const contentRef = useRef<HTMLDivElement>(null);
