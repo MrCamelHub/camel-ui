@@ -5,7 +5,7 @@ import { getBrandColorCodeByColorName } from '@utils';
 import { TypographyProps } from '.';
 
 export const StyledTypography = styled.div<
-  Pick<TypographyProps, 'variant' | 'weight' | 'brandColor'>
+  Pick<TypographyProps, 'variant' | 'weight' | 'brandColor' | 'noWrap' | 'lineClamp'>
 >`
   color: ${({
     theme: {
@@ -25,5 +25,25 @@ export const StyledTypography = styled.div<
       ? {
           color: getBrandColorCodeByColorName(theme, brandColor)
         }
-      : {}}
+      : {}};
+
+  ${({ noWrap, lineClamp }): CSSObject =>
+    noWrap && lineClamp
+      ? {
+          display: '-webkit-box',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          WebkitBoxOrient: 'vertical',
+          WebkitLineClamp: lineClamp
+        }
+      : {}};
+
+  ${({ noWrap, lineClamp }): CSSObject =>
+    noWrap && !lineClamp
+      ? {
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap'
+        }
+      : {}};
 `;
