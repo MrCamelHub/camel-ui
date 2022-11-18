@@ -5,7 +5,7 @@ import Button from '@components/Button';
 import BottomSheet from '@components/BottomSheet';
 
 export default {
-  title: 'Components/BottomSheet',
+  title: 'Experiment/BottomSheet',
   component: BottomSheet
 } as ComponentMeta<typeof BottomSheet>;
 
@@ -17,7 +17,7 @@ export function Default({ ...args }) {
       <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(true)}>
         Open
       </Button>
-      <BottomSheet open={isOpen} onClose={() => setIsOpen(false)} {...args}>
+      <BottomSheet open={isOpen} {...args} onClose={() => setIsOpen(false)}>
         <h1>MrCamel BottomSheet!</h1>
         <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(false)}>
           Close

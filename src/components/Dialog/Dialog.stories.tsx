@@ -5,7 +5,7 @@ import Dialog from '@components/Dialog';
 import Button from '@components/Button';
 
 export default {
-  title: 'Components/Dialog',
+  title: 'Experiment/Dialog',
   component: Dialog
 } as ComponentMeta<typeof Dialog>;
 
@@ -17,7 +17,7 @@ export function Default({ ...args }) {
       <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(true)}>
         Open
       </Button>
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)} {...args}>
+      <Dialog open={isOpen} {...args} onClose={() => setIsOpen(false)}>
         <h1>MrCamel Dialog!</h1>
         <div>
           <Button variant="outlined" brandColor="gray" onClick={() => setIsOpen(false)}>

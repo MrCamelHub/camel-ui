@@ -26,8 +26,7 @@ export const Wrapper = styled.div<
   z-index: ${({ theme: { zIndex } }) => zIndex.dialog};
   opacity: 0;
   visibility: hidden;
-  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
-    0ms;
+  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1);
 
   ${({ dialogOpen }): CSSObject =>
     dialogOpen
@@ -79,9 +78,10 @@ export const StyledDialog = styled.div<
 
   opacity: 0;
   visibility: hidden;
-  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
-    0ms;
+  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1),
+    transform ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   z-index: ${({ theme: { zIndex } }) => zIndex.dialog};
+  overflow-y: auto;
 
   ${({ dialogOpen }): CSSObject =>
     dialogOpen

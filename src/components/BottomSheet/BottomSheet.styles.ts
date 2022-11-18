@@ -14,8 +14,7 @@ export const Wrapper = styled.div<
   z-index: ${({ theme: { zIndex } }) => zIndex.sheet};
   opacity: 0;
   visibility: hidden;
-  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
-    0ms;
+  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1);
   ${({ sheetOpen }): CSSObject =>
     sheetOpen
       ? {
@@ -46,7 +45,7 @@ export const StyledBottomSheet = styled.div<
     }
   }) => shadow.modal};
   transition: transform ${({ transitionDuration }) => transitionDuration}ms
-    cubic-bezier(0, 0, 0.2, 1) 0ms;
+    cubic-bezier(0, 0, 0.2, 1);
   transform: translateY(100%);
   z-index: ${({ theme: { zIndex } }) => zIndex.sheet};
   ${({ sheetOpen }) =>

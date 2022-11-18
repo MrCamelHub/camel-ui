@@ -5,7 +5,7 @@ import Toast from '@components/Toast';
 import Button from '@components/Button';
 
 export default {
-  title: 'Components/Toast',
+  title: 'Experiment/Toast',
   component: Toast
 } as ComponentMeta<typeof Toast>;
 
