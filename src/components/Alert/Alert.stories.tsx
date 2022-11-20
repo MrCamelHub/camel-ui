@@ -27,12 +27,12 @@ export function Default({ ...args }) {
 export function Rounds() {
   return (
     <AlertWrapper>
-      <Alert round="0">round 0</Alert>
-      <Alert round="2">round 2</Alert>
-      <Alert round="4">round 4</Alert>
-      <Alert round="8">round 8</Alert>
-      <Alert round="16">round 16</Alert>
-      <Alert round="24">round 24</Alert>
+      <Alert round={0}>round 0</Alert>
+      <Alert round={2}>round 2</Alert>
+      <Alert round={4}>round 4</Alert>
+      <Alert round={8}>round 8</Alert>
+      <Alert round={16}>round 16</Alert>
+      <Alert round={24}>round 24</Alert>
     </AlertWrapper>
   );
 }
