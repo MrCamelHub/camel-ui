@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { DialogProps } from '.';
+import type { DialogProps } from '.';
 
 export const Wrapper = styled.div<
   Pick<DialogProps, 'fullScreen' | 'transitionDuration'> & {

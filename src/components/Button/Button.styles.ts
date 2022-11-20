@@ -2,7 +2,7 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { ButtonProps } from '.';
+import type { ButtonProps } from '.';
 
 export const StyledButton = styled.button<
   Pick<ButtonProps, 'variant' | 'brandColor' | 'size' | 'weight' | 'fullWidth'>

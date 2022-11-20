@@ -4,7 +4,7 @@ import { getBrandColorCodeByColorName } from '@utils';
 
 import { HeartFilled } from '../../assets/icons';
 
-import { IconProps } from '.';
+import type { IconProps } from '.';
 
 export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<
   Pick<IconProps, 'color' | 'size'>

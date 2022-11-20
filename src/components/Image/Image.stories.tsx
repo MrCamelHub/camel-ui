@@ -18,15 +18,10 @@ export function Default({ ...args }) {
           : 'https://s3.ap-northeast-2.amazonaws.com/mrcamel/product/20221119_35576592_0.jpg'
       }
       alt={args.alt ? args.alt : 'Image Img'}
-      width={300}
-      height={300}
-      disableAspectRatio
     />
   );
 }
 
 export function Fallback({ ...args }) {
-  return (
-    <Image {...args} src="Error" alt="Error Img" width={300} height={300} disableAspectRatio />
-  );
+  return <Image {...args} src="Error" alt="Error Img" />;
 }

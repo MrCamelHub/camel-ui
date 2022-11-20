@@ -58,7 +58,6 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
 
     const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
       if ((!swipeable && !swipeableContent) || !sheetRef.current) return;
-      event.preventDefault();
 
       let translateY = 0;
 

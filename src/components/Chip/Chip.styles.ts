@@ -2,7 +2,7 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { ChipProps } from './index';
+import type { ChipProps } from './index';
 
 export const StyledChip = styled.button<
   Pick<ChipProps, 'variant' | 'brandColor' | 'size' | 'weight' | 'isRound' | 'fullWidth'>

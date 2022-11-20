@@ -3,7 +3,7 @@ import Icon from '@components/Icon';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { CheckboxProps } from '.';
+import type { CheckboxProps } from '.';
 
 export const Wrapper = styled.div<Pick<CheckboxProps, 'checked' | 'brandColor' | 'disabled'>>`
   position: relative;

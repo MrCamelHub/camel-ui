@@ -2,15 +2,10 @@ import type { HTMLAttributes, PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
 import { StyledAlert } from './Alert.styles';
-import type {
-  BoxRoundKey,
-  BrandColor,
-  BrandExtendsColor,
-  GenericComponentProps
-} from '../../types';
+import type { BrandColor, BrandExtendsColor, CSSValue, GenericComponentProps } from '../../types';
 
 export interface AlertProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
-  round?: BoxRoundKey;
+  round?: CSSValue;
   brandColor?: BrandColor | `${Extract<BrandColor, 'primary'>}-${BrandExtendsColor}`;
 }
 

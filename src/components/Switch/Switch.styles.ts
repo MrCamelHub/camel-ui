@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { SwitchProps } from '.';
+import type { SwitchProps } from '.';
 
 export const StyledSwitch = styled.button<Pick<SwitchProps, 'checked' | 'size'>>`
   position: relative;

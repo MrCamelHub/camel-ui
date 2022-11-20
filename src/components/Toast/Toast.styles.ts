@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { ToastProps } from '.';
+import type { ToastProps } from '.';
 
 export const StyledToast = styled.div<
   Pick<ToastProps, 'bottom' | 'edgeSpacing' | 'transitionDuration' | 'disablePadding'> & {

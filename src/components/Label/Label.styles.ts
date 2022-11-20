@@ -2,7 +2,7 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { LabelProps } from '.';
+import type { LabelProps } from '.';
 
 export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor' | 'size'>>`
   display: inline-flex;

@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { InputProps } from '.';
+import type { InputProps } from '.';
 
 export const StyledInput = styled.div<
   Pick<InputProps, 'variant' | 'size' | 'fullWidth'> & {

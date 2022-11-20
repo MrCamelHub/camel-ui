@@ -2,7 +2,7 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { TypographyProps } from '.';
+import type { TypographyProps } from '.';
 
 export const StyledTypography = styled.div<
   Pick<TypographyProps, 'variant' | 'weight' | 'brandColor' | 'noWrap' | 'lineClamp'>

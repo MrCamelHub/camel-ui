@@ -3,7 +3,7 @@ import { CSSObject } from '@emotion/react';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { TabProps } from '.';
+import type { TabProps } from '.';
 
 export const StyledTab = styled.button<
   Pick<TabProps, 'brandColor' | 'selected' | 'fullWidth' | 'hideIndicator'>

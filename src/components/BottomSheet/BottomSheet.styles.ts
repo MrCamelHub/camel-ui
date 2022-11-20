@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { BottomSheetProps } from '.';
+import type { BottomSheetProps } from '.';
 
 export const Wrapper = styled.div<
   Pick<BottomSheetProps, 'transitionDuration'> & { sheetOpen: boolean; sheetClose: boolean }

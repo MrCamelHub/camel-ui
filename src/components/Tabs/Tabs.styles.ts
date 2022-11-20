@@ -2,7 +2,7 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { TabsProps } from '.';
+import type { TabsProps } from '.';
 
 export const StyledTabs = styled.div<Pick<TabsProps, 'fullWidth'>>`
   width: fit-content;
