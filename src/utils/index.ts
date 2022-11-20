@@ -1,6 +1,6 @@
 import type { Theme } from '@emotion/react';
 
-import type { BrandColor, BrandExtendsColor, Color } from '../types';
+import type { BrandColor, BrandExtendsColor, CSSValue, Color } from '../types';
 
 export function getBrandColorCodeByColorName(
   theme: Theme,
@@ -32,4 +32,11 @@ export function getBrandColorCodeByColorName(
   }
 
   return colorCode;
+}
+
+export function convertNumberToCSSValue(value: CSSValue, unit?: string) {
+  if (typeof value === 'number') {
+    return `${value}${unit || 'px'}`;
+  }
+  return value;
 }
