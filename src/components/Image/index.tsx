@@ -23,11 +23,11 @@ export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
   height?: CSSValue;
   ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '16:9';
   round?: CSSValue;
+  disableOnBackground?: boolean;
   disableAspectRatio?: boolean;
   disableLazyLoad?: boolean;
   disableSkeleton?: boolean;
   disableSkeletonAnimation?: boolean;
-  disableBackgroundImage?: boolean;
   fallbackElement?: ReactElement;
   fallbackIcon?: {
     name: IconName;
@@ -44,7 +44,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
     height,
     ratio = '1:1',
     round,
-    disableBackgroundImage = true,
+    disableOnBackground = true,
     disableAspectRatio,
     disableLazyLoad = true,
     disableSkeleton,
@@ -111,7 +111,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
 
   if (!src) return null;
 
-  if (!disableBackgroundImage) {
+  if (!disableOnBackground) {
     return (
       <div ref={imageRef}>
         <ImageWrapper
