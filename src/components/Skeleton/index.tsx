@@ -28,7 +28,7 @@ const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(function Skeleton(
     minWidth,
     minHeight,
     round,
-    animation = 'pulse',
+    animation = 'wave',
     disableAspectRatio,
     disableAnimation,
     customStyle,

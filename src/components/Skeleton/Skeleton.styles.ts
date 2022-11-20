@@ -2,9 +2,9 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { convertNumberToCSSValue } from '@utils';
 
-import { CSSValue } from '../../types';
+import type { CSSValue } from '../../types';
 
-import { SkeletonProps } from '.';
+import type { SkeletonProps } from '.';
 
 export const SkeletonWrapper = styled.div<Pick<SkeletonProps, 'ratio' | 'round'>>`
   position: relative;
