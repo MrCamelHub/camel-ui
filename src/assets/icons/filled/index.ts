@@ -9,6 +9,7 @@ export { default as BoxFilled } from './box-filled.svg';
 export { default as BrandAppleFilled } from './brand-apple-filled.svg';
 export { default as BrandKakaoFilled } from './brand-kakao-filled.svg';
 export { default as BrandPlayStoreFilled } from './brand-playstore-filled.svg';
+export { default as BrandFacebookFilled } from './brand-facebook-filled.svg';
 export { default as CameraFilled } from './camera-filled.svg';
 export { default as CheckCircleFilled } from './check-circle-filled.svg';
 export { default as CheckboxCheckedFilled } from './checkbox-checked-filled.svg';

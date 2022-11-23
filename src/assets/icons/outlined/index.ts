@@ -85,3 +85,4 @@ export { default as NewHomeOutlined } from './new-home-outlined.svg';
 export { default as NewUserLargeOutlined } from './new-user-large-outlined.svg';
 export { default as SandOutlined } from './sand-outlined.svg';
 export { default as StarHalfOutlined } from './star-half-outlined.svg';
+export { default as RotateCcwOutlined } from './rotateccw-outlined.svg';
