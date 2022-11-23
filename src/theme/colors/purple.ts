@@ -4,7 +4,7 @@ const purple: {
   [key in ColorKey]: Color;
 } = {
   '10': '#F8F5FF',
-  '20': '#EAE0FF',
+  '20': '#EEE5FF',
   '30': '#C4A7FF',
   '40': '#AB81FF',
   '50': '#8547FF',

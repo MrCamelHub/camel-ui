@@ -4,7 +4,7 @@ const red: {
   [key in ColorKey]: Color;
 } = {
   '10': '#FFF5F6',
-  '20': '#FFE0E3',
+  '20': '#FFE5E8',
   '30': '#FFA7AE',
   '40': '#FF818C',
   '50': '#FF5260',
