@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   margin-top: 1.5rem;
   padding: 1.5rem;
 
-  & button {
+  & > div {
     margin-right: 24px;
   }
 `;
@@ -36,39 +36,30 @@ export function Default({ ...args }) {
 export function Sizes({ ...args }) {
   const [checked, setChecked] = useState(false);
   return (
-    <>
-      <p>large</p>
-      <Wrapper>
-        <CheckboxGroup
-          {...args}
-          size="large"
-          checked={checked}
-          onChange={() => setChecked(!checked)}
-          text="Text"
-          subText="SubText"
-        />
-      </Wrapper>
-      <p>medium</p>
-      <Wrapper>
-        <CheckboxGroup
-          {...args}
-          checked={checked}
-          onChange={() => setChecked(!checked)}
-          text="Text"
-          subText="SubText"
-        />
-      </Wrapper>
-      <p>small</p>
-      <Wrapper>
-        <CheckboxGroup
-          {...args}
-          size="small"
-          checked={checked}
-          onChange={() => setChecked(!checked)}
-          text="Text"
-          subText="SubText"
-        />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <CheckboxGroup
+        {...args}
+        size="large"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+        text="large"
+        subText="SubText"
+      />
+      <CheckboxGroup
+        {...args}
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+        text="medium"
+        subText="SubText"
+      />
+      <CheckboxGroup
+        {...args}
+        size="small"
+        checked={checked}
+        onChange={() => setChecked(!checked)}
+        text="small"
+        subText="SubText"
+      />
+    </Wrapper>
   );
 }

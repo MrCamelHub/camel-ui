@@ -13,7 +13,7 @@ export interface DialogProps
   fullScreen?: boolean;
   disablePadding?: boolean;
   disableFullScreenSwipeable?: boolean;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(function Dialog(
@@ -97,7 +97,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
     if (swipedPercentage >= 10) {
       dialogRef.current.setAttribute('style', 'transform: translateY(100%)');
       dialogSwipeableTimerRef.current = setTimeout(() => {
-        onClose();
+        if (onClose && typeof onClose === 'function') onClose();
       }, transitionDuration);
     } else {
       dialogRef.current.removeAttribute('style');

@@ -1,9 +1,7 @@
-import type { Theme } from '@emotion/react';
-
-import type { BrandColor, CSSValue, Color } from '../types';
+import type { BrandColor, CSSValue, Color, MrCamelTheme } from '../types';
 
 export function getBrandColorCodeByColorName(
-  theme: Theme,
+  theme: MrCamelTheme,
   colorName?: BrandColor,
   initialColorCode = true
 ): Color | undefined {

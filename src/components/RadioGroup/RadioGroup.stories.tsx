@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   margin-top: 1.5rem;
   padding: 1.5rem;
 
-  & button {
+  & > div {
     margin-right: 24px;
   }
 `;
@@ -37,39 +37,30 @@ export function Default({ ...args }) {
 export function Sizes({ ...args }) {
   const [checked, setChecked] = useState(false);
   return (
-    <>
-      <p>large</p>
-      <Wrapper>
-        <RadioGroup
-          {...args}
-          size="large"
-          checked={checked}
-          onChange={() => setChecked(true)}
-          text="Text"
-          subText="SubText"
-        />
-      </Wrapper>
-      <p>medium</p>
-      <Wrapper>
-        <RadioGroup
-          {...args}
-          checked={checked}
-          onChange={() => setChecked(true)}
-          text="Text"
-          subText="SubText"
-        />
-      </Wrapper>
-      <p>small</p>
-      <Wrapper>
-        <RadioGroup
-          {...args}
-          size="small"
-          checked={checked}
-          onChange={() => setChecked(true)}
-          text="Text"
-          subText="SubText"
-        />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <RadioGroup
+        {...args}
+        size="large"
+        checked={checked}
+        onChange={() => setChecked(true)}
+        text="large"
+        subText="SubText"
+      />
+      <RadioGroup
+        {...args}
+        checked={checked}
+        onChange={() => setChecked(true)}
+        text="medium"
+        subText="SubText"
+      />
+      <RadioGroup
+        {...args}
+        size="small"
+        checked={checked}
+        onChange={() => setChecked(true)}
+        text="small"
+        subText="SubText"
+      />
+    </Wrapper>
   );
 }

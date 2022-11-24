@@ -16,7 +16,7 @@ export interface ToastProps
   transitionDuration?: number;
   fullWidth?: boolean;
   disablePadding?: boolean;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function Toast(
@@ -52,7 +52,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   useEffect(() => {
     const handleClose = () => {
       updatedCountRef.current = false;
-      onClose();
+      if (onClose && typeof onClose === 'function') onClose();
     };
 
     if (!updatedCountRef.current && open) {
