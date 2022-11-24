@@ -1,25 +1,25 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
-import { StyledButton } from './Button.styles';
+import { StyledButton, SubText } from './Button.styles';
 import type {
   BrandColor,
   GenericComponentProps,
   RequireAtOnlyOneIcon,
   Size,
+  TypographyWeight,
   Variant
 } from '../../types';
-import { BrandExtendsColor, TypographyWeight } from '../../types';
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
-  brandColor?:
-    | Extract<BrandColor, 'black' | 'primary' | 'gray'>
-    | `${Extract<BrandColor, 'primary'>}-${Extract<BrandExtendsColor, 'light'>}`;
+  brandColor?: Exclude<BrandColor, 'red'>;
   size?: Exclude<Size, 'xsmall'>;
   weight?: keyof TypographyWeight;
+  subText?: string | number;
   fullWidth?: boolean;
+  disablePadding?: boolean;
 }
 
 export type ButtonProps = RequireAtOnlyOneIcon<BaseButtonProps>;
@@ -27,14 +27,16 @@ export type ButtonProps = RequireAtOnlyOneIcon<BaseButtonProps>;
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(function Button(
   {
     children,
-    variant = 'outlined',
+    variant = 'outline',
     brandColor = 'gray',
     size = 'medium',
     weight = 'medium',
+    subText,
     startIcon,
     endIcon,
-    iconOnly = false,
-    fullWidth = false,
+    iconOnly,
+    fullWidth,
+    disablePadding,
     customStyle,
     ...props
   },
@@ -48,11 +50,13 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(fun
       brandColor={brandColor}
       size={size}
       fullWidth={fullWidth}
+      disablePadding={disablePadding}
       css={customStyle}
       {...props}
     >
       {startIcon}
       {!iconOnly && children}
+      {subText && <SubText size={size}>{subText}</SubText>}
       {endIcon}
     </StyledButton>
   );

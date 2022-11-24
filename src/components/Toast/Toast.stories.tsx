@@ -14,7 +14,7 @@ export function Default({ ...args }) {
 
   return (
     <>
-      <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(!isOpen)}>
+      <Button variant="solid" brandColor="primary" onClick={() => setIsOpen(!isOpen)}>
         Open
       </Button>
       <Toast open={isOpen} onClose={() => setIsOpen(false)} {...args}>

@@ -29,8 +29,8 @@ export function Default({ ...args }) {
 export function Variants() {
   return (
     <Wrapper>
-      <Input variant="outlined" placeholder="Text" />
-      <Input variant="contained" placeholder="Text" />
+      <Input variant="outline" placeholder="Text" />
+      <Input variant="solid" placeholder="Text" />
       <Input variant="underline" placeholder="Text" />
       <Input variant="inline" placeholder="Text" />
     </Wrapper>
@@ -40,11 +40,11 @@ export function Variants() {
 export function Sizes() {
   return (
     <Wrapper>
-      <Input variant="outlined" size="small" placeholder="small" />
-      <Input variant="outlined" size="medium" placeholder="medium" />
-      <Input variant="outlined" size="large" placeholder="large" />
-      <Input variant="outlined" size="xlarge" placeholder="xlarge" />
-      <Input variant="outlined" size="xxlarge" placeholder="xxlarge" />
+      <Input variant="outline" size="small" placeholder="small" />
+      <Input variant="outline" size="medium" placeholder="medium" />
+      <Input variant="outline" size="large" placeholder="large" />
+      <Input variant="outline" size="xlarge" placeholder="xlarge" />
+      <Input variant="outline" size="xxlarge" placeholder="xxlarge" />
     </Wrapper>
   );
 }

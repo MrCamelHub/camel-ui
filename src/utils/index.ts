@@ -1,34 +1,24 @@
 import type { Theme } from '@emotion/react';
 
-import type { BrandColor, BrandExtendsColor, CSSValue, Color } from '../types';
+import type { BrandColor, CSSValue, Color } from '../types';
 
 export function getBrandColorCodeByColorName(
   theme: Theme,
-  colorName?: BrandColor | `${Extract<BrandColor, 'primary'>}-${BrandExtendsColor}`,
+  colorName?: BrandColor,
   initialColorCode = true
 ): Color | undefined {
   let colorCode = !initialColorCode ? undefined : theme.palette.primary.main;
 
   if (colorName === 'gray') {
-    colorCode = theme.palette.common.ui60;
+    colorCode = theme.palette.common.line01;
   } else if (colorName === 'black') {
     colorCode = theme.palette.common.ui20;
-  } else if (colorName === 'red') {
-    colorCode = theme.palette.secondary.red.main;
-  } else if (colorName === 'purple') {
-    colorCode = theme.palette.secondary.purple.main;
   } else if (colorName === 'primary') {
     colorCode = theme.palette.primary.main;
-  } else if (colorName === 'primary-dark') {
-    colorCode = theme.palette.primary.dark;
-  } else if (colorName === 'primary-light') {
+  } else if (colorName === 'blue') {
     colorCode = theme.palette.primary.light;
-  } else if (colorName === 'primary-highlight') {
-    colorCode = theme.palette.primary.highlight;
-  } else if (colorName === 'primary-bgLight') {
-    colorCode = theme.palette.primary.bgLight;
-  } else if (colorName === 'red-dark') {
-    colorCode = theme.palette.secondary.red.dark;
+  } else if (colorName === 'red') {
+    colorCode = theme.palette.secondary.red.main;
   }
 
   return colorCode;

@@ -23,3 +23,5 @@ export { default as Tab } from './Tab';
 export { default as Tabs } from './Tabs';
 export { default as Skeleton } from './Skeleton';
 export { default as Image } from './Image';
+export { default as CheckboxGroup } from './CheckboxGroup';
+export { default as RadioGroup } from './RadioGroup';

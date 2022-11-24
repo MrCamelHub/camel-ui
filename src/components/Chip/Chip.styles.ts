@@ -13,26 +13,39 @@ export const StyledChip = styled.button<
   width: fit-content;
   border: 1px solid transparent;
 
-  ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
-    let cssObject: CSSObject = {};
+  ${({
+    theme,
+    theme: {
+      palette: { primary, common }
+    },
+    variant,
+    brandColor
+  }): CSSObject => {
+    let cssObject: CSSObject;
 
     const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
     switch (variant) {
       case 'ghost': {
-        if (brandColor === 'black' || brandColor === 'gray') {
+        if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.common.ui95,
+            backgroundColor: common.ui95,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
             }
           };
-        }
-
-        if (brandColor === 'primary' || brandColor === 'primary-light') {
+        } else if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.primary.highlight,
+            backgroundColor: common.ui95,
+            color: common.ui60,
+            '& svg': {
+              color: common.ui60
+            }
+          };
+        } else {
+          cssObject = {
+            backgroundColor: primary.highlight,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -41,21 +54,28 @@ export const StyledChip = styled.button<
         }
         break;
       }
-      case 'outlinedGhost': {
-        if (brandColor === 'black' || brandColor === 'gray') {
+      case 'outlineGhost': {
+        if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.common.ui95,
+            backgroundColor: common.ui95,
             color: brandColorCode,
-            borderColor: palette.common.line01,
+            borderColor: common.line01,
             '& svg': {
               color: brandColorCode
             }
           };
-        }
-
-        if (brandColor === 'primary' || brandColor === 'primary-light') {
+        } else if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.primary.highlight,
+            backgroundColor: common.ui95,
+            color: common.ui60,
+            borderColor: common.line01,
+            '& svg': {
+              color: common.ui60
+            }
+          };
+        } else {
+          cssObject = {
+            backgroundColor: primary.highlight,
             color: brandColorCode,
             borderColor: brandColorCode,
             '& svg': {
@@ -65,12 +85,12 @@ export const StyledChip = styled.button<
         }
         break;
       }
-      case 'contained': {
+      case 'solid': {
         cssObject = {
-          backgroundColor: brandColorCode,
-          color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW,
+          backgroundColor: brandColor === 'gray' ? common.ui60 : brandColorCode,
+          color: brandColor === 'black' ? common.uiWhite : common.cmnW,
           '& svg': {
-            color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW
+            color: brandColor === 'black' ? common.uiWhite : common.cmnW
           }
         };
 
@@ -79,16 +99,16 @@ export const StyledChip = styled.button<
       default: {
         if (brandColor === 'gray') {
           cssObject = {
-            backgroundColor: palette.common.uiWhite,
-            borderColor: palette.common.line01,
-            color: palette.common.ui20,
+            backgroundColor: common.uiWhite,
+            borderColor: brandColorCode,
+            color: common.ui20,
             '& > svg': {
-              color: palette.common.ui20
+              color: common.ui20
             }
           };
         } else {
           cssObject = {
-            backgroundColor: palette.common.uiWhite,
+            backgroundColor: common.uiWhite,
             borderColor: brandColorCode,
             color: brandColorCode,
             '& > svg': {
@@ -197,13 +217,36 @@ export const StyledChip = styled.button<
       : {}}
 
   &:disabled {
-    ${({ theme: { palette } }): CSSObject => ({
+    ${({
+      theme: {
+        palette: { common }
+      }
+    }): CSSObject => ({
       borderColor: 'transparent',
-      backgroundColor: palette.common.ui80,
-      color: palette.common.ui60,
+      backgroundColor: common.ui90,
+      color: common.ui80,
       '& svg': {
-        color: palette.common.ui60
+        color: common.ui80
       }
     })}
   }
+`;
+
+export const SubText = styled.span<Pick<ChipProps, 'variant' | 'brandColor' | 'size'>>`
+  margin-left: ${({ size }) => (size === 'xsmall' ? 0 : '-2px')};
+
+  ${({
+    theme: {
+      palette: { common }
+    },
+    variant,
+    brandColor
+  }): CSSObject => {
+    if (variant !== 'solid' && (brandColor === 'black' || brandColor === 'gray')) {
+      return {
+        color: common.ui60
+      };
+    }
+    return {};
+  }}
 `;

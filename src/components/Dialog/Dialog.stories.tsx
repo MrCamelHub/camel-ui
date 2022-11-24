@@ -14,13 +14,13 @@ export function Default({ ...args }) {
 
   return (
     <>
-      <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(true)}>
+      <Button variant="solid" brandColor="primary" onClick={() => setIsOpen(true)}>
         Open
       </Button>
       <Dialog open={isOpen} {...args} onClose={() => setIsOpen(false)}>
         <h1>MrCamel Dialog!</h1>
         <div>
-          <Button variant="outlined" brandColor="gray" onClick={() => setIsOpen(false)}>
+          <Button variant="outline" brandColor="gray" onClick={() => setIsOpen(false)}>
             Close
           </Button>
         </div>

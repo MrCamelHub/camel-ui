@@ -35,17 +35,15 @@ export function Default({ ...args }) {
 export function Variants() {
   return (
     <Wrapper>
-      <Chip variant="outlined" brandColor="primary">
-        outlined
-      </Chip>
+      <Chip brandColor="primary">outline</Chip>
       <Chip variant="ghost" brandColor="primary">
         ghost
       </Chip>
-      <Chip variant="outlinedGhost" brandColor="primary">
-        outlinedGhost
+      <Chip variant="outlineGhost" brandColor="primary">
+        outlineGhost
       </Chip>
-      <Chip variant="contained" brandColor="primary">
-        contained
+      <Chip variant="solid" brandColor="primary">
+        solid
       </Chip>
     </Wrapper>
   );
@@ -54,52 +52,56 @@ export function Variants() {
 export function BrandColors() {
   return (
     <>
-      <p>outlined</p>
+      <p>outline</p>
       <Wrapper>
-        <Chip variant="outlined" brandColor="black">
-          black
-        </Chip>
-        <Chip variant="outlined" brandColor="primary">
-          primary
-        </Chip>
-        <Chip variant="outlined" brandColor="gray">
-          gray
-        </Chip>
+        <Chip brandColor="black">black</Chip>
+        <Chip brandColor="gray">gray</Chip>
+        <Chip brandColor="primary">primary</Chip>
+        <Chip brandColor="blue">blue</Chip>
       </Wrapper>
       <p>ghost</p>
       <Wrapper>
         <Chip variant="ghost" brandColor="black">
           black
         </Chip>
-        <Chip variant="ghost" brandColor="primary">
-          primary
-        </Chip>
         <Chip variant="ghost" brandColor="gray">
           gray
         </Chip>
-      </Wrapper>
-      <p>outlinedGhost</p>
-      <Wrapper>
-        <Chip variant="outlinedGhost" brandColor="black">
-          black
-        </Chip>
-        <Chip variant="outlinedGhost" brandColor="primary">
+        <Chip variant="ghost" brandColor="primary">
           primary
         </Chip>
-        <Chip variant="outlinedGhost" brandColor="gray">
-          gray
+        <Chip variant="ghost" brandColor="blue">
+          blue
         </Chip>
       </Wrapper>
-      <p>contained</p>
+      <p>outlineGhost</p>
       <Wrapper>
-        <Chip variant="contained" brandColor="black">
+        <Chip variant="outlineGhost" brandColor="black">
           black
         </Chip>
-        <Chip variant="contained" brandColor="primary">
+        <Chip variant="outlineGhost" brandColor="gray">
+          gray
+        </Chip>
+        <Chip variant="outlineGhost" brandColor="primary">
           primary
         </Chip>
-        <Chip variant="contained" brandColor="gray">
+        <Chip variant="outlineGhost" brandColor="blue">
+          blue
+        </Chip>
+      </Wrapper>
+      <p>solid</p>
+      <Wrapper>
+        <Chip variant="solid" brandColor="black">
+          black
+        </Chip>
+        <Chip variant="solid" brandColor="gray">
           gray
+        </Chip>
+        <Chip variant="solid" brandColor="primary">
+          primary
+        </Chip>
+        <Chip variant="solid" brandColor="blue">
+          blue
         </Chip>
       </Wrapper>
     </>
@@ -110,36 +112,36 @@ export function Sizes() {
   return (
     <>
       <Wrapper>
-        <Chip size="xsmall" variant="contained" brandColor="primary">
+        <Chip size="xsmall" variant="solid" brandColor="primary">
           xsmall
         </Chip>
-        <Chip size="small" variant="contained" brandColor="primary">
+        <Chip size="small" variant="solid" brandColor="primary">
           small
         </Chip>
-        <Chip size="medium" variant="contained" brandColor="primary">
+        <Chip size="medium" variant="solid" brandColor="primary">
           medium
         </Chip>
-        <Chip size="large" variant="contained" brandColor="primary">
+        <Chip size="large" variant="solid" brandColor="primary">
           large
         </Chip>
-        <Chip size="xlarge" variant="contained" brandColor="primary">
+        <Chip size="xlarge" variant="solid" brandColor="primary">
           xlarge
         </Chip>
       </Wrapper>
       <Wrapper>
-        <Chip size="xsmall" variant="contained" brandColor="primary" isRound={false}>
+        <Chip size="xsmall" variant="solid" brandColor="primary" isRound={false}>
           xsmall
         </Chip>
-        <Chip size="small" variant="contained" brandColor="primary" isRound={false}>
+        <Chip size="small" variant="solid" brandColor="primary" isRound={false}>
           small
         </Chip>
-        <Chip size="medium" variant="contained" brandColor="primary" isRound={false}>
+        <Chip size="medium" variant="solid" brandColor="primary" isRound={false}>
           medium
         </Chip>
-        <Chip size="large" variant="contained" brandColor="primary" isRound={false}>
+        <Chip size="large" variant="solid" brandColor="primary" isRound={false}>
           large
         </Chip>
-        <Chip size="xlarge" variant="contained" brandColor="primary" isRound={false}>
+        <Chip size="xlarge" variant="solid" brandColor="primary" isRound={false}>
           xlarge
         </Chip>
       </Wrapper>
@@ -150,10 +152,10 @@ export function Sizes() {
 export function Rounds() {
   return (
     <Wrapper>
-      <Chip variant="contained" brandColor="primary">
+      <Chip variant="solid" brandColor="primary">
         button
       </Chip>
-      <Chip isRound={false} variant="contained" brandColor="primary">
+      <Chip isRound={false} variant="solid" brandColor="primary">
         button
       </Chip>
     </Wrapper>
@@ -163,7 +165,7 @@ export function Rounds() {
 export function FullWidths() {
   return (
     <ColWrapper>
-      <Chip fullWidth variant="contained" brandColor="primary">
+      <Chip fullWidth variant="solid" brandColor="primary">
         Button
       </Chip>
     </ColWrapper>
@@ -174,7 +176,7 @@ export function Icons() {
   return (
     <Wrapper>
       <Chip
-        variant="contained"
+        variant="solid"
         brandColor="primary"
         startIcon={<Icon name="AlarmFilled" />}
         endIcon={<Icon name="CloseOutlined" />}
@@ -185,10 +187,241 @@ export function Icons() {
   );
 }
 
+export function IconOnly() {
+  return (
+    <Wrapper>
+      <Chip variant="solid" brandColor="primary" startIcon={<Icon name="AlarmFilled" />} iconOnly>
+        Button
+      </Chip>
+    </Wrapper>
+  );
+}
+
+export function SubTexts() {
+  return (
+    <>
+      <p>xlarge</p>
+      <Wrapper>
+        <Chip
+          brandColor="black"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xlarge"
+        >
+          Button
+        </Chip>
+        <Chip
+          brandColor="gray"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xlarge"
+        >
+          Button
+        </Chip>
+        <Chip
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xlarge"
+        >
+          Button
+        </Chip>
+        <Chip
+          brandColor="blue"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xlarge"
+        >
+          Button
+        </Chip>
+      </Wrapper>
+      <p>large</p>
+      <Wrapper>
+        <Chip
+          variant="ghost"
+          brandColor="black"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="large"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="ghost"
+          brandColor="gray"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="large"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="ghost"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="large"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="ghost"
+          brandColor="blue"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="large"
+        >
+          Button
+        </Chip>
+      </Wrapper>
+      <p>medium</p>
+      <Wrapper>
+        <Chip
+          variant="outlineGhost"
+          brandColor="black"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="medium"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="outlineGhost"
+          brandColor="gray"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="medium"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="outlineGhost"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="medium"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="outlineGhost"
+          brandColor="blue"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="medium"
+        >
+          Button
+        </Chip>
+      </Wrapper>
+      <p>small</p>
+      <Wrapper>
+        <Chip
+          variant="solid"
+          brandColor="black"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="small"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="solid"
+          brandColor="gray"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="small"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="solid"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="small"
+        >
+          Button
+        </Chip>
+        <Chip
+          variant="solid"
+          brandColor="blue"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="small"
+        >
+          Button
+        </Chip>
+      </Wrapper>
+      <p>xsmall</p>
+      <Wrapper>
+        <Chip
+          brandColor="black"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xsmall"
+        >
+          Button
+        </Chip>
+        <Chip
+          brandColor="gray"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xsmall"
+        >
+          Button
+        </Chip>
+        <Chip
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xsmall"
+        >
+          Button
+        </Chip>
+        <Chip
+          brandColor="blue"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+          size="xsmall"
+        >
+          Button
+        </Chip>
+      </Wrapper>
+    </>
+  );
+}
+
 export function Status() {
   return (
     <Wrapper>
-      <Chip size="medium" variant="contained" brandColor="primary" disabled>
+      <Chip
+        size="medium"
+        variant="solid"
+        brandColor="primary"
+        disabled
+        subText={123}
+        startIcon={<Icon name="UserFilled" />}
+      >
         disabled
       </Chip>
     </Wrapper>

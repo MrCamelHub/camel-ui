@@ -31,13 +31,13 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
     const [isMounted, setIsMounted] = useState(false);
     const [sheetOpen, setSheetOpen] = useState(false);
     const [swipeable, setSwipeable] = useState(false);
-    const [swipeableContent, setSwipeableContent] = useState<boolean>(false);
+    const [swipeableContent, setSwipeableContent] = useState(false);
 
     const sheetPortalRef = useRef<HTMLElement | null>(null);
     const sheetRef = useRef<HTMLDivElement>(null);
     const sheetSwipeZoneRef = useRef<HTMLDivElement>(null);
-    const sheetOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-    const sheetCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const sheetOpenTimerRef = useRef<ReturnType<typeof setTimeout>>();
+    const sheetCloseTimerRef = useRef<ReturnType<typeof setTimeout>>();
     const contentRef = useRef<HTMLDivElement>(null);
     const measureRef = useRef({
       startClientY: 0,

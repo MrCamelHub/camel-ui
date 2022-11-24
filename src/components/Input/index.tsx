@@ -6,7 +6,7 @@ import { CustomStyle, GenericComponentProps, Size, Variant } from '../../types';
 
 export interface InputProps
   extends GenericComponentProps<Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>> {
-  variant?: Exclude<Variant, 'ghost' | 'outlinedGhost'> | 'underline';
+  variant?: Exclude<Variant, 'ghost' | 'outlineGhost'> | 'underline';
   size?: Exclude<Size, 'xsmall'> | 'xxlarge';
   startAdornment?: string | ReactElement;
   endAdornment?: string | ReactElement;
@@ -17,7 +17,7 @@ export interface InputProps
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
-    variant = 'outlined',
+    variant = 'outline',
     size = 'medium',
     startAdornment,
     endAdornment,

@@ -14,6 +14,7 @@ export interface ToastProps
   edgeSpacing?: number;
   autoHideDuration?: number;
   transitionDuration?: number;
+  fullWidth?: boolean;
   disablePadding?: boolean;
   onClose: () => void;
 }
@@ -26,6 +27,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
     edgeSpacing = 20,
     autoHideDuration = 2000,
     transitionDuration = 225,
+    fullWidth,
     disablePadding,
     onClose,
     customStyle,
@@ -41,9 +43,9 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   const updatedCountRef = useRef(false);
 
   const toastPortalRef = useRef<HTMLElement | null>(null);
-  const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const toastCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const toastAutoHideDurationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const toastCloseTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const toastAutoHideDurationTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
@@ -133,6 +135,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
         bottom={bottom}
         edgeSpacing={edgeSpacing}
         transitionDuration={transitionDuration}
+        fullWidth={fullWidth}
         disablePadding={disablePadding}
         onClick={handleClick}
         css={customStyle}

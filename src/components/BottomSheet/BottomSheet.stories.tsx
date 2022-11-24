@@ -14,12 +14,12 @@ export function Default({ ...args }) {
 
   return (
     <>
-      <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(true)}>
+      <Button variant="solid" brandColor="primary" onClick={() => setIsOpen(true)}>
         Open
       </Button>
       <BottomSheet open={isOpen} {...args} onClose={() => setIsOpen(false)}>
         <h1>MrCamel BottomSheet!</h1>
-        <Button variant="contained" brandColor="primary" onClick={() => setIsOpen(false)}>
+        <Button variant="solid" brandColor="primary" onClick={() => setIsOpen(false)}>
           Close
         </Button>
       </BottomSheet>

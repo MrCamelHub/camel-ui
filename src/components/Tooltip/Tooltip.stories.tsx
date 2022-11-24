@@ -23,7 +23,7 @@ export function Default({ ...args }) {
     <Wrapper>
       <Tooltip open={open} message="MrCamel Tooltip!" {...args}>
         <Button
-          variant="contained"
+          variant="solid"
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
         >

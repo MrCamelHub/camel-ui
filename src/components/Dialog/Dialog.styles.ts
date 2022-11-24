@@ -53,7 +53,6 @@ export const StyledDialog = styled.div<
 
   ${({ disablePadding }): CSSObject => (disablePadding ? { padding: 0 } : {})}
 
-  border: 1px solid ${({ theme: { palette } }) => palette.common.ui90};
   background-color: ${({ theme: { palette } }) => palette.common.bg01};
   box-shadow: ${({
     theme: {

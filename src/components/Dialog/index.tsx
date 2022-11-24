@@ -36,9 +36,9 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
 
   const dialogPortalRef = useRef<HTMLElement | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const dialogOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const dialogCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const dialogSwipeableTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dialogOpenTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const dialogCloseTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const dialogSwipeableTimerRef = useRef<ReturnType<typeof setTimeout>>();
   const measureRef = useRef({
     startClientY: 0,
     lastTranslateY: 0
@@ -176,7 +176,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
         clearTimeout(dialogSwipeableTimerRef.current);
       }
       if (dialogPortalRef.current) {
-        dialogPortalRef.current?.remove();
+        dialogPortalRef.current.remove();
         dialogPortalRef.current = null;
       }
       document.body.removeAttribute('style');

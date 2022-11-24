@@ -4,6 +4,8 @@ import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Label from '@components/Label';
 
+import { Icon } from '@components';
+
 export default {
   title: 'Components/Label',
   component: Label
@@ -25,10 +27,10 @@ export function Default({ ...args }) {
 export function Variants() {
   return (
     <Wrapper>
-      <Label variant="outlined" text="outlined" />
+      <Label variant="outline" text="outline" />
       <Label variant="ghost" text="ghost" />
-      <Label variant="contained" text="contained" />
       <Label variant="darked" text="darked" />
+      <Label variant="solid" text="solid" />
     </Wrapper>
   );
 }
@@ -37,26 +39,31 @@ export function BrandColors() {
   return (
     <>
       <Wrapper>
-        <p>outlined</p>
-        <Label variant="outlined" brandColor="black" text="black" />
-        <Label variant="outlined" brandColor="primary" text="primary" />
-        <Label variant="outlined" brandColor="red" text="red" />
+        <p>outline</p>
+        <Label variant="outline" brandColor="black" text="black" />
+        <Label variant="outline" brandColor="primary" text="primary" />
+        <Label variant="outline" brandColor="blue" text="blue" />
+        <Label variant="outline" brandColor="red" text="red" />
       </Wrapper>
       <Wrapper>
         <p>ghost</p>
         <Label variant="ghost" brandColor="black" text="black" />
         <Label variant="ghost" brandColor="primary" text="primary" />
+        <Label variant="ghost" brandColor="blue" text="blue" />
         <Label variant="ghost" brandColor="red" text="red" />
       </Wrapper>
       <Wrapper>
-        <p>contained</p>
-        <Label variant="contained" brandColor="black" text="black" />
-        <Label variant="contained" brandColor="primary" text="primary" />
-        <Label variant="contained" brandColor="red" text="red" />
+        <p>solid</p>
+        <Label variant="solid" brandColor="black" text="black" />
+        <Label variant="solid" brandColor="primary" text="primary" />
+        <Label variant="solid" brandColor="blue" text="blue" />
+        <Label variant="solid" brandColor="red" text="red" />
       </Wrapper>
       <Wrapper>
         <p>dakred</p>
-        <Label variant="darked" brandColor="primary-light" text="primary-light" />
+        <Label variant="darked" brandColor="black" text="black" />
+        <Label variant="darked" brandColor="primary" text="primary" />
+        <Label variant="darked" brandColor="blue" text="blue" />
         <Label variant="darked" brandColor="red" text="red" />
       </Wrapper>
     </>
@@ -68,6 +75,20 @@ export function Sizes() {
     <Wrapper>
       <Label text="small" size="small" />
       <Label text="xsmall" size="xsmall" />
+    </Wrapper>
+  );
+}
+
+export function Icons() {
+  return (
+    <Wrapper>
+      <Label brandColor="black" text="small" size="small" startIcon={<Icon name="KakaoFilled" />} />
+      <Label
+        brandColor="black"
+        text="xsmall"
+        size="xsmall"
+        startIcon={<Icon name="KakaoFilled" />}
+      />
     </Wrapper>
   );
 }

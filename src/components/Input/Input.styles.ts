@@ -116,12 +116,12 @@ export const StyledInput = styled.div<
     let cssObject: CSSObject = {};
 
     switch (variant) {
-      case 'outlined':
+      case 'outline':
         cssObject = {
           borderColor: common.line01
         };
         break;
-      case 'contained':
+      case 'solid':
         cssObject = {
           backgroundColor: common.ui95
         };
@@ -192,7 +192,7 @@ export const StyledInput = styled.div<
     variant,
     focused
   }): CSSObject => {
-    if (focused && (variant === 'outlined' || variant === 'contained')) {
+    if (focused && (variant === 'outline' || variant === 'solid')) {
       return {
         borderColor: primary.main
       };
