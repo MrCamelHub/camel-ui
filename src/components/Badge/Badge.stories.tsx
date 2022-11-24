@@ -6,7 +6,7 @@ import Button from '@components/Button';
 import Badge from '@components/Badge';
 
 export default {
-  title: 'Components/Badge',
+  title: 'Experiment/Badge',
   component: Badge
 } as ComponentMeta<typeof Badge>;
 
