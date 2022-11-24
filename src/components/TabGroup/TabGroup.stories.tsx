@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
-import Tabs from '@components/Tabs';
+import TabGroup from '@components/TabGroup';
 import Tab from '@components/Tab';
 
 export default {
-  title: 'Components/Tabs',
-  component: Tabs
-} as ComponentMeta<typeof Tabs>;
+  title: 'Components/TabGroup',
+  component: TabGroup
+} as ComponentMeta<typeof TabGroup>;
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,11 +23,11 @@ export function Default({ ...args }) {
   const handleChange = (newValue: string | number) => setValue(newValue);
 
   return (
-    <Tabs {...args} onChange={handleChange} value={value}>
+    <TabGroup {...args} onChange={handleChange} value={value}>
       <Tab text="Tab1" value="tab1" />
       <Tab text="Tab2" value="tab2" />
       <Tab text="Tab3" value="tab3" />
-    </Tabs>
+    </TabGroup>
   );
 }
 
@@ -39,18 +39,18 @@ export function BrandColors() {
   return (
     <>
       <Wrapper>
-        <Tabs brandColor="primary" onChange={handleChange} value={value}>
+        <TabGroup brandColor="primary" onChange={handleChange} value={value}>
           <Tab text="Tab1" value="tab1" />
           <Tab text="Tab2" value="tab2" />
           <Tab text="Tab3" value="tab3" />
-        </Tabs>
+        </TabGroup>
       </Wrapper>
       <Wrapper>
-        <Tabs onChange={handleChange} value={value}>
+        <TabGroup onChange={handleChange} value={value}>
           <Tab text="Tab1" value="tab1" />
           <Tab text="Tab2" value="tab2" />
           <Tab text="Tab3" value="tab3" />
-        </Tabs>
+        </TabGroup>
       </Wrapper>
     </>
   );
@@ -62,11 +62,11 @@ export function FullWidths() {
   const handleChange = (newValue: string | number) => setValue(newValue);
 
   return (
-    <Tabs fullWidth onChange={handleChange} value={value}>
+    <TabGroup fullWidth onChange={handleChange} value={value}>
       <Tab text="Tab1" value="tab1" />
       <Tab text="Tab2" value="tab2" />
       <Tab text="Tab3" value="tab3" />
-    </Tabs>
+    </TabGroup>
   );
 }
 
@@ -76,10 +76,10 @@ export function HideIndicators() {
   const handleChange = (newValue: string | number) => setValue(newValue);
 
   return (
-    <Tabs hideIndicator onChange={handleChange} value={value}>
+    <TabGroup hideIndicator onChange={handleChange} value={value}>
       <Tab text="Tab1" value="tab1" />
       <Tab text="Tab2" value="tab2" />
       <Tab text="Tab3" value="tab3" />
-    </Tabs>
+    </TabGroup>
   );
 }

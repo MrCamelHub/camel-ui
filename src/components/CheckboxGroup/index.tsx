@@ -12,11 +12,8 @@ export interface CheckboxGroupProps
   size?: Exclude<Size, 'xlarge' | 'xsmall'>;
   text: string;
   subText?: string;
-  value?: string | number | readonly string[] | undefined;
-  onChange?: (
-    value: string | number | readonly string[] | undefined,
-    event: MouseEvent<HTMLDivElement>
-  ) => void;
+  value?: string | number;
+  onChange?: (value: string | number | undefined, event: MouseEvent<HTMLDivElement>) => void;
 }
 
 const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(function CheckboxGroup(

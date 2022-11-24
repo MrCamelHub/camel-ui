@@ -12,11 +12,8 @@ export interface RadioGroupProps
   size?: Exclude<Size, 'xlarge' | 'xsmall'>;
   text: string;
   subText?: string;
-  value?: string | number | readonly string[] | undefined;
-  onChange?: (
-    value: string | number | readonly string[] | undefined,
-    event: MouseEvent<HTMLDivElement>
-  ) => void;
+  value?: number | string;
+  onChange?: (value: number | string | undefined, event: MouseEvent<HTMLDivElement>) => void;
 }
 
 const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function CheckboxGroup(

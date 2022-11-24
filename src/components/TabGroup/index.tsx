@@ -1,19 +1,19 @@
 import type { HTMLAttributes, MouseEvent } from 'react';
 import React, { forwardRef, useEffect, useRef } from 'react';
 
-import { StyledTabs, TabsInner } from './Tabs.styles';
-import { BrandColor, GenericComponentProps } from '../../types';
+import { StyledTabGroup, TabGroupInner } from './TabGroup.styles';
+import type { BrandColor, GenericComponentProps } from '../../types';
 
-export interface TabsProps
+export interface TabGroupProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'onChange'>> {
   brandColor?: Extract<BrandColor, 'primary' | 'black'>;
-  onChange: (value: number | string) => void;
+  onChange: (value: number | string, event: MouseEvent<HTMLDivElement>) => void;
   value: number | string;
   fullWidth?: boolean;
   hideIndicator?: boolean;
 }
 
-const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
+const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(function Tabs(
   {
     children,
     brandColor = 'black',
@@ -36,9 +36,9 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
     if (!dataValue) return;
 
     if (!Number.isNaN(Number(dataValue))) {
-      onChange(Number(dataValue));
+      onChange(Number(dataValue), event);
     } else {
-      onChange(dataValue);
+      onChange(dataValue, event);
     }
   };
 
@@ -65,7 +65,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
   }, [value]);
 
   return (
-    <StyledTabs
+    <StyledTabGroup
       ref={ref}
       fullWidth={fullWidth}
       onClick={handleClick}
@@ -73,16 +73,16 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
       css={customStyle}
       role="tablist"
     >
-      <TabsInner
+      <TabGroupInner
         ref={tabsInnerRef}
         brandColor={brandColor}
         fullWidth={fullWidth}
         hideIndicator={hideIndicator}
       >
         {children}
-      </TabsInner>
-    </StyledTabs>
+      </TabGroupInner>
+    </StyledTabGroup>
   );
 });
 
-export default Tabs;
+export default TabGroup;

@@ -20,7 +20,7 @@ export { default as Grid } from './Grid';
 export { default as Tooltip } from './Tooltip';
 export { default as Input } from './Input';
 export { default as Tab } from './Tab';
-export { default as Tabs } from './Tabs';
+export { default as TabGroup } from './TabGroup';
 export { default as Skeleton } from './Skeleton';
 export { default as Image } from './Image';
 export { default as CheckboxGroup } from './CheckboxGroup';

@@ -2,15 +2,17 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import type { TabsProps } from '.';
+import type { TabGroupProps } from '.';
 
-export const StyledTabs = styled.div<Pick<TabsProps, 'fullWidth'>>`
+export const StyledTabGroup = styled.div<Pick<TabGroupProps, 'fullWidth'>>`
   width: fit-content;
 
   ${({ fullWidth }): CSSObject => (fullWidth ? { width: '100%' } : {})};
 `;
 
-export const TabsInner = styled.div<Pick<TabsProps, 'brandColor' | 'fullWidth' | 'hideIndicator'>>`
+export const TabGroupInner = styled.div<
+  Pick<TabGroupProps, 'brandColor' | 'fullWidth' | 'hideIndicator'>
+>`
   display: flex;
   align-items: center;
   gap: 20px;
