@@ -96,7 +96,7 @@ export const StyledSkeleton = styled.div<
     theme: {
       palette: { common }
     }
-  }) => common.ui90};
+  }) => common.ui95};
 
   ${({ round }): CSSObject =>
     round
