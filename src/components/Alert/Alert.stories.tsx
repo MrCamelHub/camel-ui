@@ -1,5 +1,6 @@
 import React from 'react';
 
+import useTheme from '@theme/provider/useTheme';
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Alert from '@components/Alert';
@@ -38,17 +39,25 @@ export function Rounds() {
 }
 
 export function BrandColors() {
+  const {
+    theme: {
+      palette: { common }
+    }
+  } = useTheme();
   return (
     <AlertWrapper>
-      <Alert brandColor="primary">primary</Alert>
-      <Alert brandColor="primary-dark">primary-dark</Alert>
-      <Alert brandColor="primary-light">primary-light</Alert>
-      <Alert brandColor="primary-highlight">primary-highlight</Alert>
-      <Alert brandColor="primary-bgLight">primary-highlight</Alert>
-      <Alert brandColor="red">red</Alert>
-      <Alert brandColor="purple">purple</Alert>
+      <Alert
+        brandColor="black"
+        customStyle={{
+          color: common.uiWhite
+        }}
+      >
+        black
+      </Alert>
       <Alert brandColor="gray">gray</Alert>
-      <Alert brandColor="black">black</Alert>
+      <Alert brandColor="primary">primary</Alert>
+      <Alert brandColor="blue">blue</Alert>
+      <Alert brandColor="red">red</Alert>
     </AlertWrapper>
   );
 }
