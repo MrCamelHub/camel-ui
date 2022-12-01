@@ -112,36 +112,101 @@ export function Sizes() {
   return (
     <>
       <Wrapper>
-        <Chip size="xsmall" variant="solid" brandColor="primary">
+        <Chip
+          size="xsmall"
+          variant="solid"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           xsmall
         </Chip>
-        <Chip size="small" variant="solid" brandColor="primary">
+        <Chip
+          size="small"
+          variant="solid"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           small
         </Chip>
-        <Chip size="medium" variant="solid" brandColor="primary">
+        <Chip
+          size="medium"
+          variant="solid"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           medium
         </Chip>
-        <Chip size="large" variant="solid" brandColor="primary">
+        <Chip
+          size="large"
+          variant="solid"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           large
         </Chip>
-        <Chip size="xlarge" variant="solid" brandColor="primary">
+        <Chip
+          size="xlarge"
+          variant="solid"
+          brandColor="primary"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           xlarge
         </Chip>
       </Wrapper>
       <Wrapper>
-        <Chip size="xsmall" variant="solid" brandColor="primary" isRound={false}>
+        <Chip
+          size="xsmall"
+          variant="solid"
+          brandColor="primary"
+          isRound={false}
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           xsmall
         </Chip>
-        <Chip size="small" variant="solid" brandColor="primary" isRound={false}>
+        <Chip
+          size="small"
+          variant="solid"
+          brandColor="primary"
+          isRound={false}
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           small
         </Chip>
-        <Chip size="medium" variant="solid" brandColor="primary" isRound={false}>
+        <Chip
+          size="medium"
+          variant="solid"
+          brandColor="primary"
+          isRound={false}
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           medium
         </Chip>
-        <Chip size="large" variant="solid" brandColor="primary" isRound={false}>
+        <Chip
+          size="large"
+          variant="solid"
+          brandColor="primary"
+          isRound={false}
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           large
         </Chip>
-        <Chip size="xlarge" variant="solid" brandColor="primary" isRound={false}>
+        <Chip
+          size="xlarge"
+          variant="solid"
+          brandColor="primary"
+          isRound={false}
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+        >
           xlarge
         </Chip>
       </Wrapper>

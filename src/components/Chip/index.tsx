@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
-import { StyledChip, SubText } from './Chip.styles';
+import { EndIcon, StyledChip, SubText } from './Chip.styles';
 import type {
   BrandColor,
   GenericComponentProps,
@@ -61,7 +61,7 @@ const Chip = forwardRef<HTMLButtonElement, PropsWithChildren<ChipProps>>(functio
           {subText}
         </SubText>
       )}
-      {endIcon}
+      {endIcon && <EndIcon size={size}>{endIcon}</EndIcon>}
     </StyledChip>
   );
 });

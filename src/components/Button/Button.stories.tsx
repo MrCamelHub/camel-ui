@@ -131,16 +131,40 @@ export function BrandColors() {
 export function Sizes() {
   return (
     <Wrapper>
-      <Button size="small" variant="solid" brandColor="primary">
+      <Button
+        size="small"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
         small
       </Button>
-      <Button size="medium" variant="solid" brandColor="primary">
+      <Button
+        size="medium"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
         medium
       </Button>
-      <Button size="large" variant="solid" brandColor="primary">
+      <Button
+        size="large"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
         large
       </Button>
-      <Button size="xlarge" variant="solid" brandColor="primary">
+      <Button
+        size="xlarge"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
         xlarge
       </Button>
     </Wrapper>

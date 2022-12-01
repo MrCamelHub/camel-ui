@@ -4,13 +4,16 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { Content, Rectangle, StyledBottomSheet, SwipeZone, Wrapper } from './BottomSheet.styles';
-import type { GenericComponentProps } from '../../types';
+import type { CSSValue, GenericComponentProps } from '../../types';
 
 export interface BottomSheetProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;
   transitionDuration?: number;
+  maxHeight?: string | CSSValue;
+  fullScreen?: boolean;
   disableSwipeable?: boolean;
   disableContentSwipeable?: boolean;
+  disableRound?: boolean;
   onClose: () => void;
 }
 
@@ -20,8 +23,11 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
       children,
       open,
       transitionDuration = 225,
+      maxHeight = '90%',
+      fullScreen,
       disableSwipeable,
       disableContentSwipeable = true,
+      disableRound,
       onClose,
       customStyle,
       ...props
@@ -218,6 +224,9 @@ const BottomSheet = forwardRef<HTMLDivElement, PropsWithChildren<BottomSheetProp
             sheetOpen={sheetOpen}
             sheetClose={!open}
             transitionDuration={transitionDuration}
+            maxHeight={maxHeight}
+            fullScreen={fullScreen}
+            disableRound={disableRound}
             onClick={handleClick}
             css={customStyle}
           >

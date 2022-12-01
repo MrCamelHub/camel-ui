@@ -22,7 +22,7 @@ export function getBrandColorCodeByColorName(
   return colorCode;
 }
 
-export function convertNumberToCSSValue(value: CSSValue, unit?: string) {
+export function convertNumberToCSSValue(value: string | CSSValue, unit?: string) {
   if (typeof value === 'number') {
     return `${value}${unit || 'px'}`;
   }

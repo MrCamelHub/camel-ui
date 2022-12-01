@@ -44,7 +44,7 @@ export const Wrapper = styled.div<
 `;
 
 export const StyledDialog = styled.div<
-  Pick<DialogProps, 'fullScreen' | 'transitionDuration' | 'disablePadding'> & {
+  Pick<DialogProps, 'fullWidth' | 'fullScreen' | 'transitionDuration' | 'disablePadding'> & {
     dialogOpen: boolean;
     dialogClose: boolean;
   }
@@ -74,6 +74,13 @@ export const StyledDialog = styled.div<
           width: '100%',
           height: '100%'
         }};
+
+  ${({ fullWidth }): CSSObject =>
+    fullWidth
+      ? {
+          width: '100%'
+        }
+      : {}}
 
   opacity: 0;
   visibility: hidden;

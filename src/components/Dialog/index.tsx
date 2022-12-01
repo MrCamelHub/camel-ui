@@ -10,6 +10,7 @@ export interface DialogProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {
   open: boolean;
   transitionDuration?: number;
+  fullWidth?: boolean;
   fullScreen?: boolean;
   disablePadding?: boolean;
   disableFullScreenSwipeable?: boolean;
@@ -21,6 +22,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
     children,
     open,
     transitionDuration = 225,
+    fullWidth,
     fullScreen,
     disablePadding,
     disableFullScreenSwipeable = true,
@@ -202,6 +204,7 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
           dialogOpen={dialogOpen}
           dialogClose={!open}
           transitionDuration={transitionDuration}
+          fullWidth={fullWidth}
           fullScreen={fullScreen}
           disablePadding={disablePadding}
           onClick={handleClick}
@@ -211,8 +214,8 @@ const Dialog = forwardRef<HTMLDivElement, PropsWithChildren<DialogProps>>(functi
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleEndSwipeable}
-          css={customStyle}
           {...props}
+          css={customStyle}
           role="dialog"
         >
           {children}

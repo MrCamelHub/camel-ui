@@ -6,7 +6,14 @@ import type { CSSValue } from '../../types';
 
 import type { ImageProps } from '.';
 
-export const RatioImageBox = styled.div<Pick<ImageProps, 'round'>>`
+export const RatioImageBox = styled.div<
+  Pick<ImageProps, 'round'> & {
+    dataWidth?: CSSValue;
+    dataHeight?: CSSValue;
+  }
+>`
+  width: ${({ dataWidth }) => (dataWidth ? convertNumberToCSSValue(dataWidth) : 'auto')};
+  height: ${({ dataHeight }) => (dataHeight ? convertNumberToCSSValue(dataHeight) : 'auto')};
   overflow: hidden;
 
   ${({ round }): CSSObject =>
@@ -17,7 +24,7 @@ export const RatioImageBox = styled.div<Pick<ImageProps, 'round'>>`
       : {}};
 `;
 
-export const RatioImageWrapper = styled.div<Pick<ImageProps, 'ratio' | 'round'>>`
+export const RatioImageWrapper = styled.div<Pick<ImageProps, 'ratio'>>`
   position: relative;
   overflow: hidden;
 
@@ -43,29 +50,15 @@ export const RatioImageWrapper = styled.div<Pick<ImageProps, 'ratio' | 'round'>>
         };
     }
   }};
-
-  ${({ round }): CSSObject =>
-    round
-      ? {
-          borderRadius: round
-        }
-      : {}};
 `;
 
-export const RatioImageInner = styled.div<Pick<ImageProps, 'round'>>`
+export const RatioImageInner = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   transform: translate(50%, 50%);
-
-  ${({ round }): CSSObject =>
-    round
-      ? {
-          borderRadius: round
-        }
-      : {}};
 `;
 
 export const ImageWrapper = styled.div<
@@ -107,37 +100,21 @@ export const RatioImg = styled.img`
   transform: translate(-50%, -50%);
 `;
 
-export const FallbackWrapper = styled.div<Pick<ImageProps, 'round'>>`
+export const FallbackWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   max-width: 100%;
   height: auto;
   transform: translate(-50%, -50%);
-  overflow: hidden;
-
-  ${({ round }): CSSObject =>
-    round
-      ? {
-          borderRadius: round
-        }
-      : {}};
 `;
 
-export const SkeletonWrapper = styled.div<Pick<ImageProps, 'round'>>`
+export const SkeletonWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-
-  ${({ round }): CSSObject =>
-    round
-      ? {
-          borderRadius: round
-        }
-      : {}};
 `;
 
 export const BackgroundImg = styled.div<

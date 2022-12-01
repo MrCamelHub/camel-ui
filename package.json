@@ -74,7 +74,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "tslib": "^2.3.1",
-    "typescript": "^4.6.3"
+    "typescript": "4.6.3"
   },
   "peerDependencies": {
     "@emotion/react": "^11.9.0",

@@ -232,6 +232,53 @@ export const StyledChip = styled.button<
   }
 `;
 
+export const EndIcon = styled.span<Pick<ChipProps, 'size'>>`
+  ${({ size }): CSSObject => {
+    switch (size) {
+      case 'xsmall': {
+        return {
+          '& > svg': {
+            width: 'auto',
+            height: 10
+          }
+        };
+      }
+      case 'small': {
+        return {
+          '& > svg': {
+            width: 'auto',
+            height: 12
+          }
+        };
+      }
+      case 'large': {
+        return {
+          '& > svg': {
+            width: 'auto',
+            height: 15
+          }
+        };
+      }
+      case 'xlarge': {
+        return {
+          '& > svg': {
+            width: 'auto',
+            height: 17
+          }
+        };
+      }
+      default: {
+        return {
+          '& > svg': {
+            width: 'auto',
+            height: 14
+          }
+        };
+      }
+    }
+  }}
+`;
+
 export const SubText = styled.span<Pick<ChipProps, 'variant' | 'brandColor' | 'size'>>`
   margin-left: ${({ size }) => (size === 'xsmall' ? 0 : '-2px')};
 

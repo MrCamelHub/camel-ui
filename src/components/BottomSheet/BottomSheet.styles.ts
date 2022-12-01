@@ -1,5 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
 
+import { convertNumberToCSSValue } from '@utils';
+
 import type { BottomSheetProps } from '.';
 
 export const Wrapper = styled.div<
@@ -31,14 +33,25 @@ export const Wrapper = styled.div<
 `;
 
 export const StyledBottomSheet = styled.div<
-  Pick<BottomSheetProps, 'transitionDuration'> & { sheetOpen: boolean; sheetClose: boolean }
+  Pick<BottomSheetProps, 'maxHeight' | 'fullScreen' | 'transitionDuration' | 'disableRound'> & {
+    sheetOpen: boolean;
+    sheetClose: boolean;
+  }
 >`
   width: 100%;
-  max-height: 90%;
+  max-height: ${({ maxHeight = '90%' }) => convertNumberToCSSValue(maxHeight)};
   display: flex;
   flex-direction: column;
   background-color: ${({ theme: { palette } }) => palette.common.bg01};
-  border-radius: 16px 16px 0 0;
+  border-radius: ${({ disableRound }) => (disableRound ? 0 : '16px 16px 0 0')};
+
+  ${({ fullScreen }): CSSObject =>
+    fullScreen
+      ? {
+          height: '100%'
+        }
+      : {}};
+
   box-shadow: ${({
     theme: {
       box: { shadow }
