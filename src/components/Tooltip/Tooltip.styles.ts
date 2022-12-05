@@ -2,7 +2,7 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { TooltipProps } from '.';
+import type { TooltipProps } from '.';
 
 export const Wrapper = styled.div`
   position: relative;

@@ -3,7 +3,7 @@ import Icon from '@components/Icon';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { RadioProps } from '.';
+import type { RadioProps } from '.';
 
 export const Wrapper = styled.div<Pick<RadioProps, 'checked' | 'brandColor'>>`
   position: relative;

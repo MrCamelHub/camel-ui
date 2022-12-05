@@ -1,21 +1,29 @@
+import type { HTMLAttributes, ReactElement } from 'react';
 import React, { forwardRef } from 'react';
-import type { HTMLAttributes } from 'react';
 
 import { StyledLabel } from './Label.styles';
-import type { BrandColor, GenericComponentProps, Size, Variant } from '../../types';
-import { BrandExtendsColor } from '../../types';
+import type { BrandColor, CSSValue, GenericComponentProps, Size, Variant } from '../../types';
 
 export interface LabelProps extends GenericComponentProps<HTMLAttributes<HTMLLabelElement>> {
   variant?: Exclude<Variant, 'inline'> | 'darked';
-  brandColor?:
-    | Extract<BrandColor, 'black' | 'primary' | 'red'>
-    | `${Extract<BrandColor, 'primary'>}-${Extract<BrandExtendsColor, 'light'>}`;
+  brandColor?: BrandColor;
   size?: Extract<Size, 'small' | 'xsmall'>;
-  text: string;
+  startIcon?: ReactElement;
+  round?: CSSValue;
+  text: string | ReactElement;
 }
 
 const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
-  { variant = 'outlined', text, brandColor = 'primary', size = 'small', customStyle, ...props },
+  {
+    variant = 'outline',
+    text,
+    brandColor = 'primary',
+    size = 'small',
+    startIcon,
+    round = 4,
+    customStyle,
+    ...props
+  },
   ref
 ) {
   return (
@@ -24,9 +32,11 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
       variant={variant}
       brandColor={brandColor}
       size={size}
+      round={round}
       css={customStyle}
       {...props}
     >
+      {startIcon}
       {text}
     </StyledLabel>
   );

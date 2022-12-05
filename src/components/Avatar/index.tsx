@@ -1,15 +1,15 @@
-import React, { forwardRef } from 'react';
 import type { ImgHTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 
 import { StyledAvatar } from './Avatar.styles';
-import type { BoxRoundKey, GenericComponentProps } from '../../types';
+import type { CSSValue, GenericComponentProps } from '../../types';
 
 export interface AvatarProps extends GenericComponentProps<ImgHTMLAttributes<HTMLImageElement>> {
-  round?: BoxRoundKey;
+  round?: CSSValue;
 }
 
 const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
-  { width = 24, height = 24, src, alt, customStyle, round = '4', ...props },
+  { width = 24, height = 24, src, alt, customStyle, round = 4, ...props },
   ref
 ) {
   return (

@@ -2,33 +2,49 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
-import { LabelProps } from '.';
+import type { LabelProps } from '.';
 
-export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor' | 'size'>>`
+export const StyledLabel = styled.label<
+  Pick<LabelProps, 'variant' | 'brandColor' | 'size' | 'round'>
+>`
   display: inline-flex;
   align-items: center;
   min-width: fit-content;
+  gap: 2px;
   border: 1px solid transparent;
-  border-radius: 4px;
 
-  ${({ theme, theme: { palette }, variant, brandColor }): CSSObject => {
-    let cssObject: CSSObject;
+  ${({ round }): CSSObject =>
+    round
+      ? {
+          borderRadius: round
+        }
+      : {}};
+
+  ${({
+    theme,
+    theme: {
+      palette: { primary, secondary, common }
+    },
+    variant,
+    brandColor
+  }): CSSObject => {
+    let cssObject: CSSObject = {};
 
     const brandColorCode = getBrandColorCodeByColorName(theme, brandColor);
 
     switch (variant) {
-      case 'contained':
+      case 'solid':
         cssObject = {
           backgroundColor: brandColorCode,
-          color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW,
+          color: brandColor === 'black' ? common.uiWhite : common.cmnW,
           '& svg': {
-            color: brandColor === 'black' ? palette.common.uiWhite : palette.common.cmnW
+            color: brandColor === 'black' ? common.uiWhite : common.cmnW
           }
         };
         break;
       case 'ghost':
         cssObject = {
-          backgroundColor: palette.primary.highlight,
+          backgroundColor: primary.highlight,
           color: brandColorCode,
           '& svg': {
             color: brandColorCode
@@ -37,7 +53,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
 
         if (brandColor === 'red') {
           cssObject = {
-            backgroundColor: palette.secondary.red.highlight,
+            backgroundColor: secondary.red.highlight,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -47,17 +63,7 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
 
         if (brandColor === 'black') {
           cssObject = {
-            backgroundColor: palette.common.ui90,
-            color: brandColorCode,
-            '& svg': {
-              color: brandColorCode
-            }
-          };
-        }
-
-        if (brandColor === 'primary-light') {
-          cssObject = {
-            backgroundColor: palette.primary.highlight,
+            backgroundColor: common.ui90,
             color: brandColorCode,
             '& svg': {
               color: brandColorCode
@@ -66,27 +72,49 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
         }
         break;
       case 'darked':
-        cssObject = {
-          backgroundColor: palette.primary.dark,
-          color: palette.common.uiWhite,
-          '& svg': {
-            color: palette.common.uiWhite
-          }
-        };
+        if (brandColor === 'black') {
+          cssObject = {
+            backgroundColor: common.uiBlack,
+            color: common.uiWhite,
+            '& svg': {
+              color: common.uiWhite
+            }
+          };
+        }
+
+        if (brandColor === 'primary') {
+          cssObject = {
+            backgroundColor: primary.dark,
+            color: common.cmnW,
+            '& svg': {
+              color: common.cmnW
+            }
+          };
+        }
+
+        if (brandColor === 'blue') {
+          cssObject = {
+            backgroundColor: secondary.blue.dark,
+            color: common.cmnW,
+            '& svg': {
+              color: common.cmnW
+            }
+          };
+        }
 
         if (brandColor === 'red') {
           cssObject = {
-            backgroundColor: palette.secondary.red.dark,
-            color: palette.common.uiWhite,
+            backgroundColor: secondary.red.dark,
+            color: common.cmnW,
             '& svg': {
-              color: palette.common.uiWhite
+              color: common.cmnW
             }
           };
         }
         break;
       default:
         cssObject = {
-          backgroundColor: palette.common.uiWhite,
+          backgroundColor: common.uiWhite,
           borderColor: brandColorCode,
           color: brandColorCode,
           '& svg': {
@@ -108,7 +136,11 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
           fontSize: typography.small2.size,
           fontWeight: typography.small2.weight.medium,
           lineHeight: typography.small2.lineHeight,
-          letterSpacing: typography.small2.letterSpacing
+          letterSpacing: typography.small2.letterSpacing,
+          '& > svg': {
+            width: 'auto',
+            height: 12
+          }
         };
       }
       default: {
@@ -118,7 +150,11 @@ export const StyledLabel = styled.label<Pick<LabelProps, 'variant' | 'brandColor
           fontSize: typography.small1.size,
           fontWeight: typography.small1.weight.medium,
           lineHeight: typography.small1.lineHeight,
-          letterSpacing: typography.small1.letterSpacing
+          letterSpacing: typography.small1.letterSpacing,
+          '& > svg': {
+            width: 'auto',
+            height: 16
+          }
         };
       }
     }

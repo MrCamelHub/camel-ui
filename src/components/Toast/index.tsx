@@ -1,5 +1,5 @@
-import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, MouseEvent, PropsWithChildren } from 'react';
+import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 import PortalCounterContext from '@theme/provider/PortalCounterContext';
@@ -14,8 +14,9 @@ export interface ToastProps
   edgeSpacing?: number;
   autoHideDuration?: number;
   transitionDuration?: number;
+  fullWidth?: boolean;
   disablePadding?: boolean;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function Toast(
@@ -26,6 +27,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
     edgeSpacing = 20,
     autoHideDuration = 2000,
     transitionDuration = 225,
+    fullWidth,
     disablePadding,
     onClose,
     customStyle,
@@ -35,22 +37,22 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
 ) {
   const [count, setCount] = useContext(PortalCounterContext);
 
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [toastOpen, setToastOpen] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [toastOpen, setToastOpen] = useState(false);
 
-  const updatedCountRef = useRef<boolean>(false);
+  const updatedCountRef = useRef(false);
 
   const toastPortalRef = useRef<HTMLElement | null>(null);
-  const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const toastCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const toastAutoHideDurationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const toastOpenTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const toastCloseTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const toastAutoHideDurationTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
     const handleClose = () => {
       updatedCountRef.current = false;
-      onClose();
+      if (onClose && typeof onClose === 'function') onClose();
     };
 
     if (!updatedCountRef.current && open) {
@@ -133,6 +135,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
         bottom={bottom}
         edgeSpacing={edgeSpacing}
         transitionDuration={transitionDuration}
+        fullWidth={fullWidth}
         disablePadding={disablePadding}
         onClick={handleClick}
         css={customStyle}

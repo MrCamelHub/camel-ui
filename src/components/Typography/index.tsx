@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
 import type { HTMLAttributes, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
 
 import { useTheme } from '@theme';
 
@@ -17,6 +17,8 @@ export interface TypographyProps extends GenericComponentProps<HTMLAttributes<HT
   component?: TypographyComponent;
   brandColor?: BrandColor;
   weight?: keyof TypographyWeight;
+  noWrap?: boolean;
+  lineClamp?: number;
 }
 
 const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>>(
@@ -27,6 +29,8 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
       component,
       weight = 'regular',
       brandColor,
+      noWrap,
+      lineClamp,
       customStyle,
       ...props
     },
@@ -43,6 +47,8 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
         as={component || typography[variant].component}
         weight={weight}
         brandColor={brandColor}
+        noWrap={noWrap}
+        lineClamp={lineClamp}
         css={customStyle}
         {...props}
       >

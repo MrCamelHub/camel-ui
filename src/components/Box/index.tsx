@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
 import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
 
 import { StyledBox } from './Box.styles';
 import type { GenericComponentProps } from '../../types';

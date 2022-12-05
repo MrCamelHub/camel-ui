@@ -1,10 +1,9 @@
 import React from 'react';
 
+import useTheme from '@theme/provider/useTheme';
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Alert from '@components/Alert';
-
-import { ThemeProvider } from '@theme';
 
 export default {
   title: 'Components/Alert',
@@ -23,42 +22,42 @@ const AlertWrapper = styled.div`
 `;
 
 export function Default({ ...args }) {
-  return (
-    <ThemeProvider theme="light">
-      <Alert {...args}>Alert</Alert>
-    </ThemeProvider>
-  );
+  return <Alert {...args}>Alert</Alert>;
 }
 
 export function Rounds() {
   return (
-    <ThemeProvider theme="light">
-      <AlertWrapper>
-        <Alert round="0">round 0</Alert>
-        <Alert round="2">round 2</Alert>
-        <Alert round="4">round 4</Alert>
-        <Alert round="8">round 8</Alert>
-        <Alert round="16">round 16</Alert>
-        <Alert round="24">round 24</Alert>
-      </AlertWrapper>
-    </ThemeProvider>
+    <AlertWrapper>
+      <Alert round={0}>round 0</Alert>
+      <Alert round={2}>round 2</Alert>
+      <Alert round={4}>round 4</Alert>
+      <Alert round={8}>round 8</Alert>
+      <Alert round={16}>round 16</Alert>
+      <Alert round={24}>round 24</Alert>
+    </AlertWrapper>
   );
 }
 
 export function BrandColors() {
+  const {
+    theme: {
+      palette: { common }
+    }
+  } = useTheme();
   return (
-    <ThemeProvider theme="light">
-      <AlertWrapper>
-        <Alert brandColor="primary">primary</Alert>
-        <Alert brandColor="primary-dark">primary-dark</Alert>
-        <Alert brandColor="primary-light">primary-light</Alert>
-        <Alert brandColor="primary-highlight">primary-highlight</Alert>
-        <Alert brandColor="primary-bgLight">primary-highlight</Alert>
-        <Alert brandColor="red">red</Alert>
-        <Alert brandColor="purple">purple</Alert>
-        <Alert brandColor="gray">gray</Alert>
-        <Alert brandColor="black">black</Alert>
-      </AlertWrapper>
-    </ThemeProvider>
+    <AlertWrapper>
+      <Alert
+        brandColor="black"
+        customStyle={{
+          color: common.uiWhite
+        }}
+      >
+        black
+      </Alert>
+      <Alert brandColor="gray">gray</Alert>
+      <Alert brandColor="primary">primary</Alert>
+      <Alert brandColor="blue">blue</Alert>
+      <Alert brandColor="red">red</Alert>
+    </AlertWrapper>
   );
 }

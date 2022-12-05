@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { InputProps } from '.';
+import type { InputProps } from '.';
 
 export const StyledInput = styled.div<
   Pick<InputProps, 'variant' | 'size' | 'fullWidth'> & {
@@ -116,12 +116,12 @@ export const StyledInput = styled.div<
     let cssObject: CSSObject = {};
 
     switch (variant) {
-      case 'outlined':
+      case 'outline':
         cssObject = {
           borderColor: common.line01
         };
         break;
-      case 'contained':
+      case 'solid':
         cssObject = {
           backgroundColor: common.ui95
         };
@@ -192,7 +192,7 @@ export const StyledInput = styled.div<
     variant,
     focused
   }): CSSObject => {
-    if (focused && (variant === 'outlined' || variant === 'contained')) {
+    if (focused && (variant === 'outline' || variant === 'solid')) {
       return {
         borderColor: primary.main
       };
@@ -207,6 +207,7 @@ export const StyledInput = styled.div<
 `;
 
 export const BaseInput = styled.input`
+  width: 100%;
   flex-grow: 1;
   outline: 0;
   background-color: transparent;
@@ -218,4 +219,8 @@ export const BaseInput = styled.input`
       }
     }) => common.ui80};
   }
+`;
+
+export const Unit = styled.span`
+  white-space: nowrap;
 `;

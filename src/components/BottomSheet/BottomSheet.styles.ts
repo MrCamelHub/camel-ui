@@ -1,6 +1,8 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { BottomSheetProps } from '.';
+import { convertNumberToCSSValue } from '@utils';
+
+import type { BottomSheetProps } from '.';
 
 export const Wrapper = styled.div<
   Pick<BottomSheetProps, 'transitionDuration'> & { sheetOpen: boolean; sheetClose: boolean }
@@ -14,8 +16,7 @@ export const Wrapper = styled.div<
   z-index: ${({ theme: { zIndex } }) => zIndex.sheet};
   opacity: 0;
   visibility: hidden;
-  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
-    0ms;
+  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1);
   ${({ sheetOpen }): CSSObject =>
     sheetOpen
       ? {
@@ -32,21 +33,32 @@ export const Wrapper = styled.div<
 `;
 
 export const StyledBottomSheet = styled.div<
-  Pick<BottomSheetProps, 'transitionDuration'> & { sheetOpen: boolean; sheetClose: boolean }
+  Pick<BottomSheetProps, 'maxHeight' | 'fullScreen' | 'transitionDuration' | 'disableRound'> & {
+    sheetOpen: boolean;
+    sheetClose: boolean;
+  }
 >`
   width: 100%;
-  max-height: 90%;
+  max-height: ${({ maxHeight = '90%' }) => convertNumberToCSSValue(maxHeight)};
   display: flex;
   flex-direction: column;
   background-color: ${({ theme: { palette } }) => palette.common.bg01};
-  border-radius: 16px 16px 0 0;
+  border-radius: ${({ disableRound }) => (disableRound ? 0 : '16px 16px 0 0')};
+
+  ${({ fullScreen }): CSSObject =>
+    fullScreen
+      ? {
+          height: '100%'
+        }
+      : {}};
+
   box-shadow: ${({
     theme: {
       box: { shadow }
     }
   }) => shadow.modal};
   transition: transform ${({ transitionDuration }) => transitionDuration}ms
-    cubic-bezier(0, 0, 0.2, 1) 0ms;
+    cubic-bezier(0, 0, 0.2, 1);
   transform: translateY(100%);
   z-index: ${({ theme: { zIndex } }) => zIndex.sheet};
   ${({ sheetOpen }) =>

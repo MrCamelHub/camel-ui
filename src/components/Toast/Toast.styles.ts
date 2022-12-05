@@ -1,19 +1,24 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { ToastProps } from '.';
+import { convertNumberToCSSValue } from '@utils';
+
+import type { ToastProps } from '.';
 
 export const StyledToast = styled.div<
-  Pick<ToastProps, 'bottom' | 'edgeSpacing' | 'transitionDuration' | 'disablePadding'> & {
+  Pick<
+    ToastProps,
+    'bottom' | 'edgeSpacing' | 'transitionDuration' | 'fullWidth' | 'disablePadding'
+  > & {
     toastOpen: boolean;
     toastClose: boolean;
   }
 >`
   position: fixed;
   left: 50%;
-  bottom: ${({ bottom }) => bottom};
+  bottom: ${({ bottom = 0 }) => convertNumberToCSSValue(bottom)};
   transform: translateX(-50%);
   width: ${({ edgeSpacing }) => `calc(100% - ${(edgeSpacing || 0) * 2}px)`};
-  max-width: 335px;
+  max-width: ${({ fullWidth }) => (fullWidth ? 'auto' : '335px')};
   padding: 12px 20px;
   border-radius: 8px;
   background-color: ${({

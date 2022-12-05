@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { ConditionalSetGrid, GridProps } from '.';
+import type { ConditionalSetGrid, GridProps } from '.';
 
 export const StyledGrid = styled.div<
   Pick<

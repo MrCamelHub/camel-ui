@@ -1,11 +1,11 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 
 import { StyledTooltip, Wrapper } from './Tooltip.styles';
 import type { BrandColor, GenericComponentProps, Variant } from '../../types';
 
 export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
-  variant?: Extract<Variant, 'contained' | 'ghost'>;
+  variant?: Extract<Variant, 'solid' | 'ghost'>;
   open: boolean;
   message: ReactElement | string;
   brandColor?: Extract<BrandColor, 'black' | 'primary'>;
@@ -20,7 +20,7 @@ export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLD
 const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(function Tooltip(
   {
     children,
-    variant = 'contained',
+    variant = 'solid',
     open,
     message,
     placement = 'top',
@@ -28,22 +28,22 @@ const Tooltip = forwardRef<HTMLDivElement, PropsWithChildren<TooltipProps>>(func
     transitionDuration = 225,
     triangleLeft,
     brandColor = 'black',
-    disablePadding = false,
+    disablePadding,
     disableShadow = true,
     customStyle,
     ...props
   },
   ref
 ) {
-  const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const [tooltipWidth, setTooltipWidth] = useState<number>(0);
-  const [tooltipHeight, setTooltipHeight] = useState<number>(0);
+  const [tooltipWidth, setTooltipWidth] = useState(0);
+  const [tooltipHeight, setTooltipHeight] = useState(0);
 
-  const tooltipRef = useRef<HTMLDivElement | null>(null);
-  const tooltipOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const tooltipCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const tooltipOpenTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const tooltipCloseTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     if (open && !isMounted) {

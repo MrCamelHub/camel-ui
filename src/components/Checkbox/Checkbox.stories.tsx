@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
+import React, { useState } from 'react';
 
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Checkbox from '@components/Checkbox';
-
-import { ThemeProvider } from '@theme';
 
 export default {
   title: 'Components/Checkbox',
@@ -25,45 +23,37 @@ export function Default({ ...args }) {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Checkbox
-          checked={checked}
-          onChange={(event: ChangeEvent<HTMLInputElement>) =>
-            setChecked(event.currentTarget.checked)
-          }
-          {...args}
-        />
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Checkbox
+        checked={checked}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => setChecked(event.currentTarget.checked)}
+        {...args}
+      />
+    </Wrapper>
   );
 }
 
 export function DefaultCheckMarker() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Checkbox hideDefaultCheckMarker={false} />
-        <Checkbox isRound={false} hideDefaultCheckMarker={false} />
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Checkbox hideDefaultCheckMarker={false} />
+      <Checkbox isRound={false} hideDefaultCheckMarker={false} />
+    </Wrapper>
   );
 }
 
 export function Rounds() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Checkbox />
-        <Checkbox isRound={false} />
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Checkbox />
+      <Checkbox isRound={false} />
+    </Wrapper>
   );
 }
 
 export function BrandColors() {
   return (
-    <ThemeProvider theme="light">
+    <>
       <Wrapper>
         <Checkbox brandColor="primary" />
         <Checkbox brandColor="primary" checked />
@@ -72,6 +62,6 @@ export function BrandColors() {
         <Checkbox isRound={false} brandColor="primary" />
         <Checkbox isRound={false} brandColor="primary" checked />
       </Wrapper>
-    </ThemeProvider>
+    </>
   );
 }

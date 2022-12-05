@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
 import type { InputHTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Marker, StyledRadio, Wrapper } from './Radio.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';

@@ -5,8 +5,6 @@ import styled from '@emotion/styled';
 import Icon from '@components/Icon';
 import Button from '@components/Button';
 
-import { ThemeProvider } from '@theme';
-
 export default {
   title: 'Components/Button',
   component: Button
@@ -31,177 +29,384 @@ const ColWrapper = styled(Wrapper)`
 `;
 
 export function Default({ ...args }) {
-  return (
-    <ThemeProvider theme="light">
-      <Button {...args}>Button</Button>
-    </ThemeProvider>
-  );
+  return <Button {...args}>Button</Button>;
 }
 
 export function Variants() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Button variant="inline" brandColor="primary">
-          inline
-        </Button>
-        <Button variant="outlined" brandColor="primary">
-          outlined
-        </Button>
-        <Button variant="ghost" brandColor="primary">
-          ghost
-        </Button>
-        <Button variant="outlinedGhost" brandColor="primary">
-          outlinedGhost
-        </Button>
-        <Button variant="contained" brandColor="primary">
-          contained
-        </Button>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Button variant="inline" brandColor="primary">
+        inline
+      </Button>
+      <Button variant="outline" brandColor="primary">
+        outline
+      </Button>
+      <Button variant="ghost" brandColor="primary">
+        ghost
+      </Button>
+      <Button variant="outlineGhost" brandColor="primary">
+        outlineGhost
+      </Button>
+      <Button variant="solid" brandColor="primary">
+        solid
+      </Button>
+    </Wrapper>
   );
 }
 
 export function BrandColors() {
   return (
-    <ThemeProvider theme="light">
+    <>
       <p>inline</p>
       <Wrapper>
         <Button variant="inline" brandColor="black">
           black
         </Button>
-        <Button variant="inline" brandColor="primary">
-          primary
-        </Button>
-        <Button variant="inline" brandColor="primary-light">
-          primary-light
-        </Button>
         <Button variant="inline" brandColor="gray">
           gray
         </Button>
-      </Wrapper>
-      <p>outlined</p>
-      <Wrapper>
-        <Button variant="outlined" brandColor="black">
-          black
-        </Button>
-        <Button variant="outlined" brandColor="primary">
+        <Button variant="inline" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlined" brandColor="primary-light">
-          primary-light
+        <Button variant="inline" brandColor="blue">
+          blue
         </Button>
-        <Button variant="outlined" brandColor="gray">
-          gray
-        </Button>
+      </Wrapper>
+      <p>outline</p>
+      <Wrapper>
+        <Button brandColor="black">black</Button>
+        <Button brandColor="gray">gray</Button>
+        <Button brandColor="primary">primary</Button>
+        <Button brandColor="blue">blue</Button>
       </Wrapper>
       <p>ghost</p>
       <Wrapper>
         <Button variant="ghost" brandColor="black">
           black
         </Button>
-        <Button variant="ghost" brandColor="primary">
-          primary
-        </Button>
-        <Button variant="ghost" brandColor="primary-light">
-          primary-light
-        </Button>
         <Button variant="ghost" brandColor="gray">
           gray
         </Button>
-      </Wrapper>
-      <p>outlinedGhost</p>
-      <Wrapper>
-        <Button variant="outlinedGhost" brandColor="black">
-          black
-        </Button>
-        <Button variant="outlinedGhost" brandColor="primary">
+        <Button variant="ghost" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlinedGhost" brandColor="primary-light">
-          primary-light
-        </Button>
-        <Button variant="outlinedGhost" brandColor="gray">
-          gray
+        <Button variant="ghost" brandColor="blue">
+          blue
         </Button>
       </Wrapper>
-      <p>contained</p>
+      <p>outlineGhost</p>
       <Wrapper>
-        <Button variant="contained" brandColor="black">
+        <Button variant="outlineGhost" brandColor="black">
           black
         </Button>
-        <Button variant="contained" brandColor="primary">
-          primary
-        </Button>
-        <Button variant="contained" brandColor="primary-light">
-          primary-light
-        </Button>
-        <Button variant="contained" brandColor="gray">
+        <Button variant="outlineGhost" brandColor="gray">
           gray
         </Button>
+        <Button variant="outlineGhost" brandColor="primary">
+          primary
+        </Button>
+        <Button variant="outlineGhost" brandColor="blue">
+          blue
+        </Button>
       </Wrapper>
-    </ThemeProvider>
+      <p>solid</p>
+      <Wrapper>
+        <Button variant="solid" brandColor="black">
+          black
+        </Button>
+        <Button variant="solid" brandColor="gray">
+          gray
+        </Button>
+        <Button variant="solid" brandColor="primary">
+          primary
+        </Button>
+        <Button variant="solid" brandColor="blue">
+          blue
+        </Button>
+      </Wrapper>
+    </>
   );
 }
 
 export function Sizes() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Button size="small" variant="contained" brandColor="primary">
-          small
-        </Button>
-        <Button size="medium" variant="contained" brandColor="primary">
-          medium
-        </Button>
-        <Button size="large" variant="contained" brandColor="primary">
-          large
-        </Button>
-        <Button size="xlarge" variant="contained" brandColor="primary">
-          xlarge
-        </Button>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Button
+        size="small"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
+        small
+      </Button>
+      <Button
+        size="medium"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
+        medium
+      </Button>
+      <Button
+        size="large"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
+        large
+      </Button>
+      <Button
+        size="xlarge"
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
+        xlarge
+      </Button>
+    </Wrapper>
   );
 }
 
 export function FullWidths() {
   return (
-    <ThemeProvider theme="light">
-      <ColWrapper>
-        <Button fullWidth variant="contained" brandColor="primary">
-          Button
-        </Button>
-      </ColWrapper>
-    </ThemeProvider>
+    <ColWrapper>
+      <Button fullWidth variant="solid" brandColor="primary">
+        Button
+      </Button>
+    </ColWrapper>
   );
 }
 
 export function Icons() {
   return (
-    <ThemeProvider theme="light">
+    <Wrapper>
+      <Button
+        variant="solid"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+      >
+        Button
+      </Button>
+    </Wrapper>
+  );
+}
+
+export function IconOnly() {
+  return (
+    <Wrapper>
+      <Button variant="solid" brandColor="primary" startIcon={<Icon name="AlarmFilled" />} iconOnly>
+        Button
+      </Button>
+    </Wrapper>
+  );
+}
+
+export function SubTexts() {
+  return (
+    <>
+      <p>xlarge</p>
       <Wrapper>
         <Button
-          variant="contained"
-          brandColor="primary"
+          variant="inline"
+          brandColor="black"
+          size="xlarge"
           startIcon={<Icon name="AlarmFilled" />}
           endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="gray"
+          size="xlarge"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="primary"
+          size="xlarge"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="blue"
+          size="xlarge"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
         >
           Button
         </Button>
       </Wrapper>
-    </ThemeProvider>
+      <p>large</p>
+      <Wrapper>
+        <Button
+          variant="inline"
+          brandColor="black"
+          size="large"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="gray"
+          size="large"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="primary"
+          size="large"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="blue"
+          size="large"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+      </Wrapper>
+      <p>medium</p>
+      <Wrapper>
+        <Button
+          variant="inline"
+          brandColor="black"
+          size="medium"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="gray"
+          size="medium"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="primary"
+          size="medium"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="blue"
+          size="medium"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+      </Wrapper>
+      <p>small</p>
+      <Wrapper>
+        <Button
+          variant="inline"
+          brandColor="black"
+          size="small"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="gray"
+          size="small"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="primary"
+          size="small"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+        <Button
+          variant="inline"
+          brandColor="blue"
+          size="small"
+          startIcon={<Icon name="AlarmFilled" />}
+          endIcon={<Icon name="CloseOutlined" />}
+          subText={123}
+        >
+          Button
+        </Button>
+      </Wrapper>
+    </>
+  );
+}
+
+export function DisablePadding() {
+  return (
+    <Wrapper>
+      <Button
+        variant="inline"
+        brandColor="primary"
+        startIcon={<Icon name="AlarmFilled" />}
+        endIcon={<Icon name="CloseOutlined" />}
+        disablePadding
+      >
+        Button
+      </Button>
+    </Wrapper>
   );
 }
 
 export function Status() {
   return (
-    <ThemeProvider theme="light">
-      <Wrapper>
-        <Button size="medium" variant="contained" brandColor="primary" disabled>
-          disabled
-        </Button>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <Button size="medium" variant="solid" brandColor="primary" disabled>
+        disabled
+      </Button>
+    </Wrapper>
   );
 }

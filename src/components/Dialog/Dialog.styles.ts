@@ -1,6 +1,6 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { DialogProps } from '.';
+import type { DialogProps } from '.';
 
 export const Wrapper = styled.div<
   Pick<DialogProps, 'fullScreen' | 'transitionDuration'> & {
@@ -26,8 +26,7 @@ export const Wrapper = styled.div<
   z-index: ${({ theme: { zIndex } }) => zIndex.dialog};
   opacity: 0;
   visibility: hidden;
-  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
-    0ms;
+  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1);
 
   ${({ dialogOpen }): CSSObject =>
     dialogOpen
@@ -45,7 +44,7 @@ export const Wrapper = styled.div<
 `;
 
 export const StyledDialog = styled.div<
-  Pick<DialogProps, 'fullScreen' | 'transitionDuration' | 'disablePadding'> & {
+  Pick<DialogProps, 'fullWidth' | 'fullScreen' | 'transitionDuration' | 'disablePadding'> & {
     dialogOpen: boolean;
     dialogClose: boolean;
   }
@@ -54,7 +53,6 @@ export const StyledDialog = styled.div<
 
   ${({ disablePadding }): CSSObject => (disablePadding ? { padding: 0 } : {})}
 
-  border: 1px solid ${({ theme: { palette } }) => palette.common.ui90};
   background-color: ${({ theme: { palette } }) => palette.common.bg01};
   box-shadow: ${({
     theme: {
@@ -77,11 +75,19 @@ export const StyledDialog = styled.div<
           height: '100%'
         }};
 
+  ${({ fullWidth }): CSSObject =>
+    fullWidth
+      ? {
+          width: '100%'
+        }
+      : {}}
+
   opacity: 0;
   visibility: hidden;
-  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1)
-    0ms;
+  transition: opacity ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1),
+    transform ${({ transitionDuration }) => transitionDuration}ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   z-index: ${({ theme: { zIndex } }) => zIndex.dialog};
+  overflow-y: auto;
 
   ${({ dialogOpen }): CSSObject =>
     dialogOpen

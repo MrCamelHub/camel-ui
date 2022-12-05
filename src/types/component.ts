@@ -1,13 +1,12 @@
 import type { ElementType, ReactElement } from 'react';
 
-import type { Theme as EmotionTheme } from '@emotion/react';
-import type { InterpolationWithTheme } from '@emotion/core';
+import type { Theme as EmotionTheme, Interpolation } from '@emotion/react';
 
 import type { Color } from './css';
 import type * as SvgIcons from '../assets/icons';
 
-export type Variant = 'outlined' | 'ghost' | 'outlinedGhost' | 'contained' | 'inline';
-export type BrandColor = 'gray' | 'black' | 'primary' | 'red' | 'purple';
+export type Variant = 'outline' | 'ghost' | 'outlineGhost' | 'solid' | 'inline';
+export type BrandColor = 'gray' | 'black' | 'primary' | 'blue' | 'red';
 export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
 export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', Color>;
 export type CommonPalette = Record<
@@ -63,7 +62,7 @@ export type TypographyWeight = {
 };
 export type BoxRoundKey = '0' | '2' | '4' | '8' | '16' | '24';
 
-export type CustomStyle = InterpolationWithTheme<EmotionTheme>;
+export type CustomStyle = Interpolation<EmotionTheme>;
 
 export type GenericComponentProps<T> = T & {
   customStyle?: CustomStyle;
