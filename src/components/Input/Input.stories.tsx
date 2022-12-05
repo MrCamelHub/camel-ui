@@ -69,7 +69,7 @@ export function Unit() {
       startAdornment={<Icon name="SearchOutlined" />}
       endAdornment={<Icon name="DeleteCircleFilled" />}
       placeholder="Text"
-      unit="원"
+      unit="만원 이하"
     />
   );
 }

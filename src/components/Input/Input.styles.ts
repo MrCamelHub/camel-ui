@@ -207,6 +207,7 @@ export const StyledInput = styled.div<
 `;
 
 export const BaseInput = styled.input`
+  width: 100%;
   flex-grow: 1;
   outline: 0;
   background-color: transparent;
@@ -218,4 +219,8 @@ export const BaseInput = styled.input`
       }
     }) => common.ui80};
   }
+`;
+
+export const Unit = styled.span`
+  white-space: nowrap;
 `;

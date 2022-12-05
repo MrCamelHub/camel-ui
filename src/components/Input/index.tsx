@@ -1,7 +1,7 @@
 import type { InputHTMLAttributes, ReactElement } from 'react';
 import React, { forwardRef, useState } from 'react';
 
-import { BaseInput, StyledInput } from './Input.styles';
+import { BaseInput, StyledInput, Unit } from './Input.styles';
 import { CustomStyle, GenericComponentProps, Size, Variant } from '../../types';
 
 export interface InputProps
@@ -45,7 +45,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     >
       {startAdornment}
       <BaseInput {...props} css={inputCustomStyle} onFocus={handleFocus} onBlur={handleBlur} />
-      {unit}
+      {unit && <Unit>{unit}</Unit>}
       {endAdornment}
     </StyledInput>
   );
