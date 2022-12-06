@@ -23,7 +23,10 @@ export function getBrandColorCodeByColorName(
 }
 
 export function convertNumberToCSSValue(value: CSSValue, unit?: string) {
-  if (typeof value === 'number' || typeof Number(value) === 'number') {
+  if (
+    typeof value === 'number' ||
+    (!Number.isNaN(Number(value)) && typeof Number(value) === 'number')
+  ) {
     return `${value}${unit || 'px'}`;
   }
   return value;

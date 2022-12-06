@@ -1,4 +1,4 @@
-import type { ImgHTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import React, { ReactElement, forwardRef, useEffect, useState } from 'react';
 
 import Skeleton from '@components/Skeleton';
@@ -7,7 +7,11 @@ import Icon from '@components/Icon';
 import { AvatarWrapper, StyledAvatar } from './Avatar.styles';
 import type { CSSValue, GenericComponentProps, IconName } from '../../types';
 
-export interface AvatarProps extends GenericComponentProps<ImgHTMLAttributes<HTMLImageElement>> {
+export interface AvatarProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
+  src: string;
+  alt: string;
+  width?: CSSValue;
+  height?: CSSValue;
   round?: CSSValue;
   disableSkeleton?: boolean;
   fallbackElement?: ReactElement;
@@ -45,7 +49,7 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
   const handleError = () => setLoadFailed(true);
 
   useEffect(() => {
-    if (!disableSkeleton && src) {
+    if (!disableSkeleton) {
       const img = new window.Image();
       img.src = src;
       img.onload = () => setLoaded(true);
@@ -56,10 +60,16 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
   }, [disableSkeleton, src]);
 
   return (
-    <AvatarWrapper round={round} dataWidth={width} dataHeight={height}>
-      {!loadFailed && (
+    <AvatarWrapper
+      ref={ref}
+      dataWidth={width}
+      dataHeight={height}
+      round={round}
+      {...props}
+      css={customStyle}
+    >
+      {src && !loadFailed && (
         <StyledAvatar
-          ref={ref}
           width={width}
           height={height}
           src={src}
@@ -67,8 +77,6 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
           round={round}
           onLoad={handleLoad}
           onError={handleError}
-          {...props}
-          css={customStyle}
         />
       )}
       {!disableSkeleton && !loaded && !loadFailed && (

@@ -40,8 +40,8 @@ const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(function Skeleton(
     return (
       <StyledSkeleton
         ref={ref}
-        customWidth={width}
-        customHeight={height}
+        dataWidth={width}
+        dataHeight={height}
         maxWidth={maxWidth}
         maxHeight={maxHeight}
         minWidth={minWidth}
