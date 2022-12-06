@@ -17,3 +17,7 @@ export function Default({ ...args }) {
     />
   );
 }
+
+export function Fallback({ ...args }) {
+  return <Avatar {...args} src="" alt="Platform Logo Img" />;
+}

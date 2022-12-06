@@ -225,8 +225,15 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
 
   return (
     <div ref={imageRef}>
-      <RatioImageBox ref={ref} dataWidth={width} dataHeight={height} round={round}>
-        <RatioImageWrapper ratio={ratio} {...props} css={customStyle}>
+      <RatioImageBox
+        ref={ref}
+        dataWidth={width}
+        dataHeight={height}
+        round={round}
+        {...props}
+        css={customStyle}
+      >
+        <RatioImageWrapper ratio={ratio}>
           <RatioImageInner>
             {disableLazyLoad && !loadFailed && (
               <RatioImg
@@ -263,7 +270,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
               </SkeletonWrapper>
             )}
             {loadFailed && fallbackElement && <FallbackWrapper>{fallbackElement}</FallbackWrapper>}
-            {loadFailed && !fallbackElement && fallbackIcon && (
+            {loadFailed && !fallbackElement && (
               <FallbackWrapper>
                 <Icon
                   name={fallbackIcon.name}

@@ -16,4 +16,9 @@ export type Color =
 
 export type AbsoluteUnit = 'cm' | 'mm' | 'in' | 'px' | 'pt' | 'pc';
 export type RelativeUnit = 'em' | 'ex' | 'ch' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax' | '%';
-export type CSSValue = number | `${number}${AbsoluteUnit | RelativeUnit}` | 'auto' | 'fit-content';
+export type CSSValue =
+  | number
+  | string
+  | `${number}${AbsoluteUnit | RelativeUnit}`
+  | 'auto'
+  | 'fit-content';

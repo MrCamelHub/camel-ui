@@ -22,8 +22,8 @@ export function getBrandColorCodeByColorName(
   return colorCode;
 }
 
-export function convertNumberToCSSValue(value: string | CSSValue, unit?: string) {
-  if (typeof value === 'number') {
+export function convertNumberToCSSValue(value: CSSValue, unit?: string) {
+  if (typeof value === 'number' || typeof Number(value) === 'number') {
     return `${value}${unit || 'px'}`;
   }
   return value;

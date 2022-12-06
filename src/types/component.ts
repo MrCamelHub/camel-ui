@@ -1,6 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 
-import type { Theme as EmotionTheme, Interpolation } from '@emotion/react';
+import type { CSSObject } from '@emotion/styled';
 
 import type { Color } from './css';
 import type * as SvgIcons from '../assets/icons';
@@ -62,7 +62,7 @@ export type TypographyWeight = {
 };
 export type BoxRoundKey = '0' | '2' | '4' | '8' | '16' | '24';
 
-export type CustomStyle = Interpolation<EmotionTheme>;
+export type CustomStyle = CSSObject;
 
 export type GenericComponentProps<T> = T & {
   customStyle?: CustomStyle;

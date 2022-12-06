@@ -38,6 +38,15 @@ export function BrandColors() {
 
   return (
     <>
+      <p>black</p>
+      <Wrapper>
+        <TabGroup onChange={handleChange} value={value}>
+          <Tab text="Tab1" value="tab1" />
+          <Tab text="Tab2" value="tab2" />
+          <Tab text="Tab3" value="tab3" />
+        </TabGroup>
+      </Wrapper>
+      <p>primary</p>
       <Wrapper>
         <TabGroup brandColor="primary" onChange={handleChange} value={value}>
           <Tab text="Tab1" value="tab1" />
@@ -45,8 +54,28 @@ export function BrandColors() {
           <Tab text="Tab3" value="tab3" />
         </TabGroup>
       </Wrapper>
+    </>
+  );
+}
+
+export function Sizes() {
+  const [value, setValue] = useState<string | number>('tab1');
+
+  const handleChange = (newValue: string | number) => setValue(newValue);
+
+  return (
+    <>
+      <p>large</p>
       <Wrapper>
         <TabGroup onChange={handleChange} value={value}>
+          <Tab text="Tab1" value="tab1" />
+          <Tab text="Tab2" value="tab2" />
+          <Tab text="Tab3" value="tab3" />
+        </TabGroup>
+      </Wrapper>
+      <p>xlarge</p>
+      <Wrapper>
+        <TabGroup size="xlarge" onChange={handleChange} value={value}>
           <Tab text="Tab1" value="tab1" />
           <Tab text="Tab2" value="tab2" />
           <Tab text="Tab3" value="tab3" />
@@ -77,6 +106,20 @@ export function HideIndicators() {
 
   return (
     <TabGroup hideIndicator onChange={handleChange} value={value}>
+      <Tab text="Tab1" value="tab1" />
+      <Tab text="Tab2" value="tab2" />
+      <Tab text="Tab3" value="tab3" />
+    </TabGroup>
+  );
+}
+
+export function HideLine() {
+  const [value, setValue] = useState<string | number>('tab1');
+
+  const handleChange = (newValue: string | number) => setValue(newValue);
+
+  return (
+    <TabGroup hideLine onChange={handleChange} value={value}>
       <Tab text="Tab1" value="tab1" />
       <Tab text="Tab2" value="tab2" />
       <Tab text="Tab3" value="tab3" />

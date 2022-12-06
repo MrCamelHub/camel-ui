@@ -46,6 +46,7 @@ const Badge = forwardRef<HTMLDivElement, BadgeProps>(function Badge(
         brandColor={brandColor}
         disablePositionAbsolute
         {...props}
+        css={customStyle}
       >
         {text}
       </StyledBadge>
