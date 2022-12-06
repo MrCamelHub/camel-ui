@@ -14,6 +14,7 @@ export interface AvatarProps extends GenericComponentProps<HTMLAttributes<HTMLDi
   height?: CSSValue;
   round?: CSSValue;
   disableSkeleton?: boolean;
+  disableSkeletonAnimation?: boolean;
   fallbackElement?: ReactElement;
   fallbackIcon?: {
     name: IconName;
@@ -31,6 +32,7 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
     customStyle,
     round = 4,
     disableSkeleton,
+    disableSkeletonAnimation,
     fallbackElement,
     fallbackIcon = {
       name: 'ImageOutlined',
@@ -84,6 +86,7 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
           width="100%"
           height="100%"
           disableAspectRatio
+          disableAnimation={disableSkeletonAnimation}
           customStyle={{
             position: 'absolute',
             top: 0,

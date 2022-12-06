@@ -19,11 +19,6 @@ export const AvatarWrapper = styled.div<
   overflow: hidden;
   width: ${({ dataWidth }) => (dataWidth ? convertNumberToCSSValue(dataWidth) : 'auto')};
   height: ${({ dataHeight }) => (dataHeight ? convertNumberToCSSValue(dataHeight) : 'auto')};
-  background-color: ${({
-    theme: {
-      palette: { common }
-    }
-  }) => common.ui95};
 
   ${({ round }): CSSObject =>
     round

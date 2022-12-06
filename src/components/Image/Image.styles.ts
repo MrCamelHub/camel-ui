@@ -28,12 +28,6 @@ export const RatioImageWrapper = styled.div<Pick<ImageProps, 'ratio'>>`
   position: relative;
   overflow: hidden;
 
-  background-color: ${({
-    theme: {
-      palette: { common }
-    }
-  }) => common.ui95};
-
   ${({ ratio }): CSSObject => {
     switch (ratio) {
       case '4:3':
@@ -61,8 +55,8 @@ export const RatioImageInner = styled.div`
   transform: translate(50%, 50%);
 `;
 
-export const ImageWrapper = styled.div<
-  Pick<ImageProps, 'round'> & {
+export const BackgroundImageWrapper = styled.div<
+  Pick<ImageProps, 'ratio' | 'round' | 'disableAspectRatio'> & {
     dataWidth?: CSSValue;
     dataHeight?: CSSValue;
   }
@@ -73,57 +67,6 @@ export const ImageWrapper = styled.div<
   justify-content: center;
   overflow: hidden;
 
-  width: ${({ dataWidth }) => (dataWidth ? convertNumberToCSSValue(dataWidth) : 'auto')};
-  height: ${({ dataHeight }) => (dataHeight ? convertNumberToCSSValue(dataHeight) : 'auto')};
-
-  background-color: ${({
-    theme: {
-      palette: { common }
-    }
-  }) => common.ui95};
-
-  ${({ round }): CSSObject =>
-    round
-      ? {
-          borderRadius: round
-        }
-      : {}};
-`;
-
-export const RatioImg = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  transform: translate(-50%, -50%);
-`;
-
-export const FallbackWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  height: auto;
-  transform: translate(-50%, -50%);
-`;
-
-export const SkeletonWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
-
-export const BackgroundImg = styled.div<
-  Pick<ImageProps, 'ratio' | 'alt' | 'disableAspectRatio'> & {
-    dataSrc?: string;
-    dataWidth?: CSSValue;
-    dataHeight?: CSSValue;
-  }
->`
   ${({ disableAspectRatio, dataWidth, dataHeight, ratio }): CSSObject => {
     if (disableAspectRatio) {
       return {
@@ -171,8 +114,93 @@ export const BackgroundImg = styled.div<
 
     return cssObject;
   }}
+
+  ${({ round }): CSSObject =>
+    round
+      ? {
+          borderRadius: round
+        }
+      : {}};
+`;
+
+export const ImageWrapper = styled.div<
+  Pick<ImageProps, 'round'> & {
+    dataWidth?: CSSValue;
+    dataHeight?: CSSValue;
+  }
+>`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  width: ${({ dataWidth }) => (dataWidth ? convertNumberToCSSValue(dataWidth) : 'auto')};
+  height: ${({ dataHeight }) => (dataHeight ? convertNumberToCSSValue(dataHeight) : 'auto')};
+
+  ${({ round }): CSSObject =>
+    round
+      ? {
+          borderRadius: round
+        }
+      : {}};
+`;
+
+export const RatioImg = styled.img<{
+  loaded: boolean;
+  loadFailed: boolean;
+}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  transform: translate(-50%, -50%);
+
+  visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
+`;
+
+export const Img = styled.img<{
+  loaded: boolean;
+  loadFailed: boolean;
+}>`
+  visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
+`;
+
+export const FallbackWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+  transform: translate(-50%, -50%);
+`;
+
+export const SkeletonWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+export const BackgroundImg = styled.div<
+  Pick<ImageProps, 'alt'> & {
+    dataSrc: string;
+    loaded: boolean;
+    loadFailed: boolean;
+  }
+>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url(${({ dataSrc }) => dataSrc});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
 `;
