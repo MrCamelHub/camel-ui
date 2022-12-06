@@ -4,7 +4,7 @@ import type { ComponentMeta } from '@storybook/react';
 import Avatar from '@components/Avatar';
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Experiment/Avatar',
   component: Avatar
 } as ComponentMeta<typeof Avatar>;
 
@@ -16,4 +16,8 @@ export function Default({ ...args }) {
       alt="Platform Logo Img"
     />
   );
+}
+
+export function Fallback({ ...args }) {
+  return <Avatar {...args} src="" alt="Platform Logo Img" />;
 }

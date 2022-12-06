@@ -78,15 +78,15 @@ export const StyledSkeleton = styled.div<
     | 'disableAspectRatio'
     | 'disableAnimation'
   > & {
-    customWidth?: CSSValue;
-    customHeight?: CSSValue;
+    dataWidth?: CSSValue;
+    dataHeight?: CSSValue;
   }
 >`
   position: relative;
   overflow: hidden;
 
-  ${({ customWidth }) => (customWidth ? `width: ${convertNumberToCSSValue(customWidth)}` : '')};
-  ${({ customHeight }) => (customHeight ? `height: ${convertNumberToCSSValue(customHeight)}` : '')};
+  ${({ dataWidth }) => (dataWidth ? `width: ${convertNumberToCSSValue(dataWidth)}` : '')};
+  ${({ dataHeight }) => (dataHeight ? `height: ${convertNumberToCSSValue(dataHeight)}` : '')};
   ${({ maxWidth }) => (maxWidth ? `max-width: ${convertNumberToCSSValue(maxWidth)}` : '')};
   ${({ maxHeight }) => (maxHeight ? `max-height: ${convertNumberToCSSValue(maxHeight)}` : '')};
   ${({ minWidth }) => (minWidth ? `min-width: ${convertNumberToCSSValue(minWidth)}` : '')};

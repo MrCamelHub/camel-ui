@@ -34,9 +34,9 @@ export function BrandColors() {
 }
 
 export function FullWidths() {
-  return <Tab brandColor="primary" text="Tab" value="tab" selected fullWidth />;
+  return <Tab text="Tab" value="tab" selected fullWidth />;
 }
 
-export function HideIndicators() {
-  return <Tab brandColor="primary" text="Tab" value="tab" selected hideIndicator />;
+export function HideIndicator() {
+  return <Tab text="Tab" value="tab" selected hideIndicator />;
 }

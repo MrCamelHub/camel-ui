@@ -6,12 +6,11 @@ import { getBrandColorCodeByColorName } from '@utils';
 import type { TabProps } from '.';
 
 export const StyledTab = styled.button<
-  Pick<TabProps, 'brandColor' | 'selected' | 'fullWidth' | 'hideIndicator'>
+  Pick<TabProps, 'brandColor' | 'size' | 'selected' | 'fullWidth' | 'hideIndicator'>
 >`
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  height: 40px;
   border-bottom: 2px solid transparent;
   justify-content: center;
   color: ${({
@@ -21,15 +20,56 @@ export const StyledTab = styled.button<
   }) => common.ui60};
   ${({
     theme: {
-      typography: { h4 }
+      typography: { h3, h4 }
+    },
+    size
+  }): CSSObject => {
+    switch (size) {
+      case 'xlarge':
+        return {
+          height: 44,
+          fontSize: h3.size,
+          fontWeight: h3.weight.regular,
+          lineHeight: h3.lineHeight,
+          letterSpacing: h3.letterSpacing
+        };
+      default:
+        return {
+          height: 40,
+          fontSize: h4.size,
+          fontWeight: h4.weight.regular,
+          lineHeight: h4.lineHeight,
+          letterSpacing: h4.letterSpacing
+        };
     }
-  }): CSSObject => ({
-    fontSize: h4.size,
-    fontWeight: h4.weight.regular,
-    lineHeight: h4.lineHeight,
-    letterSpacing: h4.letterSpacing
-  })};
+  }};
 
+  &.size-large {
+    ${({
+      theme: {
+        typography: { h4 }
+      }
+    }): CSSObject => ({
+      height: 40,
+      fontSize: h4.size,
+      fontWeight: h4.weight.regular,
+      lineHeight: h4.lineHeight,
+      letterSpacing: h4.letterSpacing
+    })};
+  }
+  &.size-xlarge {
+    ${({
+      theme: {
+        typography: { h3 }
+      }
+    }): CSSObject => ({
+      height: 44,
+      fontSize: h3.size,
+      fontWeight: h3.weight.regular,
+      lineHeight: h3.lineHeight,
+      letterSpacing: h3.letterSpacing
+    })};
+  }
   &.selected {
     color: ${({
       theme: {

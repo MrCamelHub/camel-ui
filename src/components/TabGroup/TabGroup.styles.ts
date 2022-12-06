@@ -4,19 +4,37 @@ import { getBrandColorCodeByColorName } from '@utils';
 
 import type { TabGroupProps } from '.';
 
-export const StyledTabGroup = styled.div<Pick<TabGroupProps, 'fullWidth'>>`
-  width: fit-content;
-
-  ${({ fullWidth }): CSSObject => (fullWidth ? { width: '100%' } : {})};
+export const StyledTabGroup = styled.div`
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
 `;
 
 export const TabGroupInner = styled.div<
-  Pick<TabGroupProps, 'brandColor' | 'fullWidth' | 'hideIndicator'>
+  Pick<TabGroupProps, 'brandColor' | 'fullWidth' | 'hideIndicator' | 'hideLine'>
 >`
   display: flex;
   align-items: center;
   gap: 20px;
   width: fit-content;
+  ${({
+    theme: {
+      palette: { common }
+    },
+    hideLine
+  }): CSSObject =>
+    !hideLine
+      ? {
+          borderBottom: `1px solid ${common.line01}`
+        }
+      : {}}
 
   ${({ theme, brandColor }): CSSObject => ({
     '& > button.selected': {

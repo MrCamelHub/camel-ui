@@ -2,23 +2,27 @@ import type { HTMLAttributes, MouseEvent } from 'react';
 import React, { forwardRef, useEffect, useRef } from 'react';
 
 import { StyledTabGroup, TabGroupInner } from './TabGroup.styles';
-import type { BrandColor, GenericComponentProps } from '../../types';
+import type { BrandColor, GenericComponentProps, Size } from '../../types';
 
 export interface TabGroupProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'onChange'>> {
   brandColor?: Extract<BrandColor, 'primary' | 'black'>;
+  size?: Extract<Size, 'large' | 'xlarge'>;
   onChange: (value: number | string, event: MouseEvent<HTMLDivElement>) => void;
   value: number | string;
   fullWidth?: boolean;
   hideIndicator?: boolean;
+  hideLine?: boolean;
 }
 
 const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(function Tabs(
   {
     children,
     brandColor = 'black',
+    size = 'large',
     fullWidth,
     hideIndicator,
+    hideLine,
     onChange,
     value,
     customStyle,
@@ -43,13 +47,32 @@ const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(function Tabs(
   };
 
   useEffect(() => {
+    if (tabsInnerRef.current) {
+      const { children: childrenEl } = tabsInnerRef.current;
+
+      for (let i = 0; i < childrenEl.length; i += 1) {
+        childrenEl[i].className = childrenEl[i].className
+          .replace(/ size-large/g, '')
+          .replace(/ size-xlarge/g, '');
+
+        childrenEl[i].className = `${childrenEl[i].className} size-${size}`;
+      }
+    }
+  }, [size, value]);
+
+  useEffect(() => {
     if (tabsInnerRef.current && (!isMountedRef.current || prevValueRef.current !== value)) {
       isMountedRef.current = true;
 
       const { children: childrenEl } = tabsInnerRef.current;
 
       for (let i = 0; i < childrenEl.length; i += 1) {
-        childrenEl[i].className = childrenEl[i].className.replace(/ selected/g, '');
+        childrenEl[i].className = childrenEl[i].className
+          .replace(/ selected/g, '')
+          .replace(/ size-large/g, '')
+          .replace(/ size-xlarge/g, '');
+
+        childrenEl[i].className = `${childrenEl[i].className} size-${size}`;
 
         const dataValue = childrenEl[i].getAttribute('data-value');
 
@@ -62,22 +85,16 @@ const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(function Tabs(
     }
 
     prevValueRef.current = value;
-  }, [value]);
+  }, [value, size]);
 
   return (
-    <StyledTabGroup
-      ref={ref}
-      fullWidth={fullWidth}
-      onClick={handleClick}
-      {...props}
-      css={customStyle}
-      role="tablist"
-    >
+    <StyledTabGroup ref={ref} onClick={handleClick} {...props} css={customStyle} role="tablist">
       <TabGroupInner
         ref={tabsInnerRef}
         brandColor={brandColor}
         fullWidth={fullWidth}
         hideIndicator={hideIndicator}
+        hideLine={hideLine}
       >
         {children}
       </TabGroupInner>
