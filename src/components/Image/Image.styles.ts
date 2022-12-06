@@ -146,10 +146,12 @@ export const ImageWrapper = styled.div<
       : {}};
 `;
 
-export const RatioImg = styled.img<{
-  loaded: boolean;
-  loadFailed: boolean;
-}>`
+export const RatioImg = styled.img<
+  Pick<ImageProps, 'width' | 'height'> & {
+    loaded: boolean;
+    loadFailed: boolean;
+  }
+>`
   position: absolute;
   top: 0;
   left: 0;
@@ -161,10 +163,15 @@ export const RatioImg = styled.img<{
   visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
 `;
 
-export const Img = styled.img<{
-  loaded: boolean;
-  loadFailed: boolean;
-}>`
+export const Img = styled.img<
+  Pick<ImageProps, 'width' | 'height'> & {
+    loaded: boolean;
+    loadFailed: boolean;
+  }
+>`
+  width: ${({ width }) => (width ? convertNumberToCSSValue(width) : 'auto')};
+  height: ${({ height }) => (height ? convertNumberToCSSValue(height) : 'auto')};
+
   visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
 `;
 
