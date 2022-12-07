@@ -51,6 +51,13 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
   const handleError = () => setLoadFailed(true);
 
   useEffect(() => {
+    if (src) {
+      setLoaded(false);
+      setLoadFailed(false);
+    }
+  }, [src]);
+
+  useEffect(() => {
     if (!disableSkeleton) {
       const img = new window.Image();
       img.src = src;

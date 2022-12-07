@@ -96,7 +96,7 @@ export const StyledSkeleton = styled.div<
     theme: {
       palette: { common }
     }
-  }) => common.ui95};
+  }) => common.ui90};
 
   ${({ round }): CSSObject =>
     round
@@ -137,9 +137,9 @@ export const StyledSkeleton = styled.div<
           height: '100%',
           background: `linear-gradient(
       -45deg,
-      ${common.bg01} 30%,
+      ${common.ui95} 30%,
       transparent 50%,
-      ${common.bg01} 70%
+      ${common.ui95} 70%
     )`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: '350% 350%',

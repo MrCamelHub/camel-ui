@@ -13,7 +13,7 @@ export const AvatarWrapper = styled.div<
   }
 >`
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -29,8 +29,6 @@ export const AvatarWrapper = styled.div<
 `;
 
 export const StyledAvatar = styled.img<Pick<AvatarProps, 'round'>>`
-  display: inline-block;
-
   ${({ round }): CSSObject =>
     round
       ? {
