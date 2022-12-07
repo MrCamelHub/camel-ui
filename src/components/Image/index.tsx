@@ -5,9 +5,11 @@ import Skeleton from '@components/Skeleton';
 import Icon from '@components/Icon';
 
 import {
+  BackgroundImageWrapper,
   BackgroundImg,
   FallbackWrapper,
   ImageWrapper,
+  Img,
   RatioImageBox,
   RatioImageInner,
   RatioImageWrapper,
@@ -98,6 +100,13 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   }, [disableLazyLoad]);
 
   useEffect(() => {
+    if (src) {
+      setLoaded(false);
+      setLoadFailed(false);
+    }
+  }, [src]);
+
+  useEffect(() => {
     if (disableLazyLoad && !disableSkeleton) {
       const img = new window.Image();
       img.src = src;
@@ -116,34 +125,21 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   if (!disableOnBackground) {
     return (
       <div ref={imageRef}>
-        <ImageWrapper
+        <BackgroundImageWrapper
           ref={ref}
+          ratio={ratio}
           dataWidth={width}
           dataHeight={height}
           round={round}
+          disableAspectRatio={disableAspectRatio}
           {...props}
           css={customStyle}
         >
           {disableLazyLoad && !loadFailed && (
-            <BackgroundImg
-              ratio={ratio}
-              dataWidth={width}
-              dataHeight={height}
-              dataSrc={src}
-              alt={alt}
-              disableAspectRatio={disableAspectRatio}
-            />
+            <BackgroundImg dataSrc={src} alt={alt} loaded={loaded} loadFailed={loadFailed} />
           )}
           {!disableLazyLoad && !loadFailed && imageSrc && (
-            <BackgroundImg
-              ref={imageRef}
-              ratio={ratio}
-              dataWidth={width}
-              dataHeight={height}
-              dataSrc={imageSrc}
-              alt={alt}
-              disableAspectRatio={disableAspectRatio}
-            />
+            <BackgroundImg dataSrc={imageSrc} alt={alt} loaded={loaded} loadFailed={loadFailed} />
           )}
           {!disableSkeleton && !loaded && !loadFailed && (
             <SkeletonWrapper>
@@ -163,7 +159,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
               height={fallbackIcon.height}
             />
           )}
-        </ImageWrapper>
+        </BackgroundImageWrapper>
       </div>
     );
   }
@@ -180,22 +176,25 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
           css={customStyle}
         >
           {disableLazyLoad && !loadFailed && (
-            <img
+            <Img
               width={width}
               height={height}
               src={src}
               alt={alt}
+              loaded={loaded}
+              loadFailed={loadFailed}
               onLoad={handleLoad}
               onError={handleError}
             />
           )}
           {!disableLazyLoad && !loadFailed && imageSrc && (
-            <img
-              ref={imageRef}
+            <Img
               width={width}
               height={height}
               src={imageSrc}
               alt={alt}
+              loaded={loaded}
+              loadFailed={loadFailed}
               onLoad={handleLoad}
               onError={handleError}
             />
@@ -241,6 +240,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
                 height={height}
                 src={src}
                 alt={alt}
+                loaded={loaded}
+                loadFailed={loadFailed}
                 onLoad={handleLoad}
                 onError={handleError}
               />
@@ -251,6 +252,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
                 height={height}
                 src={imageSrc}
                 alt={alt}
+                loaded={loaded}
+                loadFailed={loadFailed}
                 onLoad={handleLoad}
                 onError={handleError}
               />

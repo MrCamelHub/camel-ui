@@ -13,17 +13,12 @@ export const AvatarWrapper = styled.div<
   }
 >`
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   width: ${({ dataWidth }) => (dataWidth ? convertNumberToCSSValue(dataWidth) : 'auto')};
   height: ${({ dataHeight }) => (dataHeight ? convertNumberToCSSValue(dataHeight) : 'auto')};
-  background-color: ${({
-    theme: {
-      palette: { common }
-    }
-  }) => common.ui95};
 
   ${({ round }): CSSObject =>
     round
@@ -34,8 +29,6 @@ export const AvatarWrapper = styled.div<
 `;
 
 export const StyledAvatar = styled.img<Pick<AvatarProps, 'round'>>`
-  display: inline-block;
-
   ${({ round }): CSSObject =>
     round
       ? {
