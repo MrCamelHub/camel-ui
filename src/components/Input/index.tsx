@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactElement } from 'react';
+import type { FocusEvent, InputHTMLAttributes, ReactElement } from 'react';
 import React, { forwardRef, useState } from 'react';
 
 import { BaseInput, StyledInput, Unit } from './Input.styles';
@@ -25,14 +25,27 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     fullWidth,
     inputCustomStyle,
     customStyle,
+    onBlur,
+    onFocus,
+    disabled,
     ...props
   },
   ref
 ) {
   const [focused, setFocused] = useState(false);
 
-  const handleFocus = () => setFocused(true);
-  const handleBlur = () => setFocused(false);
+  const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
+    if (onFocus && typeof onFocus === 'function') {
+      onFocus(event);
+    }
+    setFocused(true);
+  };
+  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+    if (onBlur && typeof onBlur === 'function') {
+      onBlur(event);
+    }
+    setFocused(false);
+  };
 
   return (
     <StyledInput
@@ -41,10 +54,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       size={size}
       fullWidth={fullWidth}
       focused={focused}
+      disabled={disabled}
       css={customStyle}
     >
       {startAdornment}
-      <BaseInput {...props} css={inputCustomStyle} onFocus={handleFocus} onBlur={handleBlur} />
+      <BaseInput
+        {...props}
+        css={inputCustomStyle}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        disabled={disabled}
+      />
       {unit && <Unit>{unit}</Unit>}
       {endAdornment}
     </StyledInput>

@@ -3,7 +3,7 @@ import styled, { CSSObject } from '@emotion/styled';
 import type { InputProps } from '.';
 
 export const StyledInput = styled.div<
-  Pick<InputProps, 'variant' | 'size' | 'fullWidth'> & {
+  Pick<InputProps, 'variant' | 'size' | 'fullWidth' | 'disabled'> & {
     focused: boolean;
   }
 >`
@@ -203,7 +203,23 @@ export const StyledInput = styled.div<
       };
     }
     return {};
-  }}
+  }};
+
+  ${({
+    theme: {
+      palette: { common }
+    },
+    disabled
+  }): CSSObject =>
+    disabled
+      ? {
+          backgroundColor: common.ui95,
+          color: common.ui80,
+          '& > svg': {
+            color: common.ui80
+          }
+        }
+      : {}};
 `;
 
 export const BaseInput = styled.input`
