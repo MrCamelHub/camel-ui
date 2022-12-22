@@ -24,8 +24,8 @@ const Wrapper = styled.div`
 export function Default({ ...args }) {
   return (
     <Badge
-      {...args}
       open
+      {...args}
       text={99}
       position={{
         top: -14,

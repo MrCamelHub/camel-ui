@@ -2,20 +2,11 @@ import styled, { CSSObject } from '@emotion/styled';
 
 import type { RadioGroupProps } from '.';
 
-export const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  width: fit-content;
-`;
-
 export const StyledRadioGroup = styled.div<Pick<RadioGroupProps, 'size'>>`
   display: flex;
   align-items: center;
-  gap: 8px;
   cursor: pointer;
+  white-space: nowrap;
 
   ${({
     theme: {
@@ -26,6 +17,7 @@ export const StyledRadioGroup = styled.div<Pick<RadioGroupProps, 'size'>>`
     switch (size) {
       case 'large':
         return {
+          gap: 8,
           fontSize: h4.size,
           fontWeight: h4.weight.regular,
           lineHeight: h4.lineHeight,
@@ -33,6 +25,7 @@ export const StyledRadioGroup = styled.div<Pick<RadioGroupProps, 'size'>>`
         };
       case 'small':
         return {
+          gap: 4,
           fontSize: body2.size,
           fontWeight: body2.weight.regular,
           lineHeight: body2.lineHeight,
@@ -40,6 +33,7 @@ export const StyledRadioGroup = styled.div<Pick<RadioGroupProps, 'size'>>`
         };
       default:
         return {
+          gap: 4,
           fontSize: body1.size,
           fontWeight: body1.weight.regular,
           lineHeight: body1.lineHeight,

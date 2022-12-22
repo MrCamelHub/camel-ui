@@ -8,7 +8,7 @@ import type { GenericComponentProps, Size } from '../../types';
 
 export interface RadioGroupProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'onChange'>>,
-    Pick<RadioProps, 'checked' | 'brandColor'> {
+    Partial<Pick<RadioProps, 'checked' | 'brandColor'>> {
   size?: Exclude<Size, 'xlarge' | 'xsmall'>;
   text: string;
   subText?: string;
