@@ -8,7 +8,7 @@ import type { GenericComponentProps, Size } from '../../types';
 
 export interface CheckboxGroupProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'onChange'>>,
-    Pick<CheckboxProps, 'checked' | 'brandColor' | 'isRound' | 'hideDefaultCheckMarker'> {
+    Partial<Pick<CheckboxProps, 'checked' | 'brandColor' | 'isRound' | 'hideDefaultCheckMarker'>> {
   size?: Exclude<Size, 'xlarge' | 'xsmall'>;
   text: string;
   subText?: string;

@@ -19,6 +19,21 @@ export const StyledBadge = styled.div<
     bottom?: CSSValue;
   }
 >`
+  display: flex;
+  align-items: center;
+
+  ${({ open }): CSSObject =>
+    open
+      ? {
+          opacity: 1
+        }
+      : {
+          opacity: 0,
+          pointerEvents: 'none'
+        }};
+
+  transition: opacity 0.2s;
+
   ${({ disablePositionAbsolute, top, left, right, bottom }): CSSObject =>
     !disablePositionAbsolute
       ? {
