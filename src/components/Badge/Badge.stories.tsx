@@ -37,11 +37,10 @@ export function Default({ ...args }) {
   );
 }
 
-export function Variants({ ...args }) {
+export function Variants() {
   return (
     <Wrapper>
       <Badge
-        {...args}
         open
         text={99}
         position={{
@@ -52,7 +51,6 @@ export function Variants({ ...args }) {
         <Button>outline</Button>
       </Badge>
       <Badge
-        {...args}
         open
         text={99}
         variant="ghost"
@@ -64,7 +62,6 @@ export function Variants({ ...args }) {
         <Button>ghost</Button>
       </Badge>
       <Badge
-        {...args}
         open
         text={99}
         variant="solid"
@@ -79,13 +76,12 @@ export function Variants({ ...args }) {
   );
 }
 
-export function BrandColors({ ...args }) {
+export function BrandColors() {
   return (
     <>
       <p>outline</p>
       <Wrapper>
         <Badge
-          {...args}
           open
           text={99}
           position={{
@@ -96,7 +92,6 @@ export function BrandColors({ ...args }) {
           <Button>black</Button>
         </Badge>
         <Badge
-          {...args}
           open
           brandColor="primary"
           text={99}
@@ -108,7 +103,6 @@ export function BrandColors({ ...args }) {
           <Button>primary</Button>
         </Badge>
         <Badge
-          {...args}
           open
           brandColor="blue"
           text={99}
@@ -120,7 +114,6 @@ export function BrandColors({ ...args }) {
           <Button>blue</Button>
         </Badge>
         <Badge
-          {...args}
           open
           brandColor="red"
           text={99}
@@ -135,7 +128,6 @@ export function BrandColors({ ...args }) {
       <p>ghost</p>
       <Wrapper>
         <Badge
-          {...args}
           open
           variant="ghost"
           text={99}
@@ -147,7 +139,6 @@ export function BrandColors({ ...args }) {
           <Button>black</Button>
         </Badge>
         <Badge
-          {...args}
           open
           variant="ghost"
           brandColor="primary"
@@ -160,7 +151,6 @@ export function BrandColors({ ...args }) {
           <Button>primary</Button>
         </Badge>
         <Badge
-          {...args}
           open
           variant="ghost"
           brandColor="blue"
@@ -173,7 +163,6 @@ export function BrandColors({ ...args }) {
           <Button>blue</Button>
         </Badge>
         <Badge
-          {...args}
           open
           variant="ghost"
           brandColor="red"
@@ -189,7 +178,6 @@ export function BrandColors({ ...args }) {
       <p>solid</p>
       <Wrapper>
         <Badge
-          {...args}
           open
           variant="solid"
           text={99}
@@ -201,7 +189,6 @@ export function BrandColors({ ...args }) {
           <Button>black</Button>
         </Badge>
         <Badge
-          {...args}
           open
           variant="solid"
           brandColor="primary"
@@ -214,7 +201,6 @@ export function BrandColors({ ...args }) {
           <Button>primary</Button>
         </Badge>
         <Badge
-          {...args}
           open
           variant="solid"
           brandColor="blue"
@@ -227,7 +213,6 @@ export function BrandColors({ ...args }) {
           <Button>blue</Button>
         </Badge>
         <Badge
-          {...args}
           open
           variant="solid"
           brandColor="red"
@@ -244,11 +229,10 @@ export function BrandColors({ ...args }) {
   );
 }
 
-export function Sizes({ ...args }) {
+export function Sizes() {
   return (
     <Wrapper>
       <Badge
-        {...args}
         open
         text={99}
         position={{
@@ -259,7 +243,6 @@ export function Sizes({ ...args }) {
         <Button>small</Button>
       </Badge>
       <Badge
-        {...args}
         open
         size="xsmall"
         text={99}
@@ -274,8 +257,6 @@ export function Sizes({ ...args }) {
   );
 }
 
-export function DisablePositionAbsolute({ ...args }) {
-  return (
-    <Button endIcon={<Badge {...args} open text={99} disablePositionAbsolute />}>Button</Button>
-  );
+export function DisablePositionAbsolute() {
+  return <Button endIcon={<Badge open text={99} disablePositionAbsolute />}>Button</Button>;
 }

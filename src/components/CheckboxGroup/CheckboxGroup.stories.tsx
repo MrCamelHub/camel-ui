@@ -33,12 +33,11 @@ export function Default({ ...args }) {
   );
 }
 
-export function Sizes({ ...args }) {
+export function Sizes() {
   const [checked, setChecked] = useState(false);
   return (
     <Wrapper>
       <CheckboxGroup
-        {...args}
         size="large"
         checked={checked}
         onChange={() => setChecked(!checked)}
@@ -46,14 +45,12 @@ export function Sizes({ ...args }) {
         subText="SubText"
       />
       <CheckboxGroup
-        {...args}
         checked={checked}
         onChange={() => setChecked(!checked)}
         text="medium"
         subText="SubText"
       />
       <CheckboxGroup
-        {...args}
         size="small"
         checked={checked}
         onChange={() => setChecked(!checked)}

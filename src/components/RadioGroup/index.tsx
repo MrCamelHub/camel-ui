@@ -38,7 +38,7 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function Checkbox
     <StyledRadioGroup ref={ref} size={size} css={customStyle} {...props} onClick={handleClick}>
       <Radio checked={checked} brandColor={brandColor} />
       {text}
-      {subText && <SubText size={size}>{subText}</SubText>}
+      {subText && <SubText>{subText}</SubText>}
     </StyledRadioGroup>
   );
 });

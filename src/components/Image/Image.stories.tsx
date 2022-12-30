@@ -22,6 +22,6 @@ export function Default({ ...args }) {
   );
 }
 
-export function Fallback({ ...args }) {
-  return <Image {...args} src="Error" alt="Error Img" />;
+export function Fallback() {
+  return <Image src="Error" alt="Error Img" />;
 }

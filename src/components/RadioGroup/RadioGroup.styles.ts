@@ -43,8 +43,7 @@ export const StyledRadioGroup = styled.div<Pick<RadioGroupProps, 'size'>>`
   }};
 `;
 
-export const SubText = styled.span<Pick<RadioGroupProps, 'size'>>`
-  margin-left: ${({ size }) => (size === 'small' ? -6 : -4)}px;
+export const SubText = styled.span`
   color: ${({
     theme: {
       palette: { common }

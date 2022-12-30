@@ -45,7 +45,7 @@ const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(function Ch
         hideDefaultCheckMarker={hideDefaultCheckMarker}
       />
       {text}
-      {subText && <SubText size={size}>{subText}</SubText>}
+      {subText && <SubText>{subText}</SubText>}
     </StyledCheckboxGroup>
   );
 });
