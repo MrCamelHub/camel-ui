@@ -34,13 +34,23 @@ export const StyledLabel = styled.label<
 
     switch (variant) {
       case 'solid':
-        cssObject = {
-          backgroundColor: brandColorCode,
-          color: brandColor === 'black' ? common.uiWhite : common.cmnW,
-          '& svg': {
-            color: brandColor === 'black' ? common.uiWhite : common.cmnW
-          }
-        };
+        if (brandColor === 'gray') {
+          cssObject = {
+            backgroundColor: common.ui60,
+            color: common.uiWhite,
+            '& svg': {
+              color: common.uiWhite
+            }
+          };
+        } else {
+          cssObject = {
+            backgroundColor: brandColorCode,
+            color: brandColor === 'black' ? common.uiWhite : common.cmnW,
+            '& svg': {
+              color: brandColor === 'black' ? common.uiWhite : common.cmnW
+            }
+          };
+        }
         break;
       case 'ghost':
         cssObject = {
@@ -50,6 +60,16 @@ export const StyledLabel = styled.label<
             color: brandColorCode
           }
         };
+
+        if (brandColor === 'gray') {
+          cssObject = {
+            backgroundColor: common.ui95,
+            color: common.ui60,
+            '& svg': {
+              color: common.ui60
+            }
+          };
+        }
 
         if (brandColor === 'red') {
           cssObject = {
@@ -113,14 +133,25 @@ export const StyledLabel = styled.label<
         }
         break;
       default:
-        cssObject = {
-          backgroundColor: common.uiWhite,
-          borderColor: brandColorCode,
-          color: brandColorCode,
-          '& svg': {
-            color: brandColorCode
-          }
-        };
+        if (brandColor === 'gray') {
+          cssObject = {
+            backgroundColor: common.uiWhite,
+            borderColor: brandColorCode,
+            color: common.ui60,
+            '& svg': {
+              color: common.ui60
+            }
+          };
+        } else {
+          cssObject = {
+            backgroundColor: common.uiWhite,
+            borderColor: brandColorCode,
+            color: brandColorCode,
+            '& svg': {
+              color: brandColorCode
+            }
+          };
+        }
         break;
     }
 

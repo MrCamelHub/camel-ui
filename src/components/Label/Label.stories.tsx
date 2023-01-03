@@ -44,6 +44,7 @@ export function BrandColors() {
         <Label variant="outline" brandColor="primary" text="primary" />
         <Label variant="outline" brandColor="blue" text="blue" />
         <Label variant="outline" brandColor="red" text="red" />
+        <Label variant="outline" brandColor="gray" text="gray" />
       </Wrapper>
       <Wrapper>
         <p>ghost</p>
@@ -51,6 +52,7 @@ export function BrandColors() {
         <Label variant="ghost" brandColor="primary" text="primary" />
         <Label variant="ghost" brandColor="blue" text="blue" />
         <Label variant="ghost" brandColor="red" text="red" />
+        <Label variant="ghost" brandColor="gray" text="gray" />
       </Wrapper>
       <Wrapper>
         <p>solid</p>
@@ -58,12 +60,12 @@ export function BrandColors() {
         <Label variant="solid" brandColor="primary" text="primary" />
         <Label variant="solid" brandColor="blue" text="blue" />
         <Label variant="solid" brandColor="red" text="red" />
+        <Label variant="solid" brandColor="gray" text="gray" />
       </Wrapper>
       <Wrapper>
         <p>dakred</p>
         <Label variant="darked" brandColor="black" text="black" />
         <Label variant="darked" brandColor="primary" text="primary" />
-        <Label variant="darked" brandColor="blue" text="blue" />
         <Label variant="darked" brandColor="red" text="red" />
       </Wrapper>
     </>
