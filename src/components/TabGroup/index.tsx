@@ -13,6 +13,7 @@ export interface TabGroupProps
   fullWidth?: boolean;
   hideIndicator?: boolean;
   hideLine?: boolean;
+  disableTabFlexible?: boolean;
 }
 
 const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(function Tabs(
@@ -23,6 +24,7 @@ const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(function Tabs(
     fullWidth,
     hideIndicator,
     hideLine,
+    disableTabFlexible,
     onChange,
     value,
     customStyle,
@@ -95,6 +97,7 @@ const TabGroup = forwardRef<HTMLDivElement, TabGroupProps>(function Tabs(
         fullWidth={fullWidth}
         hideIndicator={hideIndicator}
         hideLine={hideLine}
+        disableTabFlexible={disableTabFlexible}
       >
         {children}
       </TabGroupInner>

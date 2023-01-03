@@ -5,6 +5,8 @@ import styled from '@emotion/styled';
 import TabGroup from '@components/TabGroup';
 import Tab from '@components/Tab';
 
+import { Box } from '@components';
+
 export default {
   title: 'Components/TabGroup',
   component: TabGroup
@@ -122,6 +124,20 @@ export function HideLine() {
     <TabGroup hideLine onChange={handleChange} value={value}>
       <Tab text="Tab1" value="tab1" />
       <Tab text="Tab2" value="tab2" />
+      <Tab text="Tab3" value="tab3" />
+    </TabGroup>
+  );
+}
+
+export function DisableTabFlexible() {
+  const [value, setValue] = useState<string | number>('tab1');
+
+  const handleChange = (newValue: string | number) => setValue(newValue);
+
+  return (
+    <TabGroup fullWidth disableTabFlexible onChange={handleChange} value={value}>
+      <Tab text="Tab1" value="tab1" />
+      <Tab text={<Box>Tab 1234567890</Box>} value="tab2" />
       <Tab text="Tab3" value="tab3" />
     </TabGroup>
   );

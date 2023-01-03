@@ -34,12 +34,11 @@ export function Default({ ...args }) {
   );
 }
 
-export function Sizes({ ...args }) {
+export function Sizes() {
   const [checked, setChecked] = useState(false);
   return (
     <Wrapper>
       <RadioGroup
-        {...args}
         size="large"
         checked={checked}
         onChange={() => setChecked(true)}
@@ -47,14 +46,12 @@ export function Sizes({ ...args }) {
         subText="SubText"
       />
       <RadioGroup
-        {...args}
         checked={checked}
         onChange={() => setChecked(true)}
         text="medium"
         subText="SubText"
       />
       <RadioGroup
-        {...args}
         size="small"
         checked={checked}
         onChange={() => setChecked(true)}

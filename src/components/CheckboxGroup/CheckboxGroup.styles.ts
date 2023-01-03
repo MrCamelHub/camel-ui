@@ -43,9 +43,8 @@ export const StyledCheckboxGroup = styled.div<Pick<CheckboxGroupProps, 'size'>>`
   }};
 `;
 
-export const SubText = styled.span<Pick<CheckboxGroupProps, 'size'>>`
+export const SubText = styled.span`
   white-space: nowrap;
-  margin-left: ${({ size }) => (size === 'small' ? -6 : -4)}px;
   color: ${({
     theme: {
       palette: { common }

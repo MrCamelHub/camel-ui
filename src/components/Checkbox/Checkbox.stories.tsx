@@ -62,6 +62,14 @@ export function BrandColors() {
         <Checkbox isRound={false} brandColor="primary" />
         <Checkbox isRound={false} brandColor="primary" checked />
       </Wrapper>
+      <Wrapper>
+        <Checkbox brandColor="black" />
+        <Checkbox brandColor="black" checked />
+      </Wrapper>
+      <Wrapper>
+        <Checkbox isRound={false} brandColor="black" />
+        <Checkbox isRound={false} brandColor="black" checked />
+      </Wrapper>
     </>
   );
 }

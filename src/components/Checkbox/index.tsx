@@ -38,32 +38,32 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
         <Marker
           name={!checked ? 'CircleOutlined' : 'CheckCircleFilled'}
           size="medium"
-          checked={checked}
-          brandColor={brandColor}
+          dataChecked={checked}
+          dataBrandColor={brandColor}
         />
       )}
       {!isRound && !hideDefaultCheckMarker && (
         <Marker
           name={!checked ? 'CheckCircleOutlined' : 'CheckCircleFilled'}
           size="medium"
-          checked={checked}
-          brandColor={brandColor}
+          dataChecked={checked}
+          dataBrandColor={brandColor}
         />
       )}
       {isRound && hideDefaultCheckMarker && (
         <Marker
           name={!checked ? 'CheckboxOutlined' : 'CheckboxCheckedFilled'}
           size="medium"
-          checked={checked}
-          brandColor={brandColor}
+          dataChecked={checked}
+          dataBrandColor={brandColor}
         />
       )}
       {isRound && !hideDefaultCheckMarker && (
         <Marker
           name={!checked ? 'CheckboxCheckedOutlined' : 'CheckboxCheckedFilled'}
           size="medium"
-          checked={checked}
-          brandColor={brandColor}
+          dataChecked={checked}
+          dataBrandColor={brandColor}
         />
       )}
     </Wrapper>

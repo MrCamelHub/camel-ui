@@ -3,6 +3,8 @@ import Icon from '@components/Icon';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
+import type { BrandColor } from '../../types';
+
 import type { RadioProps } from '.';
 
 export const Wrapper = styled.div<Pick<RadioProps, 'checked' | 'brandColor'>>`
@@ -27,8 +29,11 @@ export const StyledRadio = styled.input`
   }
 `;
 
-export const Marker = styled(Icon)<Pick<RadioProps, 'checked' | 'brandColor'>>`
+export const Marker = styled(Icon)<{
+  dataChecked?: boolean;
+  dataBrandColor?: BrandColor;
+}>`
   vertical-align: inherit;
-  color: ${({ theme, brandColor, checked }) =>
-    checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.ui80};
+  color: ${({ theme, dataBrandColor, dataChecked }) =>
+    dataChecked ? getBrandColorCodeByColorName(theme, dataBrandColor) : theme.palette.common.ui80};
 `;
