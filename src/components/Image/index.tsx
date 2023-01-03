@@ -23,7 +23,7 @@ export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
   alt: string;
   width?: CSSValue;
   height?: CSSValue;
-  ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '16:9';
+  ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '5:6' | '16:9';
   round?: CSSValue;
   disableOnBackground?: boolean;
   disableAspectRatio?: boolean;

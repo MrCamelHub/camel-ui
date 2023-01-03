@@ -28,21 +28,11 @@ export const RatioImageWrapper = styled.div<Pick<ImageProps, 'ratio'>>`
   position: relative;
   overflow: hidden;
 
-  ${({ ratio }): CSSObject => {
-    switch (ratio) {
-      case '4:3':
-        return {
-          paddingTop: '75%'
-        };
-      case '16:9':
-        return {
-          paddingTop: '56.25%'
-        };
-      default:
-        return {
-          paddingTop: '100%'
-        };
-    }
+  ${({ ratio = '1:1' }): CSSObject => {
+    const splitRatio = String(ratio).split(':');
+    return {
+      paddingTop: `calc(100% / ${splitRatio[0]} * ${splitRatio[1]})`
+    };
   }};
 `;
 
@@ -67,7 +57,7 @@ export const BackgroundImageWrapper = styled.div<
   justify-content: center;
   overflow: hidden;
 
-  ${({ disableAspectRatio, dataWidth, dataHeight, ratio }): CSSObject => {
+  ${({ disableAspectRatio, dataWidth, dataHeight, ratio = '1:1' }): CSSObject => {
     if (disableAspectRatio) {
       return {
         width: dataWidth ? convertNumberToCSSValue(dataWidth) : 'auto',
@@ -79,38 +69,12 @@ export const BackgroundImageWrapper = styled.div<
       width: '100%'
     };
 
-    switch (ratio) {
-      case '1:2':
-        cssObject = {
-          ...cssObject,
-          paddingTop: '200%'
-        };
-        break;
-      case '2:1':
-        cssObject = {
-          ...cssObject,
-          paddingTop: '50%'
-        };
-        break;
-      case '4:3':
-        cssObject = {
-          ...cssObject,
-          paddingTop: '75%'
-        };
-        break;
-      case '16:9':
-        cssObject = {
-          ...cssObject,
-          paddingTop: '56.25%'
-        };
-        break;
-      default:
-        cssObject = {
-          ...cssObject,
-          paddingTop: '100%'
-        };
-        break;
-    }
+    const splitRatio = String(ratio).split(':');
+
+    cssObject = {
+      ...cssObject,
+      paddingTop: `calc(100% / ${splitRatio[0]} * ${splitRatio[1]})`
+    };
 
     return cssObject;
   }}
