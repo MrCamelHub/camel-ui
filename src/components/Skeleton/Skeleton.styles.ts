@@ -11,35 +11,10 @@ export const SkeletonWrapper = styled.div<Pick<SkeletonProps, 'ratio' | 'round'>
   overflow: hidden;
 
   ${({ ratio }): CSSObject => {
-    let cssObject;
-    switch (ratio) {
-      case '1:2':
-        cssObject = {
-          paddingTop: '200%'
-        };
-        break;
-      case '2:1':
-        cssObject = {
-          paddingTop: '50%'
-        };
-        break;
-      case '4:3':
-        cssObject = {
-          paddingTop: '75%'
-        };
-        break;
-      case '16:9':
-        cssObject = {
-          paddingTop: '56.25%'
-        };
-        break;
-      default:
-        cssObject = {
-          paddingTop: '100%'
-        };
-        break;
-    }
-    return cssObject;
+    const splitRatio = String(ratio).split(':');
+    return {
+      paddingTop: `calc(100% / ${splitRatio[0]} * ${splitRatio[1]})`
+    };
   }};
 
   ${({ round }): CSSObject =>

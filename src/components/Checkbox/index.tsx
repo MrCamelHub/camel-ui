@@ -1,6 +1,8 @@
 import type { InputHTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
+import Icon from '@components/Icon';
+
 import { Marker, StyledCheckbox, Wrapper } from './Checkbox.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';
 
@@ -35,36 +37,27 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(function Checkbox(
     >
       <StyledCheckbox type="checkbox" checked={checked} disabled={disabled} {...props} />
       {!isRound && hideDefaultCheckMarker && (
-        <Marker
-          name={!checked ? 'CircleOutlined' : 'CheckCircleFilled'}
-          size="medium"
-          dataChecked={checked}
-          dataBrandColor={brandColor}
-        />
+        <Marker checked={checked} brandColor={brandColor}>
+          <Icon name={!checked ? 'CircleOutlined' : 'CheckCircleFilled'} size="medium" />
+        </Marker>
       )}
       {!isRound && !hideDefaultCheckMarker && (
-        <Marker
-          name={!checked ? 'CheckCircleOutlined' : 'CheckCircleFilled'}
-          size="medium"
-          dataChecked={checked}
-          dataBrandColor={brandColor}
-        />
+        <Marker checked={checked} brandColor={brandColor}>
+          <Icon name={!checked ? 'CheckCircleOutlined' : 'CheckCircleFilled'} size="medium" />
+        </Marker>
       )}
       {isRound && hideDefaultCheckMarker && (
-        <Marker
-          name={!checked ? 'CheckboxOutlined' : 'CheckboxCheckedFilled'}
-          size="medium"
-          dataChecked={checked}
-          dataBrandColor={brandColor}
-        />
+        <Marker checked={checked} brandColor={brandColor}>
+          <Icon name={!checked ? 'CheckboxOutlined' : 'CheckboxCheckedFilled'} size="medium" />
+        </Marker>
       )}
       {isRound && !hideDefaultCheckMarker && (
-        <Marker
-          name={!checked ? 'CheckboxCheckedOutlined' : 'CheckboxCheckedFilled'}
-          size="medium"
-          dataChecked={checked}
-          dataBrandColor={brandColor}
-        />
+        <Marker checked={checked} brandColor={brandColor}>
+          <Icon
+            name={!checked ? 'CheckboxCheckedOutlined' : 'CheckboxCheckedFilled'}
+            size="medium"
+          />
+        </Marker>
       )}
     </Wrapper>
   );

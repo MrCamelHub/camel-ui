@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import Icon from '@components/Icon';
 
 import { getBrandColorCodeByColorName } from '@utils';
 
@@ -28,11 +27,13 @@ export const StyledCheckbox = styled.input`
   }
 `;
 
-export const Marker = styled(Icon)<{
-  dataChecked?: boolean;
-  dataBrandColor?: BrandColor;
+export const Marker = styled.div<{
+  checked?: boolean;
+  brandColor?: BrandColor;
 }>`
-  vertical-align: inherit;
-  color: ${({ theme, dataBrandColor, dataChecked }) =>
-    dataChecked ? getBrandColorCodeByColorName(theme, dataBrandColor) : theme.palette.common.ui80};
+  & > svg {
+    vertical-align: inherit;
+    color: ${({ theme, brandColor, checked }) =>
+      checked ? getBrandColorCodeByColorName(theme, brandColor) : theme.palette.common.ui80};
+  }
 `;

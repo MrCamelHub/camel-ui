@@ -5,7 +5,7 @@ import { SkeletonInner, SkeletonWrapper, StyledSkeleton } from './Skeleton.style
 import type { CSSValue, GenericComponentProps } from '../../types';
 
 export interface SkeletonProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
-  ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '16:9';
+  ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '5:6' | '16:9';
   width?: CSSValue;
   height?: CSSValue;
   maxWidth?: CSSValue;
