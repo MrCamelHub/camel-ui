@@ -7,7 +7,7 @@ import type { GenericComponentProps } from '../../types';
 export interface FlexboxProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   component?: Extract<ElementType, 'div' | 'section' | 'main' | 'article'>;
   direction?: 'horizontal' | 'vertical';
-  alignment?: 'flex-start' | 'flex-end' | 'center';
+  alignment?: 'flex-start' | 'flex-end' | 'center' | 'baseline';
   justifyContent?: 'center' | 'space-between';
   gap?: number;
 }

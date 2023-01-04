@@ -1,6 +1,8 @@
 import type { InputHTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
+import Icon from '@components/Icon';
+
 import { Marker, StyledRadio, Wrapper } from './Radio.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';
 
@@ -22,12 +24,9 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
       role="radio"
     >
       <StyledRadio type="radio" checked={checked} {...props} />
-      <Marker
-        name={!checked ? 'RadioOutlined' : 'RadioCheckedFilled'}
-        size="medium"
-        dataChecked={checked}
-        dataBrandColor={brandColor}
-      />
+      <Marker checked={checked} brandColor={brandColor}>
+        <Icon name={!checked ? 'RadioOutlined' : 'RadioCheckedFilled'} size="medium" />
+      </Marker>
     </Wrapper>
   );
 });
