@@ -103,6 +103,9 @@ export function BrandColors() {
         <Chip variant="solid" brandColor="blue">
           blue
         </Chip>
+        <Chip variant="solid" brandColor="white">
+          white
+        </Chip>
       </Wrapper>
     </>
   );
