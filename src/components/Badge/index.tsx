@@ -8,7 +8,7 @@ export interface BadgeProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
   open: boolean;
   variant?: Exclude<Variant, 'outlineGhost' | 'inline'>;
   size?: Extract<Size, 'small' | 'xsmall'>;
-  brandColor?: Exclude<BrandColor, 'gray'>;
+  brandColor?: Exclude<BrandColor, 'gray' | 'white'>;
   text: string | number;
   position?: {
     top?: CSSValue;

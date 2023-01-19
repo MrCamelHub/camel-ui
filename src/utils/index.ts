@@ -17,6 +17,8 @@ export function getBrandColorCodeByColorName(
     colorCode = theme.palette.primary.light;
   } else if (colorName === 'red') {
     colorCode = theme.palette.secondary.red.main;
+  } else if (colorName === 'white') {
+    colorCode = theme.palette.common.uiWhite;
   }
 
   return colorCode;

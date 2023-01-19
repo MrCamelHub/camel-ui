@@ -88,13 +88,23 @@ export const StyledButton = styled.button<
         break;
       }
       case 'solid': {
-        cssObject = {
-          backgroundColor: brandColor === 'gray' ? common.ui60 : brandColorCode,
-          color: brandColor === 'black' ? common.uiWhite : common.cmnW,
-          '& svg': {
-            color: brandColor === 'black' ? common.uiWhite : common.cmnW
-          }
-        };
+        if (brandColor === 'white') {
+          cssObject = {
+            backgroundColor: brandColorCode,
+            color: common.ui20,
+            '& svg': {
+              color: common.ui20
+            }
+          };
+        } else {
+          cssObject = {
+            backgroundColor: brandColor === 'gray' ? common.ui60 : brandColorCode,
+            color: brandColor === 'black' ? common.uiWhite : common.cmnW,
+            '& svg': {
+              color: brandColor === 'black' ? common.uiWhite : common.cmnW
+            }
+          };
+        }
 
         break;
       }

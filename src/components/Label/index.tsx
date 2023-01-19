@@ -6,7 +6,7 @@ import type { BrandColor, CSSValue, GenericComponentProps, Size, Variant } from 
 
 export interface LabelProps extends GenericComponentProps<HTMLAttributes<HTMLLabelElement>> {
   variant?: Exclude<Variant, 'inline'> | 'darked';
-  brandColor?: BrandColor;
+  brandColor?: Exclude<BrandColor, 'white'>;
   size?: Extract<Size, 'small' | 'xsmall'>;
   startIcon?: ReactElement;
   round?: CSSValue;

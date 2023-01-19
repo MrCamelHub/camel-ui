@@ -6,7 +6,7 @@ import type { Color } from './css';
 import type * as SvgIcons from '../assets/icons';
 
 export type Variant = 'outline' | 'ghost' | 'outlineGhost' | 'solid' | 'inline';
-export type BrandColor = 'gray' | 'black' | 'primary' | 'blue' | 'red';
+export type BrandColor = 'gray' | 'black' | 'primary' | 'blue' | 'red' | 'white';
 export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
 export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', Color>;
 export type CommonPalette = Record<

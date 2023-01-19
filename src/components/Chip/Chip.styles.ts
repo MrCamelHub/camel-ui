@@ -86,13 +86,23 @@ export const StyledChip = styled.button<
         break;
       }
       case 'solid': {
-        cssObject = {
-          backgroundColor: brandColor === 'gray' ? common.ui60 : brandColorCode,
-          color: brandColor === 'black' ? common.uiWhite : common.cmnW,
-          '& svg': {
-            color: brandColor === 'black' ? common.uiWhite : common.cmnW
-          }
-        };
+        if (brandColor === 'white') {
+          cssObject = {
+            backgroundColor: brandColorCode,
+            color: common.ui20,
+            '& svg': {
+              color: common.ui20
+            }
+          };
+        } else {
+          cssObject = {
+            backgroundColor: brandColor === 'gray' ? common.ui60 : brandColorCode,
+            color: brandColor === 'black' ? common.uiWhite : common.cmnW,
+            '& svg': {
+              color: brandColor === 'black' ? common.uiWhite : common.cmnW
+            }
+          };
+        }
 
         break;
       }
@@ -232,7 +242,9 @@ export const StyledChip = styled.button<
   }
 `;
 
-export const EndIcon = styled.span<Pick<ChipProps, 'size'>>`
+export const EndIcon = styled.div<Pick<ChipProps, 'size'>>`
+  display: inline-flex;
+  align-items: center;
   ${({ size }): CSSObject => {
     switch (size) {
       case 'xsmall': {

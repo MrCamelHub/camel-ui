@@ -123,6 +123,9 @@ export function BrandColors() {
         <Button variant="solid" brandColor="blue">
           blue
         </Button>
+        <Button variant="solid" brandColor="white">
+          white
+        </Button>
       </Wrapper>
     </>
   );
