@@ -45,48 +45,6 @@ export const RatioImageInner = styled.div`
   transform: translate(50%, 50%);
 `;
 
-export const BackgroundImageWrapper = styled.div<
-  Pick<ImageProps, 'ratio' | 'round' | 'disableAspectRatio'> & {
-    dataWidth?: CSSValue;
-    dataHeight?: CSSValue;
-  }
->`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-  ${({ disableAspectRatio, dataWidth, dataHeight, ratio = '1:1' }): CSSObject => {
-    if (disableAspectRatio) {
-      return {
-        width: dataWidth ? convertNumberToCSSValue(dataWidth) : 'auto',
-        height: dataHeight ? convertNumberToCSSValue(dataHeight) : 'auto'
-      };
-    }
-
-    let cssObject: CSSObject = {
-      width: '100%'
-    };
-
-    const splitRatio = String(ratio).split(':');
-
-    cssObject = {
-      ...cssObject,
-      paddingTop: `calc(100% / ${splitRatio[0]} * ${splitRatio[1]})`
-    };
-
-    return cssObject;
-  }}
-
-  ${({ round }): CSSObject =>
-    round
-      ? {
-          borderRadius: round
-        }
-      : {}};
-`;
-
 export const ImageWrapper = styled.div<
   Pick<ImageProps, 'round'> & {
     dataWidth?: CSSValue;
@@ -111,7 +69,7 @@ export const ImageWrapper = styled.div<
 `;
 
 export const RatioImg = styled.img<
-  Pick<ImageProps, 'width' | 'height'> & {
+  Pick<ImageProps, 'width' | 'height' | 'fill'> & {
     loaded: boolean;
     loadFailed: boolean;
   }
@@ -125,10 +83,19 @@ export const RatioImg = styled.img<
   transform: translate(-50%, -50%);
 
   visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
+
+  ${({ fill }): CSSObject =>
+    fill
+      ? {
+          width: '100%',
+          height: '100%',
+          objectFit: fill
+        }
+      : {}}
 `;
 
 export const Img = styled.img<
-  Pick<ImageProps, 'width' | 'height'> & {
+  Pick<ImageProps, 'width' | 'height' | 'fill'> & {
     loaded: boolean;
     loadFailed: boolean;
   }
@@ -137,6 +104,13 @@ export const Img = styled.img<
   height: ${({ height }) => (height ? convertNumberToCSSValue(height) : 'auto')};
 
   visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
+
+  ${({ fill }): CSSObject =>
+    fill
+      ? {
+          objectFit: fill
+        }
+      : {}}
 `;
 
 export const FallbackWrapper = styled.div`
@@ -154,24 +128,4 @@ export const SkeletonWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-`;
-
-export const BackgroundImg = styled.div<
-  Pick<ImageProps, 'alt'> & {
-    dataSrc: string;
-    loaded: boolean;
-    loadFailed: boolean;
-  }
->`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(${({ dataSrc }) => dataSrc});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
 `;

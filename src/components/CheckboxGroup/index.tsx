@@ -3,8 +3,8 @@ import type { HTMLAttributes, MouseEvent } from 'react';
 
 import Checkbox, { CheckboxProps } from '@components/Checkbox';
 
-import { StyledCheckboxGroup, SubText } from './CheckboxGroup.styles';
 import type { GenericComponentProps, Size } from '../../types';
+import { StyledCheckboxGroup, SubText } from './CheckboxGroup.styles';
 
 export interface CheckboxGroupProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'onChange'>>,
@@ -35,11 +35,15 @@ const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(function Ch
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     if (onChange && typeof onChange === 'function') onChange(value, event);
   };
+  const handleChange = () => {
+    //
+  };
 
   return (
     <StyledCheckboxGroup ref={ref} size={size} css={customStyle} {...props} onClick={handleClick}>
       <Checkbox
         checked={checked}
+        onChange={handleChange}
         brandColor={brandColor}
         isRound={isRound}
         hideDefaultCheckMarker={hideDefaultCheckMarker}

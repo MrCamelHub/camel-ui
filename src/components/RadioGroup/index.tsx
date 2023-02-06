@@ -3,8 +3,8 @@ import type { HTMLAttributes, MouseEvent } from 'react';
 
 import Radio, { RadioProps } from '@components/Radio';
 
-import { StyledRadioGroup, SubText } from './RadioGroup.styles';
 import type { GenericComponentProps, Size } from '../../types';
+import { StyledRadioGroup, SubText } from './RadioGroup.styles';
 
 export interface RadioGroupProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'onChange'>>,
@@ -33,10 +33,13 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function Checkbox
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     if (onChange && typeof onChange === 'function') onChange(value, event);
   };
+  const handleChange = () => {
+    //
+  };
 
   return (
     <StyledRadioGroup ref={ref} size={size} css={customStyle} {...props} onClick={handleClick}>
-      <Radio checked={checked} brandColor={brandColor} />
+      <Radio checked={checked} onChange={handleChange} brandColor={brandColor} />
       {text}
       {subText && <SubText>{subText}</SubText>}
     </StyledRadioGroup>

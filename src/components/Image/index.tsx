@@ -1,12 +1,11 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import type { HTMLAttributes, ReactElement } from 'react';
 
 import Skeleton from '@components/Skeleton';
 import Icon from '@components/Icon';
 
+import type { CSSValue, GenericComponentProps, IconName } from '../../types';
 import {
-  BackgroundImageWrapper,
-  BackgroundImg,
   FallbackWrapper,
   ImageWrapper,
   Img,
@@ -16,7 +15,6 @@ import {
   RatioImg,
   SkeletonWrapper
 } from './Image.styles';
-import type { CSSValue, GenericComponentProps, IconName } from '../../types';
 
 export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   src: string;
@@ -25,9 +23,8 @@ export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
   height?: CSSValue;
   ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '5:6' | '16:9';
   round?: CSSValue;
-  disableOnBackground?: boolean;
+  fill?: 'cover' | 'contain';
   disableAspectRatio?: boolean;
-  disableLazyLoad?: boolean;
   disableSkeleton?: boolean;
   disableSkeletonAnimation?: boolean;
   fallbackElement?: ReactElement;
@@ -46,9 +43,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
     height,
     ratio = '1:1',
     round,
-    disableOnBackground = true,
+    fill = 'cover',
     disableAspectRatio,
-    disableLazyLoad = true,
     disableSkeleton,
     disableSkeletonAnimation,
     fallbackElement,
@@ -62,42 +58,12 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   },
   ref
 ) {
-  const [imageSrc, setImageSrc] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
-  const [isIntersecting, setIntersecting] = useState(false);
-
-  const imageRef = useRef<HTMLImageElement>(null);
 
   const handleLoad = () => setLoaded(true);
 
   const handleError = () => setLoadFailed(true);
-
-  useEffect(() => {
-    if (!disableLazyLoad && isIntersecting && src) {
-      setImageSrc(src);
-    }
-  }, [src, isIntersecting, disableLazyLoad]);
-
-  useEffect(() => {
-    let observer: IntersectionObserver;
-
-    if (!disableLazyLoad) {
-      try {
-        observer = new IntersectionObserver(([e]) => setIntersecting(e.isIntersecting));
-
-        if (imageRef.current) {
-          observer.observe(imageRef.current);
-        }
-      } catch {
-        setIntersecting(true);
-      }
-    }
-
-    return () => {
-      if (observer) observer.disconnect();
-    };
-  }, [disableLazyLoad]);
 
   useEffect(() => {
     if (src) {
@@ -107,124 +73,19 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   }, [src]);
 
   useEffect(() => {
-    if (disableLazyLoad && !disableSkeleton) {
+    if (!disableSkeleton) {
       const img = new window.Image();
       img.src = src;
       img.onload = () => setLoaded(true);
       img.onerror = () => setLoadFailed(true);
-    } else if (!disableLazyLoad && !disableSkeleton && imageSrc) {
-      const img = new window.Image();
-      img.src = imageSrc;
-      img.onload = () => setLoaded(true);
-      img.onerror = () => setLoadFailed(true);
-    } else if (disableSkeleton) {
+    } else {
       setLoaded(true);
     }
-  }, [disableLazyLoad, disableSkeleton, src, imageSrc]);
-
-  if (!disableOnBackground) {
-    return (
-      <div ref={imageRef}>
-        <BackgroundImageWrapper
-          ref={ref}
-          ratio={ratio}
-          dataWidth={width}
-          dataHeight={height}
-          round={round}
-          disableAspectRatio={disableAspectRatio}
-          {...props}
-          css={customStyle}
-        >
-          {disableLazyLoad && !loadFailed && (
-            <BackgroundImg dataSrc={src} alt={alt} loaded={loaded} loadFailed={loadFailed} />
-          )}
-          {!disableLazyLoad && !loadFailed && imageSrc && (
-            <BackgroundImg dataSrc={imageSrc} alt={alt} loaded={loaded} loadFailed={loadFailed} />
-          )}
-          {!disableSkeleton && !loaded && !loadFailed && (
-            <SkeletonWrapper>
-              <Skeleton
-                width="100%"
-                height="100%"
-                disableAspectRatio
-                disableAnimation={disableSkeletonAnimation}
-              />
-            </SkeletonWrapper>
-          )}
-          {loadFailed && fallbackElement && fallbackElement}
-          {loadFailed && !fallbackElement && fallbackIcon && (
-            <Icon
-              name={fallbackIcon.name}
-              width={fallbackIcon.width}
-              height={fallbackIcon.height}
-            />
-          )}
-        </BackgroundImageWrapper>
-      </div>
-    );
-  }
+  }, [disableSkeleton, src]);
 
   if (disableAspectRatio) {
     return (
-      <div ref={imageRef}>
-        <ImageWrapper
-          ref={ref}
-          dataWidth={width}
-          dataHeight={height}
-          round={round}
-          {...props}
-          css={customStyle}
-        >
-          {disableLazyLoad && !loadFailed && (
-            <Img
-              width={width}
-              height={height}
-              src={src}
-              alt={alt}
-              loaded={loaded}
-              loadFailed={loadFailed}
-              onLoad={handleLoad}
-              onError={handleError}
-            />
-          )}
-          {!disableLazyLoad && !loadFailed && imageSrc && (
-            <Img
-              width={width}
-              height={height}
-              src={imageSrc}
-              alt={alt}
-              loaded={loaded}
-              loadFailed={loadFailed}
-              onLoad={handleLoad}
-              onError={handleError}
-            />
-          )}
-          {!disableSkeleton && !loaded && !loadFailed && (
-            <SkeletonWrapper>
-              <Skeleton
-                width="100%"
-                height="100%"
-                disableAspectRatio
-                disableAnimation={disableSkeletonAnimation}
-              />
-            </SkeletonWrapper>
-          )}
-          {loadFailed && fallbackElement && fallbackElement}
-          {loadFailed && !fallbackElement && fallbackIcon && (
-            <Icon
-              name={fallbackIcon.name}
-              width={fallbackIcon.width}
-              height={fallbackIcon.height}
-            />
-          )}
-        </ImageWrapper>
-      </div>
-    );
-  }
-
-  return (
-    <div ref={imageRef}>
-      <RatioImageBox
+      <ImageWrapper
         ref={ref}
         dataWidth={width}
         dataHeight={height}
@@ -232,60 +93,88 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
         {...props}
         css={customStyle}
       >
-        <RatioImageWrapper ratio={ratio}>
-          <RatioImageInner>
-            {disableLazyLoad && !loadFailed && (
-              <RatioImg
-                width={width}
-                height={height}
-                src={src}
-                alt={alt}
-                loaded={loaded}
-                loadFailed={loadFailed}
-                onLoad={handleLoad}
-                onError={handleError}
+        {!loadFailed && (
+          <Img
+            width={width}
+            height={height}
+            src={src}
+            alt={alt}
+            fill={fill}
+            loaded={loaded}
+            loadFailed={loadFailed}
+            onLoad={handleLoad}
+            onError={handleError}
+          />
+        )}
+        {!disableSkeleton && !loaded && !loadFailed && (
+          <SkeletonWrapper>
+            <Skeleton
+              width="100%"
+              height="100%"
+              disableAspectRatio
+              disableAnimation={disableSkeletonAnimation}
+            />
+          </SkeletonWrapper>
+        )}
+        {loadFailed && fallbackElement && fallbackElement}
+        {loadFailed && !fallbackElement && fallbackIcon && (
+          <Icon name={fallbackIcon.name} width={fallbackIcon.width} height={fallbackIcon.height} />
+        )}
+      </ImageWrapper>
+    );
+  }
+
+  return (
+    <RatioImageBox
+      ref={ref}
+      dataWidth={width}
+      dataHeight={height}
+      round={round}
+      {...props}
+      css={customStyle}
+    >
+      <RatioImageWrapper ratio={ratio}>
+        <RatioImageInner>
+          {!loadFailed && (
+            <RatioImg
+              width={width}
+              height={height}
+              src={src}
+              alt={alt}
+              fill={fill}
+              loaded={loaded}
+              loadFailed={loadFailed}
+              onLoad={handleLoad}
+              onError={handleError}
+            />
+          )}
+          {!disableSkeleton && !loaded && !loadFailed && (
+            <SkeletonWrapper
+              css={{
+                transform: 'translate(-50%, -50%)'
+              }}
+            >
+              <Skeleton
+                width="100%"
+                height="100%"
+                disableAspectRatio
+                disableAnimation={disableSkeletonAnimation}
               />
-            )}
-            {!disableLazyLoad && imageSrc && !loadFailed && (
-              <RatioImg
-                width={width}
-                height={height}
-                src={imageSrc}
-                alt={alt}
-                loaded={loaded}
-                loadFailed={loadFailed}
-                onLoad={handleLoad}
-                onError={handleError}
+            </SkeletonWrapper>
+          )}
+          {loadFailed && fallbackElement && <FallbackWrapper>{fallbackElement}</FallbackWrapper>}
+          {loadFailed && !fallbackElement && (
+            <FallbackWrapper>
+              <Icon
+                name={fallbackIcon.name}
+                width={fallbackIcon.width}
+                height={fallbackIcon.height}
               />
-            )}
-            {!disableSkeleton && !loaded && !loadFailed && (
-              <SkeletonWrapper
-                css={{
-                  transform: 'translate(-50%, -50%)'
-                }}
-              >
-                <Skeleton
-                  width="100%"
-                  height="100%"
-                  disableAspectRatio
-                  disableAnimation={disableSkeletonAnimation}
-                />
-              </SkeletonWrapper>
-            )}
-            {loadFailed && fallbackElement && <FallbackWrapper>{fallbackElement}</FallbackWrapper>}
-            {loadFailed && !fallbackElement && (
-              <FallbackWrapper>
-                <Icon
-                  name={fallbackIcon.name}
-                  width={fallbackIcon.width}
-                  height={fallbackIcon.height}
-                />
-              </FallbackWrapper>
-            )}
-          </RatioImageInner>
-        </RatioImageWrapper>
-      </RatioImageBox>
-    </div>
+            </FallbackWrapper>
+          )}
+        </RatioImageInner>
+      </RatioImageWrapper>
+    </RatioImageBox>
   );
 });
 
