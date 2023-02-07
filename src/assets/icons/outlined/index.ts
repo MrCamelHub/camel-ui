@@ -93,3 +93,4 @@ export { default as Arrow4UpOutlined } from './arrow4-up-outlined.svg';
 export { default as ShieldOutlined } from './shield-outlined.svg';
 export { default as CopyOutlined } from './copy-outlined.svg';
 export { default as FileOutlined } from './file-outlined.svg';
+export { default as Rotate2Outlined } from './rotate2-outlined.svg';
