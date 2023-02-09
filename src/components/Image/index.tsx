@@ -6,6 +6,8 @@ import Icon from '@components/Icon';
 
 import type { CSSValue, GenericComponentProps, IconName } from '../../types';
 import {
+  BackgroundImageWrapper,
+  BackgroundImg,
   FallbackWrapper,
   ImageWrapper,
   Img,
@@ -25,6 +27,7 @@ export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
   round?: CSSValue;
   fill?: 'cover' | 'contain';
   disableAspectRatio?: boolean;
+  disableOnBackground?: boolean;
   disableSkeleton?: boolean;
   disableSkeletonAnimation?: boolean;
   fallbackElement?: ReactElement;
@@ -45,6 +48,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
     round,
     fill = 'cover',
     disableAspectRatio,
+    disableOnBackground = true,
     disableSkeleton,
     disableSkeletonAnimation,
     fallbackElement,
@@ -82,6 +86,47 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
       setLoaded(true);
     }
   }, [disableSkeleton, src]);
+
+  if (!disableOnBackground) {
+    return (
+      <BackgroundImageWrapper
+        ref={ref}
+        ratio={ratio}
+        dataWidth={width}
+        dataHeight={height}
+        round={round}
+        disableAspectRatio={disableAspectRatio}
+        {...props}
+        css={customStyle}
+      >
+        {!loadFailed && (
+          <BackgroundImg
+            dataSrc={src}
+            alt={alt}
+            fill={fill}
+            loaded={loaded}
+            loadFailed={loadFailed}
+            onLoad={handleLoad}
+            onError={handleError}
+          />
+        )}
+        {!disableSkeleton && !loaded && !loadFailed && (
+          <SkeletonWrapper>
+            <Skeleton
+              width="100%"
+              height="100%"
+              disableAspectRatio
+              disableAnimation={disableSkeletonAnimation}
+            />
+          </SkeletonWrapper>
+        )}
+        {loadFailed && fallbackElement && fallbackElement}
+        {loadFailed && !fallbackElement && fallbackIcon && (
+          <Icon name={fallbackIcon.name} width={fallbackIcon.width} height={fallbackIcon.height} />
+        )}
+      </BackgroundImageWrapper>
+    );
+  }
 
   if (disableAspectRatio) {
     return (
