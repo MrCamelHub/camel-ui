@@ -178,10 +178,10 @@ export const StyledLabel = styled.label<
         return {
           height: 24,
           padding: '4px 6px',
-          fontSize: typography.small1.size,
-          fontWeight: typography.small1.weight.medium,
-          lineHeight: typography.small1.lineHeight,
-          letterSpacing: typography.small1.letterSpacing,
+          fontSize: typography.body2.size,
+          fontWeight: typography.body2.weight.medium,
+          lineHeight: typography.body2.lineHeight,
+          letterSpacing: typography.body2.letterSpacing,
           '& > svg': {
             width: 'auto',
             height: 16

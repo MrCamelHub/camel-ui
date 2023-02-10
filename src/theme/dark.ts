@@ -148,16 +148,16 @@ const dark: MrCamelTheme = {
       lineHeight: '16px',
       letterSpacing: '-0.01em'
     },
-    small1: {
+    body3: {
       component: 'div',
-      size: '12px',
+      size: '10px',
       weight: {
         bold: 700,
         medium: 500,
         regular: 400,
         light: 300
       },
-      lineHeight: '16px',
+      lineHeight: '14px',
       letterSpacing: '-0.01em'
     },
     small2: {

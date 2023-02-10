@@ -2,8 +2,8 @@ import type { ElementType, ReactElement } from 'react';
 
 import type { CSSObject } from '@emotion/styled';
 
-import type { Color } from './css';
 import type * as SvgIcons from '../assets/icons';
+import type { Color } from './css';
 
 export type Variant = 'outline' | 'ghost' | 'outlineGhost' | 'solid' | 'inline';
 export type BrandColor = 'gray' | 'black' | 'primary' | 'blue' | 'red' | 'white';
@@ -48,7 +48,7 @@ export type TypographyVariant =
   | 'h4'
   | 'body1'
   | 'body2'
-  | 'small1'
+  | 'body3'
   | 'small2';
 export type TypographyComponent = Extract<
   ElementType,

@@ -45,7 +45,7 @@ export function Sizes() {
           { component: 'Header 4', variant: 'h4', size: 15 },
           { component: 'Body 1', variant: 'body1', size: 14 },
           { component: 'Body 2', variant: 'body2', size: 12 },
-          { component: 'Small Text1', variant: 'small1', size: 12 },
+          { component: 'Body 3', variant: 'body3', size: 10 },
           { component: 'Small Text2', variant: 'small2', size: 10 }
         ] as {
           component: string;
