@@ -6,7 +6,6 @@ export const StyledRadioGroup = styled.div<Pick<RadioGroupProps, 'size'>>`
   display: flex;
   align-items: center;
   cursor: pointer;
-  white-space: nowrap;
 
   ${({
     theme: {

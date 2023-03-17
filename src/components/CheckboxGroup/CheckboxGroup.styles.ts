@@ -6,7 +6,6 @@ export const StyledCheckboxGroup = styled.div<Pick<CheckboxGroupProps, 'size'>>`
   display: flex;
   align-items: center;
   cursor: pointer;
-  white-space: nowrap;
 
   ${({
     theme: {
