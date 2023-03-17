@@ -4,7 +4,6 @@ import type { HTMLAttributes, ReactElement } from 'react';
 import Skeleton from '@components/Skeleton';
 import Icon from '@components/Icon';
 
-import type { CSSValue, GenericComponentProps, IconName } from '../../types';
 import {
   BackgroundImageWrapper,
   BackgroundImg,
@@ -17,9 +16,12 @@ import {
   RatioImg,
   SkeletonWrapper
 } from './Image.styles';
+import type { CSSValue, GenericComponentProps, IconName } from '../../types';
 
 export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   src: string;
+  srcSet?: string;
+  sizes?: string;
   alt: string;
   width?: CSSValue;
   height?: CSSValue;
@@ -41,6 +43,8 @@ export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
 const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   {
     src,
+    srcSet,
+    sizes,
     alt,
     width,
     height,
@@ -149,6 +153,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
             loadFailed={loadFailed}
             onLoad={handleLoad}
             onError={handleError}
+            srcSet={srcSet}
+            sizes={sizes}
           />
         )}
         {!disableSkeleton && !loaded && !loadFailed && (
