@@ -5,8 +5,8 @@ import type { CSSObject } from '@emotion/styled';
 import type * as SvgIcons from '../assets/icons';
 import type { Color } from './css';
 
-export type Variant = 'outline' | 'ghost' | 'outlineGhost' | 'solid' | 'inline';
-export type BrandColor = 'gray' | 'black' | 'primary' | 'blue' | 'red' | 'white';
+export type Variant = 'outline' | 'ghost' | 'outline-ghost' | 'solid' | 'inline';
+export type BrandColor = 'gray' | 'black' | 'primary' | 'blue' | 'red' | 'purple' | 'white';
 export type BrandExtendsColor = 'dark' | 'light' | 'highlight' | 'bgLight';
 export type Palette = Record<'main' | 'dark' | 'light' | 'highlight' | 'bgLight', Color>;
 export type CommonPalette = Record<
@@ -37,6 +37,11 @@ export type CommonPalette = Record<
   | 'cmn80',
   Color
 >;
+export type ComponentColor =
+  | BrandColor
+  | Color
+  | `${BrandColor}-${BrandExtendsColor}`
+  | keyof CommonPalette;
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 

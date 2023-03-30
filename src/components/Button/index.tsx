@@ -1,7 +1,6 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
-import { StyledButton, SubText } from './Button.styles';
 import type {
   BrandColor,
   GenericComponentProps,
@@ -10,11 +9,12 @@ import type {
   TypographyWeight,
   Variant
 } from '../../types';
+import { StyledButton, SubText } from './Button.styles';
 
 export interface BaseButtonProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Variant;
-  brandColor?: Exclude<BrandColor, 'red'>;
+  brandColor?: Exclude<BrandColor, 'red' | 'purple'>;
   size?: Exclude<Size, 'xsmall'>;
   weight?: keyof TypographyWeight;
   subText?: string | number;

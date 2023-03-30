@@ -3,22 +3,26 @@ import React, { forwardRef } from 'react';
 
 import { useTheme } from '@theme';
 
-import { StyledTypography } from './Typography.styles';
 import type {
   BrandColor,
+  ComponentColor,
   GenericComponentProps,
   TypographyComponent,
   TypographyVariant,
   TypographyWeight
 } from '../../types';
+import { StyledTypography } from './Typography.styles';
 
-export interface TypographyProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
+export interface TypographyProps
+  extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'color'>> {
   variant?: TypographyVariant;
   component?: TypographyComponent;
   brandColor?: BrandColor;
   weight?: keyof TypographyWeight;
   noWrap?: boolean;
   lineClamp?: number;
+  textAlign?: 'left' | 'center' | 'right';
+  color?: ComponentColor;
 }
 
 const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>>(
@@ -31,6 +35,8 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
       brandColor,
       noWrap,
       lineClamp,
+      textAlign,
+      color,
       customStyle,
       ...props
     },
@@ -49,6 +55,8 @@ const Typography = forwardRef<HTMLDivElement, PropsWithChildren<TypographyProps>
         brandColor={brandColor}
         noWrap={noWrap}
         lineClamp={lineClamp}
+        textAlign={textAlign}
+        color={color}
         css={customStyle}
         {...props}
       >

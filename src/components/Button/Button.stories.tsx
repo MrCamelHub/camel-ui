@@ -44,8 +44,8 @@ export function Variants() {
       <Button variant="ghost" brandColor="primary">
         ghost
       </Button>
-      <Button variant="outlineGhost" brandColor="primary">
-        outlineGhost
+      <Button variant="outline-ghost" brandColor="primary">
+        outline-ghost
       </Button>
       <Button variant="solid" brandColor="primary">
         solid
@@ -94,18 +94,18 @@ export function BrandColors() {
           blue
         </Button>
       </Wrapper>
-      <p>outlineGhost</p>
+      <p>outline-ghost</p>
       <Wrapper>
-        <Button variant="outlineGhost" brandColor="black">
+        <Button variant="outline-ghost" brandColor="black">
           black
         </Button>
-        <Button variant="outlineGhost" brandColor="gray">
+        <Button variant="outline-ghost" brandColor="gray">
           gray
         </Button>
-        <Button variant="outlineGhost" brandColor="primary">
+        <Button variant="outline-ghost" brandColor="primary">
           primary
         </Button>
-        <Button variant="outlineGhost" brandColor="blue">
+        <Button variant="outline-ghost" brandColor="blue">
           blue
         </Button>
       </Wrapper>

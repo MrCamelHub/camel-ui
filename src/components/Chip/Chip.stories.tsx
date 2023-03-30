@@ -39,8 +39,8 @@ export function Variants() {
       <Chip variant="ghost" brandColor="primary">
         ghost
       </Chip>
-      <Chip variant="outlineGhost" brandColor="primary">
-        outlineGhost
+      <Chip variant="outline-ghost" brandColor="primary">
+        outline-ghost
       </Chip>
       <Chip variant="solid" brandColor="primary">
         solid
@@ -74,18 +74,18 @@ export function BrandColors() {
           blue
         </Chip>
       </Wrapper>
-      <p>outlineGhost</p>
+      <p>outline-ghost</p>
       <Wrapper>
-        <Chip variant="outlineGhost" brandColor="black">
+        <Chip variant="outline-ghost" brandColor="black">
           black
         </Chip>
-        <Chip variant="outlineGhost" brandColor="gray">
+        <Chip variant="outline-ghost" brandColor="gray">
           gray
         </Chip>
-        <Chip variant="outlineGhost" brandColor="primary">
+        <Chip variant="outline-ghost" brandColor="primary">
           primary
         </Chip>
-        <Chip variant="outlineGhost" brandColor="blue">
+        <Chip variant="outline-ghost" brandColor="blue">
           blue
         </Chip>
       </Wrapper>
@@ -353,7 +353,7 @@ export function SubTexts() {
       <p>medium</p>
       <Wrapper>
         <Chip
-          variant="outlineGhost"
+          variant="outline-ghost"
           brandColor="black"
           startIcon={<Icon name="AlarmFilled" />}
           endIcon={<Icon name="CloseOutlined" />}
@@ -363,7 +363,7 @@ export function SubTexts() {
           Button
         </Chip>
         <Chip
-          variant="outlineGhost"
+          variant="outline-ghost"
           brandColor="gray"
           startIcon={<Icon name="AlarmFilled" />}
           endIcon={<Icon name="CloseOutlined" />}
@@ -373,7 +373,7 @@ export function SubTexts() {
           Button
         </Chip>
         <Chip
-          variant="outlineGhost"
+          variant="outline-ghost"
           brandColor="primary"
           startIcon={<Icon name="AlarmFilled" />}
           endIcon={<Icon name="CloseOutlined" />}
@@ -383,7 +383,7 @@ export function SubTexts() {
           Button
         </Chip>
         <Chip
-          variant="outlineGhost"
+          variant="outline-ghost"
           brandColor="blue"
           startIcon={<Icon name="AlarmFilled" />}
           endIcon={<Icon name="CloseOutlined" />}
