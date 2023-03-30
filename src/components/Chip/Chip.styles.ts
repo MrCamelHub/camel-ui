@@ -54,7 +54,7 @@ export const StyledChip = styled.button<
         }
         break;
       }
-      case 'outlineGhost': {
+      case 'outline-ghost': {
         if (brandColor === 'black') {
           cssObject = {
             backgroundColor: common.ui95,

@@ -1,9 +1,9 @@
 import type { SVGProps } from 'react';
 import React, { forwardRef } from 'react';
 
-import { StyledIcon } from './Icon.styles';
-import type { BrandColor, Color, GenericComponentProps, Size } from '../../types';
+import type { ComponentColor, GenericComponentProps, Size } from '../../types';
 import * as SvgIcons from '../../assets/icons';
+import { StyledIcon } from './Icon.styles';
 
 export interface IconProps
   extends GenericComponentProps<
@@ -11,7 +11,7 @@ export interface IconProps
   > {
   name: keyof typeof SvgIcons;
   size?: Exclude<Size, 'xsmall' | 'xlarge'>;
-  color?: BrandColor | Color;
+  color?: ComponentColor;
 }
 
 const Icon = forwardRef<SVGElement, IconProps>(function Icon(

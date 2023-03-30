@@ -5,7 +5,10 @@ import { getBrandColorCodeByColorName } from '@utils';
 import type { TypographyProps } from '.';
 
 export const StyledTypography = styled.div<
-  Pick<TypographyProps, 'variant' | 'weight' | 'brandColor' | 'noWrap' | 'lineClamp'>
+  Pick<
+    TypographyProps,
+    'variant' | 'weight' | 'brandColor' | 'noWrap' | 'lineClamp' | 'textAlign' | 'color'
+  >
 >`
   color: ${({
     theme: {
@@ -20,10 +23,10 @@ export const StyledTypography = styled.div<
     letterSpacing: typography[variant].letterSpacing
   })};
 
-  ${({ theme, brandColor }): CSSObject =>
-    brandColor
+  ${({ theme, color }): CSSObject =>
+    color
       ? {
-          color: getBrandColorCodeByColorName(theme, brandColor)
+          color: getBrandColorCodeByColorName(theme, color)
         }
       : {}};
 
@@ -46,4 +49,11 @@ export const StyledTypography = styled.div<
           whiteSpace: 'nowrap'
         }
       : {}};
+
+  ${({ textAlign }): CSSObject =>
+    textAlign
+      ? {
+          textAlign
+        }
+      : {}}
 `;

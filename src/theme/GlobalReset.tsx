@@ -3,9 +3,15 @@ import React from 'react';
 import useTheme from '@theme/provider/useTheme';
 import { Global } from '@emotion/react';
 
+import type { CustomStyle } from '../types';
+
+interface GlobalResetProps {
+  customResetStyle?: CustomStyle;
+}
+
 /*! tailwindcss v2.2.15 | MIT License | https://tailwindcss.com */
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
-function GlobalReset() {
+function GlobalReset({ customResetStyle }: GlobalResetProps) {
   const {
     theme: {
       palette: { common }
@@ -179,7 +185,8 @@ function GlobalReset() {
         '*,::before,::after': {
           '--tw-border-opacity': 1,
           borderColor: 'rgba(229, 231, 235, var(--tw-border-opacity))'
-        }
+        },
+        ...customResetStyle
       }}
     />
   );

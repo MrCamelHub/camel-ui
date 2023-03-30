@@ -1,7 +1,6 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
-import { EndIcon, StyledChip, SubText } from './Chip.styles';
 import type {
   BrandColor,
   GenericComponentProps,
@@ -10,11 +9,12 @@ import type {
   TypographyWeight,
   Variant
 } from '../../types';
+import { EndIcon, StyledChip, SubText } from './Chip.styles';
 
 export interface BaseChipProps
   extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: Exclude<Variant, 'inline'>;
-  brandColor?: BrandColor;
+  brandColor?: Exclude<BrandColor, 'red' | 'purple'>;
   size?: Size;
   weight?: keyof TypographyWeight;
   subText?: string | number;

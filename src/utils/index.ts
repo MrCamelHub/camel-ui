@@ -1,24 +1,45 @@
-import type { BrandColor, CSSValue, Color, MrCamelTheme } from '../types';
+import type {
+  BrandColor,
+  BrandExtendsColor,
+  CSSValue,
+  Color,
+  CommonPalette,
+  ComponentColor,
+  MrCamelTheme
+} from '../types';
 
 export function getBrandColorCodeByColorName(
   theme: MrCamelTheme,
-  colorName?: BrandColor,
+  colorName?: ComponentColor,
   initialColorCode = true
 ): Color | undefined {
-  let colorCode = !initialColorCode ? undefined : theme.palette.primary.main;
+  const {
+    palette: { primary, secondary, common }
+  } = theme;
 
-  if (colorName === 'gray') {
-    colorCode = theme.palette.common.line01;
-  } else if (colorName === 'black') {
-    colorCode = theme.palette.common.ui20;
-  } else if (colorName === 'primary') {
-    colorCode = theme.palette.primary.main;
-  } else if (colorName === 'blue') {
-    colorCode = theme.palette.primary.light;
-  } else if (colorName === 'red') {
-    colorCode = theme.palette.secondary.red.main;
-  } else if (colorName === 'white') {
-    colorCode = theme.palette.common.uiWhite;
+  let colorCode = !initialColorCode ? undefined : primary.main;
+
+  if (typeof colorName !== 'string') return colorCode;
+
+  const splitColorNames = colorName.split('-');
+  const mainColorName = splitColorNames[0] as BrandColor | keyof CommonPalette;
+  const extendsColorName = (splitColorNames[1] || 'main') as BrandExtendsColor & 'main';
+
+  if (mainColorName === 'gray') {
+    colorCode = common.line01;
+  } else if (mainColorName === 'black') {
+    colorCode = common.ui20;
+  } else if (mainColorName === 'white') {
+    colorCode = common.uiWhite;
+  } else if (mainColorName === 'primary') {
+    colorCode = primary[extendsColorName];
+  } else if (mainColorName === 'blue' && extendsColorName === 'main') {
+    colorCode = primary.light;
+  } else if (['red', 'purple', 'blue'].includes(mainColorName)) {
+    colorCode =
+      secondary[mainColorName as Extract<BrandColor, 'red' | 'purple' | 'blue'>][extendsColorName];
+  } else if (common[mainColorName as keyof CommonPalette]) {
+    colorCode = common[mainColorName as keyof CommonPalette];
   }
 
   return colorCode;
