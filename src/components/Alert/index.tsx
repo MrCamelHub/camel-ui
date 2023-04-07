@@ -1,8 +1,8 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react';
 import React, { forwardRef } from 'react';
 
-import { StyledAlert } from './Alert.styles';
 import type { BrandColor, CSSValue, GenericComponentProps } from '../../types';
+import { StyledAlert } from './Alert.styles';
 
 export interface AlertProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   round?: CSSValue;

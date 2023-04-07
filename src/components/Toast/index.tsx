@@ -4,8 +4,8 @@ import React, { forwardRef, useContext, useEffect, useRef, useState } from 'reac
 import { createPortal } from 'react-dom';
 import PortalCounterContext from '@theme/provider/PortalCounterContext';
 
-import { StyledToast } from './Toast.styles';
 import type { CSSValue, GenericComponentProps } from '../../types';
+import { StyledToast } from './Toast.styles';
 
 export interface ToastProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {

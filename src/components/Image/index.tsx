@@ -18,7 +18,8 @@ import {
   SkeletonWrapper
 } from './Image.styles';
 
-export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
+export interface ImageProps
+  extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onLoad' | 'onError'>> {
   src: string;
   alt: string;
   width?: CSSValue;
@@ -26,16 +27,19 @@ export interface ImageProps extends GenericComponentProps<HTMLAttributes<HTMLDiv
   ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '5:6' | '16:9';
   round?: CSSValue;
   fill?: 'cover' | 'contain';
-  disableAspectRatio?: boolean;
-  disableOnBackground?: boolean;
-  disableSkeleton?: boolean;
-  disableSkeletonAnimation?: boolean;
   fallbackElement?: ReactElement;
   fallbackIcon?: {
     name: IconName;
     width?: CSSValue;
     height?: CSSValue;
   };
+  disableAspectRatio?: boolean;
+  disableOnBackground?: boolean;
+  disableSkeleton?: boolean;
+  disableSkeletonAnimation?: boolean;
+  disableFallback?: boolean;
+  onLoad?: () => void;
+  onError?: () => void;
 }
 
 const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
@@ -51,6 +55,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
     disableOnBackground = true,
     disableSkeleton,
     disableSkeletonAnimation,
+    disableFallback,
     fallbackElement,
     fallbackIcon = {
       name: 'ImageOutlined',
@@ -58,6 +63,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
       height: 24
     },
     customStyle,
+    onLoad,
+    onError,
     ...props
   },
   ref
@@ -65,27 +72,47 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   const [loaded, setLoaded] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
 
-  const handleLoad = () => setLoaded(true);
+  const handleLoad = () => {
+    if (onLoad && typeof onLoad === 'function') {
+      onLoad();
+    }
+    setLoaded(true);
+  };
 
-  const handleError = () => setLoadFailed(true);
+  const handleError = () => {
+    if (onError && typeof onError === 'function') {
+      onError();
+    }
+    setLoadFailed(true);
+  };
 
   useEffect(() => {
     if (src) {
       setLoaded(false);
       setLoadFailed(false);
     }
-  }, [src]);
+  }, [src, disableOnBackground]);
 
   useEffect(() => {
-    if (!disableSkeleton) {
+    if (!disableOnBackground && !disableSkeleton && !loaded && !loadFailed) {
       const img = new window.Image();
       img.src = src;
-      img.onload = () => setLoaded(true);
-      img.onerror = () => setLoadFailed(true);
-    } else {
+      img.onload = () => {
+        if (onLoad && typeof onLoad === 'function') {
+          onLoad();
+        }
+        setLoaded(true);
+      };
+      img.onerror = () => {
+        if (onError && typeof onError === 'function') {
+          onError();
+        }
+        setLoadFailed(true);
+      };
+    } else if (disableSkeleton && !loaded && !loadFailed) {
       setLoaded(true);
     }
-  }, [disableSkeleton, src]);
+  }, [disableOnBackground, disableSkeleton, src, loaded, loadFailed, onLoad, onError]);
 
   if (!disableOnBackground) {
     return (
@@ -106,8 +133,6 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
             fill={fill}
             loaded={loaded}
             loadFailed={loadFailed}
-            onLoad={handleLoad}
-            onError={handleError}
           />
         )}
         {!disableSkeleton && !loaded && !loadFailed && (
@@ -120,8 +145,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
             />
           </SkeletonWrapper>
         )}
-        {loadFailed && fallbackElement && fallbackElement}
-        {loadFailed && !fallbackElement && fallbackIcon && (
+        {!disableFallback && loadFailed && fallbackElement && fallbackElement}
+        {!disableFallback && loadFailed && !fallbackElement && fallbackIcon && (
           <Icon name={fallbackIcon.name} width={fallbackIcon.width} height={fallbackIcon.height} />
         )}
       </BackgroundImageWrapper>
@@ -161,8 +186,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
             />
           </SkeletonWrapper>
         )}
-        {loadFailed && fallbackElement && fallbackElement}
-        {loadFailed && !fallbackElement && fallbackIcon && (
+        {!disableFallback && loadFailed && fallbackElement && fallbackElement}
+        {!disableFallback && loadFailed && !fallbackElement && fallbackIcon && (
           <Icon name={fallbackIcon.name} width={fallbackIcon.width} height={fallbackIcon.height} />
         )}
       </ImageWrapper>
@@ -207,8 +232,10 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
               />
             </SkeletonWrapper>
           )}
-          {loadFailed && fallbackElement && <FallbackWrapper>{fallbackElement}</FallbackWrapper>}
-          {loadFailed && !fallbackElement && (
+          {!disableFallback && loadFailed && fallbackElement && (
+            <FallbackWrapper>{fallbackElement}</FallbackWrapper>
+          )}
+          {!disableFallback && loadFailed && !fallbackElement && (
             <FallbackWrapper>
               <Icon
                 name={fallbackIcon.name}

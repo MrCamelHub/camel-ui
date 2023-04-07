@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 
 import Icon from '@components/Icon';
 
-import { Marker, StyledRadio, Wrapper } from './Radio.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';
+import { Marker, StyledRadio, Wrapper } from './Radio.styles';
 
 export interface RadioProps extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
   brandColor?: Extract<BrandColor, 'primary' | 'black'>;

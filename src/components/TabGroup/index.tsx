@@ -1,8 +1,8 @@
 import type { HTMLAttributes, MouseEvent } from 'react';
 import React, { forwardRef, useEffect, useRef } from 'react';
 
-import { StyledTabGroup, TabGroupInner } from './TabGroup.styles';
 import type { BrandColor, GenericComponentProps, Size } from '../../types';
+import { StyledTabGroup, TabGroupInner } from './TabGroup.styles';
 
 export interface TabGroupProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'onChange'>> {

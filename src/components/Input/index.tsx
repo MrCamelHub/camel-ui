@@ -1,8 +1,8 @@
 import type { FocusEvent, InputHTMLAttributes, ReactElement } from 'react';
 import React, { forwardRef, useState } from 'react';
 
-import { BaseInput, StyledInput, Unit } from './Input.styles';
 import { CustomStyle, GenericComponentProps, Size, Variant } from '../../types';
+import { BaseInput, StyledInput, Unit } from './Input.styles';
 
 export interface InputProps
   extends GenericComponentProps<Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>> {

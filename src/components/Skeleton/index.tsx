@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
 
-import { SkeletonInner, SkeletonWrapper, StyledSkeleton } from './Skeleton.styles';
 import type { CSSValue, GenericComponentProps } from '../../types';
+import { SkeletonInner, SkeletonWrapper, StyledSkeleton } from './Skeleton.styles';
 
 export interface SkeletonProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '5:6' | '16:9';
