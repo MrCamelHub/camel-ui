@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
 
-import { StyledBadge, Wrapper } from './Badge.styles';
 import type { BrandColor, CSSValue, GenericComponentProps, Size, Variant } from '../../types';
+import { StyledBadge, Wrapper } from './Badge.styles';
 
 export interface BadgeProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;

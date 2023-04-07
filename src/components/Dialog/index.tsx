@@ -3,8 +3,8 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import { StyledDialog, Wrapper } from './Dialog.styles';
 import type { GenericComponentProps } from '../../types';
+import { StyledDialog, Wrapper } from './Dialog.styles';
 
 export interface DialogProps
   extends GenericComponentProps<Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>> {

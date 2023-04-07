@@ -5,8 +5,8 @@ import Icon from '@components/Icon';
 
 import { useTheme } from '@theme';
 
-import { StyledRating } from './Rating.styles';
 import type { GenericComponentProps, Size } from '../../types';
+import { StyledRating } from './Rating.styles';
 
 export interface RatingProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   count: number;

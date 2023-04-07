@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
-import { StepperItem, StyledStepper } from './Stepper.styles';
 import type { GenericComponentProps } from '../../types';
+import { StepperItem, StyledStepper } from './Stepper.styles';
 
 export interface StepperProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   count: number;

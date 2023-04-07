@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import type { ButtonHTMLAttributes, ReactElement } from 'react';
 
-import { StyledTab } from './Tab.styles';
 import type { BrandColor, GenericComponentProps, Size } from '../../types';
+import { StyledTab } from './Tab.styles';
 
 export interface TabProps extends GenericComponentProps<ButtonHTMLAttributes<HTMLButtonElement>> {
   brandColor?: Extract<BrandColor, 'primary' | 'black'>;

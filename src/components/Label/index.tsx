@@ -1,8 +1,8 @@
 import type { HTMLAttributes, ReactElement } from 'react';
 import React, { forwardRef } from 'react';
 
-import { StyledLabel } from './Label.styles';
 import type { BrandColor, CSSValue, GenericComponentProps, Size, Variant } from '../../types';
+import { StyledLabel } from './Label.styles';
 
 export interface LabelProps extends GenericComponentProps<HTMLAttributes<HTMLLabelElement>> {
   variant?: Exclude<Variant, 'inline'> | 'darked';

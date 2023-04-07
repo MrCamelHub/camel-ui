@@ -1,8 +1,8 @@
 import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react';
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 
-import { StyledTooltip, Wrapper } from './Tooltip.styles';
 import type { BrandColor, GenericComponentProps, Variant } from '../../types';
+import { StyledTooltip, Wrapper } from './Tooltip.styles';
 
 export interface TooltipProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   variant?: Extract<Variant, 'solid' | 'ghost'>;

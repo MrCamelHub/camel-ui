@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 
 import Icon from '@components/Icon';
 
-import { Marker, StyledCheckbox, Wrapper } from './Checkbox.styles';
 import type { BrandColor, GenericComponentProps } from '../../types';
+import { Marker, StyledCheckbox, Wrapper } from './Checkbox.styles';
 
 export interface CheckboxProps
   extends GenericComponentProps<InputHTMLAttributes<HTMLInputElement>> {
