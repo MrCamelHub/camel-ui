@@ -74,22 +74,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
 
   const prevSrcRef = useRef('');
 
-  const handleLoad = () => {
-    if (onLoad && typeof onLoad === 'function') {
-      onLoad();
-    }
-    setLoaded(true);
-  };
-
-  const handleError = () => {
-    if (onError && typeof onError === 'function') {
-      onError();
-    }
-    setLoadFailed(true);
-  };
-
   useEffect(() => {
-    if (!disableOnBackground && !disableSkeleton && !loaded && !loadFailed) {
+    if (!loaded && !loadFailed) {
       const img = new window.Image();
       img.src = src;
       img.onload = () => {
@@ -104,10 +90,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
         }
         setLoadFailed(true);
       };
-    } else if (disableSkeleton && !loaded && !loadFailed) {
-      setLoaded(true);
     }
-  }, [disableOnBackground, disableSkeleton, src, loaded, loadFailed, onLoad, onError]);
+  }, [src, loaded, loadFailed, onLoad, onError]);
 
   useEffect(() => {
     if (src && prevSrcRef.current && src !== prevSrcRef.current) {
@@ -129,7 +113,10 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
         {...props}
         css={customStyle}
       >
-        {!loadFailed && (
+        {disableSkeleton && !loadFailed && (
+          <BackgroundImg dataSrc={src} alt={alt} fill={fill} loaded loadFailed={false} />
+        )}
+        {!disableSkeleton && !loadFailed && (
           <BackgroundImg
             dataSrc={src}
             alt={alt}
@@ -166,7 +153,18 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
         {...props}
         css={customStyle}
       >
-        {!loadFailed && (
+        {disableSkeleton && !loadFailed && (
+          <Img
+            width={width}
+            height={height}
+            src={src}
+            alt={alt}
+            fill={fill}
+            loaded
+            loadFailed={false}
+          />
+        )}
+        {!disableSkeleton && !loadFailed && (
           <Img
             width={width}
             height={height}
@@ -175,8 +173,6 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
             fill={fill}
             loaded={loaded}
             loadFailed={loadFailed}
-            onLoad={handleLoad}
-            onError={handleError}
           />
         )}
         {!disableSkeleton && !loaded && !loadFailed && (
@@ -208,7 +204,18 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
     >
       <RatioImageWrapper ratio={ratio}>
         <RatioImageInner>
-          {!loadFailed && (
+          {disableSkeleton && !loadFailed && (
+            <RatioImg
+              width={width}
+              height={height}
+              src={src}
+              alt={alt}
+              fill={fill}
+              loaded
+              loadFailed={false}
+            />
+          )}
+          {!disableSkeleton && !loadFailed && (
             <RatioImg
               width={width}
               height={height}
@@ -217,8 +224,6 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
               fill={fill}
               loaded={loaded}
               loadFailed={loadFailed}
-              onLoad={handleLoad}
-              onError={handleError}
             />
           )}
           {!disableSkeleton && !loaded && !loadFailed && (
