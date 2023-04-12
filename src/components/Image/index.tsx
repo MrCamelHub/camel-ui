@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, ReactElement } from 'react';
 
 import Skeleton from '@components/Skeleton';
@@ -72,6 +72,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   const [loaded, setLoaded] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
 
+  const prevSrcRef = useRef('');
+
   const handleLoad = () => {
     if (onLoad && typeof onLoad === 'function') {
       onLoad();
@@ -85,13 +87,6 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
     }
     setLoadFailed(true);
   };
-
-  useEffect(() => {
-    if (src) {
-      setLoaded(false);
-      setLoadFailed(false);
-    }
-  }, [src, disableOnBackground]);
 
   useEffect(() => {
     if (!disableOnBackground && !disableSkeleton && !loaded && !loadFailed) {
@@ -113,6 +108,14 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
       setLoaded(true);
     }
   }, [disableOnBackground, disableSkeleton, src, loaded, loadFailed, onLoad, onError]);
+
+  useEffect(() => {
+    if (src && prevSrcRef.current && src !== prevSrcRef.current) {
+      setLoaded(false);
+      setLoadFailed(false);
+    }
+    prevSrcRef.current = src;
+  }, [src, disableOnBackground]);
 
   if (!disableOnBackground) {
     return (
