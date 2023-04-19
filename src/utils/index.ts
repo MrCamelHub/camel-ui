@@ -10,16 +10,15 @@ import type {
 
 export function getBrandColorCodeByColorName(
   theme: MrCamelTheme,
-  colorName?: ComponentColor,
-  initialColorCode = true
+  colorName?: ComponentColor
 ): Color | undefined {
   const {
     palette: { primary, secondary, common }
   } = theme;
 
-  let colorCode = !initialColorCode ? undefined : primary.main;
+  if (typeof colorName !== 'string') return colorName;
 
-  if (typeof colorName !== 'string') return colorCode;
+  let colorCode = colorName;
 
   const splitColorNames = colorName.split('-');
   const mainColorName = splitColorNames[0] as BrandColor | keyof CommonPalette;
