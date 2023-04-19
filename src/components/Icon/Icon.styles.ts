@@ -15,7 +15,7 @@ export const StyledIcon = (icon: typeof HeartFilled) => styled(icon)<
     let cssObject: CSSObject = {};
 
     if (color) {
-      const brandColorCode = getBrandColorCodeByColorName(theme, color, false);
+      const brandColorCode = getBrandColorCodeByColorName(theme, color);
 
       if (brandColorCode) {
         cssObject = { color: `${brandColorCode} !important` };
