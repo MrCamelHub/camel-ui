@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import type { GenericComponentProps } from '../../types';
 import { StyledFab, StyledFabInner } from './Fab.styles';

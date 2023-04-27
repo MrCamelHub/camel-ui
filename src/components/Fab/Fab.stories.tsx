@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { ComponentMeta } from '@storybook/react';
 import Icon from '@components/Icon';
 import Fab from '@components/Fab';

@@ -1,5 +1,5 @@
 import type { ChangeEvent } from 'react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';

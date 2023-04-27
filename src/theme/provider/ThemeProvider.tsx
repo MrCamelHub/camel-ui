@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 import ThemeContext from '@theme/provider/ThemeContext';
 import light from '@theme/light';

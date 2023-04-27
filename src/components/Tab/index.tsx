@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import type { ButtonHTMLAttributes, ReactElement } from 'react';
 
 import type { BrandColor, GenericComponentProps, Size } from '../../types';

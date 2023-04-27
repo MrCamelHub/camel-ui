@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import Icon from '@components/Icon';
 

@@ -1,5 +1,5 @@
 import type { SVGProps } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import type { ComponentColor, GenericComponentProps, Size } from '../../types';
 import * as SvgIcons from '../../assets/icons';

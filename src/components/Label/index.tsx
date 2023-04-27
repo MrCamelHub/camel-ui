@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactElement } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import type { BrandColor, CSSValue, GenericComponentProps, Size, Variant } from '../../types';
 import { StyledLabel } from './Label.styles';

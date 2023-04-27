@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import type { HTMLAttributes, ReactElement } from 'react';
 
 import Skeleton from '@components/Skeleton';

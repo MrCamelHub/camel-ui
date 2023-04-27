@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { ComponentMeta } from '@storybook/react';
 import Skeleton from '@components/Skeleton';
 
