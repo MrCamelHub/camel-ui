@@ -6,15 +6,14 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
-import packageJson from './package.json';
-
 const outputs = [
   {
-    file: packageJson.main,
-    format: 'cjs'
+    file: 'dist/index.js',
+    format: 'cjs',
+    interop: 'auto'
   },
   {
-    file: packageJson.module,
+    file: 'dist/index.es.js',
     format: 'es'
   }
 ];
