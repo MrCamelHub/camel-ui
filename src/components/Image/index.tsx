@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import type { HTMLAttributes, ReactElement } from 'react';
 
 import Skeleton from '@components/Skeleton';
@@ -72,8 +72,6 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   const [loaded, setLoaded] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
 
-  const prevSrcRef = useRef('');
-
   useEffect(() => {
     if (!loaded && !loadFailed) {
       const img = new window.Image();
@@ -94,12 +92,16 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   }, [src, loaded, loadFailed, onLoad, onError]);
 
   useEffect(() => {
-    if (src && prevSrcRef.current && src !== prevSrcRef.current) {
+    setLoaded(false);
+    setLoadFailed(false);
+  }, [src]);
+
+  useEffect(() => {
+    if (!disableOnBackground) {
       setLoaded(false);
       setLoadFailed(false);
     }
-    prevSrcRef.current = src;
-  }, [src, disableOnBackground]);
+  }, [disableOnBackground]);
 
   if (!disableOnBackground) {
     return (
