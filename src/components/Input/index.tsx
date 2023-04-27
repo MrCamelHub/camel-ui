@@ -1,5 +1,5 @@
 import type { FocusEvent, InputHTMLAttributes, ReactElement } from 'react';
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { CustomStyle, GenericComponentProps, Size, Variant } from '../../types';
 import { BaseInput, StyledInput, Unit } from './Input.styles';

@@ -30,6 +30,7 @@ module.exports = {
     ],
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'import/order': [
@@ -79,11 +80,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-interface': 'off'
-  },
-  settings: {
-    react: {
-      version: '18.0.0'
-    }
   },
   overrides: [
     {

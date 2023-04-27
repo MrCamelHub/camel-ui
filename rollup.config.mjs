@@ -1,4 +1,4 @@
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import svgr from '@svgr/rollup';
 import typescript from '@rollup/plugin-typescript';
@@ -7,15 +7,14 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
-import packageJson from './package.json';
-
 const outputs = [
   {
-    file: packageJson.main,
-    format: 'cjs'
+    file: 'dist/index.js',
+    format: 'cjs',
+    interop: 'auto'
   },
   {
-    file: packageJson.module,
+    file: 'dist/index.es.js',
     format: 'es'
   }
 ];

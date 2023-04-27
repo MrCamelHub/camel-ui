@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import type { HTMLAttributes, MouseEvent } from 'react';
 
 import Checkbox, { CheckboxProps } from '@components/Checkbox';

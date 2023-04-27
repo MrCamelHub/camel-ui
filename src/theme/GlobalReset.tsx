@@ -1,5 +1,3 @@
-import React from 'react';
-
 import useTheme from '@theme/provider/useTheme';
 import { Global } from '@emotion/react';
 

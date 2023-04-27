@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import React, { ReactElement, forwardRef, useEffect, useState } from 'react';
+import { ReactElement, forwardRef, useEffect, useState } from 'react';
 
 import Skeleton from '@components/Skeleton';
 import Icon from '@components/Icon';

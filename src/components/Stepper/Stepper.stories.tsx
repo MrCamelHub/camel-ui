@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { ComponentMeta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Stepper from '@components/Stepper';

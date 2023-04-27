@@ -1,5 +1,5 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import type { BrandColor, CSSValue, GenericComponentProps } from '../../types';
 import { StyledAlert } from './Alert.styles';
