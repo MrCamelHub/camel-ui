@@ -3,9 +3,6 @@
 # build
 /dist
 
-# Example
-/example
-
 # dependencies
 /node_modules
 
