@@ -1,16 +1,16 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import TabGroup from '@components/TabGroup';
 import Tab from '@components/Tab';
 
 import { Box } from '@components';
 
-export default {
+const meta: Meta<typeof TabGroup> = {
   title: 'Components/TabGroup',
   component: TabGroup
-} as ComponentMeta<typeof TabGroup>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -142,3 +142,5 @@ export function DisableTabFlexible() {
     </TabGroup>
   );
 }
+
+export default meta;

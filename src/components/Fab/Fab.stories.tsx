@@ -1,11 +1,11 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Icon from '@components/Icon';
 import Fab from '@components/Fab';
 
-export default {
+const meta: Meta<typeof Fab> = {
   title: 'Components/Fab',
   component: Fab
-} as ComponentMeta<typeof Fab>;
+};
 
 export function Default({ ...args }) {
   return (
@@ -14,3 +14,5 @@ export function Default({ ...args }) {
     </Fab>
   );
 }
+
+export default meta;

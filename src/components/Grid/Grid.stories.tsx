@@ -1,12 +1,12 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Grid from '@components/Grid';
 
 import { useTheme } from '@theme';
 
-export default {
+const meta: Meta<typeof Grid> = {
   title: 'Experiment/Grid',
   component: Grid
-} as ComponentMeta<typeof Grid>;
+};
 
 export function Default({ ...args }) {
   const {
@@ -37,3 +37,5 @@ export function Default({ ...args }) {
     </Grid>
   );
 }
+
+export default meta;

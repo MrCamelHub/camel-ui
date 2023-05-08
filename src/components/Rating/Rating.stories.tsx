@@ -1,11 +1,11 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Rating from '@components/Rating';
 
-export default {
+const meta: Meta<typeof Rating> = {
   title: 'Components/Rating',
   component: Rating
-} as ComponentMeta<typeof Rating>;
+};
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -53,3 +53,5 @@ export function Size() {
     </Wrapper>
   );
 }
+
+export default meta;

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import RadioGroup from '@components/RadioGroup';
 
-export default {
+const meta: Meta<typeof RadioGroup> = {
   title: 'Components/RadioGroup',
   component: RadioGroup
-} as ComponentMeta<typeof RadioGroup>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -61,3 +61,5 @@ export function Sizes() {
     </Wrapper>
   );
 }
+
+export default meta;

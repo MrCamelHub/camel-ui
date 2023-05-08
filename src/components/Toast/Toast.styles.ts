@@ -26,11 +26,6 @@ export const StyledToast = styled.div<
       palette: { common }
     }
   }) => common.ui20};
-  box-shadow: ${({
-    theme: {
-      box: { shadow }
-    }
-  }) => shadow.tooltip};
   color: ${({
     theme: {
       palette: { common }

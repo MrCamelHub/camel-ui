@@ -1,12 +1,12 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Button from '@components/Button';
 import Badge from '@components/Badge';
 
-export default {
+const meta: Meta<typeof Badge> = {
   title: 'Experiment/Badge',
   component: Badge
-} as ComponentMeta<typeof Badge>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -258,3 +258,5 @@ export function Sizes() {
 export function DisablePositionAbsolute() {
   return <Button endIcon={<Badge open text={99} disablePositionAbsolute />}>Button</Button>;
 }
+
+export default meta;

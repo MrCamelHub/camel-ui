@@ -1,12 +1,12 @@
 import useTheme from '@theme/provider/useTheme';
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Alert from '@components/Alert';
 
-export default {
+const meta: Meta<typeof Alert> = {
   title: 'Components/Alert',
   component: Alert
-} as ComponentMeta<typeof Alert>;
+};
 
 const AlertWrapper = styled.div`
   margin-top: 1.5rem;
@@ -59,3 +59,5 @@ export function BrandColors() {
     </AlertWrapper>
   );
 }
+
+export default meta;

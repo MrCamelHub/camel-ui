@@ -1,12 +1,12 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Icon from '@components/Icon';
 import Button from '@components/Button';
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button
-} as ComponentMeta<typeof Button>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -411,3 +411,5 @@ export function Status() {
     </Wrapper>
   );
 }
+
+export default meta;

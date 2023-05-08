@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Toast from '@components/Toast';
 import Button from '@components/Button';
 
-export default {
+const meta: Meta<typeof Toast> = {
   title: 'Experiment/Toast',
   component: Toast
-} as ComponentMeta<typeof Toast>;
+};
 
 export function Default({ ...args }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,3 +23,5 @@ export function Default({ ...args }) {
     </>
   );
 }
+
+export default meta;

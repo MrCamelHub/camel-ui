@@ -1,12 +1,12 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Box from '@components/Box';
 
 import { useTheme } from '@theme';
 
-export default {
+const meta: Meta<typeof Box> = {
   title: 'Components/Box',
   component: Box
-} as ComponentMeta<typeof Box>;
+};
 
 export function Default({ ...args }) {
   const {
@@ -20,3 +20,5 @@ export function Default({ ...args }) {
     </Box>
   );
 }
+
+export default meta;

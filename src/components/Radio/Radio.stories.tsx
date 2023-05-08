@@ -1,14 +1,14 @@
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Radio from '@components/Radio';
 
-export default {
+const meta: Meta<typeof Radio> = {
   title: 'Components/Radio',
   component: Radio
-} as ComponentMeta<typeof Radio>;
+};
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -52,3 +52,5 @@ export function BrandColors() {
     </Wrapper>
   );
 }
+
+export default meta;
