@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Dialog from '@components/Dialog';
 import Button from '@components/Button';
 
-export default {
+const meta: Meta<typeof Dialog> = {
   title: 'Experiment/Dialog',
   component: Dialog
-} as ComponentMeta<typeof Dialog>;
+};
 
 export function Default({ ...args }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,3 +28,5 @@ export function Default({ ...args }) {
     </>
   );
 }
+
+export default meta;

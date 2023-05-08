@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Button from '@components/Button';
 import BottomSheet from '@components/BottomSheet';
 
-export default {
+const meta: Meta<typeof BottomSheet> = {
   title: 'Experiment/BottomSheet',
   component: BottomSheet
-} as ComponentMeta<typeof BottomSheet>;
+};
 
 export function Default({ ...args }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,3 +26,5 @@ export function Default({ ...args }) {
     </>
   );
 }
+
+export default meta;

@@ -1,10 +1,10 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Avatar from '@components/Avatar';
 
-export default {
+const meta: Meta<typeof Avatar> = {
   title: 'Experiment/Avatar',
   component: Avatar
-} as ComponentMeta<typeof Avatar>;
+};
 
 export function Default({ ...args }) {
   return (
@@ -19,3 +19,5 @@ export function Default({ ...args }) {
 export function Fallback({ ...args }) {
   return <Avatar {...args} src="" alt="Platform Logo Img" />;
 }
+
+export default meta;

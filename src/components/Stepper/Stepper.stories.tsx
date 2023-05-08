@@ -1,11 +1,11 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Stepper from '@components/Stepper';
 
-export default {
+const meta: Meta<typeof Stepper> = {
   title: 'Components/Stepper',
   component: Stepper
-} as ComponentMeta<typeof Stepper>;
+};
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -43,3 +43,5 @@ export function Values() {
     </Wrapper>
   );
 }
+
+export default meta;

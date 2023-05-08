@@ -1,12 +1,12 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import Flexbox from '@components/Flexbox';
 
 import { useTheme } from '@theme';
 
-export default {
+const meta: Meta<typeof Flexbox> = {
   title: 'Experiment/Flexbox',
   component: Flexbox
-} as ComponentMeta<typeof Flexbox>;
+};
 
 export function Default({ ...args }) {
   const {
@@ -24,3 +24,5 @@ export function Default({ ...args }) {
     </Flexbox>
   );
 }
+
+export default meta;

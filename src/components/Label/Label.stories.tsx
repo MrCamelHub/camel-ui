@@ -1,13 +1,12 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Label from '@components/Label';
+import Icon from '@components/Icon';
 
-import { Icon } from '@components';
-
-export default {
+const meta: Meta<typeof Label> = {
   title: 'Components/Label',
   component: Label
-} as ComponentMeta<typeof Label>;
+};
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -92,3 +91,5 @@ export function Icons() {
     </Wrapper>
   );
 }
+
+export default meta;

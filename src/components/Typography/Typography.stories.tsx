@@ -1,11 +1,9 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
-
-import { Flexbox } from '@components';
+import Typography from '@components/Typography';
+import Flexbox from '@components/Flexbox';
 
 import type { TypographyVariant } from '../../types';
-
-import Typography from './index';
 
 const Table = styled.table`
   border-spacing: 20px;
@@ -17,10 +15,10 @@ const Table = styled.table`
   }
 `;
 
-export default {
+const meta: Meta<typeof Typography> = {
   title: 'Components/Typography',
   component: Typography
-} as ComponentMeta<typeof Typography>;
+};
 
 export function Default({ ...args }) {
   return <Typography {...args}>Typography</Typography>;
@@ -76,3 +74,5 @@ export function Sizes() {
     </Table>
   );
 }
+
+export default meta;

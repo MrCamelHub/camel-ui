@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import CheckboxGroup from '@components/CheckboxGroup';
 
-export default {
+const meta: Meta<typeof CheckboxGroup> = {
   title: 'Components/CheckboxGroup',
   component: CheckboxGroup
-} as ComponentMeta<typeof CheckboxGroup>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -60,3 +60,5 @@ export function Sizes() {
     </Wrapper>
   );
 }
+
+export default meta;

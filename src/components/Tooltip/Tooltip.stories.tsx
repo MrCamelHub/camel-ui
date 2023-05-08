@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Tooltip from '@components/Tooltip';
 import Button from '@components/Button';
 
-export default {
+const meta: Meta<typeof Tooltip> = {
   title: 'Experiment/Tooltip',
   component: Tooltip
-} as ComponentMeta<typeof Tooltip>;
+};
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -57,3 +57,5 @@ export function Placements() {
     </Wrapper>
   );
 }
+
+export default meta;

@@ -1,4 +1,4 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Icon from '@components/Icon';
 
@@ -6,10 +6,10 @@ import * as SpecifySvgIcons from '../../assets/icons/specify';
 import * as OutlinedSvgIcons from '../../assets/icons/outlined';
 import * as FilledSvgIcons from '../../assets/icons/filled';
 
-export default {
+const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',
   component: Icon
-} as ComponentMeta<typeof Icon>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -70,3 +70,5 @@ export function SpecifyIcons() {
     </Wrapper>
   );
 }
+
+export default meta;

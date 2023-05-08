@@ -1,14 +1,14 @@
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Checkbox from '@components/Checkbox';
 
-export default {
+const meta: Meta<typeof Checkbox> = {
   title: 'Components/Checkbox',
   component: Checkbox
-} as ComponentMeta<typeof Checkbox>;
+};
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -73,3 +73,5 @@ export function BrandColors() {
     </>
   );
 }
+
+export default meta;

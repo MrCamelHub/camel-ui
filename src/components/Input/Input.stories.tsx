@@ -1,13 +1,12 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Input from '@components/Input';
+import Icon from '@components/Icon';
 
-import { Icon } from '@components';
-
-export default {
+const meta: Meta<typeof Input> = {
   title: 'Components/Input',
   component: Input
-} as ComponentMeta<typeof Input>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -71,3 +70,5 @@ export function Unit() {
     />
   );
 }
+
+export default meta;

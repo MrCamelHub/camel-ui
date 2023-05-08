@@ -1,11 +1,11 @@
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Tab from '@components/Tab';
 
-export default {
+const meta: Meta<typeof Tab> = {
   title: 'Components/Tab',
   component: Tab
-} as ComponentMeta<typeof Tab>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -38,3 +38,5 @@ export function FullWidths() {
 export function HideIndicator() {
   return <Tab text="Tab" value="tab" selected hideIndicator />;
 }
+
+export default meta;

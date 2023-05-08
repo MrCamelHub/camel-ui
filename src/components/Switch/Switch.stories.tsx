@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Switch from '@components/Switch';
 
-export default {
+const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch
-} as ComponentMeta<typeof Switch>;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -38,3 +38,5 @@ export function Sizes({ ...args }) {
     </>
   );
 }
+
+export default meta;
