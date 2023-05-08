@@ -1,5 +1,5 @@
 {
-  "name": "mrcamel-ui",
+  "name": "@mrcamelhub/camel-ui",
   "version": "0.1.61",
   "description": "Camel React UI Components",
   "main": "./dist/index.js",
@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/MrCamelHub/MrCamel-UI",
+  "repository": "https://github.com/MrCamelHub/camel-ui",
   "author": "mrcamel <admin@mrcamel.co.kr>",
   "license": "MIT",
   "private": false,
