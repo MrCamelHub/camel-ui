@@ -1,8 +1,7 @@
 import type { HTMLAttributes, MouseEvent, PropsWithChildren } from 'react';
-import { forwardRef, useContext, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
-import PortalCounterContext from '@theme/provider/PortalCounterContext';
 
 import type { CSSValue, GenericComponentProps } from '../../types';
 import { StyledToast } from './Toast.styles';
@@ -35,8 +34,6 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
   },
   ref
 ) {
-  const [count, setCount] = useContext(PortalCounterContext);
-
   const [isMounted, setIsMounted] = useState(false);
   const [toastOpen, setToastOpen] = useState(false);
 
@@ -56,11 +53,11 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
     };
 
     if (!updatedCountRef.current && open) {
-      let toast = document.getElementById(`toast-root-${count}`);
+      let toast = document.getElementById('toast-root');
 
       if (!toast) {
         toast = document.createElement('div');
-        toast.id = `toast-root-${count}`;
+        toast.id = 'toast-root';
         toast.setAttribute('role', 'presentation');
 
         document.body.appendChild(toast);
@@ -99,14 +96,7 @@ const Toast = forwardRef<HTMLDivElement, PropsWithChildren<ToastProps>>(function
         setIsMounted(false);
       }, transitionDuration + 100);
     }
-  }, [open, isMounted, autoHideDuration, transitionDuration, onClose, count]);
-
-  useEffect(() => {
-    if (toastOpen && setCount && !updatedCountRef.current) {
-      setCount((prevCount) => prevCount + 1);
-      updatedCountRef.current = true;
-    }
-  }, [toastOpen, setCount]);
+  }, [open, isMounted, autoHideDuration, transitionDuration, onClose]);
 
   useEffect(() => {
     return () => {
