@@ -49,7 +49,7 @@ export function Sizes() {
           size: number;
         }[]
       ).map(({ component, variant, size }) => (
-        <tr>
+        <tr key={component}>
           <td>
             <Typography variant={variant}>{component}</Typography>
           </td>

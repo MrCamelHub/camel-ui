@@ -20,6 +20,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "noEmit": true,
     "jsxImportSource": "@emotion/react"
   },
   "include": [
