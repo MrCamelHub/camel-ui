@@ -25,10 +25,7 @@
   "devDependencies": {
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
-    "@storybook/addon-docs": "^7.0.10",
     "@storybook/addon-essentials": "^7.0.10",
-    "@storybook/addon-links": "^7.0.10",
-    "@storybook/blocks": "^7.0.10",
     "@storybook/react": "^7.0.10",
     "@storybook/react-vite": "^7.0.10",
     "@swc/plugin-emotion": "^2.5.61",
@@ -51,7 +48,6 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.10",

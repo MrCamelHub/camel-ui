@@ -13,7 +13,6 @@ export { default as Rating } from './Rating';
 export { default as BottomSheet } from './BottomSheet';
 export { default as Dialog } from './Dialog';
 export { default as Typography } from './Typography';
-export { default as Toast } from './Toast';
 export { default as Label } from './Label';
 export { default as Flexbox } from './Flexbox';
 export { default as Grid } from './Grid';
