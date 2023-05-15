@@ -3,7 +3,8 @@ import type { HTMLAttributes, MouseEvent } from 'react';
 
 import Checkbox, { CheckboxProps } from '@components/Checkbox';
 
-import type { GenericComponentProps, Size } from '../../types';
+import type { GenericComponentProps, Size } from '@types';
+
 import { StyledCheckboxGroup, SubText } from './CheckboxGroup.styles';
 
 export interface CheckboxGroupProps

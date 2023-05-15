@@ -1,7 +1,8 @@
 import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react';
 import { forwardRef } from 'react';
 
-import type { GenericComponentProps } from '../../types';
+import type { GenericComponentProps } from '@types';
+
 import { StyledGrid } from './Grid.styles';
 
 export interface GridProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {

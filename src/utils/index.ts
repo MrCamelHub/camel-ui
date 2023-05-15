@@ -2,14 +2,14 @@ import type {
   BrandColor,
   BrandExtendsColor,
   CSSValue,
+  CamelTheme,
   Color,
   CommonPalette,
-  ComponentColor,
-  MrCamelTheme
-} from '../types';
+  ComponentColor
+} from '@types';
 
 export function getBrandColorCodeByColorName(
-  theme: MrCamelTheme,
+  theme: CamelTheme,
   colorName?: ComponentColor
 ): Color | undefined {
   const {

@@ -1,7 +1,7 @@
 import useTheme from '@theme/provider/useTheme';
 import { Global } from '@emotion/react';
 
-import type { CustomStyle } from '../types';
+import type { CustomStyle } from '@types';
 
 interface GlobalResetProps {
   customResetStyle?: CustomStyle;

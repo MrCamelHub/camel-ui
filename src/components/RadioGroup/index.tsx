@@ -3,7 +3,8 @@ import type { HTMLAttributes, MouseEvent } from 'react';
 
 import Radio, { RadioProps } from '@components/Radio';
 
-import type { GenericComponentProps, Size } from '../../types';
+import type { GenericComponentProps, Size } from '@types';
+
 import { StyledRadioGroup, SubText } from './RadioGroup.styles';
 
 export interface RadioGroupProps

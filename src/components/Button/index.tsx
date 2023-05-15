@@ -8,7 +8,8 @@ import type {
   Size,
   TypographyWeight,
   Variant
-} from '../../types';
+} from '@types';
+
 import { StyledButton, SubText } from './Button.styles';
 
 export interface BaseButtonProps

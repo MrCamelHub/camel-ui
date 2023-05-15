@@ -1,4 +1,4 @@
-import type { Color } from '../../types';
+import type { Color } from '@types';
 
 const common: Record<'black' | 'white', Color> & Record<'gradationB' | 'gradationW', Color[]> = {
   black: '#000000',

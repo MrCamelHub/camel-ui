@@ -1,10 +1,9 @@
 import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import Icon from '@components/Icon';
-
-import * as SpecifySvgIcons from '../../assets/icons/specify';
-import * as OutlinedSvgIcons from '../../assets/icons/outlined';
-import * as FilledSvgIcons from '../../assets/icons/filled';
+import * as SpecifySvgIcons from '@assets/icons/specify';
+import * as OutlinedSvgIcons from '@assets/icons/outlined';
+import * as FilledSvgIcons from '@assets/icons/filled';
 
 const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',

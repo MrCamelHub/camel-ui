@@ -4,7 +4,8 @@ import type { HTMLAttributes, ReactElement } from 'react';
 import Skeleton from '@components/Skeleton';
 import Icon from '@components/Icon';
 
-import type { CSSValue, GenericComponentProps, IconName } from '../../types';
+import type { CSSValue, GenericComponentProps, IconName } from '@types';
+
 import {
   BackgroundImageWrapper,
   BackgroundImg,

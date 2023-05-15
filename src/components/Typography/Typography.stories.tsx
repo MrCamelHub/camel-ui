@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Typography from '@components/Typography';
 import Flexbox from '@components/Flexbox';
 
-import type { TypographyVariant } from '../../types';
+import type { TypographyVariant } from '@types';
 
 const Table = styled.table`
   border-spacing: 20px;

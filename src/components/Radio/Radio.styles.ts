@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import { getBrandColorCodeByColorName } from '@utils';
+import type { BrandColor } from '@types';
 
-import type { BrandColor } from '../../types';
+import { getBrandColorCodeByColorName } from '@utils';
 
 import type { RadioProps } from '.';
 

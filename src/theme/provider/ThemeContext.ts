@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { ThemeMode } from '../../types';
+import type { ThemeMode } from '@types';
 
 const ThemeContext = createContext<ThemeMode>('light');
 
