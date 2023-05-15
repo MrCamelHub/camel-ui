@@ -7,7 +7,7 @@ import GlobalReset from '@theme/GlobalReset';
 import dark from '@theme/dark';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
-import type { CustomStyle, ThemeMode } from '../../types';
+import type { CustomStyle, ThemeMode } from '@types';
 
 export interface ThemeProviderProps {
   theme: ThemeMode;

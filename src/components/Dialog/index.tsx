@@ -3,7 +3,8 @@ import { forwardRef, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import type { GenericComponentProps } from '../../types';
+import type { GenericComponentProps } from '@types';
+
 import { StyledDialog, Wrapper } from './Dialog.styles';
 
 export interface DialogProps

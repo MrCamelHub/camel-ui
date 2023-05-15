@@ -1,10 +1,11 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, ReactElement } from 'react';
 
 import Skeleton from '@components/Skeleton';
 import Icon from '@components/Icon';
 
-import type { CSSValue, GenericComponentProps, IconName } from '../../types';
+import type { CSSValue, GenericComponentProps, IconName } from '@types';
+
 import {
   BackgroundImageWrapper,
   BackgroundImg,
@@ -72,6 +73,8 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
   const [loaded, setLoaded] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
 
+  const onErrorTimerRef = useRef<ReturnType<typeof setTimeout>>();
+
   useEffect(() => {
     if (!loaded && !loadFailed) {
       const img = new window.Image();
@@ -84,7 +87,11 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
       };
       img.onerror = () => {
         if (onError && typeof onError === 'function') {
-          onError();
+          if (onErrorTimerRef.current) {
+            clearTimeout(onErrorTimerRef.current);
+          }
+
+          onErrorTimerRef.current = setTimeout(onError, 225);
         }
         setLoadFailed(true);
       };
@@ -102,6 +109,14 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
       setLoadFailed(false);
     }
   }, [disableOnBackground]);
+
+  useEffect(() => {
+    return () => {
+      if (onErrorTimerRef.current) {
+        clearTimeout(onErrorTimerRef.current);
+      }
+    };
+  }, []);
 
   if (!disableOnBackground) {
     return (

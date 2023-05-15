@@ -1,8 +1,8 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { convertNumberToCSSValue } from '@utils';
+import type { CSSValue } from '@types';
 
-import type { CSSValue } from '../../types';
+import { convertNumberToCSSValue } from '@utils';
 
 import type { ImageProps } from '.';
 

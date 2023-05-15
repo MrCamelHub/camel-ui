@@ -8,7 +8,8 @@ import type {
   Size,
   TypographyWeight,
   Variant
-} from '../../types';
+} from '@types';
+
 import { EndIcon, StyledChip, SubText } from './Chip.styles';
 
 export interface BaseChipProps

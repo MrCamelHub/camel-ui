@@ -1,8 +1,7 @@
 import styled, { CSSObject } from '@emotion/styled';
+import type { HeartFilled } from '@assets/icons';
 
 import { getBrandColorCodeByColorName } from '@utils';
-
-import { HeartFilled } from '../../assets/icons';
 
 import type { IconProps } from '.';
 

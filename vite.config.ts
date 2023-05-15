@@ -11,12 +11,20 @@ export default defineConfig(({ command }) => {
   const alias = [
     { find: '@', replacement: path.resolve(__dirname, 'src') },
     {
+      find: '@assets',
+      replacement: path.resolve(__dirname, 'src/assets')
+    },
+    {
       find: '@components',
       replacement: path.resolve(__dirname, 'src/components')
     },
     {
       find: '@theme',
       replacement: path.resolve(__dirname, 'src/theme')
+    },
+    {
+      find: '@types',
+      replacement: path.resolve(__dirname, 'src/types')
     },
     {
       find: '@utils',
@@ -50,8 +58,7 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       react({
-        jsxImportSource: '@emotion/react',
-        plugins: [['@swc/plugin-emotion', {}]]
+        jsxImportSource: '@emotion/react'
       }),
       dts({ insertTypesEntry: true }),
       svgr({ exportAsDefault: true })

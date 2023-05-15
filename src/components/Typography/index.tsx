@@ -10,7 +10,8 @@ import type {
   TypographyComponent,
   TypographyVariant,
   TypographyWeight
-} from '../../types';
+} from '@types';
+
 import { StyledTypography } from './Typography.styles';
 
 export interface TypographyProps

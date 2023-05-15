@@ -1,15 +1,17 @@
 import type { SVGProps } from 'react';
 import { forwardRef } from 'react';
 
-import type { ComponentColor, GenericComponentProps, Size } from '../../types';
-import * as SvgIcons from '../../assets/icons';
+import * as SvgIcons from '@assets/icons';
+
+import type { ComponentColor, GenericComponentProps, IconName, Size } from '@types';
+
 import { StyledIcon } from './Icon.styles';
 
 export interface IconProps
   extends GenericComponentProps<
     Omit<SVGProps<SVGElement>, 'color' | 'onResize' | 'onResizeCapture'>
   > {
-  name: keyof typeof SvgIcons;
+  name: IconName;
   size?: Exclude<Size, 'xsmall' | 'xlarge'>;
   color?: ComponentColor;
 }

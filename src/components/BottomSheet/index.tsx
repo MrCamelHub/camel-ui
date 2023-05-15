@@ -3,7 +3,8 @@ import { forwardRef, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import type { CSSValue, GenericComponentProps } from '../../types';
+import type { CSSValue, GenericComponentProps } from '@types';
+
 import { Content, Rectangle, StyledBottomSheet, SwipeZone, Wrapper } from './BottomSheet.styles';
 
 export interface BottomSheetProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {

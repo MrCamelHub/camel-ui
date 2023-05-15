@@ -1,8 +1,8 @@
 import type { ElementType, ReactElement } from 'react';
 
 import type { CSSObject } from '@emotion/styled';
+import type * as SvgIcons from '@assets/icons';
 
-import type * as SvgIcons from '../assets/icons';
 import type { Color } from './css';
 
 export type Variant = 'outline' | 'ghost' | 'outline-ghost' | 'solid' | 'inline';

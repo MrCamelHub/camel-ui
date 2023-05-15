@@ -10,7 +10,7 @@ import type {
 
 export type ThemeMode = 'light' | 'dark';
 
-export interface MrCamelTheme {
+export interface CamelTheme {
   mode: ThemeMode;
   palette: {
     primary: Palette;
@@ -44,5 +44,5 @@ export interface MrCamelTheme {
 }
 
 declare module '@emotion/react' {
-  export interface Theme extends MrCamelTheme {}
+  export interface Theme extends CamelTheme {}
 }
