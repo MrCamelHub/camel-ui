@@ -21,7 +21,11 @@ export const Wrapper = styled.div<
         }
       : {}};
 
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: ${({
+    theme: {
+      palette: { common }
+    }
+  }) => common.overlay60};
   overflow: hidden;
   z-index: ${({ theme: { zIndex } }) => zIndex.dialog};
   opacity: 0;
