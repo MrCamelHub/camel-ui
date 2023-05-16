@@ -9,7 +9,7 @@ export interface FlexboxProps extends GenericComponentProps<HTMLAttributes<HTMLD
   component?: Extract<ElementType, 'div' | 'section' | 'main' | 'article'>;
   direction?: 'horizontal' | 'vertical';
   alignment?: 'flex-start' | 'flex-end' | 'center' | 'baseline';
-  justifyContent?: 'center' | 'space-between';
+  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
   gap?: number;
 }
 

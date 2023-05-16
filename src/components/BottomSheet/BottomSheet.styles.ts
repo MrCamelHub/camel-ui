@@ -11,7 +11,11 @@ export const Wrapper = styled.div<
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: ${({
+    theme: {
+      palette: { common }
+    }
+  }) => common.overlay60};
   overflow: hidden;
   z-index: ${({ theme: { zIndex } }) => zIndex.sheet};
   opacity: 0;
