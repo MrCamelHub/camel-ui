@@ -10,16 +10,16 @@ const meta: Meta<typeof BottomSheet> = {
 };
 
 export function Default({ ...args }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Button variant="solid" brandColor="primary" onClick={() => setIsOpen(true)}>
+      <Button variant="solid" brandColor="primary" onClick={() => setOpen(true)}>
         Open
       </Button>
-      <BottomSheet open={isOpen} {...args} onClose={() => setIsOpen(false)}>
-        <h1>MrCamel BottomSheet!</h1>
-        <Button variant="solid" brandColor="primary" onClick={() => setIsOpen(false)}>
+      <BottomSheet open={open} {...args} onClose={() => setOpen(false)}>
+        <h1>Camel BottomSheet!</h1>
+        <Button variant="solid" brandColor="primary" onClick={() => setOpen(false)}>
           Close
         </Button>
       </BottomSheet>
