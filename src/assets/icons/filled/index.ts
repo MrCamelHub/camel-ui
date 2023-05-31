@@ -73,3 +73,4 @@ export { default as CopyFilled } from './copy-filled.svg';
 export { default as FileFilled } from './file-filled.svg';
 export { default as WonCircleFilled } from './won-circle-filled.svg';
 export { default as PhoneFilled } from './phone-filled.svg';
+export { default as BnSearchFilled } from './bn-search-filled.svg';

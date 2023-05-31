@@ -95,3 +95,4 @@ export { default as CopyOutlined } from './copy-outlined.svg';
 export { default as FileOutlined } from './file-outlined.svg';
 export { default as Rotate2Outlined } from './rotate2-outlined.svg';
 export { default as WonCircleOutlined } from './won-circle-outlined.svg';
+export { default as BnSearchOutlined } from './bn-search-outlined.svg';
