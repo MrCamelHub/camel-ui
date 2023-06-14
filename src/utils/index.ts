@@ -32,8 +32,6 @@ export function getBrandColorCodeByColorName(
     colorCode = common.uiWhite;
   } else if (mainColorName === 'primary') {
     colorCode = primary[extendsColorName];
-  } else if (mainColorName === 'blue' && extendsColorName === 'main') {
-    colorCode = primary.light;
   } else if (['red', 'purple', 'blue'].includes(mainColorName)) {
     colorCode =
       secondary[mainColorName as Extract<BrandColor, 'red' | 'purple' | 'blue'>][extendsColorName];
