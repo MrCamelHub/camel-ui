@@ -4,7 +4,6 @@ import type { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import TabGroup from '@components/TabGroup';
 import Tab from '@components/Tab';
-
 import { Box } from '@components';
 
 const meta: Meta<typeof TabGroup> = {

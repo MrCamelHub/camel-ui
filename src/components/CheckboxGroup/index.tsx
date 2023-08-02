@@ -1,9 +1,8 @@
 import { forwardRef } from 'react';
 import type { HTMLAttributes, MouseEvent } from 'react';
 
-import Checkbox, { CheckboxProps } from '@components/Checkbox';
-
 import type { GenericComponentProps, Size } from '@types';
+import Checkbox, { CheckboxProps } from '@components/Checkbox';
 
 import { StyledCheckboxGroup, SubText } from './CheckboxGroup.styles';
 

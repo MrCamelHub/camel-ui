@@ -2,7 +2,6 @@ import type { HTMLAttributes, MouseEvent, PropsWithChildren, TouchEvent } from '
 import { forwardRef, useEffect, useRef, useState } from 'react';
 
 import { createPortal } from 'react-dom';
-
 import type { CSSValue, GenericComponentProps } from '@types';
 
 import { Content, Rectangle, StyledBottomSheet, SwipeZone, Wrapper } from './BottomSheet.styles';

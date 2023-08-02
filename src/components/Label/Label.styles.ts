@@ -1,6 +1,5 @@
-import styled, { CSSObject } from '@emotion/styled';
-
 import { getBrandColorCodeByColorName } from '@utils';
+import styled, { CSSObject } from '@emotion/styled';
 
 import type { LabelProps } from '.';
 

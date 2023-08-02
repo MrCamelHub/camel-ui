@@ -1,8 +1,6 @@
-import styled, { CSSObject } from '@emotion/styled';
-
-import type { CSSValue } from '@types';
-
 import { getBrandColorCodeByColorName } from '@utils';
+import type { CSSValue } from '@types';
+import styled, { CSSObject } from '@emotion/styled';
 
 import type { BadgeProps } from '.';
 

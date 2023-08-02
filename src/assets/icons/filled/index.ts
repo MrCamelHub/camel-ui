@@ -74,3 +74,5 @@ export { default as FileFilled } from './file-filled.svg';
 export { default as WonCircleFilled } from './won-circle-filled.svg';
 export { default as PhoneFilled } from './phone-filled.svg';
 export { default as BnSearchFilled } from './bn-search-filled.svg';
+export { default as BnWishFilled } from './bn-wish-filled.svg';
+export { default as BoxAddFilled } from './box-add-filled.svg';

@@ -1,8 +1,6 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react';
 import { forwardRef } from 'react';
 
-import { useTheme } from '@theme';
-
 import type {
   BrandColor,
   ComponentColor,
@@ -11,6 +9,7 @@ import type {
   TypographyVariant,
   TypographyWeight
 } from '@types';
+import { useTheme } from '@theme';
 
 import { StyledTypography } from './Typography.styles';
 

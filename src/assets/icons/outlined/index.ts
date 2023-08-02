@@ -96,3 +96,7 @@ export { default as FileOutlined } from './file-outlined.svg';
 export { default as Rotate2Outlined } from './rotate2-outlined.svg';
 export { default as WonCircleOutlined } from './won-circle-outlined.svg';
 export { default as BnSearchOutlined } from './bn-search-outlined.svg';
+export { default as BnWishOutlined } from './bn-wish-outlined.svg';
+export { default as BoxAddOutlined } from './box-add-outlined.svg';
+export { default as BoxDownOutlined } from './box-down-outlined.svg';
+export { default as Legit2Outlined } from './legit2-outlined.svg';

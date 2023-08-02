@@ -2,7 +2,6 @@ import { forwardRef, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, MouseEvent } from 'react';
 
 import { createPortal } from 'react-dom';
-
 import type { GenericComponentProps } from '@types';
 
 import { Content, StyledBackdrop } from './Backdrop.styles';

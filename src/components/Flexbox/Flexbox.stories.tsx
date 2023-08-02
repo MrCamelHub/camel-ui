@@ -1,7 +1,6 @@
+import { useTheme } from '@theme';
 import type { Meta } from '@storybook/react';
 import Flexbox from '@components/Flexbox';
-
-import { useTheme } from '@theme';
 
 const meta: Meta<typeof Flexbox> = {
   title: 'Experiment/Flexbox',

@@ -1,9 +1,8 @@
 import { forwardRef } from 'react';
 import type { HTMLAttributes, MouseEvent } from 'react';
 
-import Radio, { RadioProps } from '@components/Radio';
-
 import type { GenericComponentProps, Size } from '@types';
+import Radio, { RadioProps } from '@components/Radio';
 
 import { StyledRadioGroup, SubText } from './RadioGroup.styles';
 

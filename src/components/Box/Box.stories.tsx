@@ -1,7 +1,6 @@
+import { useTheme } from '@theme';
 import type { Meta } from '@storybook/react';
 import Box from '@components/Box';
-
-import { useTheme } from '@theme';
 
 const meta: Meta<typeof Box> = {
   title: 'Components/Box',
