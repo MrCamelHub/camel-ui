@@ -1,7 +1,6 @@
+import { useTheme } from '@theme';
 import type { Meta } from '@storybook/react';
 import Grid from '@components/Grid';
-
-import { useTheme } from '@theme';
 
 const meta: Meta<typeof Grid> = {
   title: 'Experiment/Grid',

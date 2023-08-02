@@ -1,6 +1,5 @@
-import { blue, common, gray, indgo, purple, red } from '@theme/colors';
-
 import type { CamelTheme } from '@types';
+import { blue, common, gray, indgo, purple, red } from '@theme/colors';
 
 const light: CamelTheme = {
   mode: 'light',

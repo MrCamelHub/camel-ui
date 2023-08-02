@@ -1,10 +1,9 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, ReactElement } from 'react';
 
+import type { CSSValue, GenericComponentProps, IconName } from '@types';
 import Skeleton from '@components/Skeleton';
 import Icon from '@components/Icon';
-
-import type { CSSValue, GenericComponentProps, IconName } from '@types';
 
 import {
   BackgroundImageWrapper,

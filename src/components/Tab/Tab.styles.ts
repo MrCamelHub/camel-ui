@@ -1,7 +1,6 @@
+import { getBrandColorCodeByColorName } from '@utils';
 import styled from '@emotion/styled';
 import { CSSObject } from '@emotion/react';
-
-import { getBrandColorCodeByColorName } from '@utils';
 
 import type { TabProps } from '.';
 

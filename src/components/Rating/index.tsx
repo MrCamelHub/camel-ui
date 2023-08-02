@@ -1,11 +1,9 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-import Icon from '@components/Icon';
-
-import { useTheme } from '@theme';
-
 import type { GenericComponentProps, Size } from '@types';
+import { useTheme } from '@theme';
+import Icon from '@components/Icon';
 
 import { StyledRating } from './Rating.styles';
 
