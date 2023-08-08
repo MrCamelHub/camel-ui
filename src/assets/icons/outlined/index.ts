@@ -100,3 +100,4 @@ export { default as BnWishOutlined } from './bn-wish-outlined.svg';
 export { default as BoxAddOutlined } from './box-add-outlined.svg';
 export { default as BoxDownOutlined } from './box-down-outlined.svg';
 export { default as Legit2Outlined } from './legit2-outlined.svg';
+export { default as BnLegitOutlined } from './bn-legit-outlined.svg';
