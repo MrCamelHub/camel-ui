@@ -1,6 +1,6 @@
 {
   "name": "@mrcamelhub/camel-ui",
-  "version": "0.1.76",
+  "version": "0.1.77",
   "description": "Camel React UI Components",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
