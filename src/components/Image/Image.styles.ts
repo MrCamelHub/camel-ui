@@ -34,13 +34,13 @@ export const RatioImageWrapper = styled.div<Pick<ImageProps, 'ratio'>>`
   }};
 `;
 
-export const RatioImageInner = styled.div`
+export const RatioImageInner = styled.picture`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transform: translate(50%, 50%);
+  transform: translate3d(50%, 50%, 0);
 `;
 
 export const ImageWrapper = styled.div<
@@ -78,7 +78,7 @@ export const RatioImg = styled.img<
   width: auto;
   max-width: 100%;
   height: auto;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
 
   visibility: ${({ loaded, loadFailed }) => (loaded && !loadFailed ? 'visible' : 'hidden')};
 
@@ -117,7 +117,7 @@ export const FallbackWrapper = styled.div`
   left: 0;
   max-width: 100%;
   height: auto;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
 `;
 
 export const SkeletonWrapper = styled.div`
