@@ -76,3 +76,4 @@ export { default as PhoneFilled } from './phone-filled.svg';
 export { default as BnSearchFilled } from './bn-search-filled.svg';
 export { default as BnWishFilled } from './bn-wish-filled.svg';
 export { default as BoxAddFilled } from './box-add-filled.svg';
+export { default as BnLegitFilled } from './bn-legit-filled.svg';
