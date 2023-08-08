@@ -27,6 +27,7 @@ export interface ImageProps
   ratio?: '1:1' | '1:2' | '2:1' | '4:3' | '5:6' | '16:9';
   round?: CSSValue;
   fill?: 'cover' | 'contain';
+  loading?: 'eager' | 'lazy';
   fallbackElement?: ReactElement;
   fallbackIcon?: {
     name: IconName;
@@ -51,6 +52,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
     ratio = '1:1',
     round,
     fill = 'cover',
+    loading,
     disableAspectRatio,
     disableOnBackground = true,
     disableSkeleton,
@@ -178,6 +180,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
             fill={fill}
             loaded
             loadFailed={false}
+            loading={loading}
           />
         )}
         {!disableSkeleton && !loadFailed && (
@@ -189,6 +192,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
             fill={fill}
             loaded={loaded}
             loadFailed={loadFailed}
+            loading={loading}
           />
         )}
         {!disableSkeleton && !loaded && !loadFailed && (
@@ -229,6 +233,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
               fill={fill}
               loaded
               loadFailed={false}
+              loading={loading}
             />
           )}
           {!disableSkeleton && !loadFailed && (
@@ -240,12 +245,13 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(function Image(
               fill={fill}
               loaded={loaded}
               loadFailed={loadFailed}
+              loading={loading}
             />
           )}
           {!disableSkeleton && !loaded && !loadFailed && (
             <SkeletonWrapper
               css={{
-                transform: 'translate(-50%, -50%)'
+                transform: 'translate3d(-50%, -50%, 0)'
               }}
             >
               <Skeleton

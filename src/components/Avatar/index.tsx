@@ -13,6 +13,7 @@ export interface AvatarProps extends GenericComponentProps<HTMLAttributes<HTMLDi
   width?: CSSValue;
   height?: CSSValue;
   round?: CSSValue;
+  loading?: 'eager' | 'lazy';
   disableSkeleton?: boolean;
   disableSkeletonAnimation?: boolean;
   fallbackElement?: ReactElement;
@@ -31,6 +32,7 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
     alt,
     customStyle,
     round = 4,
+    loading,
     disableSkeleton,
     disableSkeletonAnimation,
     fallbackElement,
@@ -84,6 +86,7 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(function Avatar(
           src={src}
           alt={alt}
           round={round}
+          loading={loading}
           onLoad={handleLoad}
           onError={handleError}
         />
