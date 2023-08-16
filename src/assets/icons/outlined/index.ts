@@ -101,3 +101,5 @@ export { default as BoxAddOutlined } from './box-add-outlined.svg';
 export { default as BoxDownOutlined } from './box-down-outlined.svg';
 export { default as Legit2Outlined } from './legit2-outlined.svg';
 export { default as BnLegitOutlined } from './bn-legit-outlined.svg';
+export { default as CheckboxCheckOutlined } from './checkbox-check-outlined.svg';
+export { default as RadioCheckOutlined } from './radio-check-outlined.svg';
