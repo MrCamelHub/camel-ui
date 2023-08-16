@@ -25,3 +25,4 @@ export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as RadioGroup } from './RadioGroup';
 export { default as Badge } from './Badge';
 export { default as Backdrop } from './Backdrop';
+export { default as Accordion } from './Accordion';
