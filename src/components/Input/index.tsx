@@ -11,7 +11,7 @@ export interface InputProps
   size?: Exclude<Size, 'xsmall'> | 'xxlarge';
   startAdornment?: string | ReactElement;
   endAdornment?: string | ReactElement;
-  unit?: string;
+  unit?: string | ReactElement;
   fullWidth?: boolean;
   inputCustomStyle?: CustomStyle;
 }
