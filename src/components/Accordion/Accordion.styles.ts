@@ -3,6 +3,7 @@ import styled, { CSSObject } from '@emotion/styled';
 import type { AccordionProps } from '.';
 
 export const StyledAccordion = styled.div<Pick<AccordionProps, 'hideLine'>>`
+  position: relative;
   user-select: none;
   cursor: pointer;
 
@@ -87,4 +88,13 @@ export const Content = styled.div<
           zIndex: -1
         }
       : {}};
+`;
+
+export const MeasureContent = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
 `;

@@ -1,10 +1,17 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { HTMLAttributes, MouseEvent, PropsWithChildren, ReactElement } from 'react';
 
 import type { GenericComponentProps } from '@types';
 import Icon from '@components/Icon';
 
-import { Content, ExpandIcon, StyledAccordion, Title, TitleWrapper } from './Accordion.styles';
+import {
+  Content,
+  ExpandIcon,
+  MeasureContent,
+  StyledAccordion,
+  Title,
+  TitleWrapper
+} from './Accordion.styles';
 
 export interface AccordionProps extends GenericComponentProps<HTMLAttributes<HTMLDivElement>> {
   open: boolean;
@@ -29,16 +36,16 @@ const Accordion = forwardRef<HTMLDivElement, PropsWithChildren<AccordionProps>>(
   },
   ref
 ) {
-  const contentRef = useRef<HTMLDivElement>(null);
+  const measureContentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   useEffect(() => {
-    if (!contentRef.current) return;
+    if (!measureContentRef.current) return;
 
-    setHeight(contentRef.current.clientHeight);
-  }, []);
+    setHeight(measureContentRef.current.clientHeight);
+  }, [children]);
 
   return (
     <StyledAccordion ref={ref} hideLine={hideLine} onClick={onChange} css={customStyle} {...props}>
@@ -49,9 +56,10 @@ const Accordion = forwardRef<HTMLDivElement, PropsWithChildren<AccordionProps>>(
           {expandIcon && expandIcon}
         </ExpandIcon>
       </TitleWrapper>
-      <Content ref={contentRef} open={open} height={height} onClick={handleClick}>
+      <Content open={open} height={height} onClick={handleClick}>
         {children}
       </Content>
+      <MeasureContent ref={measureContentRef}>{children}</MeasureContent>
     </StyledAccordion>
   );
 });

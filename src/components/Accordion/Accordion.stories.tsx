@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import type { Meta } from '@storybook/react';
 import Icon from '@components/Icon';
+import Flexbox from '@components/Flexbox';
+import Button from '@components/Button';
 import Box from '@components/Box';
 import Accordion from '@components/Accordion';
 
@@ -12,22 +14,35 @@ const meta: Meta<typeof Accordion> = {
 
 export function Default({ ...args }) {
   const [open, setOpen] = useState(false);
+  const [contents, setContents] = useState([1, 2]);
 
   return (
-    <Accordion
-      open={open}
-      onChange={() => setOpen((prevState) => !prevState)}
-      title="Accordion"
-      {...args}
-    >
-      <Box
-        customStyle={{
-          padding: 20
-        }}
+    <Flexbox direction="vertical" gap={16}>
+      <Button
+        variant="solid"
+        brandColor="primary"
+        onClick={() => setContents((prevState) => prevState.concat(prevState.length + 1))}
       >
-        Accordion Content
-      </Box>
-    </Accordion>
+        Accordion Content 추가
+      </Button>
+      <Accordion
+        {...args}
+        open={open}
+        onChange={() => setOpen((prevState) => !prevState)}
+        title="Accordion"
+      >
+        {contents.map((content) => (
+          <Box
+            customStyle={{
+              padding: 20,
+              border: '1px solid #EAEAEA'
+            }}
+          >
+            Accordion Content {content}
+          </Box>
+        ))}
+      </Accordion>
+    </Flexbox>
   );
 }
 
