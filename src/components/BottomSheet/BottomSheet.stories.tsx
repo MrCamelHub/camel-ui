@@ -17,7 +17,7 @@ export function Default({ ...args }) {
       <Button variant="solid" brandColor="primary" onClick={() => setOpen(true)}>
         Open
       </Button>
-      <BottomSheet open={open} {...args} onClose={() => setOpen(false)}>
+      <BottomSheet {...args} open={open} onClose={() => setOpen(false)}>
         <h1>Camel BottomSheet!</h1>
         <Button variant="solid" brandColor="primary" onClick={() => setOpen(false)}>
           Close

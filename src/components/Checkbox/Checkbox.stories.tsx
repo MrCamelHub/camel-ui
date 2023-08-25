@@ -25,9 +25,9 @@ export function Default({ ...args }) {
   return (
     <Wrapper>
       <Checkbox
+        {...args}
         checked={checked}
         onChange={(event: ChangeEvent<HTMLInputElement>) => setChecked(event.currentTarget.checked)}
-        {...args}
       />
     </Wrapper>
   );
